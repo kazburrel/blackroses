@@ -88,22 +88,28 @@
 
                                 <div class="navbar-collapse collapse clearfix">
                                     <ul class="navigation clearfix">
-                                        <li class="current dropdown"><a href="#">Home</a>
+                                        <li class="{{ request()->routeIs('home') ? 'current' : '' }} dropdown"><a
+                                                href="#">Home</a>
                                             <ul>
                                                 <li><a href="{{ route('home') }}">Homepage One</a></li>
                                             </ul>
                                         </li>
-                                        <li class="dropdown"><a href="#">About Us</a>
+                                        <li class="{{ request()->routeIs('about') ? 'current' : '' }} dropdown"><a
+                                                href="#">About Us</a>
                                             <ul>
                                                 <li><a href="{{ route('about') }}">About Us</a></li>
                                                 <li><a href="{{ route('team') }}">Our Team</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="{{ route('services') }}">Services</a> </li>
+                                        <li class="{{ request()->routeIs('services') ? 'current' : '' }}"><a
+                                                href="{{ route('services') }}">Services</a> </li>
                                         {{-- <li class="dropdown"><a href="#">Referrals</a> </li> --}}
-                                        <li class=""><a href="{{ route('safeguarding') }}">Safeguarding</a></li>
-                                        <li class="dropdown"><a href="{{ route('testmonials') }}">Testmonies</a> </li>
-                                        <li><a href="{{ route('contact') }}">Contact</a></li>
+                                        <li class="{{ request()->routeIs('safeguarding') ? 'current' : '' }}"><a
+                                                href="{{ route('safeguarding') }}">Safeguarding</a></li>
+                                        <li class="{{ request()->routeIs('testmonials') ? 'current' : '' }}"><a
+                                                href="{{ route('testmonials') }}">Testmonies</a> </li>
+                                        <li class="{{ request()->routeIs('contact') ? 'current' : '' }}"><a
+                                                href="{{ route('contact') }}">Contact</a></li>
 
                                     </ul>
                                 </div>
@@ -143,22 +149,28 @@
                 <div class="side-menu">
                     <!-- .navigation -->
                     <ul class="navigation">
-                        <li class="current dropdown"><a href="#">Home</a>
+                        <li class="{{ request()->routeIs('home') ? 'current' : '' }} dropdown"><a
+                                href="#">Home</a>
                             <ul>
                                 <li><a href="{{ route('home') }}">Homepage One</a></li>
                             </ul>
                         </li>
-                        <li class="dropdown"><a href="#">About Us</a>
+                        <li class="{{ request()->routeIs('about') ? 'current' : '' }} dropdown"><a href="#">About
+                                Us</a>
                             <ul>
                                 <li><a href="{{ route('about') }}">About Us</a></li>
                                 <li><a href="{{ route('team') }}">Our Team</a></li>
                             </ul>
                         </li>
-                        <li><a href="{{ route('services') }}">Services</a> </li>
+                        <li class="{{ request()->routeIs('services') ? 'current' : '' }}"><a
+                                href="{{ route('services') }}">Services</a> </li>
                         {{-- <li class="dropdown"><a href="#">Referrals</a> </li> --}}
-                        <li class=""><a href="{{ route('safeguarding') }}">Safeguarding</a></li>
-                        <li class="dropdown"><a href="{{ route('testmonials') }}">Testmonies</a> </li>
-                        <li><a href="{{ route('contact') }}">Contact</a></li>
+                        <li class="{{ request()->routeIs('safeguarding') ? 'current' : '' }}"><a
+                                href="{{ route('safeguarding') }}">Safeguarding</a></li>
+                        <li class="{{ request()->routeIs('testmonials') ? 'current' : '' }}"><a
+                                href="{{ route('testmonials') }}">Testmonies</a> </li>
+                        <li class="{{ request()->routeIs('contact') ? 'current' : '' }}"><a
+                                href="{{ route('contact') }}">Contact</a></li>
 
                     </ul>
                 </div><!-- /.Side-menu -->
