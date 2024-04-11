@@ -30,33 +30,32 @@
                     </div>
                     <!--form-box-->
                     <div class="form-box default-form">
-                        <div class="contact-form default-form">
-                            <form method="post" action="sendemail.php" id="contact-form">
-                                <div class="row clearfix">
+                        <div class=" default-form">
+                            <div class="row clearfix">
 
-                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                        <div class="field-label">Name <span class="req">*</span></div>
-                                        <input type="text" name="username" value="" required>
-                                    </div>
-
-                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                        <div class="field-label">Email <span class="req">*</span></div>
-                                        <input type="email" name="email" value="" required>
-                                    </div>
-
-                                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                                        <div class="field-label">Subject <span class="req">*</span></div>
-                                        <input type="text" name="subject" value="">
-                                    </div>
-
-                                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                                        <div class="field-label">Message <span class="req">*</span></div>
-                                        <textarea name="message"></textarea>
-                                    </div>
-                                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                                        <button type="submit" class="theme-btn btn-style-three">SUBMIT </button>
-                                    </div>
+                                <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                    <div class="field-label">Name <span class="req">*</span></div>
+                                    <input type="text" name="username" value="" required>
                                 </div>
+
+                                <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                    <div class="field-label">Email <span class="req">*</span></div>
+                                    <input type="email" name="email" value="" required>
+                                </div>
+
+                                <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                    <div class="field-label">Subject <span class="req">*</span></div>
+                                    <input type="text" name="subject" value="">
+                                </div>
+
+                                <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                    <div class="field-label">Message <span class="req">*</span></div>
+                                    <textarea name="message"></textarea>
+                                </div>
+                                <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                    <button type="submit" class="theme-btn btn-style-three">SUBMIT </button>
+                                </div>
+                            </div>
                             </form>
                         </div>
                     </div>

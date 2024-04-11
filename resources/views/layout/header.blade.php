@@ -88,14 +88,13 @@
 
                                 <div class="navbar-collapse collapse clearfix">
                                     <ul class="navigation clearfix">
-                                        <li class="{{ request()->routeIs('home') ? 'current' : '' }} dropdown"><a
-                                                href="#">Home</a>
-                                            <ul>
-                                                <li><a href="{{ route('home') }}">Homepage One</a></li>
-                                            </ul>
+                                        <li class="{{ request()->routeIs('home') ? 'current' : '' }} "><a
+                                                href="{{ route('home') }}">Home</a>
+
                                         </li>
-                                        <li class="{{ request()->routeIs('about') ? 'current' : '' }} dropdown"><a
-                                                href="#">About Us</a>
+                                        <li
+                                            class="{{ request()->routeIs('about', 'team', 'dropdown.*') ? 'current' : '' }} dropdown">
+                                            <a href="#">About Us</a>
                                             <ul>
                                                 <li><a href="{{ route('about') }}">About Us</a></li>
                                                 <li><a href="{{ route('team') }}">Our Team</a></li>
@@ -110,7 +109,6 @@
                                                 href="{{ route('testmonials') }}">Testmonies</a> </li>
                                         <li class="{{ request()->routeIs('contact') ? 'current' : '' }}"><a
                                                 href="{{ route('contact') }}">Contact</a></li>
-
                                     </ul>
                                 </div>
                             </nav><!-- Main Menu End-->
@@ -149,14 +147,12 @@
                 <div class="side-menu">
                     <!-- .navigation -->
                     <ul class="navigation">
-                        <li class="{{ request()->routeIs('home') ? 'current' : '' }} dropdown"><a
-                                href="#">Home</a>
-                            <ul>
-                                <li><a href="{{ route('home') }}">Homepage One</a></li>
-                            </ul>
+                        <li class="{{ request()->routeIs('home') ? 'current' : '' }}"><a
+                                href="{{ route('home') }}">Home</a>
+
                         </li>
-                        <li class="{{ request()->routeIs('about') ? 'current' : '' }} dropdown"><a href="#">About
-                                Us</a>
+                        <li class="{{ request()->routeIs('about', 'team', 'dropdown.*') ? 'current' : '' }} dropdown">
+                            <a href="#">About Us</a>
                             <ul>
                                 <li><a href="{{ route('about') }}">About Us</a></li>
                                 <li><a href="{{ route('team') }}">Our Team</a></li>
