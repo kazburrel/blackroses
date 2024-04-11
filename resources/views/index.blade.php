@@ -13,7 +13,7 @@
                         <img src="images/main-slider/image-1.jpg" alt="" data-bgposition="center top"
                             data-bgfit="cover" data-bgrepeat="no-repeat">
 
-                        <div class="tp-caption sfl sfb tp-resizeme" data-x="left" data-hoffset="15" data-y="center"
+                        {{-- <div class="tp-caption sfl sfb tp-resizeme" data-x="left" data-hoffset="15" data-y="center"
                             data-voffset="-50" data-speed="1500" data-start="500" data-easing="easeOutExpo"
                             data-splitin="none" data-splitout="none" data-elementdelay="0.01" data-endelementdelay="0.3"
                             data-endspeed="1200" data-endeasing="Power4.easeIn">
@@ -37,50 +37,19 @@
                             data-voffset="0" data-speed="1500" data-start="500" data-easing="easeOutExpo"
                             data-splitin="none" data-splitout="none" data-elementdelay="0.01" data-endelementdelay="0.3"
                             data-endspeed="1200" data-endeasing="Power4.easeIn">
-                            <figure class="content-image"><img src="images/main-slider/content-image-1.png" alt="">
-                            </figure>
-                        </div>
+                        </div> --}}
 
 
                     </li>
+
+
 
                     <li data-transition="fade" data-slotamount="1" data-masterspeed="1000"
                         data-thumb="images/main-slider/image-2.jpg" data-saveperformance="off"
                         data-title="Awesome Title Here">
                         <img src="images/main-slider/image-2.jpg" alt="" data-bgposition="center top"
                             data-bgfit="cover" data-bgrepeat="no-repeat">
-
-                        <div class="tp-caption sfl sfb tp-resizeme" data-x="left" data-hoffset="600" data-y="center"
-                            data-voffset="-60" data-speed="1500" data-start="500" data-easing="easeOutExpo"
-                            data-splitin="none" data-splitout="none" data-elementdelay="0.01" data-endelementdelay="0.3"
-                            data-endspeed="1200" data-endeasing="Power4.easeIn">
-                            <h2><span class="theme_color">HUNGRY</span> CHILDRENS!</h2>
-                        </div>
-
-                        <div class="tp-caption sfr sfb tp-resizeme" data-x="left" data-hoffset="600" data-y="center"
-                            data-voffset="20" data-speed="1500" data-start="500" data-easing="easeOutExpo"
-                            data-splitin="none" data-splitout="none" data-elementdelay="0.01" data-endelementdelay="0.3"
-                            data-endspeed="1200" data-endeasing="Power4.easeIn">
-                            <div class="text">About 200 million children between the ages of 5 and 17 <br>are longing for
-                                food</div>
-                        </div>
-
-                        <div class="tp-caption sfl sfb tp-resizeme" data-x="left" data-hoffset="600" data-y="center"
-                            data-voffset="100" data-speed="1500" data-start="500" data-easing="easeOutExpo"
-                            data-splitin="none" data-splitout="none" data-elementdelay="0.01" data-endelementdelay="0.3"
-                            data-endspeed="1200" data-endeasing="Power4.easeIn"><a href="#"
-                                class="theme-btn btn-style-two"><span class="fa fa-heart"></span> &ensp; DONATE NOW</a>
-                        </div>
-
-
-                    </li>
-
-                    <li data-transition="fade" data-slotamount="1" data-masterspeed="1000"
-                        data-thumb="images/main-slider/image-1.jpg" data-saveperformance="off"
-                        data-title="Awesome Title Here">
-                        <img src="images/main-slider/image-1.jpg" alt="" data-bgposition="center top"
-                            data-bgfit="cover" data-bgrepeat="no-repeat">
-
+                        {{-- 
                         <div class="tp-caption sft sfb tp-resizeme" data-x="center" data-hoffset="0" data-y="center"
                             data-voffset="-50" data-speed="1500" data-start="500" data-easing="easeOutExpo"
                             data-splitin="none" data-splitout="none" data-elementdelay="0.01" data-endelementdelay="0.3"
@@ -99,7 +68,7 @@
                             data-voffset="110" data-speed="1500" data-start="500" data-easing="easeOutExpo"
                             data-splitin="none" data-splitout="none" data-elementdelay="0.01" data-endelementdelay="0.3"
                             data-endspeed="1200" data-endeasing="Power4.easeIn"><a href="#"
-                                class="theme-btn btn-style-one">DONATE NOW</a></div>
+                                class="theme-btn btn-style-one">DONATE NOW</a></div> --}}
 
 
                     </li>
@@ -117,11 +86,15 @@
         <div class="auto-container">
             <!--Section Title-->
             <div class="sec-title centered">
-                <h2>RECENT CAUSES</h2>
+                <h2> ABOUT THE SERVICE</h2>
                 <div class="separator"></div>
-                <div class="desc-text">The best way to not feel hopeless is to get up and do something. Don’t wait for good
-                    things to happen to you. If you go out and make some good things happen, you will fill the world with
-                    hope, you will fill yourself with hope.</div>
+                <div class="desc-text">Black Roses Support prides itself in offering a 24-hour therapeutic support service
+                    to young people aged 16-25. The aim of the service is to provide a safe and homely
+                    environment, where young people who are at risk of exclusion and isolation can build
+                    the skills , confidence and resilience to enable them to reach their full potential and
+                    have a smooth transition to independence. We are able to support young people from
+                    all walks of life, However as a lived experience practitioner we are fully equipped to
+                    support young people involved in serious youth violence and other harmful practice.</div>
             </div>
 
             <div class="row clearfix">
@@ -131,23 +104,21 @@
                         <div class="image-box">
                             <figure class="image"><a href="single-cause.html"><img
                                         src="images/resource/featured-image-2.jpg" alt=""></a></figure>
-                            <div class="progress-box">
-                                <div class="bar">
-                                    <div class="bar-inner animated-bar" data-percent="60%">
-                                        <div class="count-text">60%</div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                         <div class="lower-content">
-                            <div class="cause-donation-info"><span class="donated">Donated: $58,000.00 /</span> <span
-                                    class="total">$97,000.00</span></div>
                             <div class="separator"></div>
-                            <h3><a href="single-cause.html">Help with Economic Opportunity</a></h3>
-                            <div class="text">Retro tattooed tousled, disrupt portland synth slow-carb brooklyn fashion
-                                axe four loko narwhal craft beer salvia.</div>
-                            <div class="links"><a href="donate.html" class="theme-btn btn-style-three">DONATE NOW</a> <a
-                                    href="single-cause.html" class="theme-btn btn-style-four">READ MORE</a></div>
+                            <h3><a href="single-cause.html">Governance and Quality Assurance</a></h3>
+                            <div class="text">At Black Roses Support, we make sure everything runs smoothly and safely.
+                                Each month, our manager and team check everything from client files to safety rules to how
+                                well our staff are trained. We listen to young people's ideas and feelings in monthly
+                                meetings and even have a suggestion box for them and our staff. Our team meets monthly too,
+                                to talk about how we can do better. We also check in with our staff every year and listen to
+                                what young people think about our service. Our staff get regular training on important
+                                things like keeping everyone safe and helping people with their problems. We work hard to
+                                make sure everyone feels safe, supported, and heard at Black Roses Support.</div>
+                            <div class="links">
+                                <a href="single-cause.html" class="theme-btn btn-style-four">READ MORE</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -158,23 +129,21 @@
                         <div class="image-box">
                             <figure class="image"><a href="single-cause.html"><img
                                         src="images/resource/featured-image-3.jpg" alt=""></a></figure>
-                            <div class="progress-box">
-                                <div class="bar">
-                                    <div class="bar-inner animated-bar" data-percent="42%">
-                                        <div class="count-text">42%</div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                         <div class="lower-content">
-                            <div class="cause-donation-info"><span class="donated">Donated: $180,500,00 /</span> <span
-                                    class="total">$408,000.00</span></div>
                             <div class="separator"></div>
-                            <h3><a href="single-cause.html">Help for Homeless People</a></h3>
-                            <div class="text">Retro tattooed tousled, disrupt portland synth slow-carb brooklyn fashion
-                                axe four loko narwhal craft beer salvia.</div>
-                            <div class="links"><a href="donate.html" class="theme-btn btn-style-three">DONATE NOW</a> <a
-                                    href="single-cause.html" class="theme-btn btn-style-four">READ MORE</a></div>
+                            <h3><a href="single-cause.html">Service Facilities</a></h3>
+                            <div class="text">At Black Roses Support, we believe in creating a cozy environment where
+                                young people can feel at home. Each unit is equipped with a lounge area where residents can
+                                relax and watch TV, with access to various channels including Freeview and sometimes
+                                Netflix. WiFi access is available for educational purposes, allowing residents to use their
+                                own devices for homework and other learning needs. Our staff use designated office spaces to
+                                maintain confidentiality, while the kitchen is fully equipped for meal preparation and
+                                communal dining. Additionally, we promote a smoke-free environment in line with current
+                                legislation, encouraging residents who smoke to do so away from the premises.</div>
+                            <div class="links">
+                                <a href="single-cause.html" class="theme-btn btn-style-four">READ MORE</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -185,23 +154,19 @@
                         <div class="image-box">
                             <figure class="image"><a href="single-cause.html"><img
                                         src="images/resource/featured-image-4.jpg" alt=""></a></figure>
-                            <div class="progress-box">
-                                <div class="bar">
-                                    <div class="bar-inner animated-bar" data-percent="86%">
-                                        <div class="count-text">86%</div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                         <div class="lower-content">
-                            <div class="cause-donation-info"><span class="donated">Donated: $170,217,00 /</span> <span
-                                    class="total">$217,000.00</span></div>
                             <div class="separator"></div>
-                            <h3><a href="single-cause.html">Help to Get Education</a></h3>
-                            <div class="text">Retro tattooed tousled, disrupt portland synth slow-carb brooklyn fashion
-                                axe four loko narwhal craft beer salvia.</div>
-                            <div class="links"><a href="donate.html" class="theme-btn btn-style-three">DONATE NOW</a> <a
-                                    href="single-cause.html" class="theme-btn btn-style-four">READ MORE</a></div>
+                            <h3><a href="single-cause.html">
+                                    Social Engagement:</a></h3>
+                            <div class="text">At Black Roses Support, we foster a sense of community through engaging
+                                group activities, workshops, and recreational events. Residents participate in various
+                                activities, building bonds and camaraderie with one another. Our goal is to create an
+                                inclusive environment where everyone feels valued and connected. Click below to learn more
+                                about our vibrant social initiatives! </div>
+                            <div class="links">
+                                <a href="single-cause.html" class="theme-btn btn-style-four">READ MORE</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -216,15 +181,13 @@
         <div class="auto-container">
             <!--Section Title-->
             <div class="sec-title centered">
-                <h2>ARE YOU READY TO VOLUNTEER?</h2>
+                <h2>Our Dedication:</h2>
                 <div class="separator"></div>
-                <div class="desc-text">Literally poutine street art next level. Williamsburg shoreditch fingerstache vice
-                    migas. Direct trade occupy bushwick mlkshk mixtape swag. Twee freegan mixtape, craft beer cred
-                    kickstarter cornhole kale chips shabby chic fap master cleanse truffaut locavore.</div>
+                <div class="desc-text" style="font-size: 20px">Collaborating closely with all stakeholders and bridging
+                    gaps
+                    to uphold an
+                    environment where young individuals can feel secure, cherished, and flourish.</div>
             </div>
-
-            <div class="links"><a href="volunteer.html" class="theme-btn btn-style-two">BECOME A VOLUNTEER</a> <a
-                    href="donate.html" class="theme-btn btn-style-one">MAKE DONATION</a></div>
         </div>
     </section>
 
@@ -234,92 +197,111 @@
         <div class="auto-container">
             <!--Section Title-->
             <div class="sec-title centered">
-                <h2>HOW CAN YOU CONTRIBUTE?</h2>
+                <h2>CORE VALUES</h2>
                 <div class="separator"></div>
-                <div class="desc-text">Literally poutine street art next level. Williamsburg shoreditch fingerstache vice
-                    migas. Direct trade occupy bushwick mlkshk mixtape swag.</div>
             </div>
 
             <div class="row clearfix">
 
-                <!--Contribution Block Two-->
                 <div class="contribute-block-two col-md-4 col-sm-6 col-xs-12">
                     <div class="inner-box wow fadeIn" data-wow-duration="1500ms" data-wow-delay="0ms">
-                        <div class="icon-box"><span class="flaticon-new-file"></span></div>
                         <div class="content">
-                            <h3>EDUCATE KIDS</h3>
-                            <div class="text">Retro tattooed tousled, disrupt portland synth slow-carb brooklyn fashion
-                                axe four loko na rwhal craft beer salvia.</div>
-                            <a href="volunteer.html" class="theme-btn btn-style-two">HELP NOW</a>
+                            <h3> <b>CHOICE</b> </h3>
+                            <div class="text">At Black Roses Support, we empower our clients with the freedom to make
+                                their own decisions across all aspects of their daily lives. This includes allowing them to
+                                manage their own time without strict communal schedules, respecting their individuality,
+                                maintaining flexibility in daily routines, and encouraging them to personalize their living
+                                spaces with personal belongings.</div>
                         </div>
                     </div>
                 </div>
-
-                <!--Contribution Block Two-->
-                <div class="contribute-block-two col-md-4 col-sm-6 col-xs-12">
-                    <div class="inner-box wow fadeIn" data-wow-duration="1500ms" data-wow-delay="200ms">
-                        <div class="icon-box"><span class="flaticon-clothes"></span></div>
-                        <div class="content">
-                            <h3>DONATE CLOTHES</h3>
-                            <div class="text">Retro tattooed tousled, disrupt portland synth slow-carb brooklyn fashion
-                                axe four loko na rwhal craft beer salvia.</div>
-                            <a href="volunteer.html" class="theme-btn btn-style-two">HELP NOW</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Contribution Block Two-->
-                <div class="contribute-block-two col-md-4 col-sm-6 col-xs-12">
-                    <div class="inner-box wow fadeIn" data-wow-duration="1500ms" data-wow-delay="400ms">
-                        <div class="icon-box"><span class="flaticon-food-2"></span></div>
-                        <div class="content">
-                            <h3>ARRANGE FOOD</h3>
-                            <div class="text">Retro tattooed tousled, disrupt portland synth slow-carb brooklyn fashion
-                                axe four loko na rwhal craft beer salvia.</div>
-                            <a href="volunteer.html" class="theme-btn btn-style-two">HELP NOW</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Contribution Block Two-->
                 <div class="contribute-block-two col-md-4 col-sm-6 col-xs-12">
                     <div class="inner-box wow fadeIn" data-wow-duration="1500ms" data-wow-delay="0ms">
-                        <div class="icon-box"><span class="flaticon-heart-2"></span></div>
                         <div class="content">
-                            <h3>ADOPT CHILD</h3>
-                            <div class="text">Retro tattooed tousled, disrupt portland synth slow-carb brooklyn fashion
-                                axe four loko na rwhal craft beer salvia.</div>
-                            <a href="volunteer.html" class="theme-btn btn-style-two">HELP NOW</a>
+                            <h3> <b>CIVIL RIGHTS</b> </h3>
+                            <div class="text">Black Roses Support ensures clients exercise their civil rights by
+                                facilitating voting, accessing NHS services, claiming welfare benefits, and accessing public
+                                services like libraries and education. Clients are also supported in voluntary work and
+                                finding employment, all in compliance with The Human Rights Act 1998.</div>
                         </div>
                     </div>
                 </div>
 
-                <!--Contribution Block Two-->
                 <div class="contribute-block-two col-md-4 col-sm-6 col-xs-12">
-                    <div class="inner-box wow fadeIn" data-wow-duration="1500ms" data-wow-delay="200ms">
-                        <div class="icon-box"><span class="flaticon-ribbon"></span></div>
+                    <div class="inner-box wow fadeIn" data-wow-duration="1500ms" data-wow-delay="0ms">
                         <div class="content">
-                            <h3>BECOME VOLUNTEER</h3>
-                            <div class="text">Retro tattooed tousled, disrupt portland synth slow-carb brooklyn fashion
-                                axe four loko na rwhal craft beer salvia.</div>
-                            <a href="volunteer.html" class="theme-btn btn-style-two">HELP NOW</a>
+                            <h3> <b>CONFIDENTIALITY</b> </h3>
+                            <div class="text">Black Roses Support ensures that information we hold about clients are kept
+                                confidential at all times in accordance with the GDPR/Data Protection Act 2018.
+                                There are exceptions to this rule in extreme cases where personal data relating
+                                to a client’s mental and /or physical health could be passed on without explicit
+                                consent if this is deemed necessary to protect the vital interests of the client
+                                and/or the safety of others.</div>
                         </div>
                     </div>
                 </div>
 
-                <!--Contribution Block Two-->
                 <div class="contribute-block-two col-md-4 col-sm-6 col-xs-12">
-                    <div class="inner-box wow fadeIn" data-wow-duration="1500ms" data-wow-delay="400ms">
-                        <div class="icon-box"><span class="flaticon-money-bag"></span></div>
+                    <div class="inner-box wow fadeIn" data-wow-duration="1500ms" data-wow-delay="0ms">
                         <div class="content">
-                            <h3>DONATE MONEY</h3>
-                            <div class="text">Retro tattooed tousled, disrupt portland synth slow-carb brooklyn fashion
-                                axe four loko na rwhal craft beer salvia.</div>
-                            <a href="volunteer.html" class="theme-btn btn-style-two">HELP NOW</a>
+                            <h3> <b>DIGNITY AND RESPECT</b> </h3>
+                            <div class="text">At Black Roses Support we uphold dignity and respect for our clients
+                                by valuing them as individuals, supporting their personal presentation and social
+                                interactions, providing opportunities for self-expression, and addressing any discrimination
+                                they may encounter.</div>
                         </div>
                     </div>
                 </div>
 
+                <div class="contribute-block-two col-md-4 col-sm-6 col-xs-12">
+                    <div class="inner-box wow fadeIn" data-wow-duration="1500ms" data-wow-delay="0ms">
+                        <div class="content">
+                            <h3> <b>EQUAL OPPORTUNITIES</b> </h3>
+                            <div class="text">Black Roses Support upholds equal opportunities principles, refraining from
+                                discrimination based on race, religion, gender, disability, sexual orientation, marital
+                                status, or age for both staff and clients. Our Equality and Diversity Policy is accessible
+                                through the unit manager upon request.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contribute-block-two col-md-4 col-sm-6 col-xs-12">
+                    <div class="inner-box wow fadeIn" data-wow-duration="1500ms" data-wow-delay="0ms">
+                        <div class="content">
+                            <h3> <b>INDEPENDENCE</b> </h3>
+                            <div class="text">Black Roses Support promotes independence among clients by empowering them
+                                to lead independent lives, make decisions, and take informed risks. We encourage maintaining
+                                contact with friends and family and offer opportunities for clients to contribute to their
+                                support package. Regular house meetings ensure client involvement in property management.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contribute-block-two col-md-4 col-sm-6 col-xs-12">
+                    <div class="inner-box wow fadeIn" data-wow-duration="1500ms" data-wow-delay="0ms">
+                        <div class="content">
+                            <h3> <b>PRIVACY</b> </h3>
+                            <div class="text">Black Roses Support values the privacy of clients in communal living
+                                spaces, ensuring respect for personal boundaries and offering opportunities for privacy.
+                                Clients are supported in personalizing their living spaces and have access to communal areas
+                                for solitude or socializing. Bedroom doors are equipped with locks for individual privacy,
+                                and staff strictly adhere to policies on entering client rooms.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contribute-block-two col-md-4 col-sm-6 col-xs-12">
+                    <div class="inner-box wow fadeIn" data-wow-duration="1500ms" data-wow-delay="0ms">
+                        <div class="content">
+                            <h3> <b>SAFETY AND SECURITY</b> </h3>
+                            <div class="text">Black Roses Support prioritizes security and safety by providing guidance
+                                on tasks with potential risks, safeguarding clients from abuse, and fostering an open and
+                                inclusive atmosphere. Staff and clients are familiar with procedures for raising concerns,
+                                and visitor access is controlled to protect client privacy and safety.
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>
@@ -327,7 +309,7 @@
 
 
     <!--Fun Facts Section-->
-    <section class="fun-facts-section" style="background-image:url(images/background/image-3.jpg);">
+    {{-- <section class="fun-facts-section" style="background-image:url(images/background/image-3.jpg);">
         <div class="auto-container">
             <!--Section Title-->
             <div class="sec-title centered">
@@ -341,8 +323,8 @@
                     <!--Column-->
                     <div class="column counter-column col-md-3 col-sm-6 col-xs-12">
                         <div class="inner-box">
-                            <div class="count-outer"><span class="icon flaticon-interface-8"></span><span
-                                    class="count-text" data-speed="3000" data-stop="1240">0</span></div>
+                            <div class="count-outer"><span class="icon flaticon-interface-8"></span><span class="count-text"
+                                    data-speed="3000" data-stop="1240">0</span></div>
                             <h4 class="counter-title">Workout Sesisons</h4>
                             <div class="separator"></div>
                         </div>
@@ -381,11 +363,11 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
 
     <!--News Section-->
-    <section class="news-section">
+    {{-- <section class="news-section">
         <div class="auto-container">
             <!--Section Title-->
             <div class="sec-title centered">
@@ -477,11 +459,11 @@
 
             </div>
         </div>
-    </section>
+    </section> --}}
 
 
     <!--Latest Events-->
-    <section class="latest-events style-two">
+    {{-- <section class="latest-events style-two">
         <div class="auto-container">
             <!--Section Title-->
             <div class="sec-title centered">
@@ -578,11 +560,11 @@
 
             </div>
         </div>
-    </section>
+    </section> --}}
 
 
     <!--Shop Section-->
-    <section class="shop-section">
+    {{-- <section class="shop-section">
         <div class="auto-container">
             <!--Section Title-->
             <div class="sec-title centered">
@@ -691,5 +673,5 @@
 
             </div>
         </div>
-    </section>
+    </section> --}}
 @endsection
