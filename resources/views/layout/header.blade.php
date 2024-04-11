@@ -96,19 +96,14 @@
                                         <li class="dropdown"><a href="#">About Us</a>
                                             <ul>
                                                 <li><a href="{{ route('about') }}">About Us</a></li>
-                                                <li><a href="our-team.html">Our Team</a></li>
+                                                <li><a href="{{ route('team') }}">Our Team</a></li>
                                             </ul>
                                         </li>
-                                        <li class="dropdown"><a href="#">Services</a>
-                                            <ul>
-                                                <li><a href="causes.html">Our Services</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="dropdown"><a href="#">Referrals</a> </li>
-                                        <li class="dropdown"><a href="#">Safeguarding</a></li>
-                                        <li><a href="gallery.html">Gallery</a></li>
-                                        <li class="dropdown"><a href="#">Testmonies</a> </li>
-                                        <li><a href="contact.html">Contact</a></li>
+                                        <li><a href="{{ route('services') }}">Services</a> </li>
+                                        {{-- <li class="dropdown"><a href="#">Referrals</a> </li> --}}
+                                        <li class=""><a href="{{ route('safeguarding') }}">Safeguarding</a></li>
+                                        <li class="dropdown"><a href="{{ route('testmonials') }}">Testmonies</a> </li>
+                                        <li><a href="{{ route('contact') }}">Contact</a></li>
 
                                     </ul>
                                 </div>
@@ -150,25 +145,20 @@
                     <ul class="navigation">
                         <li class="current dropdown"><a href="#">Home</a>
                             <ul>
-                                <li><a href="index.html">Homepage One</a></li>
+                                <li><a href="{{ route('home') }}">Homepage One</a></li>
                             </ul>
                         </li>
                         <li class="dropdown"><a href="#">About Us</a>
                             <ul>
-                                <li><a href="about-us.html">About Us</a></li>
-                                <li><a href="our-team.html">Our Team</a></li>
+                                <li><a href="{{ route('about') }}">About Us</a></li>
+                                <li><a href="{{ route('team') }}">Our Team</a></li>
                             </ul>
                         </li>
-                        <li class="dropdown"><a href="#">Services</a>
-                            <ul>
-                                <li><a href="causes.html">Our Services</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown"><a href="#">Referrals</a> </li>
-                        <li class="dropdown"><a href="#">Safeguarding</a></li>
-                        <li><a href="gallery.html">Gallery</a></li>
-                        <li class="dropdown"><a href="#">Testmonies</a> </li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="{{ route('services') }}">Services</a> </li>
+                        {{-- <li class="dropdown"><a href="#">Referrals</a> </li> --}}
+                        <li class=""><a href="{{ route('safeguarding') }}">Safeguarding</a></li>
+                        <li class="dropdown"><a href="{{ route('testmonials') }}">Testmonies</a> </li>
+                        <li><a href="{{ route('contact') }}">Contact</a></li>
 
                     </ul>
                 </div><!-- /.Side-menu -->

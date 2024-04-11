@@ -9,6 +9,11 @@ Route::get('/', function () {
 });
 Route::get('home', [ViewController::class, 'home'])->name('home');
 Route::get('about', [ViewController::class, 'about'])->name('about');
+Route::get('services', [ViewController::class, 'services'])->name('services');
+Route::get('testmonials', [ViewController::class, 'testmonials'])->name('testmonials');
+Route::get('safeguarding', [ViewController::class, 'safeguarding'])->name('safeguarding');
+Route::get('contact', [ViewController::class, 'contact'])->name('contact');
+Route::get('team', [ViewController::class, 'team'])->name('team');
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

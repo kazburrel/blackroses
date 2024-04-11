@@ -15,4 +15,24 @@ class ViewController extends Controller
     {
         return view('about-us');
     }
+    public function services()
+    {
+        return view('services');
+    }
+    public function safeguarding()
+    {
+        return view('safeguarding');
+    }
+    public function testmonials()
+    {
+        return view('testmonials');
+    }
+    public function contact()
+    {
+        return view('contact');
+    }
+    public function team()
+    {
+        return view('our-team');
+    }
 }
