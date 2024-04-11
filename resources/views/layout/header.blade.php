@@ -67,7 +67,8 @@
                     <div class="outer-container clearfix">
                         <!--Logo Box-->
                         <div class="logo-box">
-                            <div class="logo"><a href="index.html"><img src="images/logo.png" alt=""></a>
+                            <div class="logo"><a href="{{ route('home') }}"><img src="images/logo.png"
+                                        alt=""></a>
                             </div>
                         </div>
 
@@ -89,50 +90,24 @@
                                     <ul class="navigation clearfix">
                                         <li class="current dropdown"><a href="#">Home</a>
                                             <ul>
-                                                <li><a href="index.html">Homepage One</a></li>
-                                                <li><a href="index-2.html">Homepage Two</a></li>
+                                                <li><a href="{{ route('home') }}">Homepage One</a></li>
                                             </ul>
                                         </li>
                                         <li class="dropdown"><a href="#">About Us</a>
                                             <ul>
-                                                <li><a href="about-us.html">About Us</a></li>
+                                                <li><a href="{{ route('about') }}">About Us</a></li>
                                                 <li><a href="our-team.html">Our Team</a></li>
                                             </ul>
                                         </li>
-                                        <li class="dropdown"><a href="#">Causes</a>
+                                        <li class="dropdown"><a href="#">Services</a>
                                             <ul>
-                                                <li><a href="causes.html">Our Causes</a></li>
-                                                <li><a href="single-cause.html">Single Cause</a></li>
+                                                <li><a href="causes.html">Our Services</a></li>
                                             </ul>
                                         </li>
-                                        <li class="dropdown"><a href="#">Events</a>
-                                            <ul>
-                                                <li><a href="events.html">Our Events</a></li>
-                                                <li><a href="single-event.html">Event Details</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="dropdown"><a href="#">Pages</a>
-                                            <ul>
-                                                <li><a href="donate.html">Donate Now</a></li>
-                                                <li><a href="volunteer.html">Volunteer</a></li>
-                                                <li><a href="faqs.html">FAQs</a></li>
-                                                <li><a href="error-page.html">404 Page</a></li>
-                                            </ul>
-                                        </li>
+                                        <li class="dropdown"><a href="#">Referrals</a> </li>
+                                        <li class="dropdown"><a href="#">Safeguarding</a></li>
                                         <li><a href="gallery.html">Gallery</a></li>
-                                        <li class="dropdown"><a href="#">Shop</a>
-                                            <ul>
-                                                <li><a href="shop.html">Our Shop</a></li>
-                                                <li><a href="shop-single.html">Shop Single</a></li>
-                                                <li><a href="shopping-cart.html">Shopping Cart</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="dropdown"><a href="#">Blog</a>
-                                            <ul>
-                                                <li><a href="blog.html">Our Blog</a></li>
-                                                <li><a href="blog-single.html">Blog Single</a></li>
-                                            </ul>
-                                        </li>
+                                        <li class="dropdown"><a href="#">Testmonies</a> </li>
                                         <li><a href="contact.html">Contact</a></li>
 
                                     </ul>
@@ -176,7 +151,6 @@
                         <li class="current dropdown"><a href="#">Home</a>
                             <ul>
                                 <li><a href="index.html">Homepage One</a></li>
-                                <li><a href="index-2.html">Homepage Two</a></li>
                             </ul>
                         </li>
                         <li class="dropdown"><a href="#">About Us</a>
@@ -185,41 +159,17 @@
                                 <li><a href="our-team.html">Our Team</a></li>
                             </ul>
                         </li>
-                        <li class="dropdown"><a href="#">Causes</a>
+                        <li class="dropdown"><a href="#">Services</a>
                             <ul>
-                                <li><a href="causes.html">Our Causes</a></li>
-                                <li><a href="single-cause.html">Single Cause</a></li>
+                                <li><a href="causes.html">Our Services</a></li>
                             </ul>
                         </li>
-                        <li class="dropdown"><a href="#">Events</a>
-                            <ul>
-                                <li><a href="events.html">Our Events</a></li>
-                                <li><a href="single-event.html">Event Details</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown"><a href="#">Pages</a>
-                            <ul>
-                                <li><a href="donate.html">Donate Now</a></li>
-                                <li><a href="volunteer.html">Volunteer</a></li>
-                                <li><a href="faqs.html">FAQs</a></li>
-                                <li><a href="error-page.html">404 Page</a></li>
-                            </ul>
-                        </li>
+                        <li class="dropdown"><a href="#">Referrals</a> </li>
+                        <li class="dropdown"><a href="#">Safeguarding</a></li>
                         <li><a href="gallery.html">Gallery</a></li>
-                        <li class="dropdown"><a href="#">Shop</a>
-                            <ul>
-                                <li><a href="shop.html">Our Shop</a></li>
-                                <li><a href="shop-single.html">Shop Single</a></li>
-                                <li><a href="shopping-cart.html">Shopping Cart</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown"><a href="#">Blog</a>
-                            <ul>
-                                <li><a href="blog.html">Our Blog</a></li>
-                                <li><a href="blog-single.html">Blog Single</a></li>
-                            </ul>
-                        </li>
+                        <li class="dropdown"><a href="#">Testmonies</a> </li>
                         <li><a href="contact.html">Contact</a></li>
+
                     </ul>
                 </div><!-- /.Side-menu -->
 

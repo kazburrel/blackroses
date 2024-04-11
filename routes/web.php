@@ -8,6 +8,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('home', [ViewController::class, 'home'])->name('home');
+Route::get('about', [ViewController::class, 'about'])->name('about');
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
