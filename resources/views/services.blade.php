@@ -118,6 +118,111 @@
 
         <div class="auto-container">
 
+            <!--Section Title-->
+            <div class="sec-title centered">
+                <h1>Range of Support</h1>
+
+                <div class="separator"></div>
+                <div class="desc-text">
+                    Black Roses Support aims to help clients develop their skills, on an individual
+                    basis, that they may progress to greater independence, and further integrate
+                    into the local community. The ways in which we support clients may include
+                    providing advice, supervising and facilitating with:
+                </div>
+            </div>
+            <!--Content Box-->
+            <div class="content-box">
+                <div class="row clearfix">
+                    <!--Content Column-->
+                    <div class="content-column col-lg-7 col-md-6 col-sm-12 col-xs-12">
+                        <div class="inner-box">
+                            <div class="text-content">
+                                {{-- <p class="strong-text" style="text-align: center;">Service Facilities.</p> --}}
+
+                                <div class="numbered-list">
+                                    <p>
+                                        Correspondence related to benefits and their accommodation
+                                    </p>
+                                    <p>
+                                        Budgeting, paying bills and saving
+                                    </p>
+                                    <p>
+                                        Meal planning, shopping and cooking
+                                    </p>
+                                    <p>
+                                        Domestic upkeep of their living space
+                                    </p>
+                                    <p>
+                                        Maintaining the security and safety of the property
+                                    </p>
+                                    <p>
+                                        Opportunities for employment and voluntary work
+                                    </p>
+                                    <p>
+                                        Opportunities for education and leisure
+                                    </p>
+                                    <p>
+                                        Registering with a GP and dentist of their choice, and maintaining links with
+                                        appropriate healthcare services
+                                    </p>
+                                    <p>
+                                        Responding to their changing support needs in liaison with other agencies
+                                        involved in their support.
+                                    </p>
+                                    <p>
+                                        Maintain/developing community links and relationships
+                                    </p>
+                                    <p>
+                                        Where appropriate foster links with family members
+                                    </p>
+                                    <p>
+                                        General support
+                                    </p>
+                                    <p>
+                                        Transport to educational services where needed on initial visits
+                                    </p>
+                                    <p>
+                                        Support with identifying best transport ways/links to visit families
+                                    </p>
+                                    <p>
+                                        Accessing Laundry facilities
+                                    </p>
+                                    <p>
+                                        Participating and accessing Recreation facilities
+                                    </p>
+                                    <p>
+                                        Residents meetings
+                                    </p>
+                                    <p>
+                                        Computer and Internet access to support learning
+                                    </p>
+                                    <p>
+                                        Use of telephone – in private or with staff available for support
+                                    </p>
+                                </div>
+                                <p style="margin-top: 20px"><b>Black Roses Support is not normally equipped to cope with
+                                        areas
+                                        such as
+                                        severe mental health problems, severe challenging behaviour, nursing and
+                                        medical care and personal hygiene care.</b>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Image Column-->
+                    <div class="image-column col-lg-5 col-md-6 col-sm-12 col-xs-12">
+                        <figure class="image wow fadeInRight" data-wow-duration="1500ms" data-wow-delay="0ms"><img
+                                src="images/resource/lounge.png" alt=""></figure>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="auto-container">
+
             <h2 style="text-align: center;">
                 <p>Governance and Quality Assurance</p>
             </h2>
