@@ -1,6 +1,19 @@
 @extends('layout.index')
 
 @section('content')
+    <style>
+        .numbered-list {
+            counter-reset: list-counter;
+        }
+
+        .numbered-list p {
+            counter-increment: list-counter;
+        }
+
+        .numbered-list p:before {
+            content: counter(list-counter) ". ";
+        }
+    </style>
     <!--Page Title-->
     <section class="page-title" style="background-image:url(images/background/bg-page-title-1.jpg);">
         <div class="auto-container">
@@ -21,7 +34,7 @@
 
             <!--Section Title-->
             <div class="sec-title centered">
-                <h2>WHO WE ARE</h2>
+                <h2>ABOUT THE SERVICE</h2>
                 <div class="separator"></div>
                 <div class="desc-text">
                     Black Roses Support prides itself in offering a 24-hour therapeutic support service to
@@ -42,8 +55,45 @@
                             <div class="text-content">
                                 <p class="strong-text" style="text-align: center;">Aims and Objectives.</p>
 
+                                <div class="numbered-list">
+                                    <p>
+                                        To provide support that is tailored to each young person’s individual needs.
+                                    </p>
+                                    <p>
+                                        To provide accommodation to young people for emergency,
+                                        short and long term stays
+                                    </p>
+                                    <p>
+                                        To empower clients to lead as independent a life as possible.
+                                    </p>
+                                    <p>
+                                        To provide services that is anti-discriminatory.
+                                    </p>
+                                    <p>
+                                        To provide a service that takes into account young people’s preferences,
+                                        wishes, personal circumstances and individual abilities.
+                                    </p>
+                                    <p>
+                                        To provide young people with support of the highest quality within their
+                                        own home environment.
+                                    </p>
+                                    <p>
+                                        To provide a safe and protected environment prioritising Young Peoples
+                                        safety at all times.
+                                    </p>
+                                    <p>
+                                        To provide a service that empowers Young People to have personal
+                                        dignity.
+                                    </p>
+                                    <p>
+                                        To provide a home environment free from exploitation.
+                                    </p>
+                                    <p>
+                                        To provide a service that enables Young People to live a normal life within
+                                        the community.
+                                    </p>
 
-
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -51,7 +101,7 @@
                     <!--Image Column-->
                     <div class="image-column col-lg-5 col-md-6 col-sm-12 col-xs-12">
                         <figure class="image wow fadeInRight" data-wow-duration="1500ms" data-wow-delay="0ms"><img
-                                src="images/resource/featured-image-6.jpg" alt=""></figure>
+                                src="images/resource/aims.jpg" alt=""></figure>
                     </div>
 
                 </div>
@@ -65,8 +115,10 @@
                         <div class="icon-box"><span class="flaticon-target"></span></div>
                         <h3>Our Mission</h3>
                         <div class="separator"></div>
-                        <div class="text">Bushwick viral skateboard cold-pressed godard. Cliche narwhal austin, godard
-                            stumptown butcher pour-over umami offal art party kitsch. </div>
+                        <div class="text">We aim to meet the needs of every young person by carefully planning and
+                            implementing holistic approaches in line with the Children Act 1989 and subsequent regulations.
+                            Our mission is to ensure that each individual receives tailored support, addressing their
+                            physical, emotional, and social needs comprehensively.</div>
                     </div>
                 </div>
 
@@ -76,8 +128,10 @@
                         <div class="icon-box"><span class="flaticon-binoculars"></span></div>
                         <h3>Our Vision</h3>
                         <div class="separator"></div>
-                        <div class="text">Bushwick viral skateboard cold-pressed godard. Cliche narwhal austin, godard
-                            stumptown butcher pour-over umami offal art party kitsch. </div>
+                        <div class="text">Our vision is to work collaboratively with young people, empowering them to
+                            actively participate in decisions about their support plans. We strive to promote independence,
+                            dignity, and respect for all individuals, fostering a nurturing environment where every voice is
+                            heard and valued. </div>
                     </div>
                 </div>
 
@@ -87,8 +141,11 @@
                         <div class="icon-box"><span class="flaticon-envelope"></span></div>
                         <h3>Our Message</h3>
                         <div class="separator"></div>
-                        <div class="text">Bushwick viral skateboard cold-pressed godard. Cliche narwhal austin, godard
-                            stumptown butcher pour-over umami offal art party kitsch. </div>
+                        <div class="text">At our core, we believe in the inherent worth and potential of every young
+                            person. Our message is one of inclusivity, compassion, and commitment to providing high-quality
+                            support through trained and compassionate staff. We are dedicated to helping young people
+                            overcome challenges and build brighter futures, utilizing tailored strategies and community
+                            resources to support their journey towards independence and well-being. </div>
                     </div>
                 </div>
 
