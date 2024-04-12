@@ -102,8 +102,8 @@
                                         <li class="{{ request()->routeIs('services') ? 'current' : '' }}"><a
                                                 href="{{ route('services') }}">Services</a> </li>
                                         {{-- <li class="dropdown"><a href="#">Referrals</a> </li> --}}
-                                        <li class="{{ request()->routeIs('safeguarding') ? 'current' : '' }}"><a
-                                                href="{{ route('safeguarding') }}">Safeguarding</a></li>
+                                        <li class="{{ request()->routeIs('referrals') ? 'current' : '' }}"><a
+                                                href="{{ route('referrals') }}">referrals</a></li>
                                         <li class="{{ request()->routeIs('testmonials') ? 'current' : '' }}"><a
                                                 href="{{ route('testmonials') }}">Testmonies</a> </li>
                                         <li class="{{ request()->routeIs('contact') ? 'current' : '' }}"><a
@@ -160,8 +160,8 @@
                         <li class="{{ request()->routeIs('services') ? 'current' : '' }}"><a
                                 href="{{ route('services') }}">Services</a> </li>
                         {{-- <li class="dropdown"><a href="#">Referrals</a> </li> --}}
-                        <li class="{{ request()->routeIs('safeguarding') ? 'current' : '' }}"><a
-                                href="{{ route('safeguarding') }}">Safeguarding</a></li>
+                        <li class="{{ request()->routeIs('referrals') ? 'current' : '' }}"><a
+                                href="{{ route('referrals') }}">referrals</a></li>
                         <li class="{{ request()->routeIs('testmonials') ? 'current' : '' }}"><a
                                 href="{{ route('testmonials') }}">Testmonies</a> </li>
                         <li class="{{ request()->routeIs('contact') ? 'current' : '' }}"><a

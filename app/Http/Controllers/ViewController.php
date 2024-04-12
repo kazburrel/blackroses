@@ -19,9 +19,9 @@ class ViewController extends Controller
     {
         return view('services');
     }
-    public function safeguarding()
+    public function referrals()
     {
-        return view('safeguarding');
+        return view('referrals');
     }
     public function testmonials()
     {

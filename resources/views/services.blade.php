@@ -140,6 +140,7 @@
                             <div class="text-content">
                                 <p class="strong-text" style="text-align: center;">Service Facilities.</p>
 
+
                                 <div class="numbered-list">
                                     <p>
                                         Client Files
@@ -268,7 +269,31 @@
                                         </p>
                                     </div>
                                 </div>
+
+                                <p class="strong-text" style="text-align: center; margin-top: 10px">External Inspections by
+                                    Purchasers of the
+                                    Service (Local Authorities)
+                                </p>
+
+                                <p>
+                                    The service is subject to inspections and reviews by Local Authorities. Staff
+                                    are to cooperate when such visits take place and appropriate information
+                                    made available.
+                                    Local Authorities may have access to their own young people files at any time.
+                                </p>
+
+                                <p class="strong-text" style="text-align: center; margin-top: 10px">External Inspections by
+                                    Who are our clients?
+                                </p>
+
+                                <p>
+                                    Black Roses Support is designed to support care leavers aged 16-25 in their
+                                    transition to adulthood/ independent living.
+                                    The service is provided for young people leaving local authorities’ care aged
+                                    16-25 and unaccompanied asylum seekers aged 16-17
+                                </p>
                             </div>
+                            <p><b>Our service is available to Local Authorities from all over the UK.</b></p>
                         </div>
                     </div>
 
