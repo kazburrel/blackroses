@@ -10,6 +10,7 @@
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}" type="image/x-icon">
     <link rel="icon" href="{{ asset('images/favicon.ico') }}" type="image/x-icon">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Responsive -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -104,8 +105,8 @@
                                         {{-- <li class="dropdown"><a href="#">Referrals</a> </li> --}}
                                         <li class="{{ request()->routeIs('referrals') ? 'current' : '' }}"><a
                                                 href="{{ route('referrals') }}">referrals</a></li>
-                                        <li class="{{ request()->routeIs('testmonials') ? 'current' : '' }}"><a
-                                                href="{{ route('testmonials') }}">Testmonies</a> </li>
+                                        {{-- <li class="{{ request()->routeIs('testmonials') ? 'current' : '' }}"><a
+                                                href="{{ route('testmonials') }}">Testmonies</a> </li> --}}
                                         <li class="{{ request()->routeIs('contact') ? 'current' : '' }}"><a
                                                 href="{{ route('contact') }}">Contact</a></li>
                                     </ul>
@@ -162,8 +163,8 @@
                         {{-- <li class="dropdown"><a href="#">Referrals</a> </li> --}}
                         <li class="{{ request()->routeIs('referrals') ? 'current' : '' }}"><a
                                 href="{{ route('referrals') }}">referrals</a></li>
-                        <li class="{{ request()->routeIs('testmonials') ? 'current' : '' }}"><a
-                                href="{{ route('testmonials') }}">Testmonies</a> </li>
+                        {{-- <li class="{{ request()->routeIs('testmonials') ? 'current' : '' }}"><a
+                                href="{{ route('testmonials') }}">Testmonies</a> </li> --}}
                         <li class="{{ request()->routeIs('contact') ? 'current' : '' }}"><a
                                 href="{{ route('contact') }}">Contact</a></li>
 

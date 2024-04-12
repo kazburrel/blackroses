@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ViewController;
 use Illuminate\Support\Facades\Route;
@@ -13,6 +14,7 @@ Route::get('services', [ViewController::class, 'services'])->name('services');
 Route::get('testmonials', [ViewController::class, 'testmonials'])->name('testmonials');
 Route::get('referrals', [ViewController::class, 'referrals'])->name('referrals');
 Route::get('contact', [ViewController::class, 'contact'])->name('contact');
+Route::post('contact/send', [ContactController::class, 'contactUs'])->name('contact.send');
 Route::get('team', [ViewController::class, 'team'])->name('team');
 Route::get('/dashboard', function () {
     return view('dashboard');
