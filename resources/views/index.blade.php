@@ -12,34 +12,24 @@
                         data-thumb="images/main-slider/image-1.jpg" data-saveperformance="off" data-title="Awesome Title Here">
                         <img src="images/main-slider/image-1.jpg" alt="" data-bgposition="center top"
                             data-bgfit="cover" data-bgrepeat="no-repeat">
-
-                        {{-- <div class="tp-caption sfl sfb tp-resizeme" data-x="left" data-hoffset="15" data-y="center"
+                        <div class="tp-caption sfl sfb tp-resizeme" data-x="left" data-hoffset="15" data-y="center"
                             data-voffset="-50" data-speed="1500" data-start="500" data-easing="easeOutExpo"
                             data-splitin="none" data-splitout="none" data-elementdelay="0.01" data-endelementdelay="0.3"
                             data-endspeed="1200" data-endeasing="Power4.easeIn">
-                            <h2>THEY ARE <span class="theme_color">HUMANS</span> <br>AS WELL</h2>
+                            <h2
+                                style="background-color: rgba(255, 255, 255, 0.5); color: black; padding-right: 8px; padding-left: 8px">
+                                WELCOME TO {{ config('app.name') }}
+                            </h2>
                         </div>
 
                         <div class="tp-caption sfr sfb tp-resizeme" data-x="left" data-hoffset="15" data-y="center"
                             data-voffset="40" data-speed="1500" data-start="500" data-easing="easeOutExpo"
                             data-splitin="none" data-splitout="none" data-elementdelay="0.01" data-endelementdelay="0.3"
                             data-endspeed="1200" data-endeasing="Power4.easeIn">
-                            <div class="text">Make a better world for humans as Authism</div>
+                            <div class="text"
+                                style="background-color: rgba(255, 255, 255, 0.5); color: black; padding-right: 8px; padding-left: 8px">
+                                Where smiles light up our community and connections matter most.</div>
                         </div>
-
-                        <div class="tp-caption sfl sfb tp-resizeme" data-x="left" data-hoffset="15" data-y="center"
-                            data-voffset="100" data-speed="1500" data-start="500" data-easing="easeOutExpo"
-                            data-splitin="none" data-splitout="none" data-elementdelay="0.01" data-endelementdelay="0.3"
-                            data-endspeed="1200" data-endeasing="Power4.easeIn"><a href="#"
-                                class="theme-btn btn-style-one">DONATE NOW</a></div>
-
-                        <div class="tp-caption sfb sfb tp-resizeme" data-x="right" data-hoffset="-15" data-y="center"
-                            data-voffset="0" data-speed="1500" data-start="500" data-easing="easeOutExpo"
-                            data-splitin="none" data-splitout="none" data-elementdelay="0.01" data-endelementdelay="0.3"
-                            data-endspeed="1200" data-endeasing="Power4.easeIn">
-                        </div> --}}
-
-
                     </li>
 
 
@@ -49,27 +39,27 @@
                         data-title="Awesome Title Here">
                         <img src="images/main-slider/image-2.jpg" alt="" data-bgposition="center top"
                             data-bgfit="cover" data-bgrepeat="no-repeat">
-                        {{-- 
-                        <div class="tp-caption sft sfb tp-resizeme" data-x="center" data-hoffset="0" data-y="center"
+
+                        <div class="tp-caption sfl sfb tp-resizeme" data-x="left" data-hoffset="15" data-y="center"
                             data-voffset="-50" data-speed="1500" data-start="500" data-easing="easeOutExpo"
                             data-splitin="none" data-splitout="none" data-elementdelay="0.01" data-endelementdelay="0.3"
                             data-endspeed="1200" data-endeasing="Power4.easeIn">
-                            <h2 class="text-center">THEY ARE <span class="theme_color">HUMANS</span> <br>AS WELL</h2>
+                            <h2
+                                style="background-color: rgba(255, 255, 255, 0.5); color: black; padding-right: 8px; padding-left: 8px">
+                                Empowering Connections
+                            </h2>
                         </div>
 
-                        <div class="tp-caption sfb sfb tp-resizeme" data-x="center" data-hoffset="0" data-y="center"
+                        <div class="tp-caption sfr sfb tp-resizeme" data-x="left" data-hoffset="15" data-y="center"
                             data-voffset="40" data-speed="1500" data-start="500" data-easing="easeOutExpo"
                             data-splitin="none" data-splitout="none" data-elementdelay="0.01" data-endelementdelay="0.3"
                             data-endspeed="1200" data-endeasing="Power4.easeIn">
-                            <div class="text text-center">Make a better world for humans as Authism</div>
+                            <div class="text"
+                                style="background-color: rgba(255, 255, 255, 0.5); color: black; padding-right: 8px; padding-left: 8px">
+                                Where our dedicated staff members empower young individuals through meaningful interactions
+                                and compassionate support.
+                            </div>
                         </div>
-
-                        <div class="tp-caption sfb sfb tp-resizeme" data-x="center" data-hoffset="0" data-y="center"
-                            data-voffset="110" data-speed="1500" data-start="500" data-easing="easeOutExpo"
-                            data-splitin="none" data-splitout="none" data-elementdelay="0.01" data-endelementdelay="0.3"
-                            data-endspeed="1200" data-endeasing="Power4.easeIn"><a href="#"
-                                class="theme-btn btn-style-one">DONATE NOW</a></div> --}}
-
 
                     </li>
 
@@ -99,6 +89,33 @@
 
             <div class="row clearfix">
                 <!--Default Cause Box-->
+                <div class="default-cause-box col-md-4 col-sm-6 col-xs-12">
+                    <div class="inner-box wow fadeIn" data-wow-duration="1500ms" data-wow-delay="0ms">
+                        <div class="image-box">
+                            <figure class="image"><a href="single-cause.html"><img src="images/resource/referals.jpg"
+                                        alt=""></a></figure>
+                        </div>
+                        <div class="lower-content">
+                            <div class="separator"></div>
+                            <h3><a href="single-cause.html">The Referral Process</a></h3>
+                            <div class="text">
+                                The referral process begins with an enquiry, by telephone, email or letter.
+                                The service will then ask for a referral form to be sent, giving brief information about
+                                the potential client and their risks as well as support needs. This form can be completed
+                                by a social worker and/or other professionals.
+                                A review of this information is then undertaken to assess whether the service can
+                                potentially meet the needs of the individual being referred. If the service determines
+                                that they can meet the needs of the referred person, an Impact Risk Assessment
+                                (ImRA) is completed by a Unit Manager from identified placement to highlight if there
+                                are any impact risks for the referred young person as well as existing young people in
+                                our service.</div>
+                            <div class="links">
+                                <a href="single-cause.html" class="theme-btn btn-style-four">READ MORE</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="default-cause-box col-md-4 col-sm-6 col-xs-12">
                     <div class="inner-box wow fadeIn" data-wow-duration="1500ms" data-wow-delay="0ms">
                         <div class="image-box">
@@ -149,7 +166,7 @@
                 </div>
 
                 <!--Default Cause Box-->
-                <div class="default-cause-box col-md-4 col-sm-6 col-xs-12">
+                <div class="default-cause-box col-md-4 col-sm-6 col-xs-12" style="margin-top: 15px">
                     <div class="inner-box wow fadeIn" data-wow-duration="1500ms" data-wow-delay="600ms">
                         <div class="image-box">
                             <figure class="image"><a href="single-cause.html"><img
@@ -306,372 +323,4 @@
 
         </div>
     </section>
-
-
-    <!--Fun Facts Section-->
-    {{-- <section class="fun-facts-section" style="background-image:url(images/background/image-3.jpg);">
-        <div class="auto-container">
-            <!--Section Title-->
-            <div class="sec-title centered">
-                <h2>SO FAR WE’VE ACHIEVED</h2>
-                <div class="separator"></div>
-            </div>
-
-            <!--Fact Counter-->
-            <div class="fact-counter">
-                <div class="row clearfix">
-                    <!--Column-->
-                    <div class="column counter-column col-md-3 col-sm-6 col-xs-12">
-                        <div class="inner-box">
-                            <div class="count-outer"><span class="icon flaticon-interface-8"></span><span class="count-text"
-                                    data-speed="3000" data-stop="1240">0</span></div>
-                            <h4 class="counter-title">Workout Sesisons</h4>
-                            <div class="separator"></div>
-                        </div>
-                    </div>
-
-                    <!--Column-->
-                    <div class="column counter-column col-md-3 col-sm-6 col-xs-12">
-                        <div class="inner-box">
-                            <div class="count-outer"><span class="icon flaticon-money-bag"></span><span
-                                    class="count-text" data-speed="2000" data-stop="242">0</span>k</div>
-                            <h4 class="counter-title">DOLLAR RAISED</h4>
-                            <div class="separator"></div>
-                        </div>
-                    </div>
-
-                    <!--Column-->
-                    <div class="column counter-column col-md-3 col-sm-6 col-xs-12">
-                        <div class="inner-box">
-                            <div class="count-outer"><span class="icon flaticon-volunteer"></span><span
-                                    class="count-text" data-speed="2500" data-stop="482">0</span></div>
-                            <h4 class="counter-title">VOLUNTEERS</h4>
-                            <div class="separator"></div>
-                        </div>
-                    </div>
-
-                    <!--Column-->
-                    <div class="column counter-column col-md-3 col-sm-6 col-xs-12">
-                        <div class="inner-box">
-                            <div class="count-outer"><span class="icon flaticon-happiness-1"></span><span
-                                    class="count-text" data-speed="5000" data-stop="6152">0</span></div>
-                            <h4 class="counter-title">HAPPY CHILDRENS</h4>
-                            <div class="separator"></div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </section> --}}
-
-
-    <!--News Section-->
-    {{-- <section class="news-section">
-        <div class="auto-container">
-            <!--Section Title-->
-            <div class="sec-title centered">
-                <h2>OUR BLOG</h2>
-                <div class="separator"></div>
-                <div class="desc-text">Literally poutine street art next level. Williamsburg shoreditch fingerstache vice
-                    migas. Direct trade occupy bushwick mlkshk mixtape swag.</div>
-            </div>
-
-            <div class="row clearfix">
-                <!--Column-->
-                <div class="column col-lg-7 col-md-6 col-sm-12 col-xs-12">
-                    <!--News Style One-->
-                    <div class="news-style-one">
-                        <div class="inner-box">
-                            <figure class="image-box"><img src="images/resource/blog-image-1.jpg" alt=""><a
-                                    href="blog-single.html" class="overlay-link">
-                                    <div class="icon"><span class="flaticon-cross"></span></div>
-                                </a></figure>
-                            <div class="post-meta clearfix">
-                                <div class="pull-left"><a href="#"><span class="fa fa-calendar-o"></span> 03 June
-                                        2016</a></div>
-                                <div class="pull-right"><a href="#"><span class="fa fa-heart-o"></span> 3</a>
-                                    &ensp;&ensp; <a href="#"><span class="fa fa-comment-o"></span> 7</a></div>
-                            </div>
-                            <div class="lower-content">
-                                <h3><a href="blog-single.html">FOODS FOR CHILDREN</a></h3>
-                                <div class="text">At the end of the day, going forward, a new normal that has evolved
-                                    from generation X is on the runway heading towards a streamlined cloud solution.</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Column-->
-                <div class="column col-lg-5 col-md-6 col-sm-12 col-xs-12">
-                    <!--News Style Two-->
-                    <div class="news-style-two">
-                        <div class="inner-box wow fadeIn" data-wow-duration="1500ms" data-wow-delay="0ms">
-                            <figure class="image-box"><img src="images/resource/blog-image-2.jpg" alt=""><a
-                                    href="blog-single.html" class="overlay-link">
-                                    <div class="icon"><span class="flaticon-cross"></span></div>
-                                </a></figure>
-                            <div class="lower-content">
-                                <div class="post-meta"><a href="#"><span class="fa fa-calendar-o"></span> 05 June
-                                        2016</a></div>
-                                <h3><a href="blog-single.html">EDUCATION FOR CHILDREN</a></h3>
-                                <div class="text">At the end of the day, going forward, a normal evolved is on the runway
-                                    streamlined cloud solution.</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!--News Style Two-->
-                    <div class="news-style-two">
-                        <div class="inner-box wow fadeIn" data-wow-duration="1500ms" data-wow-delay="200ms">
-                            <figure class="image-box"><img src="images/resource/blog-image-3.jpg" alt=""><a
-                                    href="blog-single.html" class="overlay-link">
-                                    <div class="icon"><span class="flaticon-cross"></span></div>
-                                </a></figure>
-                            <div class="lower-content">
-                                <div class="post-meta"><a href="#"><span class="fa fa-calendar-o"></span> 07 June
-                                        2016</a></div>
-                                <h3><a href="blog-single.html">HOMELESS PEOPLE</a></h3>
-                                <div class="text">At the end of the day, going forward, a normal evolved is on the runway
-                                    streamlined cloud solution.</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!--News Style Two-->
-                    <div class="news-style-two">
-                        <div class="inner-box wow fadeIn" data-wow-duration="1500ms" data-wow-delay="400ms">
-                            <figure class="image-box"><img src="images/resource/blog-image-4.jpg" alt=""><a
-                                    href="blog-single.html" class="overlay-link">
-                                    <div class="icon"><span class="flaticon-cross"></span></div>
-                                </a></figure>
-                            <div class="lower-content">
-                                <div class="post-meta"><a href="#"><span class="fa fa-calendar-o"></span> 09 June
-                                        2016</a></div>
-                                <h3><a href="blog-single.html">POVERTY PEOPLE</a></h3>
-                                <div class="text">At the end of the day, going forward, a normal evolved is on the runway
-                                    streamlined cloud solution.</div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-        </div>
-    </section> --}}
-
-
-    <!--Latest Events-->
-    {{-- <section class="latest-events style-two">
-        <div class="auto-container">
-            <!--Section Title-->
-            <div class="sec-title centered">
-                <h2>LATEST EVENTS</h2>
-                <div class="separator"></div>
-                <div class="desc-text">There is no exercise better for the heart than reaching down and lifting people up.
-                </div>
-            </div>
-
-            <div class="row clearfix">
-
-                <!--Image Column-->
-                <div class="image-column col-lg-7 col-md-6 col-sm-12 col-xs-12">
-                    <div class="inner-box">
-                        <figure class="image"><img src="images/resource/featured-image-5.jpg" alt=""></figure>
-                    </div>
-                </div>
-
-                <!--Content Column-->
-                <div class="content-column col-lg-5 col-md-6 col-sm-12 col-xs-12">
-                    <div class="where-we-active">
-                        <h3 class="medium-title">SEE WHERE WE ACTIVE</h3>
-                        <div class="desc-text">Leverage agile frameworks to provide a robust synopsis for high level
-                            overviews. Iterative approaches to corporate strategy foster collaborative thinking to further
-                            the overall value proposition. Organically grow the holistic workplace diversity and
-                            empowerment.</div>
-                    </div>
-
-                    <div class="upcoming-events">
-                        <h3 class="medium-title">UPCOMING EVENTS</h3>
-                        <div class="single-item-carousel">
-
-                            <!--Event Box-->
-                            <div class="event-box">
-                                <div class="inner">
-                                    <figure class="image-box"><a href="single-event.html"><img
-                                                src="images/resource/featured-thumb-1.jpg" alt=""></a></figure>
-                                    <div class="slide-content">
-                                        <h4><a href="single-event.html">Bring to the survival strategies</a></h4>
-                                        <div class="text">Leverage agile frameworks to robust synopsis for high level
-                                            overviews. </div>
-                                        <ul class="post-meta clearfix">
-                                            <li><a href="#"><span class="icon fa fa-map-marker"></span> Nepal</a>
-                                            </li>
-                                            <li><a href="#"><span class="icon fa fa-calendar-o"></span> Aug
-                                                    08,2016</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!--Event Box-->
-                            <div class="event-box">
-                                <div class="inner">
-                                    <figure class="image-box"><a href="single-event.html"><img
-                                                src="images/resource/featured-thumb-1.jpg" alt=""></a></figure>
-                                    <div class="slide-content">
-                                        <h4><a href="single-event.html">Bring to the survival strategies</a></h4>
-                                        <div class="text">Leverage agile frameworks to robust synopsis for high level
-                                            overviews. </div>
-                                        <ul class="post-meta clearfix">
-                                            <li><a href="#"><span class="icon fa fa-map-marker"></span> Nepal</a>
-                                            </li>
-                                            <li><a href="#"><span class="icon fa fa-calendar-o"></span> Aug
-                                                    08,2016</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!--Event Box-->
-                            <div class="event-box">
-                                <div class="inner">
-                                    <figure class="image-box"><a href="single-event.html"><img
-                                                src="images/resource/featured-thumb-1.jpg" alt=""></a></figure>
-                                    <div class="slide-content">
-                                        <h4><a href="single-event.html">Bring to the survival strategies</a></h4>
-                                        <div class="text">Leverage agile frameworks to robust synopsis for high level
-                                            overviews. </div>
-                                        <ul class="post-meta clearfix">
-                                            <li><a href="#"><span class="icon fa fa-map-marker"></span> Nepal</a>
-                                            </li>
-                                            <li><a href="#"><span class="icon fa fa-calendar-o"></span> Aug
-                                                    08,2016</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section> --}}
-
-
-    <!--Shop Section-->
-    {{-- <section class="shop-section">
-        <div class="auto-container">
-            <!--Section Title-->
-            <div class="sec-title centered">
-                <h2>OUR PRODUCTS</h2>
-                <div class="separator"></div>
-                <div class="desc-text">Learning curve graphical user interface buyer non-disclosure agreement MVP. Traction
-                    responsive web design business plan customer buyer android equity.</div>
-            </div>
-
-            <div class="row clearfix">
-                <!--Default Shop Item-->
-                <div class="default-shop-item col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                    <div class="inner-box wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="0ms">
-                        <div class="image-box">
-                            <figure class="image"><a href="shop-single.html"><img
-                                        src="images/resource/products/image-1.jpg" alt=""></a></figure>
-                            <div class="prod-options">
-                                <a class="lightbox-image option-btn" href="images/resource/products/image-1.jpg"
-                                    title="Image Caption Here" data-fancybox-group="example-gallery"><span
-                                        class="fa fa-search"></span></a>
-                                <a class="option-btn" href="shop-single.html"><span
-                                        class="fa fa-shopping-cart"></span></a>
-                            </div>
-                        </div>
-                        <div class="lower-content">
-                            <h3><a href="shop-single.html">PRODUCT TITLE</a></h3>
-                            <div class="price"><span class="price-txt">$ 24.00</span></div>
-                            <div class="rating"><span class="fa fa-star"></span><span class="fa fa-star"></span><span
-                                    class="fa fa-star"></span><span class="fa fa-star"></span><span
-                                    class="fa fa-star-o"></span></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Default Shop Item-->
-                <div class="default-shop-item col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                    <div class="inner-box wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="300ms">
-                        <div class="image-box">
-                            <figure class="image"><a href="shop-single.html"><img
-                                        src="images/resource/products/image-2.jpg" alt=""></a></figure>
-                            <div class="prod-options">
-                                <a class="lightbox-image option-btn" href="images/resource/products/image-2.jpg"
-                                    title="Image Caption Here" data-fancybox-group="example-gallery"><span
-                                        class="fa fa-search"></span></a>
-                                <a class="option-btn" href="shop-single.html"><span
-                                        class="fa fa-shopping-cart"></span></a>
-                            </div>
-                        </div>
-                        <div class="lower-content">
-                            <h3><a href="shop-single.html">PRODUCT TITLE</a></h3>
-                            <div class="price"><span class="price-txt">$ 36.00</span></div>
-                            <div class="rating"><span class="fa fa-star"></span><span class="fa fa-star"></span><span
-                                    class="fa fa-star"></span><span class="fa fa-star"></span><span
-                                    class="fa fa-star-o"></span></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Default Shop Item-->
-                <div class="default-shop-item col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                    <div class="inner-box wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="600ms">
-                        <div class="image-box">
-                            <figure class="image"><a href="shop-single.html"><img
-                                        src="images/resource/products/image-3.jpg" alt=""></a></figure>
-                            <div class="prod-options">
-                                <a class="lightbox-image option-btn" href="images/resource/products/image-3.jpg"
-                                    title="Image Caption Here" data-fancybox-group="example-gallery"><span
-                                        class="fa fa-search"></span></a>
-                                <a class="option-btn" href="shop-single.html"><span
-                                        class="fa fa-shopping-cart"></span></a>
-                            </div>
-                        </div>
-                        <div class="lower-content">
-                            <h3><a href="shop-single.html">PRODUCT TITLE</a></h3>
-                            <div class="price"><span class="price-txt">$ 245.00</span></div>
-                            <div class="rating"><span class="fa fa-star"></span><span class="fa fa-star"></span><span
-                                    class="fa fa-star"></span><span class="fa fa-star"></span><span
-                                    class="fa fa-star-o"></span></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Default Shop Item-->
-                <div class="default-shop-item col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                    <div class="inner-box wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="900ms">
-                        <div class="image-box">
-                            <figure class="image"><a href="shop-single.html"><img
-                                        src="images/resource/products/image-4.jpg" alt=""></a></figure>
-                            <div class="prod-options">
-                                <a class="lightbox-image option-btn" href="images/resource/products/image-4.jpg"
-                                    title="Image Caption Here" data-fancybox-group="example-gallery"><span
-                                        class="fa fa-search"></span></a>
-                                <a class="option-btn" href="shop-single.html"><span
-                                        class="fa fa-shopping-cart"></span></a>
-                            </div>
-                        </div>
-                        <div class="lower-content">
-                            <h3><a href="shop-single.html">PRODUCT TITLE</a></h3>
-                            <div class="price"><span class="price-txt">$ 54.00</span></div>
-                            <div class="rating"><span class="fa fa-star"></span><span class="fa fa-star"></span><span
-                                    class="fa fa-star"></span><span class="fa fa-star"></span><span
-                                    class="fa fa-star-o"></span></div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section> --}}
 @endsection

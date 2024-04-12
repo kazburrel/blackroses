@@ -1,95 +1,13 @@
 @extends('layout.index')
 
 @section('content')
-    <!-- Hidden Navigation Bar -->
-    <section class="hidden-bar right-align">
-
-        <div class="hidden-bar-closer">
-            <button class="btn"><i class="fa fa-close"></i></button>
-        </div>
-
-        <!-- Hidden Bar Wrapper -->
-        <div class="hidden-bar-wrapper">
-
-            <!-- .logo -->
-            <div class="logo text-center">
-                <a href="index.html"><img src="images/logo-2.png" alt=""></a>
-            </div><!-- /.logo -->
-
-            <!-- .Side-menu -->
-            <div class="side-menu">
-                <!-- .navigation -->
-                <ul class="navigation">
-                    <li class="dropdown"><a href="#">Home</a>
-                        <ul>
-                            <li><a href="index.html">Homepage One</a></li>
-                            <li><a href="index-2.html">Homepage Two</a></li>
-                        </ul>
-                    </li>
-                    <li class="current dropdown"><a href="#">About Us</a>
-                        <ul>
-                            <li><a href="about-us.html">About Us</a></li>
-                            <li><a href="our-team.html">Our Team</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown"><a href="#">Causes</a>
-                        <ul>
-                            <li><a href="causes.html">Our Causes</a></li>
-                            <li><a href="single-cause.html">Single Cause</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown"><a href="#">Events</a>
-                        <ul>
-                            <li><a href="events.html">Our Events</a></li>
-                            <li><a href="single-event.html">Event Details</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown"><a href="#">Pages</a>
-                        <ul>
-                            <li><a href="donate.html">Donate Now</a></li>
-                            <li><a href="volunteer.html">Volunteer</a></li>
-                            <li><a href="faqs.html">FAQs</a></li>
-                            <li><a href="error-page.html">404 Page</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="gallery.html">Gallery</a></li>
-                    <li class="dropdown"><a href="#">Shop</a>
-                        <ul>
-                            <li><a href="shop.html">Our Shop</a></li>
-                            <li><a href="shop-single.html">Shop Single</a></li>
-                            <li><a href="shopping-cart.html">Shopping Cart</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown"><a href="#">Blog</a>
-                        <ul>
-                            <li><a href="blog.html">Our Blog</a></li>
-                            <li><a href="blog-single.html">Blog Single</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </div><!-- /.Side-menu -->
-
-            <div class="social-icons">
-                <ul>
-                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                </ul>
-            </div>
-
-        </div><!-- / Hidden Bar Wrapper -->
-    </section>
-    <!-- / Hidden Bar -->
-
     <!--Page Title-->
     <section class="page-title" style="background-image:url(images/background/bg-page-title-1.jpg);">
         <div class="auto-container">
             <h1>About Us</h1>
             <div class="bread-crumb-outer">
                 <ul class="bread-crumb clearfix">
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="{{ route('home') }}">Home</a></li>
                     <li class="active">About Us</li>
                 </ul>
             </div>
@@ -105,9 +23,15 @@
             <div class="sec-title centered">
                 <h2>WHO WE ARE</h2>
                 <div class="separator"></div>
-                <div class="desc-text">Bushwick viral skateboard cold-pressed godard. Cliche narwhal austin, godard
-                    stumptown butcher pour-over umami offal art party kitsch flexitarian artisan chia. Sartorial narwhal
-                    ethical listicle meggings cardigan four dollar toast. </div>
+                <div class="desc-text">
+                    Black Roses Support prides itself in offering a 24-hour therapeutic support service to
+                    young people aged 16-25. The aim of the service is to provide a safe and homely
+                    environment, where young people who are at risk of exclusion and isolation can build
+                    the skills , confidence and resilience to enable them to reach their full potential and
+                    have a smooth transition to independence. We are able to support young people from
+                    all walks of life, However as a lived experience practitioner we are fully equipped to
+                    support young people involved in serious youth violence and other harmful practice.
+                </div>
             </div>
             <!--Content Box-->
             <div class="content-box">
@@ -116,20 +40,10 @@
                     <div class="content-column col-lg-7 col-md-6 col-sm-12 col-xs-12">
                         <div class="inner-box">
                             <div class="text-content">
-                                <p class="strong-text">Four dollar toast banjo waistcoat ennui, squid braid tattooed trust
-                                    fund semiotics chia taxidermy retro.</p>
-                                <p>Eat and than sleep on your face when in doubt, wash stick butt in face. Meow for food,
-                                    then when human fills food dish, take a few bites of food and continue meowing pee in
-                                    the shoe but rub face on owner. Pee in the shoe always hungry get video posted to
-                                    internet for chasing red dot. Climb a tree, wait for a fireman jump to fireman then
-                                    scratch his face lick the other cats.</p>
-                                <p>Missing until dinner time jump around on couch, meow constantly until given food, leave
-                                    hair everywhere, and who's the baby. Always hungry sit on human eat from dog's food
-                                    knock over christmas tree yet lick plastic bags, and thug cat . Claw drapes my left
-                                    donut is missing, as is my right but intently stare at the same spot spread kitty
-                                    litter all over house hiss at vacuum cleaner, eat prawns daintily clean wash down
-                                    prawns to the warmest spot on the couch to claw at the fabric before taking a catnap.
-                                </p>
+                                <p class="strong-text" style="text-align: center;">Aims and Objectives.</p>
+
+
+
                             </div>
                         </div>
                     </div>
@@ -248,12 +162,12 @@
                         </figure>
                     </li>
                     <li class="slide-item">
-                        <figure class="image-box"><a href="#"><img src="images/sponsors/10.jpg"
-                                    alt=""></a></figure>
+                        <figure class="image-box"><a href="#"><img src="images/sponsors/10.jpg" alt=""></a>
+                        </figure>
                     </li>
                     <li class="slide-item">
-                        <figure class="image-box"><a href="#"><img src="images/sponsors/11.jpg"
-                                    alt=""></a></figure>
+                        <figure class="image-box"><a href="#"><img src="images/sponsors/11.jpg" alt=""></a>
+                        </figure>
                     </li>
                     <li class="slide-item">
                         <figure class="image-box"><a href="#"><img src="images/sponsors/7.jpg" alt=""></a>

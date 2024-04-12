@@ -46,7 +46,6 @@
                             <!--social-icon-->
                             <div class="social-icon">
                                 <a href="#"><span class="fa fa-facebook"></span></a>
-                                <a href="#"><span class="fa fa-youtube-play"></span></a>
                                 <a href="#"><span class="fa fa-linkedin"></span></a>
                                 <a href="#"><span class="fa fa-instagram"></span></a>
                                 <a href="#"><span class="fa fa-twitter"></span></a>
@@ -175,7 +174,7 @@
                     <ul>
                         <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                         <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                        <a href="#"><span class="fa fa-instagram"></span></a>
                         <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
                     </ul>
                 </div>
