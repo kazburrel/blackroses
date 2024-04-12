@@ -1,14 +1,43 @@
 @extends('layout.index')
 
 @section('content')
+    <style>
+        .numbered-list {
+            counter-reset: list-counter;
+        }
+
+        .numbered-list p {
+            counter-increment: list-counter;
+        }
+
+        .numbered-list p:before {
+            content: counter(list-counter) ". ";
+        }
+
+        /* Define a counter for the div with a specific class */
+        .roman-numerals {
+            counter-reset: section;
+        }
+
+        /* Style the p tags with a specific class */
+        .roman-numerals p {
+            counter-increment: section;
+            /* Increment the counter for each p tag */
+        }
+
+        /* Set the content of the p tags with a specific class to the counter value in Roman numerals */
+        .roman-numerals p::before {
+            content: counter(section, upper-roman) ". ";
+            /* Use upper-roman to display Roman numerals in uppercase */
+        }
+    </style>
     <!--Page Title-->
     <section class="page-title" style="background-image:url(images/background/bg-page-title-1.jpg);">
         <div class="auto-container">
-            <h1>Our Blog</h1>
             <div class="bread-crumb-outer">
                 <ul class="bread-crumb clearfix">
-                    <li><a href="index.html">Home</a></li>
-                    <li class="active">Our Blog</li>
+                    <li><a href="{{ asset('home') }}">Home</a></li>
+                    <li class="active">Our Service</li>
                 </ul>
             </div>
         </div>
@@ -16,228 +45,242 @@
 
 
     <!--Sidebar Page-->
-    <div class="sidebar-page-container">
+    <section class="about-us-section">
         <div class="auto-container">
-            <div class="row clearfix">
 
-                <!--Content Side-->
-                <div class="content-side col-lg-9 col-md-8 col-sm-12 col-xs-12">
+            <!--Section Title-->
+            <div class="sec-title centered">
+                <h1>Our Services</h1>
 
-                    <!--News Classic View-->
-                    <section class="news-classic-view">
+                <div class="separator"></div>
+                <div class="desc-text">
+                    Black Roses Support strives to ensure all units provide facilities to promote a
+                    homely environment for the Young People, setting a platform for social
+                    engagement and productive stimulation.
+                </div>
+            </div>
+            <!--Content Box-->
+            <div class="content-box">
+                <div class="row clearfix">
+                    <!--Content Column-->
+                    <div class="content-column col-lg-7 col-md-6 col-sm-12 col-xs-12">
+                        <div class="inner-box">
+                            <div class="text-content">
+                                <p class="strong-text" style="text-align: center;">Service Facilities.</p>
 
-                        <!--News Style Three-->
-                        <div class="news-style-three">
-                            <div class="inner-box">
-                                <figure class="image-box"><a href="blog-single.html"><img
-                                            src="images/resource/blog-image-6.jpg" alt=""></a></figure>
-                                <div class="lower-content">
-                                    <div class="post-header clearfix">
-                                        <div class="pull-left">
-                                            <h3><a href="blog-single.html">SAVE KIDS DREAMS</a></h3>
-                                            <div class="post-info">Posted by <a href="#">Admin</a> | <a
-                                                    href="#">JUNE 6,2016</a> </div>
-                                        </div>
-                                        <div class="post-meta pull-right"><a href="#"><span
-                                                    class="fa fa-heart-o"></span> 3</a> &ensp;&ensp; <a href="#"><span
-                                                    class="fa fa-comment-o"></span> 7</a></div>
-                                    </div>
-                                    <div class="text">Leverage agile frameworks to provide a robust synopsis for high
-                                        level overviews. Iterative approaches to corporate strategy foster collaborative
-                                        thinking to further the overall value proposition. </div>
-                                    <a href="blog-single.html" class="read-more">Read More <span
-                                            class="fa fa-angle-double-right"></span></a>
+                                <div class="numbered-list">
+                                    <p>
+                                        Black roses support units have a lounge where the young people have the
+                                        use of a television and there is a varied selection of channels through
+                                        Freeview. In Some placement there is Netflix available as well.
+                                    </p>
+                                    <p>
+                                        The units have computers that have access to the Internet and the young
+                                        people are encouraged to make use of this to assist with homework and their
+                                        wider educational needs. Access to the Internet can be supervised and its
+                                        use is monitored with internet security as part of a system of checks to
+                                        ensure it is used appropriately.
+                                    </p>
+                                    <p>
+                                        The Unit Manager and other staff members use the office. Due to issues of
+                                        ensuring confidentiality young people do not have access to the office unless
+                                        a member of staff is present.
+                                    </p>
+                                    <p>
+                                        The kitchen has all the mod cons including cookers and fridge freezers in
+                                        each Kitchen. There are table and chairs so the young people and staff may
+                                        share mealtimes and engage in conversations.
+                                    </p>
+                                    <p>
+                                        The Unit has plenty of storage facilities, which are used for household
+                                        linen, toiletries and sports equipment, etc
+                                    </p>
+                                    <p>
+                                        Current legislation states that smoking is prohibited in public places.
+                                        Smoking is very much discouraged and the young people that do smoke are
+                                        asked to smoke away from the premises.
+                                    </p>
                                 </div>
                             </div>
                         </div>
-
-                        <!--News Style Three-->
-                        <div class="news-style-three">
-                            <div class="inner-box">
-                                <figure class="image-box">
-                                    <!--Video Box-->
-                                    <div class="video-box">
-                                        <div class="video-outer">
-                                            <iframe height="400" allowfullscreen=""
-                                                src="//player.vimeo.com/video/56999995?color=ffffff"></iframe>
-                                        </div>
-                                    </div>
-                                </figure>
-                                <div class="lower-content">
-                                    <div class="post-header clearfix">
-                                        <div class="pull-left">
-                                            <h3><a href="blog-single.html">THE TEARS OF THE PLEASURE</a></h3>
-                                            <div class="post-info">Posted by <a href="#">Admin</a> | <a
-                                                    href="#">JUNE 6,2016</a> </div>
-                                        </div>
-                                        <div class="post-meta pull-right"><a href="#"><span
-                                                    class="fa fa-heart-o"></span> 3</a> &ensp;&ensp; <a href="#"><span
-                                                    class="fa fa-comment-o"></span> 7</a></div>
-                                    </div>
-                                    <div class="text">Leverage agile frameworks to provide a robust synopsis for high
-                                        level overviews. Iterative approaches to corporate strategy foster collaborative
-                                        thinking to further the overall value proposition. </div>
-                                    <a href="blog-single.html" class="read-more">Read More <span
-                                            class="fa fa-angle-double-right"></span></a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!--News Style Three-->
-                        <div class="news-style-three">
-                            <div class="inner-box">
-                                <figure class="image-box"><a href="blog-single.html"><img
-                                            src="images/resource/blog-image-7.jpg" alt=""></a></figure>
-                                <div class="lower-content">
-                                    <div class="post-header clearfix">
-                                        <div class="pull-left">
-                                            <h3><a href="blog-single.html">ELDERLY CARE AND SUPPORT VOLUNTEERING</a></h3>
-                                            <div class="post-info">Posted by <a href="#">Admin</a> | <a
-                                                    href="#">JUNE 6,2016</a> </div>
-                                        </div>
-                                        <div class="post-meta pull-right"><a href="#"><span
-                                                    class="fa fa-heart-o"></span> 3</a> &ensp;&ensp; <a href="#"><span
-                                                    class="fa fa-comment-o"></span> 7</a></div>
-                                    </div>
-                                    <div class="text">Leverage agile frameworks to provide a robust synopsis for high
-                                        level overviews. Iterative approaches to corporate strategy foster collaborative
-                                        thinking to further the overall value proposition. </div>
-                                    <a href="blog-single.html" class="read-more">Read More <span
-                                            class="fa fa-angle-double-right"></span></a>
-                                </div>
-                            </div>
-                        </div>
-
-                    </section>
-
-                    <!-- Styled Pagination -->
-                    <div class="styled-pagination">
-                        <ul>
-                            <li><a class="prev" href="#"><span class="fa fa-angle-double-left"></span></a></li>
-                            <li><a href="#" class="active">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a class="next" href="#"><span class="fa fa-angle-double-right"></span></a></li>
-                        </ul>
                     </div>
 
-                </div><!--End Content Side-->
+                    <!--Image Column-->
+                    <div class="image-column col-lg-5 col-md-6 col-sm-12 col-xs-12">
+                        <figure class="image wow fadeInRight" data-wow-duration="1500ms" data-wow-delay="0ms"><img
+                                src="images/resource/lounge.png" alt=""></figure>
+                    </div>
 
-                <!--Sidebar-->
-                <div class="sidebar-side col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                    <aside class="sidebar">
-
-                        <!-- Search Form -->
-                        <div class="widget search-box sidebar-widget">
-                            <div class="sidebar-title">
-                                <h3>Search</h3>
-                            </div>
-                            <form method="post" action="blog.html">
-                                <div class="form-group">
-                                    <input type="search" name="search-field" value=""
-                                        placeholder="Search the Blog">
-                                    <button type="submit"><span class="icon fa fa-search"></span></button>
-                                </div>
-                            </form>
-
-                        </div>
-
-                        <!-- Latest Posts -->
-                        <div class="widget popular-categories sidebar-widget">
-                            <div class="sidebar-title">
-                                <h3>Latest Posts</h3>
-                            </div>
-
-                            <ul class="list">
-                                <li><a href="#">Fundraising</a></li>
-                                <li><a href="#">Protect Our Children</a></li>
-                                <li><a href="#">Charity Marathon</a></li>
-                                <li><a href="#">Cancer Research Funding</a></li>
-                                <li><a href="#">Audio Post</a></li>
-                            </ul>
-
-                        </div>
-
-                        <!-- Popular Categories -->
-                        <div class="widget popular-categories sidebar-widget">
-                            <div class="sidebar-title">
-                                <h3>CAUSE CATEGORIES</h3>
-                            </div>
-
-                            <ul class="list">
-                                <li><a href="#">Awareness</a></li>
-                                <li><a href="#">Children Aid</a></li>
-                                <li><a href="#">Education</a></li>
-                                <li><a href="#">Food</a></li>
-                                <li><a href="#">Health</a></li>
-                                <li><a href="#">Life Saving</a></li>
-                                <li><a href="#">Seniors</a></li>
-                            </ul>
-
-                        </div>
-
-                        <!-- Recent Gallery -->
-                        <div class="widget recent-gallery sidebar-widget">
-                            <div class="sidebar-title">
-                                <h3>LATEST FROM GALLERY</h3>
-                            </div>
-
-                            <div class="images-outer clearfix">
-                                <div class="gallery-post">
-                                    <figure class="image"><a href="images/gallery/10.jpg" class="lightbox-image"
-                                            data-fancybox-group="example-gallery" title="Image Caption"><img
-                                                src="images/gallery/thumb-1.jpg" alt=""></a></figure>
-                                </div>
-                                <div class="gallery-post">
-                                    <figure class="image"><a href="images/gallery/10.jpg" class="lightbox-image"
-                                            data-fancybox-group="example-gallery" title="Image Caption"><img
-                                                src="images/gallery/thumb-2.jpg" alt=""></a></figure>
-                                </div>
-                                <div class="gallery-post">
-                                    <figure class="image"><a href="images/gallery/10.jpg" class="lightbox-image"
-                                            data-fancybox-group="example-gallery" title="Image Caption"><img
-                                                src="images/gallery/thumb-3.jpg" alt=""></a></figure>
-                                </div>
-                                <div class="gallery-post">
-                                    <figure class="image"><a href="images/gallery/10.jpg" class="lightbox-image"
-                                            data-fancybox-group="example-gallery" title="Image Caption"><img
-                                                src="images/gallery/thumb-4.jpg" alt=""></a></figure>
-                                </div>
-                                <div class="gallery-post">
-                                    <figure class="image"><a href="images/gallery/10.jpg" class="lightbox-image"
-                                            data-fancybox-group="example-gallery" title="Image Caption"><img
-                                                src="images/gallery/thumb-5.jpg" alt=""></a></figure>
-                                </div>
-                                <div class="gallery-post">
-                                    <figure class="image"><a href="images/gallery/10.jpg" class="lightbox-image"
-                                            data-fancybox-group="example-gallery" title="Image Caption"><img
-                                                src="images/gallery/thumb-6.jpg" alt=""></a></figure>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <!-- Popular Tags -->
-                        <div class="widget sidebar-widget popular-tags">
-                            <div class="sidebar-title">
-                                <h3>TAG CLOUD</h3>
-                            </div>
-
-                            <a href="#">Awareness</a>
-                            <a href="#">Educaton</a>
-                            <a href="#">Food</a>
-                            <a href="#">Children Aid</a>
-                            <a href="#">Health</a>
-                            <a href="#">Life Saving</a>
-                            <a href="#">Seniors</a>
-                            <a href="#">Homeless</a>
-
-                        </div>
-
-                    </aside>
-                </div><!--End Sidebar-->
-
+                </div>
             </div>
+
         </div>
-    </div>
+
+        <div class="auto-container">
+
+            <h2 style="text-align: center;">
+                <p>Governance and Quality Assurance</p>
+            </h2>
+
+            <!--Section Title-->
+            <div class="sec-title centered">
+                {{-- <h2>ABOUT US</h2> --}}
+                <div class="separator"></div>
+                <div class="desc-text">
+                    In order to deliver a high quality service, monthly audits are carried out by the
+                    Manager and Operations team of the service. These audits include:
+                </div>
+            </div>
+            <!--Content Box-->
+            <div class="content-box">
+                <div class="row clearfix">
+                    <!--Content Column-->
+                    <div class="content-column col-lg-7 col-md-6 col-sm-12 col-xs-12">
+                        <div class="inner-box">
+                            <div class="text-content">
+                                <p class="strong-text" style="text-align: center;">Service Facilities.</p>
+
+                                <div class="numbered-list">
+                                    <p>
+                                        Client Files
+                                    </p>
+                                    <p>
+                                        Health and Safety
+                                    </p>
+                                    <p>
+                                        Client Meetings
+                                    </p>
+                                    <p>
+                                        Team Meetings
+                                    </p>
+                                    <p>
+                                        Staff supervision
+                                    </p>
+                                    <p>
+                                        Staff training
+                                    </p>
+                                    <p>
+                                        The Physical Environment
+                                    </p>
+                                    <p>
+                                        Finance
+                                    </p>
+                                    <div>
+                                        Where possible, we involve young people in the decision making process that affects
+                                        the service we provide them. At each unit there are monthly meeting
+                                        house where young people have an opportunity to make staff aware of their
+                                        feelings, viewpoints and ideas. There is also a suggestion box where young
+                                        people and staff can submit suggestions anonymously. Team meetings for the staff
+                                        team take place on a monthly basis, and regular
+                                        individual supervision sessions for each team member, giving staff the
+                                        opportunity to voice their opinions and feedback to the Manager about the
+                                        service being offered. Black Roses support will conduct annual appraisals for
+                                        all staff and minimum quarterly feedbacks of young people using our services.
+                                        Young people and those involved in their support are made aware of the
+                                        service’s complaints policy, and are encouraged to offer feedback through
+                                        individual reviews and family/significant others forums.
+                                        All staff undertakes regular training which includes a minimum of:
+                                    </div>
+                                    <div class="roman-numerals" style="margin-top: 10px">
+                                        <p>
+                                            Safeguarding
+                                        </p>
+                                        <p>
+                                            CSE
+                                        </p>
+                                        <p>
+                                            CHANNEL
+                                        </p>
+                                        <p>
+                                            FGM
+                                        </p>
+                                        <p>
+                                            VET
+                                        </p>
+                                        <p>
+                                            Alcohol Misuse
+                                        </p>
+                                        <p>
+                                            Challenging Behaviour
+                                        </p>
+                                        <p>
+                                            Cognitive Behavioural Therapy
+                                        </p>
+                                        <p>
+                                            Communicating Effectively
+                                        </p>
+                                        <p>
+                                            Confidentiality
+                                        </p>
+                                        <p>
+                                            COSHH
+                                        </p>
+                                        <p>
+                                            Diversity and Equality
+                                        </p>
+                                        <p>
+                                            Drug Misuse
+                                        </p>
+                                        <p>
+                                            First Aid Awareness
+                                        </p>
+                                        <p>
+                                            Fire Training
+                                        </p>
+                                        <p>
+                                            Food Hygiene
+                                        </p>
+                                        <p>
+                                            Hand Hygiene
+                                        </p>
+                                        <p>
+                                            Health & Safety
+                                        </p>
+                                        <p>
+                                            Infection Control
+                                        </p>
+                                        <p>
+                                            Mental Capacity
+                                        </p>
+                                        <p>
+                                            Nutrition and Diet
+                                        </p>
+                                        <p>
+                                            Post-Traumatic Stress Disorder
+                                        </p>
+                                        <p>
+                                            Records Keeping
+                                        </p>
+                                        <p>
+                                            Risk Assessment
+                                        </p>
+                                        <p>
+                                            Self-Harm
+                                        </p>
+                                        <p>
+                                            Stress Management
+                                        </p>
+                                        <p>
+                                            Supervisions and Appraisals (Managers only)
+                                        </p>
+                                        <p>
+                                            Safeguarding
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Image Column-->
+                    <div class="image-column col-lg-5 col-md-6 col-sm-12 col-xs-12">
+                        <figure class="image wow fadeInRight" data-wow-duration="1500ms" data-wow-delay="0ms"><img
+                                src="images/resource/lounge.png" alt=""></figure>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
 @endsection

@@ -34,7 +34,7 @@
 
             <!--Section Title-->
             <div class="sec-title centered">
-                <h2>ABOUT THE SERVICE</h2>
+                {{-- <h2>ABOUT US</h2> --}}
                 <div class="separator"></div>
                 <div class="desc-text">
                     Black Roses Support prides itself in offering a 24-hour therapeutic support service to
@@ -149,124 +149,6 @@
                     </div>
                 </div>
 
-            </div>
-
-        </div>
-    </section>
-
-
-    <!--What We Think-->
-    <section class="what-we-think">
-        <div class="auto-container">
-            <div class="row clearfix">
-                <!--Content Column-->
-                <div class="content-column col-lg-7 col-md-6 col-sm-12 col-xs-12">
-                    <div class="inner-box">
-                        <h3>WHAT WE THINK ABOUT OUR CHARITY</h3>
-                        <div class="text">Leverage agile frameworks to provide a robust synopsis for high level
-                            overviews. Iterative approaches to corporate strategy foster collaborative thinking to further
-                            the overall value proposition. Organically grow the holistic via workplace diversity and
-                            empowerment.</div>
-                        <div class="clearfix">
-                            <!--Box-->
-                            <div class="feature-box">
-                                <div class="count">8</div>YEARS IN CHARITY
-                            </div>
-                            <!--Box-->
-                            <div class="feature-box">
-                                <div class="count">625</div>PROJECT HANDLED
-                            </div>
-                            <!--Box-->
-                            <div class="feature-box">
-                                <div class="count">54</div>STAFF MEMBERS
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Image Column-->
-                <div class="image-column col-lg-5 col-md-6 col-sm-12 col-xs-12">
-                    <figure class="image-box"><img src="images/resource/featured-image-7.jpg" alt=""></figure>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-
-    <!--Sponsors Section-->
-    <section class="sponsors-section-two">
-        <div class="auto-container">
-            <!--Section Title-->
-            <div class="sec-title centered">
-                <h2>OUR SPONSORS</h2>
-                <div class="separator"></div>
-            </div>
-
-            <div class="sponsors-outer">
-                <!--Sponsors Carousel Two-->
-                <ul class="sponsors-carousel-two">
-                    <li class="slide-item">
-                        <figure class="image-box"><a href="#"><img src="images/sponsors/7.jpg" alt=""></a>
-                        </figure>
-                    </li>
-                    <li class="slide-item">
-                        <figure class="image-box"><a href="#"><img src="images/sponsors/8.jpg" alt=""></a>
-                        </figure>
-                    </li>
-                    <li class="slide-item">
-                        <figure class="image-box"><a href="#"><img src="images/sponsors/9.jpg" alt=""></a>
-                        </figure>
-                    </li>
-                    <li class="slide-item">
-                        <figure class="image-box"><a href="#"><img src="images/sponsors/10.jpg" alt=""></a>
-                        </figure>
-                    </li>
-                    <li class="slide-item">
-                        <figure class="image-box"><a href="#"><img src="images/sponsors/11.jpg" alt=""></a>
-                        </figure>
-                    </li>
-                    <li class="slide-item">
-                        <figure class="image-box"><a href="#"><img src="images/sponsors/7.jpg" alt=""></a>
-                        </figure>
-                    </li>
-                    <li class="slide-item">
-                        <figure class="image-box"><a href="#"><img src="images/sponsors/8.jpg" alt=""></a>
-                        </figure>
-                    </li>
-                    <li class="slide-item">
-                        <figure class="image-box"><a href="#"><img src="images/sponsors/9.jpg" alt=""></a>
-                        </figure>
-                    </li>
-                    <li class="slide-item">
-                        <figure class="image-box"><a href="#"><img src="images/sponsors/10.jpg"
-                                    alt=""></a></figure>
-                    </li>
-                    <li class="slide-item">
-                        <figure class="image-box"><a href="#"><img src="images/sponsors/11.jpg"
-                                    alt=""></a></figure>
-                    </li>
-                    <li class="slide-item">
-                        <figure class="image-box"><a href="#"><img src="images/sponsors/7.jpg" alt=""></a>
-                        </figure>
-                    </li>
-                    <li class="slide-item">
-                        <figure class="image-box"><a href="#"><img src="images/sponsors/8.jpg" alt=""></a>
-                        </figure>
-                    </li>
-                    <li class="slide-item">
-                        <figure class="image-box"><a href="#"><img src="images/sponsors/9.jpg" alt=""></a>
-                        </figure>
-                    </li>
-                    <li class="slide-item">
-                        <figure class="image-box"><a href="#"><img src="images/sponsors/10.jpg"
-                                    alt=""></a></figure>
-                    </li>
-                    <li class="slide-item">
-                        <figure class="image-box"><a href="#"><img src="images/sponsors/11.jpg"
-                                    alt=""></a></figure>
-                    </li>
-                </ul>
             </div>
 
         </div>
