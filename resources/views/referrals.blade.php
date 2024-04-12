@@ -80,7 +80,7 @@
                                     in
                                     our service.
                                 </div>
-                                <h2 class="strong-text" style="text-align: center;">The Assessment Process</h2>
+                                <h5 class="strong-text" style="text-align: center;">The Assessment Process</h5>
                                 <div class="numbered-list">
                                     <p>
                                         Current support needs of the young person referred
@@ -96,9 +96,9 @@
                                     </p>
                                 </div>
 
-                                <h2 class="strong-text" style="text-align: center;margin-top: 15px">
+                                <h5 class="strong-text" style="text-align: center;margin-top: 15px">
                                     The Admission Process
-                                </h2>
+                                </h5>
                                 <div class="numbered-list">
                                     <p>
                                         If the outcome of the assessment is that the service can meet the needs of the
@@ -134,7 +134,7 @@
                     <div class="content-column col-lg-7 col-md-6 col-sm-12 col-xs-12">
                         <div class="inner-box">
                             <div class="text-content">
-                                <h2 class="strong-text" style="text-align: center;">Emergency Admission.</h2>
+                                <h5 class="strong-text" style="text-align: center;">Emergency Admission.</h5>
 
                                 <div class="desc-text">
                                     In the case of emergency admission requests, an initial assessment including
@@ -146,7 +146,7 @@
                                     Planning Meeting is then arranged with the allocated social worker on the next
                                     working day. PPM should be completed within first week.
                                 </div>
-                                <h2 class="strong-text" style="text-align: center;">Accommodation</h2>
+                                <h5 class="strong-text" style="text-align: center;">Accommodation</h5>
                                 <div>
                                     Black Roses Support recognises that every prospective client should have the
                                     opportunity to choose a home which suits their needs. To facilitate that choice,

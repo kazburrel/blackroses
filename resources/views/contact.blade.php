@@ -9,7 +9,7 @@
             <h1>Contact Us</h1>
             <div class="bread-crumb-outer">
                 <ul class="bread-crumb clearfix">
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="{{ route('home') }}">Home</a></li>
                     <li class="active">Contact Us</li>
                 </ul>
             </div>

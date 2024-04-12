@@ -54,9 +54,9 @@
 
                 <div class="separator"></div>
                 <div class="desc-text">
-                    Black Roses Support strives to ensure all units provide facilities to promote a
-                    homely environment for the Young People, setting a platform for social
-                    engagement and productive stimulation.
+                    <b>Black Roses Support strives to ensure all units provide facilities to promote a
+                        homely environment for the Young People, setting a platform for social
+                        engagement and productive stimulation.</b>
                 </div>
             </div>
             <!--Content Box-->
@@ -124,10 +124,10 @@
 
                 <div class="separator"></div>
                 <div class="desc-text">
-                    Black Roses Support aims to help clients develop their skills, on an individual
-                    basis, that they may progress to greater independence, and further integrate
-                    into the local community. The ways in which we support clients may include
-                    providing advice, supervising and facilitating with:
+                    <b>Black Roses Support aims to help clients develop their skills, on an individual
+                        basis, that they may progress to greater independence, and further integrate
+                        into the local community. The ways in which we support clients may include
+                        providing advice, supervising and facilitating with:</b>
                 </div>
             </div>
             <!--Content Box-->
@@ -213,7 +213,7 @@
                     <!--Image Column-->
                     <div class="image-column col-lg-5 col-md-6 col-sm-12 col-xs-12">
                         <figure class="image wow fadeInRight" data-wow-duration="1500ms" data-wow-delay="0ms"><img
-                                src="images/resource/lounge.png" alt=""></figure>
+                                src="images/resource/support.jpeg" alt=""></figure>
                     </div>
 
                 </div>
@@ -232,8 +232,8 @@
                 {{-- <h2>ABOUT US</h2> --}}
                 <div class="separator"></div>
                 <div class="desc-text">
-                    In order to deliver a high quality service, monthly audits are carried out by the
-                    Manager and Operations team of the service. These audits include:
+                    <b>In order to deliver a high quality service, monthly audits are carried out by the
+                        Manager and Operations team of the service. These audits include:</b>
                 </div>
             </div>
             <!--Content Box-->
@@ -243,7 +243,7 @@
                     <div class="content-column col-lg-7 col-md-6 col-sm-12 col-xs-12">
                         <div class="inner-box">
                             <div class="text-content">
-                                <p class="strong-text" style="text-align: center;">Service Facilities.</p>
+                                {{-- <p class="strong-text" style="text-align: center;">Service Facilities.</p> --}}
 
 
                                 <div class="numbered-list">
@@ -405,7 +405,7 @@
                     <!--Image Column-->
                     <div class="image-column col-lg-5 col-md-6 col-sm-12 col-xs-12">
                         <figure class="image wow fadeInRight" data-wow-duration="1500ms" data-wow-delay="0ms"><img
-                                src="images/resource/lounge.png" alt=""></figure>
+                                src="images/resource/governance.jpg" alt=""></figure>
                     </div>
 
                 </div>
