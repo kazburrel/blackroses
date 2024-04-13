@@ -2,7 +2,7 @@
 
 @section('content')
     <!--Page Title-->
-    <section class="page-title" style="background-image:url(images/background/bg-page-title-1.jpg);">
+    <section class="page-title" style="background-image:url(images/main-slider/image-1.jpg);">
         <div class="auto-container">
             <h1>About Us</h1>
             <div class="bread-crumb-outer">
