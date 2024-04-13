@@ -52,18 +52,21 @@
                                 @csrf
                                 <div class="row clearfix">
                                     <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                        <div class="field-label">Name <span>*</span></div>
-                                        <input type="text" name="name" value="{{ old('name') }}" required>
+                                        <div class="field-label">Full Name <span>*</span></div>
+                                        <input type="text" name="name" value="{{ old('name') }}"
+                                            placeholder="Enter your full name" required>
                                     </div>
 
                                     <div class="form-group col-md-6 col-sm-6 col-xs-12">
                                         <div class="field-label">Email <span>*</span></div>
-                                        <input type="email" name="email" value="{{ old('email') }}" required>
+                                        <input type="email" name="email" value="{{ old('email') }}"
+                                            placeholder="Enter your email address" required>
                                     </div>
 
                                     <div class="form-group col-md-12 col-sm-12 col-xs-12">
                                         <div class="field-label">Subject <span>*</span></div>
-                                        <input type="text" name="subject" value="{{ old('subject') }}">
+                                        <input type="text" name="subject" value="{{ old('subject') }}"
+                                            placeholder="Enter the subject">
                                     </div>
 
                                     <div class="form-group col-md-12 col-sm-12 col-xs-12">
