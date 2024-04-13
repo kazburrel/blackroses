@@ -1,6 +1,23 @@
 @extends('layout.index')
 
 @section('content')
+    <script>
+        // JavaScript code for initializing the map
+        function initMap() {
+            var mapOptions = {
+                zoom: 10,
+                center: {
+                    lat: 23.815811,
+                    lng: 90.412580
+                },
+                mapTypeId: 'roadmap',
+                styles: [
+                    // Include any custom map styles here if needed
+                ]
+            };
+            var map = new google.maps.Map(document.querySelector('.map-canvas'), mapOptions);
+        }
+    </script>
     <!-- / Hidden Bar -->
 
     <!--Page Title-->
@@ -119,10 +136,10 @@
         <div class="map-outer">
 
             <!--Map Canvas-->
-            <div class="map-canvas" data-zoom="10" data-lat="23.815811" data-lng="90.412580" data-type="roadmap"
-                data-hue="#fc721e" data-title="Dhaka"
-                data-content="Dhaka 1000-1200, Bangladesh<br><a href='mailto:info@youremail.com'>info@youremail.com</a>"
-                style="height:480px;">
+            <div style="width: 100%"><iframe width="100%" height="600" frameborder="0" scrolling="no" marginheight="0"
+                    marginwidth="0"
+                    src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=69%20Granville%20Avenue%20Slough%20+(Black%20roses%20support)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a
+                        href="https://www.gps.ie/">gps trackers</a></iframe>
             </div>
 
         </div>
