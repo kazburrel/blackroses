@@ -14,21 +14,16 @@
             content: counter(list-counter) ". ";
         }
 
-        /* Define a counter for the div with a specific class */
         .roman-numerals {
             counter-reset: section;
         }
 
-        /* Style the p tags with a specific class */
         .roman-numerals p {
             counter-increment: section;
-            /* Increment the counter for each p tag */
         }
 
-        /* Set the content of the p tags with a specific class to the counter value in Roman numerals */
         .roman-numerals p::before {
             content: counter(section, upper-roman) ". ";
-            /* Use upper-roman to display Roman numerals in uppercase */
         }
     </style>
     <!--Page Title-->
