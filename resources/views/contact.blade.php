@@ -41,6 +41,17 @@
 
                 <!--Form Column -->
                 <div class="column form-column pull-right col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    @if (Session::has('success'))
+                        <div id="flash-message" class="alert alert-success" style="background-color: rgba(0, 255, 0, 0.2);">
+                            {{ Session::get('success') }}
+                        </div>
+
+                        <script>
+                            setTimeout(function() {
+                                document.getElementById('flash-message').style.display = 'none';
+                            }, 3000); // Hide after 3 seconds (3000 milliseconds)
+                        </script>
+                    @endif
                     <div class="default-title">
                         <h3>SEND US A MESSAGE</h3>
                         <div class="separator"></div>

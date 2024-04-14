@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Mailables\ContactMailable;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use Utyemma\LaraNotice\Notify;
 
 
@@ -27,6 +28,7 @@ class ContactController extends Controller
             ->line('Thank you for using our application!')
             ->mail($validatedData['email']);
 
+        Session::flash('success', 'Email has been sent successfully.');
         return redirect()->back();
     }
 }
