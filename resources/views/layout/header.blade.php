@@ -36,7 +36,7 @@
                         <!--Top Left-->
                         <div class="top-left">
                             <ul class="clearfix">
-                                <li><span class="icon flaticon-technology"></span>+12345 06 789</li>
+                                <li><span class="icon flaticon-technology"></span>{{ $setting->phone }}</li>
                                 <li><span class="icon flaticon-note"></span>mail@humanwelfare.com</li>
                             </ul>
                         </div>

@@ -23,6 +23,7 @@ class ContactController extends Controller
         ], [
             'captcha' => 'The CAPTCHA validation failed. Please try again.'
         ]);
+
         (new Notify)->subject($validatedData['subject'])
             ->greeting('Hello')
             ->line('You have a new message for ' . config('app.name'))

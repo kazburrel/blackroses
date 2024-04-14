@@ -18,10 +18,10 @@ class SettingsSeeder extends Seeder
             'postcode' => 'SL21JR',
             'phone' => '07590333039',
             'email' => 'info@blackrosessupport.co.uk',
-            'facebook' => '',
-            'twitter' => '',
-            'instagram' => '',
-            'linkedln' => '',
+            'facebook' => '#',
+            'twitter' => '#',
+            'instagram' => '#',
+            'linkedln' => '#',
         ]);
     }
 }

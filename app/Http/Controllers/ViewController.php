@@ -10,38 +10,39 @@ class ViewController extends Controller
 {
     public function home()
     {
-        $setting = Settings::all();
+        $setting = Settings::first();
         return view('index', ['setting' => $setting]);
     }
 
     public function about()
     {
-        $setting = Settings::all();
+        $setting = Settings::first();
         return view('about-us', ['setting' => $setting]);
     }
     public function services()
     {
-        $setting = Settings::all();
+        $setting = Settings::first();
         return view('services', ['setting' => $setting]);
     }
     public function referrals()
     {
-        $setting = Settings::all();
+        $setting = Settings::first();
         return view('referrals', ['setting' => $setting]);
     }
     public function testmonials()
     {
-        $setting = Settings::all();
+        $setting = Settings::first();
         return view('testmonials', ['setting' => $setting]);
     }
     public function contact()
     {
-        $setting = Settings::all();
+        $setting = Settings::first();
+
         return view('contact', ['setting' => $setting]);
     }
     public function team()
     {
-        $setting = Settings::all();
+        $setting = Settings::first();
         return view('our-team', ['setting' => $setting]);
     }
 }
