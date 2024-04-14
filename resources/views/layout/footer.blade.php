@@ -13,7 +13,8 @@
                         <div class="footer-column col-md-6 col-sm-6 col-xs-12">
                             <div class="footer-widget about-widget">
                                 <div class="footer-logo">
-                                    <figure><a href="index.html"><img src="images/logo-3.png" alt=""></a>
+                                    <figure><a href="{{ route('home') }}"><img src="images/logo-3.png"
+                                                alt=""></a>
                                     </figure>
                                 </div>
                                 <div class="widget-content">
@@ -22,10 +23,10 @@
                                     </div>
 
                                     <div class="social-links" style="margin-top: 58px">
-                                        <a href="#"><span class="fa fa-facebook-f"></span></a>
-                                        <a href="#"><span class="fa fa-twitter"></span></a>
-                                        <a href="#"><span class="fa fa-instagram"></span></a>
-                                        <a href="#"><span class="fa fa-linkedin"></span></a>
+                                        <a href="{{ $setting->facebook }}"><span class="fa fa-facebook"></span></a>
+                                        <a href="{{ $setting->linkedln }}"><span class="fa fa-linkedin"></span></a>
+                                        <a href="{{ $setting->instagram }}"><span class="fa fa-instagram"></span></a>
+                                        <a href="{{ $setting->twitter }}"><span class="fa fa-twitter"></span></a>
                                     </div>
 
                                 </div>
@@ -60,9 +61,9 @@
                                 <h2>Contact Us</h2>
                                 <div class="widget-content">
                                     <ul class="contact-info">
-                                        <li>P6 12th Street, Olive Building <br>Newyork, USA</li>
-                                        <li>+1 123 456 7890</li>
-                                        <li>mail@humanwelfare.com </li>
+                                        <li>{{ $setting->address }} <br>{{ $setting->postcode }}</li>
+                                        <li>{{ $setting->phone }}</li>
+                                        <li>{{ $setting->email }} </li>
                                     </ul>
 
                                     <!--Newsletter One-->

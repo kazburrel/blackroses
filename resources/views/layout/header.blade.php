@@ -37,7 +37,7 @@
                         <div class="top-left">
                             <ul class="clearfix">
                                 <li><span class="icon flaticon-technology"></span>{{ $setting->phone }}</li>
-                                <li><span class="icon flaticon-note"></span>mail@humanwelfare.com</li>
+                                <li><span class="icon flaticon-note"></span>{{ $setting->email }}</li>
                             </ul>
                         </div>
 
@@ -46,10 +46,10 @@
 
                             <!--social-icon-->
                             <div class="social-icon">
-                                <a href="#"><span class="fa fa-facebook"></span></a>
-                                <a href="#"><span class="fa fa-linkedin"></span></a>
-                                <a href="#"><span class="fa fa-instagram"></span></a>
-                                <a href="#"><span class="fa fa-twitter"></span></a>
+                                <a href="{{ $setting->facebook }}"><span class="fa fa-facebook"></span></a>
+                                <a href="{{ $setting->linkedln }}"><span class="fa fa-linkedin"></span></a>
+                                <a href="{{ $setting->instagram }}"><span class="fa fa-instagram"></span></a>
+                                <a href="{{ $setting->twitter }}"><span class="fa fa-twitter"></span></a>
                             </div>
 
 
@@ -140,7 +140,7 @@
 
                 <!-- .logo -->
                 <div class="logo text-center">
-                    <a href="index.html"><img src="images/logo-2.png" alt=""></a>
+                    <a href="{{ route('home') }}"><img src="images/logo-2.png" alt=""></a>
                 </div><!-- /.logo -->
 
                 <!-- .Side-menu -->
@@ -173,10 +173,10 @@
 
                 <div class="social-icons">
                     <ul>
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <a href="#"><span class="fa fa-instagram"></span></a>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="{{ $setting->facebook }}"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="{{ $setting->linkedln }}"><i class="fa fa-twitter"></i></a></li>
+                        <a href="{{ $setting->instagram }}"><span class="fa fa-instagram"></span></a>
+                        <li><a href="{{ $setting->twitter }}"><i class="fa fa-linkedin"></i></a></li>
                     </ul>
                 </div>
 
