@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Settings;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -9,32 +10,38 @@ class ViewController extends Controller
 {
     public function home()
     {
-        $user = User::all();
-        return view('index', ['user' => $user]);
+        $setting = Settings::all();
+        return view('index', ['setting' => $setting]);
     }
 
     public function about()
     {
-        return view('about-us');
+        $setting = Settings::all();
+        return view('about-us', ['setting' => $setting]);
     }
     public function services()
     {
-        return view('services');
+        $setting = Settings::all();
+        return view('services', ['setting' => $setting]);
     }
     public function referrals()
     {
-        return view('referrals');
+        $setting = Settings::all();
+        return view('referrals', ['setting' => $setting]);
     }
     public function testmonials()
     {
-        return view('testmonials');
+        $setting = Settings::all();
+        return view('testmonials', ['setting' => $setting]);
     }
     public function contact()
     {
-        return view('contact');
+        $setting = Settings::all();
+        return view('contact', ['setting' => $setting]);
     }
     public function team()
     {
-        return view('our-team');
+        $setting = Settings::all();
+        return view('our-team', ['setting' => $setting]);
     }
 }

@@ -18,6 +18,7 @@ class Settings extends Model
      */
     protected $fillable = [
         'address',
+        'postcode',
         'phone',
         'email',
         'facebook',
