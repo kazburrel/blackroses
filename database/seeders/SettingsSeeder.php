@@ -14,9 +14,10 @@ class SettingsSeeder extends Seeder
     public function run(): void
     {
         Settings::create([
-            'address' => '',
-            'phone' => '',
-            'email' => '',
+            'address' => '69 Granville Avenue Slough',
+            'postcode' => 'SL21JR',
+            'phone' => '07590333039',
+            'email' => 'info@blackrosessupport.co.uk',
             'facebook' => '',
             'twitter' => '',
             'instagram' => '',
