@@ -19,6 +19,7 @@ class Settings extends Model
     protected $fillable = [
         'address',
         'phone',
+        'email',
         'facebook',
         'twitter',
         'instagram',
