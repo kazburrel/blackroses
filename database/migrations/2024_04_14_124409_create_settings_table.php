@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('settings', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('address')->nullable();
+            $table->string('postcode')->nullable();
             $table->string('phone')->nullable();
             $table->string('email')->nullable();
             $table->string('facebook')->nullable();
