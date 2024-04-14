@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ViewController extends Controller
 {
     public function home()
     {
-        return view('index');
+        $user = User::all();
+        return view('index', ['user' => $user]);
     }
 
     public function about()
