@@ -22,10 +22,12 @@ class ContactController extends Controller
             'message' => 'required|string',
         ]);
 
-        (new Notify)->subject('Your Notification Subject')
-            ->greeting('Hello', $validatedData['name'])
-            ->line('You have a new message.')
-            ->line('Thank you for using our application!')
+        (new Notify)->subject($validatedData['subject'])
+            ->greeting('Hello')
+            ->line('You have a new message for ' . config('app.name'))
+            ->line('Name: ' . $validatedData['name'])
+            ->line('Email: ' . $validatedData['email'])
+            ->line('Message: ' . $validatedData['message'])
             ->mail($validatedData['email']);
 
         Session::flash('success', 'Email has been sent successfully.');
