@@ -15,13 +15,14 @@ class ContactController extends Controller
     {
         $user = User::all();
         $validatedData = $request->validate([
-            'full_name' => 'required',
             'name' => 'required|string|max:255',
             'email' => 'required|email',
             'subject' => 'required|string',
             'message' => 'required|string',
+            'captcha' => 'required|captcha'
+        ], [
+            'captcha' => 'The CAPTCHA validation failed. Please try again.'
         ]);
-        dd($validatedData);
         (new Notify)->subject($validatedData['subject'])
             ->greeting('Hello')
             ->line('You have a new message for ' . config('app.name'))

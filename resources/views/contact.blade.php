@@ -17,6 +17,19 @@
             };
             var map = new google.maps.Map(document.querySelector('.map-canvas'), mapOptions);
         }
+
+        function refreshCaptcha(event) {
+            event.preventDefault(); // Prevent default link behavior
+            var captchaImage = document.getElementById('captcha-image');
+            captchaImage.src = "{{ captcha_src() }}?" + Math.random();
+        }
+
+        setTimeout(function() {
+            var flashMessage = document.getElementById('flash-message');
+            if (flashMessage) {
+                flashMessage.style.display = 'none';
+            }
+        }, 5000);
     </script>
     <!-- / Hidden Bar -->
 
@@ -45,12 +58,14 @@
                         <div id="flash-message" class="alert alert-success" style="background-color: rgba(0, 255, 0, 0.2);">
                             {{ Session::get('success') }}
                         </div>
-
-                        <script>
-                            setTimeout(function() {
-                                document.getElementById('flash-message').style.display = 'none';
-                            }, 3000); // Hide after 3 seconds (3000 milliseconds)
-                        </script>
+                    @elseif ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
                     @endif
                     <div class="default-title">
                         <h3>SEND US A MESSAGE</h3>
@@ -61,7 +76,7 @@
                         <div class="contact-form default-form">
                             <form method="post" action="{{ route('contact.send') }}">
                                 @csrf
-                                <input type="hidden" name="full_name" value="hi">
+                                {{-- <input type="hidden" name="full_name" value="hi"> --}}
                                 <div class="row clearfix">
                                     <div class="form-group col-md-6 col-sm-6 col-xs-12">
                                         <div class="field-label">Full Name <span>*</span></div>
@@ -84,6 +99,21 @@
                                     <div class="form-group col-md-12 col-sm-12 col-xs-12">
                                         <div class="field-label">Message <span>*</span></div>
                                         <textarea name="message">{{ old('message') }}</textarea>
+                                    </div>
+
+
+
+                                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                        <p><img id="captcha-image" src="{{ captcha_src() }}" alt="CAPTCHA"></p>
+                                        <input type="text" id="captcha" name="captcha" placeholder="Enter the captcha">
+                                        <a href="#" onclick="refreshCaptcha(event)">
+                                            <i class="fa fa-refresh"></i> Refresh CAPTCHA
+                                        </a>
+                                        {{-- @error('captcha')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror --}}
                                     </div>
 
                                     <div class="form-group col-md-12 col-sm-12 col-xs-12">
