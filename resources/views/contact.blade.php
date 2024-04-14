@@ -61,6 +61,7 @@
                         <div class="contact-form default-form">
                             <form method="post" action="{{ route('contact.send') }}">
                                 @csrf
+                                <input type="hidden" name="full_name" value="hi">
                                 <div class="row clearfix">
                                     <div class="form-group col-md-6 col-sm-6 col-xs-12">
                                         <div class="field-label">Full Name <span>*</span></div>
