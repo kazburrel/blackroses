@@ -140,7 +140,8 @@
                                     <div class="inner">
                                         <div class="icon"><span class="flaticon-placeholder"></span></div>
                                         <h4>ADDRESS</h4>
-                                        <div class="text">P6 12th Street, Olive Building Newyork, USA</div>
+                                        <div class="text">{{ $setting->address }}, UK <br> {{ $setting->postcode }}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -151,7 +152,7 @@
                                     <div class="inner">
                                         <div class="icon"><span class="flaticon-envelope"></span></div>
                                         <h4>EMAIL</h4>
-                                        <div class="text">mail@humanwelfare.com</div>
+                                        <div class="text">{{ $setting->email }}</div>
                                     </div>
                                 </div>
 
@@ -159,7 +160,7 @@
                                     <div class="inner">
                                         <div class="icon"><span class="flaticon-technology"></span></div>
                                         <h4>PHONE NO</h4>
-                                        <div class="text">+12345 06 789</div>
+                                        <div class="text">{{ $setting->phone }}</div>
                                     </div>
                                 </div>
 

@@ -61,7 +61,7 @@
                                 <h2>Contact Us</h2>
                                 <div class="widget-content">
                                     <ul class="contact-info">
-                                        <li>{{ $setting->address }} <br>{{ $setting->postcode }}</li>
+                                        <li>{{ $setting->address }}, UK <br>{{ $setting->postcode }}</li>
                                         <li>{{ $setting->phone }}</li>
                                         <li>{{ $setting->email }} </li>
                                     </ul>
