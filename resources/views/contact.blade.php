@@ -54,11 +54,21 @@
 
                 <!--Form Column -->
                 <div class="column form-column pull-right col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    @if (Session::has('success'))
+                    {{-- @if (Session::has('success'))
                         <div id="flash-message" class="alert alert-success" style="background-color: rgba(0, 255, 0, 0.2);">
                             {{ Session::get('success') }}
                         </div>
                     @elseif ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif --}}
+
+                    @if ($errors->any())
                         <div class="alert alert-danger">
                             <ul>
                                 @foreach ($errors->all() as $error)
