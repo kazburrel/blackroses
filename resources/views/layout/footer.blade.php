@@ -119,6 +119,7 @@
 <script src="{{ asset('js/wow.js') }}"></script>
 <script src="{{ asset('js/appear.js') }}"></script>
 <script src="{{ asset('js/script.js') }}"></script>
+@include('sweetalert::alert')
 </body>
 
 </html>
