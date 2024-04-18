@@ -5,12 +5,12 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ViewController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 
-Route::get('home', [ViewController::class, 'home'])->name('home');
+Route::get('/', [ViewController::class, 'home'])->name('home');
 Route::get('about', [ViewController::class, 'about'])->name('about');
 Route::get('services', [ViewController::class, 'services'])->name('services');
 Route::get('testmonials', [ViewController::class, 'testmonials'])->name('testmonials');
