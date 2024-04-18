@@ -18,11 +18,7 @@
             var map = new google.maps.Map(document.querySelector('.map-canvas'), mapOptions);
         }
 
-        function refreshCaptcha(event) {
-            event.preventDefault(); // Prevent default link behavior
-            var captchaImage = document.getElementById('captcha-image');
-            captchaImage.src = "{{ captcha_src() }}?" + Math.random();
-        }
+
 
         setTimeout(function() {
             var flashMessage = document.getElementById('flash-message');
