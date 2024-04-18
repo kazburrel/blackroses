@@ -97,7 +97,7 @@
                                             <a href="#">About Us</a>
                                             <ul>
                                                 <li><a href="{{ route('about') }}">About Us</a></li>
-                                                <li><a href="{{ route('team') }}">Our Team</a></li>
+                                                {{-- <li><a href="{{ route('team') }}">Our Team</a></li> --}}
                                             </ul>
                                         </li>
                                         <li class="{{ request()->routeIs('services') ? 'current' : '' }}"><a
@@ -155,7 +155,7 @@
                             <a href="#">About Us</a>
                             <ul>
                                 <li><a href="{{ route('about') }}">About Us</a></li>
-                                <li><a href="{{ route('team') }}">Our Team</a></li>
+                                {{-- <li><a href="{{ route('team') }}">Our Team</a></li> --}}
                             </ul>
                         </li>
                         <li class="{{ request()->routeIs('services') ? 'current' : '' }}"><a

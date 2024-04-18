@@ -194,7 +194,7 @@
 
 
     <!--Call To Action-->
-    <section class="call-to-action" style="background-image:url(images/background/image-1.jpg);">
+    <section class="call-to-action" style="background-image:url(images/main-slider/image-2.jpg);">
         <div class="auto-container">
             <!--Section Title-->
             <div class="sec-title centered">
