@@ -17,9 +17,6 @@ class ContactController extends Controller
             'email' => 'required|email',
             'subject' => 'required|string',
             'message' => 'required|string',
-            'captcha' => 'required|captcha'
-        ], [
-            'captcha' => 'The CAPTCHA validation failed. Please try again.'
         ]);
 
         (new Notify)->subject($validatedData['subject'])

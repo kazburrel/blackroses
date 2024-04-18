@@ -113,18 +113,18 @@
 
 
 
-                                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                    {{-- <div class="form-group col-md-12 col-sm-12 col-xs-12">
                                         <p><img id="captcha-image" src="{{ captcha_src() }}" alt="CAPTCHA"></p>
                                         <input type="text" id="captcha" name="captcha" placeholder="Enter the captcha">
                                         <a href="#" onclick="refreshCaptcha(event)">
                                             <i class="fa fa-refresh"></i> Refresh CAPTCHA
                                         </a>
-                                        {{-- @error('captcha')
+                                        @error('captcha')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
-                                        @enderror --}}
-                                    </div>
+                                        @enderror
+                                    </div> --}}
 
                                     <div class="form-group col-md-12 col-sm-12 col-xs-12">
                                         <button type="submit" class="theme-btn btn-style-three">SUBMIT</button>
