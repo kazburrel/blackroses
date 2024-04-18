@@ -126,9 +126,9 @@
                             <div class="separator"></div>
                             <h3><a href="single-cause.html">Governance and Quality Assurance</a></h3>
                             <div class="text">At Black Roses Support, we make sure everything runs smoothly and safely.
-                                Each month, our manager and team check everything from client files to safety rules to how
-                                well our staff are trained. We listen to young people's ideas and feelings in monthly
-                                meetings and even have a suggestion box for them and our staff. Our team meets monthly too,
+                                Each week, our manager and team check everything from client files to safety rules to how
+                                well our staff are trained. We listen to young people's ideas and feelings in weekly
+                                meetings and even have a suggestion box for them and our staff. Our team meets weekly too,
                                 to talk about how we can do better. We also check in with our staff every year and listen to
                                 what young people think about our service. Our staff get regular training on important
                                 things like keeping everyone safe and helping people with their problems. We work hard to

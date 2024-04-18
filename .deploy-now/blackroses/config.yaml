@@ -12,9 +12,8 @@ deploy:
       - output.log
     # commands that are executed at the real webspace NOT at build servers AFTER copying new files
     post-deployment-remote-commands:
-      - composer update
       - mkdir storage/logs
-      # - php artisan down
+      - php artisan down
       - find $(pwd) -type f -not -path "$(pwd)/logs/*" -exec chmod 664 {} \;
       - find $(pwd) -type d -not -name "logs" -exec chmod 775 {} \;
       - chmod -R o+w storage bootstrap/cache
@@ -22,7 +21,7 @@ deploy:
       - php artisan migrate --force -n
       - php artisan storage:link
       - php artisan optimize
-      # - php artisan up
+      - php artisan up
 
   # configuration part, which is taken at ALL FURTHER deployments of this branch
   recurring:
@@ -36,7 +35,7 @@ deploy:
       - storage
     # commands that are executed at the real webspace NOT at build servers BEFORE copying new files
     pre-deployment-remote-commands:
-      # - php artisan down
+      - php artisan down
     # commands that are executed at the real webspace NOT at build servers AFTER copying new files
     post-deployment-remote-commands:
       - find $(pwd) -type f -not -path "$(pwd)/logs/*" -exec chmod 664 {} \;
@@ -46,7 +45,7 @@ deploy:
       - php artisan migrate --force -n
       - php artisan storage:link
       - php artisan optimize
-      # - php artisan up
+      - php artisan up
 
 # uncomment the following lines to configure cron jobs
 #runtime:

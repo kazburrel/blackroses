@@ -31,21 +31,26 @@
                     <div class="inner-box clearfix">
                         <!--Image Column-->
                         <div class="image-column">
-                            <figure class="image"><a href="#"><img src="images/resource/team-image-1.jpg"
-                                        alt=""></a></figure>
+                            <figure class="image"><a href="#"><img src="images/resource/latoya.jpg"
+                                        alt=""></a>
+                            </figure>
                         </div>
                         <!--Content Column-->
                         <div class="content-column">
                             <div class="inner">
-                                <h3>MARTIN</h3>
-                                <div class="text">Please stop looking at your phone and pet me rub face on owner for have
-                                    secret</div>
+                                <h3>LATOYA HUGHES</h3>
+                                <p><b>Founder & CEO</b></p>
+                                <div class="text">Latoya Hughes, CEO of Black Roses Support, leverages 20+ years in social
+                                    care to empower youth. Her passion for aiding young people drove the establishment of
+                                    Black Roses Support, embodying resilience and compassion. Through her leadership, the
+                                    organization fosters positive change and nurtures the well-being of those it serves.
+                                </div>
                                 <div class="social-links">
                                     <a href="#"><span class="fa fa-facebook-f"></span></a>
-                                    <a href="#"><span class="fa fa-twitter"></span></a>
-                                    <a href="#"><span class="fa fa-google-plus"></span></a>
+                                    <a href="#"><span class="fa fa-linkedin"></span></a>
+                                    {{-- <a href="#"><span class="fa fa-google-plus"></span></a>
                                     <a href="#"><span class="fa fa-skype"></span></a>
-                                    <a href="#"><span class="fa fa-youtube-play"></span></a>
+                                    <a href="#"><span class="fa fa-youtube-play"></span></a> --}}
                                 </div>
                             </div>
                         </div>
@@ -53,7 +58,7 @@
                 </div>
 
                 <!--Default Team Member-->
-                <div class="default-team-member col-md-6 col-sm-6 col-xs-12">
+                {{-- <div class="default-team-member col-md-6 col-sm-6 col-xs-12">
                     <div class="inner-box clearfix">
                         <!--Image Column-->
                         <div class="image-column">
@@ -76,10 +81,10 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
                 <!--Default Team Member-->
-                <div class="default-team-member alternate col-md-6 col-sm-6 col-xs-12">
+                {{-- <div class="default-team-member alternate col-md-6 col-sm-6 col-xs-12">
                     <div class="inner-box clearfix">
                         <!--Image Column-->
                         <div class="image-column">
@@ -233,7 +238,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
             </div>
 

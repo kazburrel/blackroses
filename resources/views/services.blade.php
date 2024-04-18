@@ -227,7 +227,7 @@
                 {{-- <h2>ABOUT US</h2> --}}
                 <div class="separator"></div>
                 <div class="desc-text">
-                    <b>In order to deliver a high quality service, monthly audits are carried out by the
+                    <b>In order to deliver a high quality service, weekly audits are carried out by the
                         Manager and Operations team of the service. These audits include:</b>
                 </div>
             </div>
@@ -268,11 +268,11 @@
                                     </p>
                                     <div>
                                         Where possible, we involve young people in the decision making process that affects
-                                        the service we provide them. At each unit there are monthly meeting
+                                        the service we provide them. At each unit there are weekly meeting
                                         house where young people have an opportunity to make staff aware of their
                                         feelings, viewpoints and ideas. There is also a suggestion box where young
                                         people and staff can submit suggestions anonymously. Team meetings for the staff
-                                        team take place on a monthly basis, and regular
+                                        team take place on a weekly basis, and regular
                                         individual supervision sessions for each team member, giving staff the
                                         opportunity to voice their opinions and feedback to the Manager about the
                                         service being offered. Black Roses support will conduct annual appraisals for
