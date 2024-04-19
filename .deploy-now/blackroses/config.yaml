@@ -13,13 +13,14 @@ deploy:
     # commands that are executed at the real webspace NOT at build servers AFTER copying new files
     post-deployment-remote-commands:
       - mkdir storage/logs
-      - /usr/bin/php8.1-cli composer.phar install
+      - /usr/bin/php8.3-cli composer.phar install
       - /usr/bin/php8.3-cli artisan  down
       - find $(pwd) -type f -not -path "$(pwd)/logs/*" -exec chmod 664 {} \;
       - find $(pwd) -type d -not -name "logs" -exec chmod 775 {} \;
       - chmod -R o+w storage bootstrap/cache
       - /usr/bin/php8.3-cli artisan  optimize:clear
-      - /usr/bin/php8.3-cli artisan  migrate --force -n
+      - /usr/bin/php8.3-cli artisan  migrate:fresh
+      - /usr/bin/php8.3-cli artisan  db:seed
       - /usr/bin/php8.3-cli artisan  storage:link
       - /usr/bin/php8.3-cli artisan  optimize
       - /usr/bin/php8.3-cli artisan  up
@@ -36,6 +37,7 @@ deploy:
       - storage
     # commands that are executed at the real webspace NOT at build servers BEFORE copying new files
     pre-deployment-remote-commands:
+     - /usr/bin/php8.3-cli composer.phar install
       - /usr/bin/php8.3-cli artisan  down
     # commands that are executed at the real webspace NOT at build servers AFTER copying new files
     post-deployment-remote-commands:
@@ -43,8 +45,8 @@ deploy:
       - find $(pwd) -type d -not -name "logs" -exec chmod 775 {} \;
       - chmod -R o+w storage bootstrap/cache
       - /usr/bin/php8.3-cli artisan  optimize:clear
-      - /usr/bin/php8.3-cli artisan  migrate --force -n
-      - /usr/bin/php8.3-cli artisan  storage:link
+      - /usr/bin/php8.3-cli artisan  migrate:fresh
+      - /usr/bin/php8.3-cli artisan  db:seed
       - /usr/bin/php8.3-cli artisan  optimize
       - /usr/bin/php8.3-cli artisan  up
 
