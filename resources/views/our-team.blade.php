@@ -36,7 +36,7 @@
                             </figure>
                         </div>
                         <!--Content Column-->
-                        <div class="content-column">
+                        {{-- <div class="content-column">
                             <div class="inner">
                                 <h3>LATOYA HUGHES</h3>
                                 <p><b>Founder & CEO</b></p>
@@ -48,12 +48,9 @@
                                 <div class="social-links">
                                     <a href="#"><span class="fa fa-facebook-f"></span></a>
                                     <a href="#"><span class="fa fa-linkedin"></span></a>
-                                    {{-- <a href="#"><span class="fa fa-google-plus"></span></a>
-                                    <a href="#"><span class="fa fa-skype"></span></a>
-                                    <a href="#"><span class="fa fa-youtube-play"></span></a> --}}
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
 
