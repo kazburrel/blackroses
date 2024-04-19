@@ -69,3 +69,20 @@ AWS_USE_PATH_STYLE_ENDPOINT=false
 
 VITE_APP_NAME="${APP_NAME}"
 
+
+
+DB::table('role_has_permissions')->insert([
+            ['role_id' => $user->id, 'permission_id' => $default_user->id], // Assign DEFAULTUSER permission to USER role
+        ]);
+
+        // Sync permissions for admin role
+        DB::table('role_has_permissions')->insert([
+            ['role_id' => $admin->id, 'permission_id' => $default_user->id], // Assign DEFAULTUSER permission to ADMIN role
+            ['role_id' => $admin->id, 'permission_id' => $manage_users->id], // Assign MANAGEUSERS permission to ADMIN role
+        ]);
+
+        DB::table('role_has_permissions')->insert([
+            ['role_id' => $super_admin->id, 'permission_id' => $default_user->id], // Assign DEFAULTUSER permission to super_admin role
+            ['role_id' => $super_admin->id, 'permission_id' => $manage_users->id],
+            ['role_id' => $super_admin->id, 'permission_id' => $manage_system->id], // Assign MANAGEUSERS permission to ADMIN role
+        ]);

@@ -4,21 +4,29 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 
+use App\Enums\UserPermissions;
+use App\Enums\UserRoles;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable, HasUuids, SoftDeletes;
+    use HasFactory, Notifiable, SoftDeletes, HasRoles;
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
+    protected function getDefaultGuardName(): string
+    {
+        return 'web';
+    }
+    // protected $guard_name = 'web';
     protected $fillable = [
         'fname',
         'lname',
@@ -46,6 +54,15 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            // 'status' => UserRoles::class
         ];
+    }
+
+    protected static function booted()
+    {
+        static::created(function (User $user) {
+            $user->assignRole(UserRoles::USER);
+            $user->givePermissionTo(UserPermissions::DEFAULTUSER);
+        });
     }
 }

@@ -12,8 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('job_vacancies', function (Blueprint $table) {
-            $table->uuid('id')->primary();
-            $table->foreignUuid('creator_id')->references('users')->on('id');
+            $table->bigIncrements('id')->primary(); // Auto-incrementing integer id field
+            $table->uuid('uuid')->unique();
+            $table->foreignUuid('creator_id')->references('uuid')->on('users');
             $table->string('title')->nullable();
             $table->string('description')->nullable();
             $table->string('responsibilty')->nullable();
