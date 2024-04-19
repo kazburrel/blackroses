@@ -67,10 +67,11 @@
                     <div class="outer-container clearfix">
                         <!--Logo Box-->
                         <div class="logo-box">
-                            <div class="logo"><a href="{{ route('home') }}"><img src="images/logo.png"
-                                        alt=""></a>
-                            </div>
+                            <div class="logo"><a href="{{ route('home') }}"><img
+                                        src="images/Black Roses Support-04.png" alt=""
+                                        style="width: 230px; height: 80px;"></a></div>
                         </div>
+
 
                         <!--Nav Outer-->
                         <div class="nav-outer clearfix">
@@ -140,7 +141,8 @@
 
                 <!-- .logo -->
                 <div class="logo text-center">
-                    <a href="{{ route('home') }}"><img src="images/logo-2.png" alt=""></a>
+                    <a href="{{ route('home') }}"><img src="images/Black Roses Support-04.png"
+                            style="width: 230px; height: 80px;" alt=""></a>
                 </div><!-- /.logo -->
 
                 <!-- .Side-menu -->
