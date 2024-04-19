@@ -1,54 +1,47 @@
-version: 1.0
+name: Laravel Deployment
 
-deploy:
-  # configuration part, which is taken at the FIRST deployment of each branch
-  bootstrap:
-    # folders that are not copied to IONOS webspace
-    excludes:
-      - tests
-      - node_modules
-      - DOCKER_ENV
-      - docker_tag
-      - output.log
-    # commands that are executed at the real webspace NOT at build servers AFTER copying new files
-    post-deployment-remote-commands:
-      - mkdir storage/logs
-      - sudo /usr/bin/php8.3-cli artisan down
-      - find $(pwd) -type f -not -path "$(pwd)/logs/*" -exec chmod 664 {} \;
-      - find $(pwd) -type d -not -name "logs" -exec chmod 775 {} \;
-      - chmod -R o+w storage bootstrap/cache
-      - sudo /usr/bin/php8.3-cli artisan optimize:clear
-      - sudo /usr/bin/php8.3-cli artisan migrate --force -n
-      - sudo /usr/bin/php8.3-cli artisan storage:link
-      - sudo /usr/bin/php8.3-cli artisan optimize
-      - sudo /usr/bin/php8.3-cli artisan up
+on:
+  push:
+    branches:
+      - main
 
-  # configuration part, which is taken at ALL FURTHER deployments of this branch
-  recurring:
-    # folders that are not copied to IONOS webspace
-    excludes:
-      - tests
-      - node_modules
-      - DOCKER_ENV
-      - docker_tag
-      - output.log
-      - storage
-    # commands that are executed at the real webspace NOT at build servers BEFORE copying new files
-    pre-deployment-remote-commands:
-      - sudo /usr/bin/php8.3-cli artisan down
-    # commands that are executed at the real webspace NOT at build servers AFTER copying new files
-    post-deployment-remote-commands:
-      - find $(pwd) -type f -not -path "$(pwd)/logs/*" -exec chmod 664 {} \;
-      - find $(pwd) -type d -not -name "logs" -exec chmod 775 {} \;
-      - chmod -R o+w storage bootstrap/cache
-      - sudo /usr/bin/php8.3-cli artisan optimize:clear
-      - sudo /usr/bin/php8.3-cli artisan migrate --force -n
-      - sudo /usr/bin/php8.3-cli artisan storage:link
-      - sudo /usr/bin/php8.3-cli artisan optimize
-      - sudo /usr/bin/php8.3-cli artisan up
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
 
-# uncomment the following lines to configure cron jobs
-#runtime:
-#  cron-jobs:
-#    - command: my-cron-job-command # the deployment is located at $HOME/htdocs/ to execute a deployed script just prefix it accordingly
-#      schedule: 0 5 * * * # run every day at 5:00
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.3'
+
+    - name: Install Composer dependencies
+      run: composer install --no-interaction --prefer-dist
+
+    - name: Setup Laravel environment
+      run: php artisan down
+
+    - name: Apply file permissions
+      run: |
+        mkdir -p storage/logs
+        find . -type f -not -path "./storage/logs/*" -exec chmod 664 {} \;
+        find . -type d -not -name "logs" -exec chmod 775 {} \;
+        chmod -R o+w storage bootstrap/cache
+
+    - name: Clear optimization cache
+      run: php artisan optimize:clear
+
+    - name: Run database migrations
+      run: php artisan migrate --force -n
+
+    - name: Create symbolic link for storage
+      run: php artisan storage:link
+
+    - name: Optimize application
+      run: php artisan optimize
+
+    - name: Bring Laravel application back up
+      run: php artisan up
