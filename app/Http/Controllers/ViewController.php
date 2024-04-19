@@ -45,4 +45,24 @@ class ViewController extends Controller
         $setting = Settings::first();
         return view('our-team', ['setting' => $setting]);
     }
+
+    // ADMIN VIEWS
+
+    public function adminDashboard()
+    {
+
+        return view('admin.dashboard');
+    }
+
+    public function vacancy()
+    {
+
+        return view('admin.vacancy');
+    }
+
+    public function postVacancy()
+    {
+
+        return view('admin.post_vacancy');
+    }
 }
