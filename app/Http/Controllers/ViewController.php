@@ -53,4 +53,16 @@ class ViewController extends Controller
 
         return view('admin.dashboard');
     }
+
+    public function vacancy()
+    {
+
+        return view('admin.vacancy');
+    }
+
+    public function postVacancy()
+    {
+
+        return view('admin.post_vacancy');
+    }
 }

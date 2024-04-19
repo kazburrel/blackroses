@@ -20,6 +20,8 @@ Route::get('/dashboard', function () {
 Route::prefix('/admin')->group(function () {
 
     Route::get('/dashboard', [ViewController::class, 'adminDashboard'])->name('admin.dashboard');
+    Route::get('/vacancy', [ViewController::class, 'vacancy'])->name('job.vacancy');
+    Route::get('/post/vacancy', [ViewController::class, 'postVacancy'])->name('post.job.vacancy');
     // Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     // Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
