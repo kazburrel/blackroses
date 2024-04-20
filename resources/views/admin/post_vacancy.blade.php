@@ -1,317 +1,6 @@
 @extends('admin.layouts.index')
 
 @section('content')
-    {{-- <div class="modal-dialog modal-dialog-centered w-100">
-    <div class="modal-content rounded">
-        <div class="modal-header pb-0 border-0 justify-content-end">
-        </div>
-        <div class="modal-body scroll-y px-10 px-lg-15 pt-0 pb-15">
-            <form id="kt_modal_new_target_form" class="form" action="/admin/add_admin" method="POST"
-                enctype="multipart/form-data">
-                @csrf
-                <!--begin::Heading-->
-                <div class="mb-13 text-center">
-                    <!--begin::Title-->
-                    <h1 class="mb-3">Add a New Admin</h1>
-                    <!--end::Title-->
-                </div>
-                <!--end::Heading-->
-                <!--begin::Input group-->
-                <div class="row">
-                    <div class="d-flex flex-column mb-8 fv-row col-md-6">
-                        <!--begin::Label-->
-                        <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                            <span class="required">First Name</span>
-                            <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"
-                                title="Specify a target name for future usage and reference"></i>
-                        </label>
-                        <!--end::Label-->
-                        <input type="text" class="form-control form-control-solid" placeholder="Enter First Name"
-                            name="fname" value="{{ old('fname') }}" />
-                        @error('fname')
-                            <p class="text-danger">
-                                {{ $message }}
-                            </p>
-                        @enderror
-                    </div>
-                    <div class="d-flex flex-column mb-8 fv-row col-md-6">
-                        <!--begin::Label-->
-                        <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                            <span class="required">Last Name</span>
-                            <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"
-                                title="Specify a target name for future usage and reference"></i>
-                        </label>
-                        <!--end::Label-->
-                        <input type="text" class="form-control form-control-solid" placeholder="Enter Last Name"
-                            name="lname" value="{{ old('lname') }}" />
-                        @error('lname')
-                            <p class="text-danger">
-                                {{ $message }}
-                            </p>
-                        @enderror
-                    </div>
-                </div>
-                <div class="d-flex flex-column mb-8 fv-row">
-                    <!--begin::Label-->
-                    <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                        <span class="required">Email</span>
-                        <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"
-                            title="Specify a target name for future usage and reference"></i>
-                    </label>
-                    <!--end::Label-->
-                    <input type="email" class="form-control form-control-solid" placeholder="Enter Email"
-                        name="email" value="{{ old('email') }}" />
-                    @error('email')
-                        <p class="text-danger">
-                            {{ $message }}
-                        </p>
-                    @enderror
-                </div>
-                <div class="row g-9 mb-8">
-                    <!--begin::Col-->
-                    <div class="col-md-12 fv-row">
-                        <label class="required fs-6 fw-bold mb-2">Joining Date</label>
-                        <!--begin::Input-->
-                        <div class="position-relative d-flex align-items-center">
-                            <!--begin::Icon-->
-                            <!--begin::Svg Icon | path: icons/duotune/general/gen014.svg-->
-                            <span class="svg-icon svg-icon-2 position-absolute mx-4">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                    viewBox="0 0 24 24" fill="none">
-                                    <path opacity="0.3"
-                                        d="M21 22H3C2.4 22 2 21.6 2 21V5C2 4.4 2.4 4 3 4H21C21.6 4 22 4.4 22 5V21C22 21.6 21.6 22 21 22Z"
-                                        fill="currentColor" />
-                                    <path
-                                        d="M6 6C5.4 6 5 5.6 5 5V3C5 2.4 5.4 2 6 2C6.6 2 7 2.4 7 3V5C7 5.6 6.6 6 6 6ZM11 5V3C11 2.4 10.6 2 10 2C9.4 2 9 2.4 9 3V5C9 5.6 9.4 6 10 6C10.6 6 11 5.6 11 5ZM15 5V3C15 2.4 14.6 2 14 2C13.4 2 13 2.4 13 3V5C13 5.6 13.4 6 14 6C14.6 6 15 5.6 15 5ZM19 5V3C19 2.4 18.6 2 18 2C17.4 2 17 2.4 17 3V5C17 5.6 17.4 6 18 6C18.6 6 19 5.6 19 5Z"
-                                        fill="currentColor" />
-                                    <path
-                                        d="M8.8 13.1C9.2 13.1 9.5 13 9.7 12.8C9.9 12.6 10.1 12.3 10.1 11.9C10.1 11.6 10 11.3 9.8 11.1C9.6 10.9 9.3 10.8 9 10.8C8.8 10.8 8.59999 10.8 8.39999 10.9C8.19999 11 8.1 11.1 8 11.2C7.9 11.3 7.8 11.4 7.7 11.6C7.6 11.8 7.5 11.9 7.5 12.1C7.5 12.2 7.4 12.2 7.3 12.3C7.2 12.4 7.09999 12.4 6.89999 12.4C6.69999 12.4 6.6 12.3 6.5 12.2C6.4 12.1 6.3 11.9 6.3 11.7C6.3 11.5 6.4 11.3 6.5 11.1C6.6 10.9 6.8 10.7 7 10.5C7.2 10.3 7.49999 10.1 7.89999 10C8.29999 9.90003 8.60001 9.80003 9.10001 9.80003C9.50001 9.80003 9.80001 9.90003 10.1 10C10.4 10.1 10.7 10.3 10.9 10.4C11.1 10.5 11.3 10.8 11.4 11.1C11.5 11.4 11.6 11.6 11.6 11.9C11.6 12.3 11.5 12.6 11.3 12.9C11.1 13.2 10.9 13.5 10.6 13.7C10.9 13.9 11.2 14.1 11.4 14.3C11.6 14.5 11.8 14.7 11.9 15C12 15.3 12.1 15.5 12.1 15.8C12.1 16.2 12 16.5 11.9 16.8C11.8 17.1 11.5 17.4 11.3 17.7C11.1 18 10.7 18.2 10.3 18.3C9.9 18.4 9.5 18.5 9 18.5C8.5 18.5 8.1 18.4 7.7 18.2C7.3 18 7 17.8 6.8 17.6C6.6 17.4 6.4 17.1 6.3 16.8C6.2 16.5 6.10001 16.3 6.10001 16.1C6.10001 15.9 6.2 15.7 6.3 15.6C6.4 15.5 6.6 15.4 6.8 15.4C6.9 15.4 7.00001 15.4 7.10001 15.5C7.20001 15.6 7.3 15.6 7.3 15.7C7.5 16.2 7.7 16.6 8 16.9C8.3 17.2 8.6 17.3 9 17.3C9.2 17.3 9.5 17.2 9.7 17.1C9.9 17 10.1 16.8 10.3 16.6C10.5 16.4 10.5 16.1 10.5 15.8C10.5 15.3 10.4 15 10.1 14.7C9.80001 14.4 9.50001 14.3 9.10001 14.3C9.00001 14.3 8.9 14.3 8.7 14.3C8.5 14.3 8.39999 14.3 8.39999 14.3C8.19999 14.3 7.99999 14.2 7.89999 14.1C7.79999 14 7.7 13.8 7.7 13.7C7.7 13.5 7.79999 13.4 7.89999 13.2C7.99999 13 8.2 13 8.5 13H8.8V13.1ZM15.3 17.5V12.2C14.3 13 13.6 13.3 13.3 13.3C13.1 13.3 13 13.2 12.9 13.1C12.8 13 12.7 12.8 12.7 12.6C12.7 12.4 12.8 12.3 12.9 12.2C13 12.1 13.2 12 13.6 11.8C14.1 11.6 14.5 11.3 14.7 11.1C14.9 10.9 15.2 10.6 15.5 10.3C15.8 10 15.9 9.80003 15.9 9.70003C15.9 9.60003 16.1 9.60004 16.3 9.60004C16.5 9.60004 16.7 9.70003 16.8 9.80003C16.9 9.90003 17 10.2 17 10.5V17.2C17 18 16.7 18.4 16.2 18.4C16 18.4 15.8 18.3 15.6 18.2C15.4 18.1 15.3 17.8 15.3 17.5Z"
-                                        fill="currentColor" />
-                                </svg>
-                            </span>
-                            <!--end::Svg Icon-->
-                            <!--end::Icon-->
-                            <!--begin::Datepicker-->
-                            <input class="form-control form-control-solid ps-12" placeholder="Select a date"
-                                name="join_date" type="date" value="{{ old('join_date') }}" />
-                            @error('join_date')
-                                <p class="text-danger">
-                                    {{ $message }}
-                                </p>
-                            @enderror
-                            <!--end::Datepicker-->
-                        </div>
-                        <!--end::Input-->
-                    </div>
-                    <!--end::Col-->
-                </div>
-               <div class="row">
-                <div class="d-flex flex-column mb-8 fv-row col-md-6">
-                    <!--begin::Label-->
-                    <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                        <span class="required">Password</span>
-                        <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"
-                            title="Specify a target name for future usage and reference"></i>
-                    </label>
-                    <!--end::Label-->
-                    <input type="password" class="form-control form-control-solid" placeholder="Enter Department Name"
-                        name="password" value="{{ old('password') }}" />
-                    @error('password')
-                        <p class="text-danger">
-                            {{ $message }}
-                        </p>
-                    @enderror
-                </div>
-                <div class="d-flex flex-column mb-8 fv-row col-md-6">
-                    <!--begin::Label-->
-                    <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                        <span class="required">Confirm Password</span>
-                        <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"
-                            title="Specify a target name for future usage and reference"></i>
-                    </label>
-                    <!--end::Label-->
-                    <input type="password" class="form-control form-control-solid"
-                        placeholder="Enter password confirmation" name="password_confirmation"
-                        value="{{ old('password_confirmation') }}" />
-                    @error('password_confirmation')
-                        <p class="text-danger">
-                            {{ $message }}
-                        </p>
-                    @enderror
-                </div>
-               </div>
-                <div class="d-flex flex-column mb-8 fv-row">
-                    <!--begin::Label-->
-                    <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                        <span class="required">Departments</span>
-                        <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"
-                            title="Specify a target name for future usage and reference"></i>
-                    </label>
-                    <!--end::Label-->
-                    <select class="form-select" aria-label="Select example" name="department">
-                        <option value="">Select Department</option>
-                        <option value="library" {{ old('department',) == 'library' ? 'selected' : '' }}>Library</option>
-                        <option value="administration" {{ old('department',) == 'administration' ? 'selected' : '' }}>Administration</option>
-                        <option value="transport" {{ old('department',) == 'transport' ? 'selected' : '' }}>Transport</option>
-                        <option value="laboratory" {{ old('department',) == 'laboratory' ? 'selected' : '' }}>Laboratory</option>
-                        <option value="other" {{ old('department',) == 'other' ? 'selected' : '' }}>Other</option>
-                    </select>
-                    @error('department')
-                        <p class="text-danger">
-                            {{ $message }}
-                        </p>
-                    @enderror
-                </div>
-                <div class="row">
-                    <div class="d-flex flex-column mb-8 fv-row col-md-6">
-                        <!--begin::Label-->
-                        <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                            <span class="required">Gender</span>
-                            <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"
-                                title="Specify a target name for future usage and reference"></i>
-                        </label>
-                        <!--end::Label-->
-                        <select class="form-select" aria-label="Select example" name="gender">
-                            <option value="">Select Gender</option>
-                            <option value="male" {{ old('gender',) == 'male' ? 'selected' : '' }}>Male</option>
-                            <option value="female" {{ old('gender',) == 'female' ? 'selected' : '' }}>Female</option>
-                            <option @selected($skill->type == 'databases') value="databases">DATABASES</option> 
-                        </select>
-                        @error('gender')
-                            <p class="text-danger">
-                                {{ $message }}
-                            </p>
-                        @enderror
-                    </div>
-                    <div class="d-flex flex-column mb-8 fv-row col-md-6">
-                        <!--begin::Label-->
-                        <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                            <span class="required">Mobile No</span>
-                            <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"
-                                title="Specify a target name for future usage and reference"></i>
-                        </label>
-                        <!--end::Label-->
-                        <input type="number" class="form-control form-control-solid" placeholder="Enter Mobile No"
-                            name="mobile_no" value="{{ old('mobile_no') }}" />
-                        @error('mobile_no')
-                            <p class="text-danger">
-                                {{ $message }}
-                            </p>
-                        @enderror
-                    </div>
-                </div>
-                <div class="col-md-12 fv-row">
-                    <label class="required fs-6 fw-bold mb-2">Birth Date</label>
-                    <!--begin::Input-->
-                    <div class="position-relative d-flex align-items-center">
-                        <!--begin::Icon-->
-                        <!--begin::Svg Icon | path: icons/duotune/general/gen014.svg-->
-                        <span class="svg-icon svg-icon-2 position-absolute mx-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                viewBox="0 0 24 24" fill="none">
-                                <path opacity="0.3"
-                                    d="M21 22H3C2.4 22 2 21.6 2 21V5C2 4.4 2.4 4 3 4H21C21.6 4 22 4.4 22 5V21C22 21.6 21.6 22 21 22Z"
-                                    fill="currentColor" />
-                                <path
-                                    d="M6 6C5.4 6 5 5.6 5 5V3C5 2.4 5.4 2 6 2C6.6 2 7 2.4 7 3V5C7 5.6 6.6 6 6 6ZM11 5V3C11 2.4 10.6 2 10 2C9.4 2 9 2.4 9 3V5C9 5.6 9.4 6 10 6C10.6 6 11 5.6 11 5ZM15 5V3C15 2.4 14.6 2 14 2C13.4 2 13 2.4 13 3V5C13 5.6 13.4 6 14 6C14.6 6 15 5.6 15 5ZM19 5V3C19 2.4 18.6 2 18 2C17.4 2 17 2.4 17 3V5C17 5.6 17.4 6 18 6C18.6 6 19 5.6 19 5Z"
-                                    fill="currentColor" />
-                                <path
-                                    d="M8.8 13.1C9.2 13.1 9.5 13 9.7 12.8C9.9 12.6 10.1 12.3 10.1 11.9C10.1 11.6 10 11.3 9.8 11.1C9.6 10.9 9.3 10.8 9 10.8C8.8 10.8 8.59999 10.8 8.39999 10.9C8.19999 11 8.1 11.1 8 11.2C7.9 11.3 7.8 11.4 7.7 11.6C7.6 11.8 7.5 11.9 7.5 12.1C7.5 12.2 7.4 12.2 7.3 12.3C7.2 12.4 7.09999 12.4 6.89999 12.4C6.69999 12.4 6.6 12.3 6.5 12.2C6.4 12.1 6.3 11.9 6.3 11.7C6.3 11.5 6.4 11.3 6.5 11.1C6.6 10.9 6.8 10.7 7 10.5C7.2 10.3 7.49999 10.1 7.89999 10C8.29999 9.90003 8.60001 9.80003 9.10001 9.80003C9.50001 9.80003 9.80001 9.90003 10.1 10C10.4 10.1 10.7 10.3 10.9 10.4C11.1 10.5 11.3 10.8 11.4 11.1C11.5 11.4 11.6 11.6 11.6 11.9C11.6 12.3 11.5 12.6 11.3 12.9C11.1 13.2 10.9 13.5 10.6 13.7C10.9 13.9 11.2 14.1 11.4 14.3C11.6 14.5 11.8 14.7 11.9 15C12 15.3 12.1 15.5 12.1 15.8C12.1 16.2 12 16.5 11.9 16.8C11.8 17.1 11.5 17.4 11.3 17.7C11.1 18 10.7 18.2 10.3 18.3C9.9 18.4 9.5 18.5 9 18.5C8.5 18.5 8.1 18.4 7.7 18.2C7.3 18 7 17.8 6.8 17.6C6.6 17.4 6.4 17.1 6.3 16.8C6.2 16.5 6.10001 16.3 6.10001 16.1C6.10001 15.9 6.2 15.7 6.3 15.6C6.4 15.5 6.6 15.4 6.8 15.4C6.9 15.4 7.00001 15.4 7.10001 15.5C7.20001 15.6 7.3 15.6 7.3 15.7C7.5 16.2 7.7 16.6 8 16.9C8.3 17.2 8.6 17.3 9 17.3C9.2 17.3 9.5 17.2 9.7 17.1C9.9 17 10.1 16.8 10.3 16.6C10.5 16.4 10.5 16.1 10.5 15.8C10.5 15.3 10.4 15 10.1 14.7C9.80001 14.4 9.50001 14.3 9.10001 14.3C9.00001 14.3 8.9 14.3 8.7 14.3C8.5 14.3 8.39999 14.3 8.39999 14.3C8.19999 14.3 7.99999 14.2 7.89999 14.1C7.79999 14 7.7 13.8 7.7 13.7C7.7 13.5 7.79999 13.4 7.89999 13.2C7.99999 13 8.2 13 8.5 13H8.8V13.1ZM15.3 17.5V12.2C14.3 13 13.6 13.3 13.3 13.3C13.1 13.3 13 13.2 12.9 13.1C12.8 13 12.7 12.8 12.7 12.6C12.7 12.4 12.8 12.3 12.9 12.2C13 12.1 13.2 12 13.6 11.8C14.1 11.6 14.5 11.3 14.7 11.1C14.9 10.9 15.2 10.6 15.5 10.3C15.8 10 15.9 9.80003 15.9 9.70003C15.9 9.60003 16.1 9.60004 16.3 9.60004C16.5 9.60004 16.7 9.70003 16.8 9.80003C16.9 9.90003 17 10.2 17 10.5V17.2C17 18 16.7 18.4 16.2 18.4C16 18.4 15.8 18.3 15.6 18.2C15.4 18.1 15.3 17.8 15.3 17.5Z"
-                                    fill="currentColor" />
-                            </svg>
-                        </span>
-                        <!--end::Svg Icon-->
-                        <!--end::Icon-->
-                        <!--begin::Datepicker-->
-                        <input class="form-control form-control-solid ps-12" placeholder="Select a date"
-                            name="birth_date" type="date" value="{{ old('birth_date') }}" />
-                        @error('birth_date')
-                            <p class="text-danger">
-                                {{ $message }}
-                            </p>
-                        @enderror
-                        <!--end::Datepicker-->
-                    </div>
-                    <div class="d-flex flex-column mb-8">
-                        <label class="fs-6 fw-bold mb-2">Address</label>
-                        <textarea class="form-control form-control-solid" rows="3" name="address" placeholder="Address">
-                        {{ old('address') }}
-                        </textarea>
-                        @error('address')
-                            <p class="text-danger">
-                                {{ $message }}
-                            </p>
-                        @enderror
-                    </div>
-                    <!--end::Input-->
-                </div>
-
-                <div class="d-flex flex-column mb-8 fv-row">
-                    <!--begin::Label-->
-                    <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                        <span class="required">Profile Picture</span>
-                        <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"
-                            title="Upload Profile Picture"></i>
-                    </label>
-                    <!--end::Label-->
-                    <input type="file" class="form-control form-control-solid" placeholder="" name="admin_avatar"
-                        value="{{ old('admin_avatar') }}" />
-                    @error('admin_avatar')
-                        <p class="text-danger">
-                            {{ $message }}
-                        </p>
-                    @enderror
-                </div>
-
-                <!--begin::Input group-->
-                <div class="d-flex flex-column mb-8">
-                    <label class="fs-6 fw-bold mb-2">Education</label>
-                    <textarea class="form-control form-control-solid" rows="3" name="education" placeholder="Department Details">
-                    {{ old('education') }}
-                    </textarea>
-                    @error('education')
-                        <p class="text-danger">
-                            {{ $message }}
-                        </p>
-                    @enderror
-                </div>
-                <div class="d-flex flex-column mb-8 fv-row">
-                    <!--begin::Label-->
-                    <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                        <span class="required">Status</span>
-                        <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"
-                            title="Specify a target name for future usage and reference"></i>
-                    </label>
-                    <!--end::Label-->
-                    <select class="form-select" aria-label="Select example" name="status">
-                        <option value="">Select Status</option>
-                        <option value="true" {{ old('status',) == 'true' ? 'selected' : '' }}>Active</option>
-                        <option value="false" {{ old('status',) == 'false' ? 'selected' : '' }}>Block</option>
-                         <option @selected($skill->type == 'databases') value="databases">DATABASES</option> 
-                    </select>
-                    @error('status')
-                        <p class="text-danger">
-                            {{ $message }}
-                        </p>
-                    @enderror
-                </div>
-                <!--end::Input group-->
-                <!--begin::Actions-->
-                <div class="text-center">
-                    <button type="reset" id="kt_modal_new_target_cancel" class="btn btn-light me-3">Cancel</button>
-                    <button type="submit" id="kt_modal_new_target_submit" class="btn btn-primary">
-                        <span class="indicator-label">Submit</span>
-                    </button>
-                </div>
-                <!--end::Actions-->
-            </form>
-            <!--end:Form-->
-        </div>
-        <!--end::Modal body-->
-    </div>
-    <!--end::Modal content-->
-</div> --}}
-
     <div class=" " id="kt_modal_new_target" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered mw-650px">
             <div class="modal-content rounded">
@@ -320,10 +9,22 @@
                     </div>
                 </div>
                 <div class="modal-body scroll-y px-10 px-lg-15 pt-0 pb-15">
-                    <form id="kt_modal_new_target_form" class="form" action="#">
+                    <form id="kt_modal_new_target_form" method="POST" class="form"
+                        action="{{ route('post.job.vacancy') }}">
+                        @csrf
                         <div class="mb-13 text-center">
                             <h1 class="mb-3">Post a Job Vacancy</h1>
                         </div>
+                        {{-- @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif --}}
+
                         <div class="d-flex flex-column mb-8 fv-row">
                             <label class="d-flex align-items-center fs-6 fw-bold mb-2">
                                 <span class="required">Job Title</span>
@@ -331,21 +32,33 @@
                                     title="Specify a target name for future usage and reference"></i>
                             </label>
                             <input type="text" class="form-control form-control-solid" placeholder="Enter Job Title"
-                                name="target_title" />
+                                name="title" value="{{ old('title') }}" />
+                            @error('title')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="row g-9 mb-8">
                             <div class="col-md-6 fv-row">
-                                <label class="required fs-6 fw-bold mb-2">Assign</label>
+                                <label class="required fs-6 fw-bold mb-2">Type</label>
                                 <select class="form-select form-select-solid" data-control="select2" data-hide-search="true"
-                                    data-placeholder="Select a Team Member" name="target_assign">
-                                    <option value="">Select user...</option>
-                                    <option value="1">Karina Clark</option>
-                                    <option value="2">Robert Doe</option>
-                                    <option value="3">Niel Owen</option>
-                                    <option value="4">Olivia Wild</option>
-                                    <option value="5">Sean Bean</option>
+                                    data-placeholder="Select Job Type" name="type[]">
+                                    <option value="">Select type...</option>
+                                    <option value="Full-time"
+                                        {{ in_array('Full-time', old('type', [])) ? 'selected' : '' }}>Full-time</option>
+                                    <option value="Part-time"
+                                        {{ in_array('Part-time', old('type', [])) ? 'selected' : '' }}>Part-time</option>
+                                    <option value="Zero hours contract"
+                                        {{ in_array('Zero hours contract', old('type', [])) ? 'selected' : '' }}>Zero hours
+                                        contract</option>
+                                    <option value="Permanent"
+                                        {{ in_array('Permanent', old('type', [])) ? 'selected' : '' }}>Permanent</option>
                                 </select>
+                                @error('type')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
+
+
                             <div class="col-md-6 fv-row">
                                 <label class="required fs-6 fw-bold mb-2">Due Date</label>
                                 <div class="position-relative d-flex align-items-center">
@@ -364,54 +77,138 @@
                                         </svg>
                                     </span>
                                     <input class="form-control form-control-solid ps-12" placeholder="Select a date"
-                                        name="due_date" />
+                                        name="due_date" value="{{ old('due_date') }}" />
                                 </div>
+                                @error('due_date')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                         </div>
-                        <div class="d-flex flex-column mb-8">
-                            <label class="fs-6 fw-bold mb-2">Target Details</label>
-                            <textarea class="form-control form-control-solid" rows="3" name="target_details"
-                                placeholder="Type Target Details"></textarea>
+                        <div class="row g-9 mb-8">
+                            <div class="col-md-6 fv-row">
+                                <label class="required fs-6 fw-bold mb-2">Schedule</label>
+                                <select class="form-select form-select-solid" data-control="select2" data-hide-search="true"
+                                    data-placeholder="Select Job Schedule" name="schedule[]" multiple>
+                                    <option value="">Select Schedule...</option>
+                                    <option value="16 hours"
+                                        {{ in_array('16 hours', old('schedule', [])) ? 'selected' : '' }}>16 hours</option>
+                                    <option value="10 hours"
+                                        {{ in_array('10 hours', old('schedule', [])) ? 'selected' : '' }}>10 hours</option>
+                                    <option value="8 hours"
+                                        {{ in_array('8 hours', old('schedule', [])) ? 'selected' : '' }}>8 hours</option>
+                                    <option value="6 hours"
+                                        {{ in_array('6 hours', old('schedule', [])) ? 'selected' : '' }}>6 hours</option>
+                                </select>
+                                @error('schedule')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <div class="col-md-6 fv-row">
+                                <label class="d-flex align-items-center fs-6 fw-bold mb-2">
+                                    <span class="required">Job Benefits</span>
+                                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"
+                                        title="Specify a target name for future usage and reference"></i>
+                                </label>
+                                <input type="text" class="form-control form-control-solid"
+                                    placeholder="Enter Job Benefits" name="benefits" value="{{ old('benefits') }}" />
+                                @error('benefits')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                        </div>
+                        <div class="row g-9 mb-8">
+                            <div class="col-md-6 fv-row">
+                                <label class="d-flex align-items-center fs-6 fw-bold mb-2">
+                                    <span class="required">Job Location</span>
+                                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"
+                                        title="Specify a target name for future usage and reference"></i>
+                                </label>
+                                <input type="text" class="form-control form-control-solid"
+                                    placeholder="Enter Job Location" name="location" value="{{ old('location') }}" />
+                                @error('location')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="col-md-6 fv-row">
+                                <label class="d-flex align-items-center fs-6 fw-bold mb-2">
+                                    <span class="required">Job Postcode</span>
+                                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"
+                                        title="Specify a target name for future usage and reference"></i>
+                                </label>
+                                <input type="text" class="form-control form-control-solid"
+                                    placeholder="Enter Job Postcode" name="postcode" value="{{ old('postcode') }}" />
+                                @error('postcode')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
                         </div>
                         <div class="d-flex flex-column mb-8 fv-row">
                             <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                                <span class="required">Tags</span>
+                                <span class="required">Job Pay Rate</span>
                                 <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"
-                                    title="Specify a target priorty"></i>
+                                    title="Specify a target name for future usage and reference"></i>
                             </label>
-                            <input class="form-control form-control-solid" value="Important, Urgent" name="tags" />
+                            <input type="text" class="form-control form-control-solid"
+                                placeholder="Enter Job Pay Rate" name="pay_rate" value="{{ old('pay_rate') }}" />
+                            @error('pay_rate')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                         </div>
-                        <div class="d-flex flex-stack mb-8">
-                            <div class="me-5">
-                                <label class="fs-6 fw-bold">Adding Users by Team Members</label>
-                                <div class="fs-7 fw-bold text-muted">If you need more info, please check budget planning
-                                </div>
+                        <div class="row g-9 mb-8">
+                            <div class="col-md-6 fv-row">
+                                <label class="d-flex align-items-center fs-6 fw-bold mb-2">
+                                    <span class="required">Contact</span>
+                                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"
+                                        title="Specify a target name for future usage and reference"></i>
+                                </label>
+                                <input type="text" class="form-control form-control-solid" placeholder="Enter Contact"
+                                    name="contact" value="{{ old('contact') }}" />
+                                @error('contact')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
-                            <label class="form-check form-switch form-check-custom form-check-solid">
-                                <input class="form-check-input" type="checkbox" value="1" checked="checked" />
-                                <span class="form-check-label fw-bold text-muted">Allowed</span>
-                            </label>
-                        </div>
-                        <div class="mb-15 fv-row">
-                            <div class="d-flex flex-stack">
-                                <div class="fw-bold me-5">
-                                    <label class="fs-6">Notifications</label>
-                                    <div class="fs-7 text-muted">Allow Notifications by Phone or Email</div>
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <label class="form-check form-check-custom form-check-solid me-10">
-                                        <input class="form-check-input h-20px w-20px" type="checkbox" name="communication[]"
-                                            value="email" checked="checked" />
-                                        <span class="form-check-label fw-bold">Email</span>
-                                    </label>
-                                    <label class="form-check form-check-custom form-check-solid">
-                                        <input class="form-check-input h-20px w-20px" type="checkbox" name="communication[]"
-                                            value="phone" />
-                                        <span class="form-check-label fw-bold">Phone</span>
-                                    </label>
-                                </div>
+                            <div class="col-md-6 fv-row">
+                                <label class="d-flex align-items-center fs-6 fw-bold mb-2">
+                                    <span class="required">Salary</span>
+                                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"
+                                        title="Specify a target name for future usage and reference"></i>
+                                </label>
+                                <input type="text" class="form-control form-control-solid" placeholder="Enter Salary"
+                                    name="salary" value="{{ old('salary') }}" />
+                                @error('salary')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                         </div>
+                        <div class="d-flex flex-column mb-8">
+                            <label class="fs-6 fw-bold mb-2">Job Description</label>
+                            <textarea class="form-control form-control-solid" rows="3" name="description"
+                                placeholder="Type Job Description">{{ old('description') }}</textarea>
+                            @error('description')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        <div class="d-flex flex-column mb-8">
+                            <label class="fs-6 fw-bold mb-2">Responsibility</label>
+                            <textarea class="form-control form-control-solid" rows="3" name="responsibility"
+                                placeholder="Type Responsibility">{{ old('responsibility') }}</textarea>
+                            @error('responsibility')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        <div class="d-flex flex-column mb-8">
+                            <label class="fs-6 fw-bold mb-2">Requirements</label>
+                            <textarea class="form-control form-control-solid" rows="3" name="requirement" placeholder="Type Requirements">{{ old('requirement') }}</textarea>
+                            @error('requirement')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+
                         <div class="text-center">
                             <button type="reset" id="kt_modal_new_target_cancel"
                                 class="btn btn-light me-3">Cancel</button>

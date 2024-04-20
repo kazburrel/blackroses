@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\JobVacancy;
 use App\Models\Settings;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -29,10 +30,18 @@ class ViewController extends Controller
         $setting = Settings::first();
         return view('referrals', ['setting' => $setting]);
     }
-    public function testmonials()
+    public function vaccancy()
     {
+        $vaccancy = JobVacancy::where('is_listed', 1)->get();
         $setting = Settings::first();
-        return view('testmonials', ['setting' => $setting]);
+        // dd($vaccancy);
+        return view(
+            'vaccancies',
+            [
+                'vaccancies' => $vaccancy,
+                'setting' => $setting
+            ]
+        );
     }
     public function contact()
     {
@@ -60,8 +69,9 @@ class ViewController extends Controller
         return view('admin.vacancy');
     }
 
-    public function postVacancy()
+    public function getPostVacancy()
     {
+
 
         return view('admin.post_vacancy');
     }

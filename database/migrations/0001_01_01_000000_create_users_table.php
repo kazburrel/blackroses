@@ -12,7 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->uuid('id')->primary();
+            $table->bigIncrements('id')->primary(); // Auto-incrementing integer id field
+            $table->uuid('uuid')->unique();
             $table->string('fname');
             $table->string('lname');
             $table->string('email')->unique();
@@ -30,7 +31,8 @@ return new class extends Migration
         });
 
         Schema::create('sessions', function (Blueprint $table) {
-            $table->uuid('id')->primary();
+            $table->bigIncrements('id')->primary(); // Auto-incrementing integer id field
+            $table->uuid('uuid')->unique();;
             $table->foreignUuid('user_id')->nullable()->index();
             $table->string('ip_address', 45)->nullable();
             $table->text('user_agent')->nullable();

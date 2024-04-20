@@ -67,10 +67,11 @@
                     <div class="outer-container clearfix">
                         <!--Logo Box-->
                         <div class="logo-box">
-                            <div class="logo"><a href="{{ route('home') }}"><img src="images/logo.png"
-                                        alt=""></a>
-                            </div>
+                            <div class="logo"><a href="{{ route('home') }}"><img
+                                        src="images/Black Roses Support-04.png" alt=""
+                                        style="width: 230px; height: 80px;"></a></div>
                         </div>
+
 
                         <!--Nav Outer-->
                         <div class="nav-outer clearfix">
@@ -105,8 +106,8 @@
                                         {{-- <li class="dropdown"><a href="#">Referrals</a> </li> --}}
                                         <li class="{{ request()->routeIs('referrals') ? 'current' : '' }}"><a
                                                 href="{{ route('referrals') }}">referrals</a></li>
-                                        {{-- <li class="{{ request()->routeIs('testmonials') ? 'current' : '' }}"><a
-                                                href="{{ route('testmonials') }}">Testmonies</a> </li> --}}
+                                        <li class="{{ request()->routeIs('vaccancies') ? 'current' : '' }}"><a
+                                                href="{{ route('vaccancies') }}">Vaccancies</a> </li>
                                         <li class="{{ request()->routeIs('contact') ? 'current' : '' }}"><a
                                                 href="{{ route('contact') }}">Contact</a></li>
                                     </ul>
@@ -140,7 +141,8 @@
 
                 <!-- .logo -->
                 <div class="logo text-center">
-                    <a href="{{ route('home') }}"><img src="images/logo-2.png" alt=""></a>
+                    <a href="{{ route('home') }}"><img src="images/Black Roses Support-04.png"
+                            style="width: 230px; height: 80px;" alt=""></a>
                 </div><!-- /.logo -->
 
                 <!-- .Side-menu -->
@@ -163,8 +165,8 @@
                         {{-- <li class="dropdown"><a href="#">Referrals</a> </li> --}}
                         <li class="{{ request()->routeIs('referrals') ? 'current' : '' }}"><a
                                 href="{{ route('referrals') }}">referrals</a></li>
-                        {{-- <li class="{{ request()->routeIs('testmonials') ? 'current' : '' }}"><a
-                                href="{{ route('testmonials') }}">Testmonies</a> </li> --}}
+                        <li class="{{ request()->routeIs('vaccancies') ? 'current' : '' }}"><a
+                                href="{{ route('vaccancies') }}">Vaccancies</a> </li>
                         <li class="{{ request()->routeIs('contact') ? 'current' : '' }}"><a
                                 href="{{ route('contact') }}">Contact</a></li>
 

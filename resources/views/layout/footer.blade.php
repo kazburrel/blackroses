@@ -13,8 +13,8 @@
                         <div class="footer-column col-md-6 col-sm-6 col-xs-12">
                             <div class="footer-widget about-widget">
                                 <div class="footer-logo">
-                                    <figure><a href="{{ route('home') }}"><img src="images/logo-3.png"
-                                                alt=""></a>
+                                    <figure><a href="{{ route('home') }}"><img src="images/Black Roses Support-03.png"
+                                                style="width: 230px; height: 80px;" alt=""></a>
                                     </figure>
                                 </div>
                                 <div class="widget-content">

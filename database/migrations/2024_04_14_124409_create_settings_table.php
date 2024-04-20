@@ -12,7 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('settings', function (Blueprint $table) {
-            $table->uuid('id')->primary();
+            $table->bigIncrements('id')->primary(); // Auto-incrementing integer id field
+            $table->uuid('uuid')->unique();
             $table->string('address')->nullable();
             $table->string('postcode')->nullable();
             $table->string('phone')->nullable();

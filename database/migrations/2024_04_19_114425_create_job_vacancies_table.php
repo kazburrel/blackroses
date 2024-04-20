@@ -12,11 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('job_vacancies', function (Blueprint $table) {
-            $table->uuid('id')->primary();
-            $table->foreignUuid('creator_id')->references('users')->on('id');
+            $table->bigIncrements('id')->primary(); // Auto-incrementing integer id field
+            $table->uuid('uuid')->unique();
+            $table->foreignUuid('creator_id')->references('uuid')->on('users');
             $table->string('title')->nullable();
-            $table->string('description')->nullable();
-            $table->string('responsibilty')->nullable();
+            $table->string('due_date')->nullable();
+            $table->longText('description')->nullable();
+            $table->longText('responsibility')->nullable();
             $table->string('requirement')->nullable();
             $table->string('environment')->nullable();
             $table->string('schedule')->nullable();
@@ -24,8 +26,7 @@ return new class extends Migration
             $table->string('location')->nullable();
             $table->string('postcode')->nullable();
             $table->string('type')->nullable();
-            $table->boolean('right_to_work')->default(1);
-            $table->boolean('dl')->default(0);
+            $table->string('pay_rate')->nullable();
             $table->string('salary')->nullable();
             $table->string('contact')->nullable();
             $table->boolean('is_listed')->default(1);
