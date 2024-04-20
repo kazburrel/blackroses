@@ -12,7 +12,7 @@ deploy:
       - output.log
     # commands that are executed at the real webspace NOT at build servers AFTER copying new files
     post-deployment-remote-commands:
-      - mkdir $GITHUB_WORKSPACE/storage/logs
+      - mkdir storage/logs
       - php $GITHUB_WORKSPACE/artisan down
       - find $GITHUB_WORKSPACE -type f -not -path "$GITHUB_WORKSPACE/logs/*" -exec chmod 664 {} \;
       - find $GITHUB_WORKSPACE -type d -not -name "logs" -exec chmod 775 {} \;
