@@ -12,16 +12,16 @@ deploy:
       - output.log
     # commands that are executed at the real webspace NOT at build servers AFTER copying new files
     post-deployment-remote-commands:
-      - mkdir storage/logs
-      - php artisan down
-      - find $(pwd) -type f -not -path "$(pwd)/logs/*" -exec chmod 664 {} \;
-      - find $(pwd) -type d -not -name "logs" -exec chmod 775 {} \;
-      - chmod -R o+w storage bootstrap/cache
-      - php artisan optimize:clear
-      - php artisan migrate --force -n
-      - php artisan storage:link
-      - php artisan optimize
-      - php artisan up
+      - mkdir $GITHUB_WORKSPACE/storage/logs
+      - php $GITHUB_WORKSPACE/artisan down
+      - find $GITHUB_WORKSPACE -type f -not -path "$GITHUB_WORKSPACE/logs/*" -exec chmod 664 {} \;
+      - find $GITHUB_WORKSPACE -type d -not -name "logs" -exec chmod 775 {} \;
+      - chmod -R o+w $GITHUB_WORKSPACE/storage $GITHUB_WORKSPACE/bootstrap/cache
+      - php $GITHUB_WORKSPACE/artisan optimize:clear
+      - php $GITHUB_WORKSPACE/artisan migrate --force -n
+      - php $GITHUB_WORKSPACE/artisan storage:link
+      - php $GITHUB_WORKSPACE/artisan optimize
+      - php $GITHUB_WORKSPACE/artisan up
 
   # configuration part, which is taken at ALL FURTHER deployments of this branch
   recurring:
@@ -35,20 +35,14 @@ deploy:
       - storage
     # commands that are executed at the real webspace NOT at build servers BEFORE copying new files
     pre-deployment-remote-commands:
-      - php artisan down
+      - php $GITHUB_WORKSPACE/artisan down
     # commands that are executed at the real webspace NOT at build servers AFTER copying new files
     post-deployment-remote-commands:
-      - find $(pwd) -type f -not -path "$(pwd)/logs/*" -exec chmod 664 {} \;
-      - find $(pwd) -type d -not -name "logs" -exec chmod 775 {} \;
-      - chmod -R o+w storage bootstrap/cache
-      - php artisan optimize:clear
-      - php artisan migrate --force -n
-      - php artisan storage:link
-      - php artisan optimize
-      - php artisan up
-
-# uncomment the following lines to configure cron jobs
-#runtime:
-#  cron-jobs:
-#    - command: my-cron-job-command # the deployment is located at $HOME/htdocs/ to execute a deployed script just prefix it accordingly
-#      schedule: 0 5 * * * # run every day at 5:00
+      - find $GITHUB_WORKSPACE -type f -not -path "$GITHUB_WORKSPACE/logs/*" -exec chmod 664 {} \;
+      - find $GITHUB_WORKSPACE -type d -not -name "logs" -exec chmod 775 {} \;
+      - chmod -R o+w $GITHUB_WORKSPACE/storage $GITHUB_WORKSPACE/bootstrap/cache
+      - php $GITHUB_WORKSPACE/artisan optimize:clear
+      - php $GITHUB_WORKSPACE/artisan migrate --force -n
+      - php $GITHUB_WORKSPACE/artisan storage:link
+      - php $GITHUB_WORKSPACE/artisan optimize
+      - php $GITHUB_WORKSPACE/artisan up
