@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [ViewController::class, 'home'])->name('home');
 Route::get('about', [ViewController::class, 'about'])->name('about');
 Route::get('services', [ViewController::class, 'services'])->name('services');
-Route::get('testmonials', [ViewController::class, 'testmonials'])->name('testmonials');
+Route::get('vaccancies', [ViewController::class, 'vaccancy'])->name('vaccancies');
 Route::get('referrals', [ViewController::class, 'referrals'])->name('referrals');
 Route::get('contact', [ViewController::class, 'contact'])->name('contact');
 Route::post('contact/send', [ContactController::class, 'contactUs'])->name('contact.send');

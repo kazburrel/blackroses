@@ -106,8 +106,8 @@
                                         {{-- <li class="dropdown"><a href="#">Referrals</a> </li> --}}
                                         <li class="{{ request()->routeIs('referrals') ? 'current' : '' }}"><a
                                                 href="{{ route('referrals') }}">referrals</a></li>
-                                        {{-- <li class="{{ request()->routeIs('testmonials') ? 'current' : '' }}"><a
-                                                href="{{ route('testmonials') }}">Testmonies</a> </li> --}}
+                                        <li class="{{ request()->routeIs('vaccancies') ? 'current' : '' }}"><a
+                                                href="{{ route('vaccancies') }}">Vaccancies</a> </li>
                                         <li class="{{ request()->routeIs('contact') ? 'current' : '' }}"><a
                                                 href="{{ route('contact') }}">Contact</a></li>
                                     </ul>
@@ -165,8 +165,8 @@
                         {{-- <li class="dropdown"><a href="#">Referrals</a> </li> --}}
                         <li class="{{ request()->routeIs('referrals') ? 'current' : '' }}"><a
                                 href="{{ route('referrals') }}">referrals</a></li>
-                        {{-- <li class="{{ request()->routeIs('testmonials') ? 'current' : '' }}"><a
-                                href="{{ route('testmonials') }}">Testmonies</a> </li> --}}
+                        <li class="{{ request()->routeIs('vaccancies') ? 'current' : '' }}"><a
+                                href="{{ route('vaccancies') }}">Vaccancies</a> </li>
                         <li class="{{ request()->routeIs('contact') ? 'current' : '' }}"><a
                                 href="{{ route('contact') }}">Contact</a></li>
 
