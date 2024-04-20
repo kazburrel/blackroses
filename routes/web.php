@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Career\VaccancyController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ViewController;
 use App\Http\Middleware\PreventBackHistory;
@@ -18,7 +19,8 @@ Route::prefix('/admin')->middleware(['auth', 'permission:default users', Prevent
 
     Route::get('/dashboard', [ViewController::class, 'adminDashboard'])->name('admin.dashboard');
     Route::get('/vacancy', [ViewController::class, 'vacancy'])->name('job.vacancy');
-    Route::get('/post/vacancy', [ViewController::class, 'postVacancy'])->name('post.job.vacancy');
+    Route::get('/post/vacancy', [ViewController::class, 'getPostVacancy'])->name('get.advertise.job.vacancy');
+    Route::post('/post/vacancy', [VaccancyController::class, 'postVacancy'])->name('post.job.vacancy');
 });
 
 require __DIR__ . '/auth.php';

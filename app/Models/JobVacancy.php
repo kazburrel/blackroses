@@ -17,8 +17,10 @@ class JobVacancy extends Model
      * @var array
      */
     protected $fillable = [
+        'uuid',
         'creator_id',
         'title',
+        'due_date',
         'description',
         'responsibilty',
         'requirement',
@@ -37,6 +39,6 @@ class JobVacancy extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class, 'creator_id', 'id');
+        return $this->belongsTo(User::class, 'creator_id', 'uuid');
     }
 }

@@ -60,8 +60,9 @@ class ViewController extends Controller
         return view('admin.vacancy');
     }
 
-    public function postVacancy()
+    public function getPostVacancy()
     {
+
 
         return view('admin.post_vacancy');
     }

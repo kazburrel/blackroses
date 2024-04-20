@@ -16,6 +16,7 @@ return new class extends Migration
             $table->uuid('uuid')->unique();
             $table->foreignUuid('creator_id')->references('uuid')->on('users');
             $table->string('title')->nullable();
+            $table->string('due_date')->nullable();
             $table->string('description')->nullable();
             $table->string('responsibilty')->nullable();
             $table->string('requirement')->nullable();
