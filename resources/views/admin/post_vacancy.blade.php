@@ -15,6 +15,16 @@
                         <div class="mb-13 text-center">
                             <h1 class="mb-3">Post a Job Vacancy</h1>
                         </div>
+                        {{-- @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif --}}
+
                         <div class="d-flex flex-column mb-8 fv-row">
                             <label class="d-flex align-items-center fs-6 fw-bold mb-2">
                                 <span class="required">Job Title</span>
@@ -22,7 +32,7 @@
                                     title="Specify a target name for future usage and reference"></i>
                             </label>
                             <input type="text" class="form-control form-control-solid" placeholder="Enter Job Title"
-                                name="title" />
+                                name="title" value="{{ old('title') }}" />
                             @error('title')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
@@ -33,16 +43,22 @@
                                 <select class="form-select form-select-solid" data-control="select2" data-hide-search="true"
                                     data-placeholder="Select Job Type" name="type[]">
                                     <option value="">Select type...</option>
-                                    <option value="Full-time">Full-time</option>
-                                    <option value="Part-time">Part-time</option>
-                                    <option value="Zero hours contract">Zero hours contract</option>
-                                    <option value="Permanent">Permanent</option>
-
+                                    <option value="Full-time"
+                                        {{ in_array('Full-time', old('type', [])) ? 'selected' : '' }}>Full-time</option>
+                                    <option value="Part-time"
+                                        {{ in_array('Part-time', old('type', [])) ? 'selected' : '' }}>Part-time</option>
+                                    <option value="Zero hours contract"
+                                        {{ in_array('Zero hours contract', old('type', [])) ? 'selected' : '' }}>Zero hours
+                                        contract</option>
+                                    <option value="Permanent"
+                                        {{ in_array('Permanent', old('type', [])) ? 'selected' : '' }}>Permanent</option>
                                 </select>
                                 @error('type')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             </div>
+
+
                             <div class="col-md-6 fv-row">
                                 <label class="required fs-6 fw-bold mb-2">Due Date</label>
                                 <div class="position-relative d-flex align-items-center">
@@ -61,12 +77,12 @@
                                         </svg>
                                     </span>
                                     <input class="form-control form-control-solid ps-12" placeholder="Select a date"
-                                        name="due_date" />
+                                        name="due_date" value="{{ old('due_date') }}" />
                                 </div>
+                                @error('due_date')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
-                            @error('due_date')
-                                <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
                         </div>
                         <div class="row g-9 mb-8">
                             <div class="col-md-6 fv-row">
@@ -74,15 +90,20 @@
                                 <select class="form-select form-select-solid" data-control="select2" data-hide-search="true"
                                     data-placeholder="Select Job Schedule" name="schedule[]" multiple>
                                     <option value="">Select Schedule...</option>
-                                    <option value="16 hours">16 hours</option>
-                                    <option value="10 hours">10 hours</option>
-                                    <option value="8 hours">8 hours</option>
-                                    <option value="6 hours">6 hours</option>
+                                    <option value="16 hours"
+                                        {{ in_array('16 hours', old('schedule', [])) ? 'selected' : '' }}>16 hours</option>
+                                    <option value="10 hours"
+                                        {{ in_array('10 hours', old('schedule', [])) ? 'selected' : '' }}>10 hours</option>
+                                    <option value="8 hours"
+                                        {{ in_array('8 hours', old('schedule', [])) ? 'selected' : '' }}>8 hours</option>
+                                    <option value="6 hours"
+                                        {{ in_array('6 hours', old('schedule', [])) ? 'selected' : '' }}>6 hours</option>
                                 </select>
                                 @error('schedule')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             </div>
+
                             <div class="col-md-6 fv-row">
                                 <label class="d-flex align-items-center fs-6 fw-bold mb-2">
                                     <span class="required">Job Benefits</span>
@@ -90,11 +111,12 @@
                                         title="Specify a target name for future usage and reference"></i>
                                 </label>
                                 <input type="text" class="form-control form-control-solid"
-                                    placeholder="Enter Job Benefits" name="benefits" />
+                                    placeholder="Enter Job Benefits" name="benefits" value="{{ old('benefits') }}" />
                                 @error('benefits')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             </div>
+
                         </div>
                         <div class="row g-9 mb-8">
                             <div class="col-md-6 fv-row">
@@ -104,7 +126,7 @@
                                         title="Specify a target name for future usage and reference"></i>
                                 </label>
                                 <input type="text" class="form-control form-control-solid"
-                                    placeholder="Enter Job Location" name="location" />
+                                    placeholder="Enter Job Location" name="location" value="{{ old('location') }}" />
                                 @error('location')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
@@ -116,11 +138,23 @@
                                         title="Specify a target name for future usage and reference"></i>
                                 </label>
                                 <input type="text" class="form-control form-control-solid"
-                                    placeholder="Enter Job Postcode" name="postcode" />
+                                    placeholder="Enter Job Postcode" name="postcode" value="{{ old('postcode') }}" />
                                 @error('postcode')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             </div>
+                        </div>
+                        <div class="d-flex flex-column mb-8 fv-row">
+                            <label class="d-flex align-items-center fs-6 fw-bold mb-2">
+                                <span class="required">Job Pay Rate</span>
+                                <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"
+                                    title="Specify a target name for future usage and reference"></i>
+                            </label>
+                            <input type="text" class="form-control form-control-solid"
+                                placeholder="Enter Job Pay Rate" name="pay_rate" value="{{ old('pay_rate') }}" />
+                            @error('pay_rate')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="row g-9 mb-8">
                             <div class="col-md-6 fv-row">
@@ -130,7 +164,7 @@
                                         title="Specify a target name for future usage and reference"></i>
                                 </label>
                                 <input type="text" class="form-control form-control-solid" placeholder="Enter Contact"
-                                    name="contact" />
+                                    name="contact" value="{{ old('contact') }}" />
                                 @error('contact')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
@@ -142,7 +176,7 @@
                                         title="Specify a target name for future usage and reference"></i>
                                 </label>
                                 <input type="text" class="form-control form-control-solid" placeholder="Enter Salary"
-                                    name="salary" />
+                                    name="salary" value="{{ old('salary') }}" />
                                 @error('salary')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
@@ -151,26 +185,29 @@
                         <div class="d-flex flex-column mb-8">
                             <label class="fs-6 fw-bold mb-2">Job Description</label>
                             <textarea class="form-control form-control-solid" rows="3" name="description"
-                                placeholder="Type Job Description"></textarea>
+                                placeholder="Type Job Description">{{ old('description') }}</textarea>
                             @error('description')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                         </div>
+
                         <div class="d-flex flex-column mb-8">
                             <label class="fs-6 fw-bold mb-2">Responsibility</label>
                             <textarea class="form-control form-control-solid" rows="3" name="responsibility"
-                                placeholder="Type Responsibility"></textarea>
+                                placeholder="Type Responsibility">{{ old('responsibility') }}</textarea>
                             @error('responsibility')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                         </div>
+
                         <div class="d-flex flex-column mb-8">
                             <label class="fs-6 fw-bold mb-2">Requirements</label>
-                            <textarea class="form-control form-control-solid" rows="3" name="requirement" placeholder="Type Requirements"></textarea>
+                            <textarea class="form-control form-control-solid" rows="3" name="requirement" placeholder="Type Requirements">{{ old('requirement') }}</textarea>
                             @error('requirement')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                         </div>
+
 
                         <div class="text-center">
                             <button type="reset" id="kt_modal_new_target_cancel"

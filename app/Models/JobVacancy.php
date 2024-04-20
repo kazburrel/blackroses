@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class JobVacancy extends Model
 {
-    use HasFactory, HasUuids, SoftDeletes;
+    use HasFactory, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -30,11 +30,20 @@ class JobVacancy extends Model
         'location',
         'postcode',
         'type',
-        'right_to_work',
-        'dl',
+        'pay_rate',
         'salary',
         'contact',
         'is_listed',
+    ];
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'schedule' => 'array',
+        'type' => 'array',
     ];
 
     public function user()
