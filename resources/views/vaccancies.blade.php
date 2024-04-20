@@ -52,23 +52,30 @@
                 @forelse ($vaccancies as $vaccancy)
                     <div class="default-cause-box col-md-4 col-sm-6 col-xs-12">
                         <div class="inner-box wow fadeIn" data-wow-duration="1500ms" data-wow-delay="0ms">
-                            {{-- <div class="image-box">
-                                <figure class="image"><a href="single-cause.html"><img
-                                            src="images/resource/featured-image-2.jpg" alt=""></a></figure>
-                                <div class="progress-box">
-                                    <div class="bar">
-                                        <div class="bar-inner animated-bar" data-percent="60%">
-                                            <div class="count-text">60%</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> --}}
+
                             <div class="lower-content">
                                 <div class="">
-                                    <h2 class="">{{ $vaccancy->title }}</h2>
-                                    <span class="total">$97,000.00</span>
+                                    <h2 class=""><b>{{ $vaccancy->title }}</b></h2>
+                                    <div
+                                        style="background-color: #f2f2f2; padding: 10px; border-radius: 5px; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; height: 10vh; margin-bottom: 10px">
+
+                                        @foreach ($vaccancy->type as $type)
+                                            <span style="margin-right: 10px;">Job Type: </span> <span
+                                                class="total"><b>{{ $type }}</b></span>
+                                        @endforeach
+                                    </div>
                                 </div>
-                                <div class="separator"></div>
+                                {{-- <div class="separator"></div> --}}
+                                <div
+                                    style="background-color: #f2f2f2; padding: 10px; border-radius: 5px; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; height: 10vh;">
+                                    {{-- <h6 style="margin-right: 10px;">Schedule:</h6> --}}
+                                    @foreach ($vaccancy->schedule as $schedule)
+                                        <div
+                                            style="background-color: white; padding: 5px 10px; margin-right: 10px; margin-bottom: 10px; border-radius: 5px;">
+                                            {{ $schedule }}
+                                        </div>
+                                    @endforeach
+                                </div>
                                 <h3><a href="single-cause.html">Help with Economic Opportunity</a></h3>
                                 <div class="text">Retro tattooed tousled, disrupt portland synth slow-carb brooklyn
                                     fashion axe four loko narwhal craft beer salvia.</div>
