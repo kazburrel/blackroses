@@ -66,7 +66,9 @@
                             <div class="lower-content">
                                 <div class="">
                                     <h2 class="">{{ $vaccancy->title }}</h2>
-                                    <span class="total">$97,000.00</span>
+                                    @foreach ($vaccancy->type as $type)
+                                        <span>Job Type:</span> <span class="total">{{ $type }}</span>
+                                    @endforeach
                                 </div>
                                 <div class="separator"></div>
                                 <h3><a href="single-cause.html">Help with Economic Opportunity</a></h3>
