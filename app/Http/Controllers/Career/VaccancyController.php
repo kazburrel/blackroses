@@ -12,13 +12,15 @@ class VaccancyController extends Controller
 {
     public function postVacancy(StoreJobVaccancyFormRequest $request)
     {
+        // dd($request->all());
         $user = Auth::user();
         $uuid = Str::uuid();
-        // dd($request->all());
-
         JobVacancy::create($request->safe()->merge([
             'uuid' => $uuid,
             'creator_id' => $user->uuid,
+            'description' => "Please visit the application page to view the complete description",
+            'requirement' => "Please visit the application page to view the complete requirement",
+            'responsibility' => "Please visit the application page to view the complete responsibility",
         ])->all());
         toast('Job advert posted successfully', 'success');
         return redirect()->back();

@@ -55,6 +55,19 @@ class ViewController extends Controller
         return view('our-team', ['setting' => $setting]);
     }
 
+    public function apply($job)
+    {
+        $get_job = JobVacancy::where('uuid', $job)->first();
+        $setting = Settings::first();
+        return view(
+            'apply',
+            [
+                'setting' => $setting,
+                'job' => $get_job
+            ]
+        );
+    }
+
     // ADMIN VIEWS
 
     public function adminDashboard()

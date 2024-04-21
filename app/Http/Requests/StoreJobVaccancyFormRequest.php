@@ -24,14 +24,10 @@ class StoreJobVaccancyFormRequest extends FormRequest
         return [
             'title' => 'required',
             'due_date' => 'required',
-            'description' => 'required',
-            'responsibility' => 'required',
-            'requirement' => 'required',
-
             'schedule' => 'required',
             'benefits' => 'nullable',
             'location' => 'required',
-            'postcode' => 'required',
+            'postcode' => 'nullable',
             'type' => 'required',
             'salary' => 'nullable',
             'pay_rate' => 'nullable',
