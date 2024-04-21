@@ -22,6 +22,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Validator::extend('recaptcha', 'App\\Validators\\ReCaptcha@validate');
+        // Validator::extend('recaptcha', 'App\\Validators\\ReCaptcha@validate');
     }
 }
