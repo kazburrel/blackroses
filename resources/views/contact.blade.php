@@ -50,20 +50,6 @@
 
                 <!--Form Column -->
                 <div class="column form-column pull-right col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    {{-- @if (Session::has('success'))
-                        <div id="flash-message" class="alert alert-success" style="background-color: rgba(0, 255, 0, 0.2);">
-                            {{ Session::get('success') }}
-                        </div>
-                    @elseif ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif --}}
-
                     @if ($errors->any())
                         <div class="alert alert-danger">
                             <ul>
@@ -106,25 +92,18 @@
                                         <div class="field-label">Message <span>*</span></div>
                                         <textarea name="message">{{ old('message') }}</textarea>
                                     </div>
-
-
-
-                                    {{-- <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                                        <p><img id="captcha-image" src="{{ captcha_src() }}" alt="CAPTCHA"></p>
-                                        <input type="text" id="captcha" name="captcha" placeholder="Enter the captcha">
-                                        <a href="#" onclick="refreshCaptcha(event)">
-                                            <i class="fa fa-refresh"></i> Refresh CAPTCHA
-                                        </a>
-                                        @error('captcha')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div> --}}
+                                    @if (config('services.recaptcha.key'))
+                                        <div class="g-recaptcha" data-sitekey="{{ config('services.recaptcha.key') }}"
+                                            style="margin-bottom: 50px;">
+                                        </div>
+                                    @endif
 
                                     <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                                        <button type="submit" class="theme-btn btn-style-three">SUBMIT</button>
+                                        <button type="submit" class="theme-btn btn-style-three"
+                                            style="display: block; margin-top: 80px;">SUBMIT</button>
                                     </div>
+
+
                                 </div>
                             </form>
 

@@ -76,8 +76,8 @@
                                                 fill="currentColor" />
                                         </svg>
                                     </span>
-                                    <input class="form-control form-control-solid ps-12" placeholder="Select a date"
-                                        name="due_date" value="{{ old('due_date') }}" />
+                                    <input type="date" class="form-control form-control-solid ps-12"
+                                        placeholder="Select a date" name="due_date" value="{{ old('due_date') }}" />
                                 </div>
                                 @error('due_date')
                                     <div class="alert alert-danger">{{ $message }}</div>
@@ -163,8 +163,8 @@
                                     <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"
                                         title="Specify a target name for future usage and reference"></i>
                                 </label>
-                                <input type="text" class="form-control form-control-solid" placeholder="Enter Contact"
-                                    name="contact" value="{{ old('contact') }}" />
+                                <input type="text" class="form-control form-control-solid" placeholder="Home Manager"
+                                    name="contact" value="Home Manager" />
                                 @error('contact')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
@@ -184,8 +184,8 @@
                         </div>
                         <div class="d-flex flex-column mb-8">
                             <label class="fs-6 fw-bold mb-2">Job Description</label>
-                            <textarea class="form-control form-control-solid" rows="3" name="description"
-                                placeholder="Type Job Description">{{ old('description') }}</textarea>
+                            <textarea id="description" class="form-control form-control-solid" rows="3" name="description" disabled
+                                placeholder="Please visit the application page to view the complete description">{{ 'Please visit the application page to view the complete description' }}</textarea>
                             @error('description')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
@@ -193,8 +193,8 @@
 
                         <div class="d-flex flex-column mb-8">
                             <label class="fs-6 fw-bold mb-2">Responsibility</label>
-                            <textarea class="form-control form-control-solid" rows="3" name="responsibility"
-                                placeholder="Type Responsibility">{{ old('responsibility') }}</textarea>
+                            <textarea id="responsibility" class="form-control form-control-solid" rows="3" name="responsibility" disabled
+                                placeholder="Please visit the application page to view the complete responsibilities.">{{ 'Please visit the application page to view the complete responsibilities.' }}</textarea>
                             @error('responsibility')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
@@ -202,7 +202,8 @@
 
                         <div class="d-flex flex-column mb-8">
                             <label class="fs-6 fw-bold mb-2">Requirements</label>
-                            <textarea class="form-control form-control-solid" rows="3" name="requirement" placeholder="Type Requirements">{{ old('requirement') }}</textarea>
+                            <textarea id="requirements" class="form-control form-control-solid" rows="3" name="requirement" disabled
+                                placeholder="Please visit the application page to view the complete requirements.">{{ 'Please visit the application page to view the complete requirements.' }}</textarea>
                             @error('requirement')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
@@ -223,4 +224,15 @@
             </div>
         </div>
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("description").value =
+                "Please visit the application page to view the complete description";
+            document.getElementById("responsibility").value =
+                "Please visit the application page to view the complete responsibility";
+            document.getElementById("requirements").value =
+                "Please visit the application page to view the complete requirement";
+        });
+    </script>
 @endsection

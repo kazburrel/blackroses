@@ -22,7 +22,7 @@ class JobVacancy extends Model
         'title',
         'due_date',
         'description',
-        'responsibilty',
+        'responsibility',
         'requirement',
         'environment',
         'schedule',
