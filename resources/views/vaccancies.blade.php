@@ -123,6 +123,7 @@
                             </div>
                         </div>
                     @empty
+                        <h1>There are no vacancies at this time</h1>
                     @endforelse
                 </div>
             @else
