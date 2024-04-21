@@ -15,6 +15,7 @@ Route::get('contact', [ViewController::class, 'contact'])->name('contact');
 Route::post('contact/send', [ContactController::class, 'contactUs'])->name('contact.send');
 Route::get('team', [ViewController::class, 'team'])->name('team');
 Route::get('apply/{job}', [ViewController::class, 'apply'])->name('job.apply');
+Route::post('store/apply/{job}', [VaccancyController::class, 'storeApplication'])->name('store.job.apply');
 
 Route::prefix('/admin')->middleware(['auth', 'permission:default users', PreventBackHistory::class])->group(function () {
 

@@ -25,15 +25,6 @@
 
                     <!--Form Column -->
                     <div class="column form-column pull-right col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        @if ($errors->any())
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
                         <div class="default-title">
                             <div style="display: flex; justify-content: space-between;">
                                 <h3 style="display: inline-block; margin-right: 10px;">Apply for <span
@@ -41,57 +32,78 @@
                                 <a href="{{ asset('path/to/your/pdf/file.pdf') }}" download
                                     style="color: blue;">Download Job Description and Person specification</a>
                             </div>
-
-
                             <div class="separator"></div>
                         </div>
                         <div class="form-box default-form">
                             <div class="contact-form default-form">
-                                <form method="post" action="{{ route('contact.send') }}">
+                                <form method="post" action="{{ route('store.job.apply', [$job->uuid]) }}"
+                                    enctype="multipart/form-data">
                                     @csrf
                                     <div class="row clearfix">
                                         <div class="form-group col-md-6 col-sm-6 col-xs-12">
                                             <div class="field-label">Full Name <span>*</span></div>
-                                            <input type="text" name="name" value="{{ old('name') }}"
-                                                placeholder="Enter your full name" required>
+                                            <input type="text" name="fullname" value="{{ old('fullname') }}"
+                                                placeholder="Enter your full fullname">
+                                            @error('fullname')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                         </div>
 
                                         <div class="form-group col-md-6 col-sm-6 col-xs-12">
                                             <div class="field-label">Email <span>*</span></div>
                                             <input type="email" name="email" value="{{ old('email') }}"
-                                                placeholder="Enter your email address" required>
+                                                placeholder="Enter your email address">
+                                            @error('email')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                         </div>
 
                                         <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                            <div class="field-label">Phone Number <span>*</span></div>
+                                            <div class="field-label">Phone Number</div>
                                             <input type="text" name="phone" value="{{ old('phone') }}"
                                                 placeholder="Enter the phone number">
+                                            @error('phone')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                         </div>
 
                                         <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                            <div style="">
+                                            <div>
                                                 <div class="field-label">CV <span>*</span></div>
-                                                <input type="file" name="phone" value="{{ old('cv') }}"
+                                                <input type="file" name="cv" value="{{ old('cv') }}"
                                                     style="border: 1px solid #ccc; width: 97.5%; padding: 9.5px;">
+                                                @error('cv')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                @enderror
                                             </div>
                                         </div>
 
                                         <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                            <div class="field-label">Location/Town <span>*</span></div>
+                                            <div class="field-label">Location/Town</div>
                                             <div style="display: flex;">
                                                 <input type="text" name="location" value="{{ old('location') }}"
                                                     placeholder="Enter your Location">
                                             </div>
+                                            @error('location')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                         </div>
 
                                         <div class="form-group col-md-6 col-sm-6 col-xs-12">
                                             <div class="field-label">Country <span>*</span></div>
                                             <select name="country">
+                                                <option value="">Please choose</option>
                                                 @foreach (config('country') as $code => $name)
-                                                    <option value="{{ $code }}">{{ $name }}</option>
+                                                    <option value="{{ $code }}"
+                                                        {{ old('country') == $code ? 'selected' : '' }}>
+                                                        {{ $name }}</option>
                                                 @endforeach
                                             </select>
+                                            @error('country')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                         </div>
+
 
                                         <div class="form-group col-md-6 col-sm-6 col-xs-12">
                                             <div class="field-label">Right To Work <span>*</span> <span
@@ -99,9 +111,14 @@
                                                         work?</i></span></div>
                                             <select name="right_to_work">
                                                 <option value="">Please choose</option>
-                                                <option value="Yes">Yes</option>
-                                                <option value="No">No</option>
+                                                <option value="Yes"
+                                                    {{ old('right_to_work') == 'Yes' ? 'selected' : '' }}>Yes</option>
+                                                <option value="No"
+                                                    {{ old('right_to_work') == 'No' ? 'selected' : '' }}>No</option>
                                             </select>
+                                            @error('right_to_work')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                         </div>
 
                                         <div class="form-group col-md-6 col-sm-6 col-xs-12">
@@ -110,18 +127,25 @@
                                                 <span style="color: #fa6f1c;"><i>Do you have a driver's
                                                         license?</i></span>
                                             </div>
-                                            <select name="driver_license">
+                                            <select name="dl">
                                                 <option value="">Please select</option>
-                                                <option value="Yes">Yes</option>
-                                                <option value="No">No</option>
+                                                <option value="Yes" {{ old('dl') == 'Yes' ? 'selected' : '' }}>Yes
+                                                </option>
+                                                <option value="No" {{ old('dl') == 'No' ? 'selected' : '' }}>No
+                                                </option>
                                             </select>
+                                            @error('dl')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                         </div>
+
 
                                         <div class="form-group col-md-12 col-sm-12 col-xs-12">
                                             <button type="submit" class="theme-btn btn-style-three">SUBMIT</button>
                                         </div>
                                     </div>
                                 </form>
+
 
 
                             </div>
@@ -154,6 +178,8 @@
     <script src="{{ asset('js/wow.js') }}"></script>
     <script src="{{ asset('js/appear.js') }}"></script>
     <script src="{{ asset('js/script.js') }}"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
     @include('sweetalert::alert')
 </body>
 
