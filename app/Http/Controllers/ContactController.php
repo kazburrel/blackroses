@@ -17,7 +17,7 @@ class ContactController extends Controller
             'email' => 'required|email',
             'subject' => 'required|string',
             'message' => 'required|string',
-            'g-recaptcha-response' => 'required|recaptcha'
+            // 'g-recaptcha-response' => 'required|recaptcha'
         ]);
 
         (new Notify)->subject($validatedData['subject'])
