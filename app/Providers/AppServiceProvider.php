@@ -12,9 +12,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->singleton(\App\Validators\ReCaptcha::class, function ($app) {
-            return new \App\Validators\ReCaptcha($app['recaptcha']);
-        });
     }
 
     /**
@@ -22,6 +19,5 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        // Validator::extend('recaptcha', 'App\\Validators\\ReCaptcha@validate');
     }
 }

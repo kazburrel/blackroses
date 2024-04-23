@@ -66,7 +66,7 @@
                     <!--form-box-->
                     <div class="form-box default-form">
                         <div class="contact-form default-form">
-                            <form method="post" action="{{ route('contact.send') }}">
+                            <form method="post" action="{{ route('contact.send') }}" id="contactForm">
                                 @csrf
                                 {{-- <input type="hidden" name="full_name" value="hi"> --}}
                                 <div class="row clearfix">
@@ -92,14 +92,10 @@
                                         <div class="field-label">Message <span>*</span></div>
                                         <textarea name="message">{{ old('message') }}</textarea>
                                     </div>
-                                    @if (config('services.recaptcha.key'))
-                                        <div class="g-recaptcha" data-sitekey="{{ config('services.recaptcha.key') }}"
-                                            style="margin-bottom: 50px;">
-                                        </div>
-                                    @endif
-
                                     <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                                        <button type="submit" class="theme-btn btn-style-three"
+                                        <button type="submit" class="g-recaptcha theme-btn btn-style-three"
+                                            data-sitekey="{{ config('services.recaptcha.key') }}" data-callback='onSubmit'
+                                            data-action='contactForm'
                                             style="display: block; margin-top: 80px;">SUBMIT</button>
                                     </div>
 
@@ -175,4 +171,11 @@
 
         </div>
     </section>
+    @push('scripts')
+        <script>
+            function onSubmit(token) {
+                document.getElementById("contactForm").submit();
+            }
+        </script>
+    @endpush
 @endsection

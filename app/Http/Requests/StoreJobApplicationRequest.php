@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\Recaptcha;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Http;
 
 class StoreJobApplicationRequest extends FormRequest
 {
@@ -32,6 +34,7 @@ class StoreJobApplicationRequest extends FormRequest
             'country' => 'required',
             'right_to_work' => 'required',
             'dl' => 'required',
+            'g-recaptcha-response' => ['required', new Recaptcha],
         ];
     }
 
