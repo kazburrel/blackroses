@@ -69,7 +69,7 @@
                                     <!--Newsletter One-->
                                     <div class="newsletter-one">
                                         {{-- <h4>Subscribe to our newsletter</h4>
-                                        <form method="post" action="contact.html">
+                                        <form method="post" action="#">
                                             <div class="form-group">
                                                 <input type="email" name="email" value="" required
                                                     placeholder="Your Email">

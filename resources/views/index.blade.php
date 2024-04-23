@@ -92,12 +92,12 @@
                 <div class="default-cause-box col-md-4 col-sm-6 col-xs-12">
                     <div class="inner-box wow fadeIn" data-wow-duration="1500ms" data-wow-delay="0ms">
                         <div class="image-box">
-                            <figure class="image"><a href="single-cause.html"><img src="images/resource/referals.jpg"
-                                        alt=""></a></figure>
+                            <figure class="image"><a href="{{ route('referrals') }}"><img
+                                        src="images/resource/referals.jpg" alt=""></a></figure>
                         </div>
                         <div class="lower-content">
                             <div class="separator"></div>
-                            <h3><a href="single-cause.html">The Referral Process</a></h3>
+                            <h3><a href="{{ route('referrals') }}">The Referral Process</a></h3>
                             <div class="text">
                                 The referral process begins with an enquiry, by telephone, email or letter.
                                 The service will then ask for a referral form to be sent, giving brief information about
@@ -110,7 +110,7 @@
                                 are any impact risks for the referred young person as well as existing young people in
                                 our service.</div>
                             <div class="links">
-                                <a href="single-cause.html" class="theme-btn btn-style-four">READ MORE</a>
+                                <a href="{{ route('referrals') }}" class="theme-btn btn-style-four">READ MORE</a>
                             </div>
                         </div>
                     </div>
@@ -119,12 +119,12 @@
                 <div class="default-cause-box col-md-4 col-sm-6 col-xs-12">
                     <div class="inner-box wow fadeIn" data-wow-duration="1500ms" data-wow-delay="0ms">
                         <div class="image-box">
-                            <figure class="image"><a href="single-cause.html"><img
+                            <figure class="image"><a href="{{ route('about') }}"><img
                                         src="images/resource/featured-image-2.jpg" alt=""></a></figure>
                         </div>
                         <div class="lower-content">
                             <div class="separator"></div>
-                            <h3><a href="single-cause.html">Governance and Quality Assurance</a></h3>
+                            <h3><a href="{{ route('about') }}">Governance and Quality Assurance</a></h3>
                             <div class="text">At Black Roses Support, we make sure everything runs smoothly and safely.
                                 Each week, our manager and team check everything from client files to safety rules to how
                                 well our staff are trained. We listen to young people's ideas and feelings in weekly
@@ -134,7 +134,7 @@
                                 things like keeping everyone safe and helping people with their problems. We work hard to
                                 make sure everyone feels safe, supported, and heard at Black Roses Support.</div>
                             <div class="links">
-                                <a href="single-cause.html" class="theme-btn btn-style-four">READ MORE</a>
+                                <a href="{{ route('about') }}" class="theme-btn btn-style-four">READ MORE</a>
                             </div>
                         </div>
                     </div>
@@ -144,12 +144,12 @@
                 <div class="default-cause-box col-md-4 col-sm-6 col-xs-12">
                     <div class="inner-box wow fadeIn" data-wow-duration="1500ms" data-wow-delay="300ms">
                         <div class="image-box">
-                            <figure class="image"><a href="single-cause.html"><img
+                            <figure class="image"><a href="{{ route('services') }}"><img
                                         src="images/resource/featured-image-3.jpg" alt=""></a></figure>
                         </div>
                         <div class="lower-content">
                             <div class="separator"></div>
-                            <h3><a href="single-cause.html">Service Facilities</a></h3>
+                            <h3><a href="{{ route('services') }}">Service Facilities</a></h3>
                             <div class="text">At Black Roses Support, we believe in creating a cozy environment where
                                 young people can feel at home. Each unit is equipped with a lounge area where residents can
                                 relax and watch TV, with access to various channels including Freeview and sometimes
@@ -159,7 +159,7 @@
                                 communal dining. Additionally, we promote a smoke-free environment in line with current
                                 legislation, encouraging residents who smoke to do so away from the premises.</div>
                             <div class="links">
-                                <a href="single-cause.html" class="theme-btn btn-style-four">READ MORE</a>
+                                <a href="{{ route('services') }}" class="theme-btn btn-style-four">READ MORE</a>
                             </div>
                         </div>
                     </div>
@@ -169,12 +169,12 @@
                 <div class="default-cause-box col-md-4 col-sm-6 col-xs-12" style="margin-top: 15px">
                     <div class="inner-box wow fadeIn" data-wow-duration="1500ms" data-wow-delay="600ms">
                         <div class="image-box">
-                            <figure class="image"><a href="single-cause.html"><img
+                            <figure class="image"><a href="{{ route('services') }}"><img
                                         src="images/resource/featured-image-4.jpg" alt=""></a></figure>
                         </div>
                         <div class="lower-content">
                             <div class="separator"></div>
-                            <h3><a href="single-cause.html">
+                            <h3><a href="{{ route('services') }}">
                                     Social Engagement:</a></h3>
                             <div class="text">At Black Roses Support, we foster a sense of community through engaging
                                 group activities, workshops, and recreational events. Residents participate in various
@@ -182,7 +182,7 @@
                                 inclusive environment where everyone feels valued and connected. Click below to learn more
                                 about our vibrant social initiatives! </div>
                             <div class="links">
-                                <a href="single-cause.html" class="theme-btn btn-style-four">READ MORE</a>
+                                <a href="{{ route('services') }}" class="theme-btn btn-style-four">READ MORE</a>
                             </div>
                         </div>
                     </div>
