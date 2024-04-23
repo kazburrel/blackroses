@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Settings;
 use App\Models\User;
+use App\Rules\Recaptcha;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
@@ -22,20 +23,7 @@ class ContactController extends Controller
             'email' => 'required|email',
             'subject' => 'required|string',
             'message' => 'required|string',
-            'g-recaptcha-response' => [
-                'required',
-                function ($attribute, $value, $fail) {
-                    $g_response = Http::asForm()->post("https://www.google.com/recaptcha/api/siteverify", [
-                        'secret' => config('services.recaptcha.secret'),
-                        'response' => $value,
-                        'remoteip' => request()->ip()
-                    ]);
-
-                    if (!$g_response->json('success')) {
-                        $fail("Please complete the reCAPTCHA again to proceed.");
-                    }
-                },
-            ],
+            'g-recaptcha-response' => ['required', new Recaptcha],
 
         ]);
 
