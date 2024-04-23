@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Http;
 
 class StoreJobApplicationRequest extends FormRequest
 {
@@ -32,6 +33,20 @@ class StoreJobApplicationRequest extends FormRequest
             'country' => 'required',
             'right_to_work' => 'required',
             'dl' => 'required',
+            'g-recaptcha-response' => [
+                'required',
+                function ($attribute, $value, $fail) {
+                    $g_response = Http::asForm()->post("https://www.google.com/recaptcha/api/siteverify", [
+                        'secret' => config('services.recaptcha.secret'),
+                        'response' => $value, // Use the provided response value
+                        'remoteip' => $this->ip(), // Use the request's IP
+                    ]);
+
+                    if (!$g_response->json('success')) {
+                        $fail("Please complete the reCAPTCHA again to proceed.");
+                    }
+                },
+            ],
         ];
     }
 

@@ -13,6 +13,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <link href="{{ asset('css/responsive.css') }}" rel="stylesheet">
+    <script src="https://www.google.com/recaptcha/api.js"></script>
 </head>
 
 <body>
@@ -34,9 +35,19 @@
                             </div>
                             <div class="separator"></div>
                         </div>
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                         <div class="form-box default-form">
                             <div class="contact-form default-form">
-                                <form method="post" action="{{ route('store.job.apply', [$job->uuid]) }}"
+                                <form method="post" id="apply"
+                                    action="{{ route('store.job.apply', [$job->uuid]) }}"
                                     enctype="multipart/form-data">
                                     @csrf
                                     <div class="row clearfix">
@@ -141,7 +152,10 @@
 
 
                                         <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                                            <button type="submit" class="theme-btn btn-style-three">SUBMIT</button>
+                                            <button type="submit" class="g-recaptcha theme-btn btn-style-three"
+                                                data-sitekey="{{ config('services.recaptcha.key') }}"
+                                                data-callback='onSubmit' data-action='contactForm'
+                                                style="display: block; margin-top: 80px;">SUBMIT</button>
                                         </div>
                                     </div>
                                 </form>
@@ -178,7 +192,13 @@
     <script src="{{ asset('js/wow.js') }}"></script>
     <script src="{{ asset('js/appear.js') }}"></script>
     <script src="{{ asset('js/script.js') }}"></script>
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+    <script>
+        function onSubmit(token) {
+            document.getElementById("apply").submit();
+        }
+    </script>
+
 
     @include('sweetalert::alert')
 </body>

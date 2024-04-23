@@ -119,8 +119,8 @@
 <script src="{{ asset('js/wow.js') }}"></script>
 <script src="{{ asset('js/appear.js') }}"></script>
 <script src="{{ asset('js/script.js') }}"></script>
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
+@stack('scripts')
 @include('sweetalert::alert')
 </body>
 
