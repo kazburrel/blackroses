@@ -31,7 +31,7 @@
                     <div class="inner-box clearfix">
                         <!--Image Column-->
                         <div class="image-column">
-                            <figure class="image"><a href="#"><img src="images/resource/latoya.jpg"
+                            <figure class="image"><a href="#"><img src="images/resource/latoya_main.jpeg"
                                         alt=""></a>
                             </figure>
                         </div>

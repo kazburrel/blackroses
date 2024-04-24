@@ -101,7 +101,8 @@
                             <div class="text">
                                 The referral process begins with an enquiry, by telephone, email or letter.
                                 The service will then ask for a referral form to be sent, giving brief information about
-                                the potential client and their risks as well as support needs. This form can be completed
+                                the potential young people and their risks as well as support needs. This form can be
+                                completed
                                 by a social worker and/or other professionals.
                                 A review of this information is then undertaken to assess whether the service can
                                 potentially meet the needs of the individual being referred. If the service determines
@@ -126,7 +127,8 @@
                             <div class="separator"></div>
                             <h3><a href="{{ route('about') }}">Governance and Quality Assurance</a></h3>
                             <div class="text">At Black Roses Support, we make sure everything runs smoothly and safely.
-                                Each week, our manager and team check everything from client files to safety rules to how
+                                Each week, our manager and team check everything from young people's files to safety rules
+                                to how
                                 well our staff are trained. We listen to young people's ideas and feelings in weekly
                                 meetings and even have a suggestion box for them and our staff. Our team meets weekly too,
                                 to talk about how we can do better. We also check in with our staff every year and listen to
@@ -224,7 +226,8 @@
                     <div class="inner-box wow fadeIn" data-wow-duration="1500ms" data-wow-delay="0ms">
                         <div class="content">
                             <h3> <b>CHOICE</b> </h3>
-                            <div class="text">At Black Roses Support, we empower our clients with the freedom to make
+                            <div class="text">At Black Roses Support, we empower our young people with the freedom to
+                                make
                                 their own decisions across all aspects of their daily lives. This includes allowing them to
                                 manage their own time without strict communal schedules, respecting their individuality,
                                 maintaining flexibility in daily routines, and encouraging them to personalize their living
@@ -236,9 +239,9 @@
                     <div class="inner-box wow fadeIn" data-wow-duration="1500ms" data-wow-delay="0ms">
                         <div class="content">
                             <h3> <b>CIVIL RIGHTS</b> </h3>
-                            <div class="text">Black Roses Support ensures clients exercise their civil rights by
+                            <div class="text">Black Roses Support ensures young people exercise their civil rights by
                                 facilitating voting, accessing NHS services, claiming welfare benefits, and accessing public
-                                services like libraries and education. Clients are also supported in voluntary work and
+                                services like libraries and education. young people are also supported in voluntary work and
                                 finding employment, all in compliance with The Human Rights Act 1998.</div>
                         </div>
                     </div>
@@ -248,11 +251,12 @@
                     <div class="inner-box wow fadeIn" data-wow-duration="1500ms" data-wow-delay="0ms">
                         <div class="content">
                             <h3> <b>CONFIDENTIALITY</b> </h3>
-                            <div class="text">Black Roses Support ensures that information we hold about clients are kept
+                            <div class="text">Black Roses Support ensures that information we hold about young people are
+                                kept
                                 confidential at all times in accordance with the GDPR/Data Protection Act 2018.
                                 There are exceptions to this rule in extreme cases where personal data relating
-                                to a client’s mental and /or physical health could be passed on without explicit
-                                consent if this is deemed necessary to protect the vital interests of the client
+                                to a young people's mental and /or physical health could be passed on without explicit
+                                consent if this is deemed necessary to protect the vital interests of the young people
                                 and/or the safety of others.</div>
                         </div>
                     </div>
@@ -262,7 +266,7 @@
                     <div class="inner-box wow fadeIn" data-wow-duration="1500ms" data-wow-delay="0ms">
                         <div class="content">
                             <h3> <b>DIGNITY AND RESPECT</b> </h3>
-                            <div class="text">At Black Roses Support we uphold dignity and respect for our clients
+                            <div class="text">At Black Roses Support we uphold dignity and respect for our young people
                                 by valuing them as individuals, supporting their personal presentation and social
                                 interactions, providing opportunities for self-expression, and addressing any discrimination
                                 they may encounter.</div>
@@ -276,7 +280,8 @@
                             <h3> <b>EQUAL OPPORTUNITIES</b> </h3>
                             <div class="text">Black Roses Support upholds equal opportunities principles, refraining from
                                 discrimination based on race, religion, gender, disability, sexual orientation, marital
-                                status, or age for both staff and clients. Our Equality and Diversity Policy is accessible
+                                status, or age for both staff and young people. Our Equality and Diversity Policy is
+                                accessible
                                 through the unit manager upon request.</div>
                         </div>
                     </div>
@@ -286,10 +291,13 @@
                     <div class="inner-box wow fadeIn" data-wow-duration="1500ms" data-wow-delay="0ms">
                         <div class="content">
                             <h3> <b>INDEPENDENCE</b> </h3>
-                            <div class="text">Black Roses Support promotes independence among clients by empowering them
+                            <div class="text">Black Roses Support promotes independence among young people by empowering
+                                them
                                 to lead independent lives, make decisions, and take informed risks. We encourage maintaining
-                                contact with friends and family and offer opportunities for clients to contribute to their
-                                support package. Regular house meetings ensure client involvement in property management.
+                                contact with friends and family and offer opportunities for young people to contribute to
+                                their
+                                support package. Regular house meetings ensure young people involvement in property
+                                management.
                             </div>
                         </div>
                     </div>
@@ -298,11 +306,12 @@
                     <div class="inner-box wow fadeIn" data-wow-duration="1500ms" data-wow-delay="0ms">
                         <div class="content">
                             <h3> <b>PRIVACY</b> </h3>
-                            <div class="text">Black Roses Support values the privacy of clients in communal living
+                            <div class="text">Black Roses Support values the privacy of young people in communal living
                                 spaces, ensuring respect for personal boundaries and offering opportunities for privacy.
-                                Clients are supported in personalizing their living spaces and have access to communal areas
+                                young people are supported in personalizing their living spaces and have access to communal
+                                areas
                                 for solitude or socializing. Bedroom doors are equipped with locks for individual privacy,
-                                and staff strictly adhere to policies on entering client rooms.
+                                and staff strictly adhere to policies on entering young people rooms.
                             </div>
                         </div>
                     </div>
@@ -312,9 +321,11 @@
                         <div class="content">
                             <h3> <b>SAFETY AND SECURITY</b> </h3>
                             <div class="text">Black Roses Support prioritizes security and safety by providing guidance
-                                on tasks with potential risks, safeguarding clients from abuse, and fostering an open and
-                                inclusive atmosphere. Staff and clients are familiar with procedures for raising concerns,
-                                and visitor access is controlled to protect client privacy and safety.
+                                on tasks with potential risks, safeguarding young people from abuse, and fostering an open
+                                and
+                                inclusive atmosphere. Staff and young people are familiar with procedures for raising
+                                concerns,
+                                and visitor access is controlled to protect young people privacy and safety.
                             </div>
                         </div>
                     </div>

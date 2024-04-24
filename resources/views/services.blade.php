@@ -119,9 +119,9 @@
 
                 <div class="separator"></div>
                 <div class="desc-text">
-                    <b>Black Roses Support aims to help clients develop their skills, on an individual
+                    <b>Black Roses Support aims to help young people develop their skills, on an individual
                         basis, that they may progress to greater independence, and further integrate
-                        into the local community. The ways in which we support clients may include
+                        into the local community. The ways in which we support young people may include
                         providing advice, supervising and facilitating with:</b>
                 </div>
             </div>
@@ -243,13 +243,13 @@
 
                                 <div class="numbered-list">
                                     <p>
-                                        Client Files
+                                        young person Files
                                     </p>
                                     <p>
                                         Health and Safety
                                     </p>
                                     <p>
-                                        Client Meetings
+                                        young person Meetings
                                     </p>
                                     <p>
                                         Team Meetings
@@ -383,7 +383,7 @@
                                 </p>
 
                                 <p class="strong-text" style="text-align: center; margin-top: 10px">External Inspections by
-                                    Who are our clients?
+                                    Who are our young people?
                                 </p>
 
                                 <p>

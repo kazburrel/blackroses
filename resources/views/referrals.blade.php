@@ -67,7 +67,7 @@
                                     The referral process begins with an enquiry, by telephone, email or letter.
                                     The service will then ask for a referral form to be sent, giving brief information
                                     about
-                                    the potential client and their risks as well as support needs. This form can be
+                                    the potential young people and their risks as well as support needs. This form can be
                                     completed
                                     by a social worker and/or other professionals.
                                     A review of this information is then undertaken to assess whether the service can
@@ -102,19 +102,22 @@
                                 <div class="numbered-list">
                                     <p>
                                         If the outcome of the assessment is that the service can meet the needs of the
-                                        potential client (young person), they will then be invited to visit the appropriate
-                                        property. This will give them the opportunity to look around, meet other clients of
+                                        potential young people, they will then be invited to visit the appropriate
+                                        property. This will give them the opportunity to look around, meet other young
+                                        people of
                                         the property and ask questions or seek clarification about anything they are
                                         unsure of.
                                     </p>
                                     <p>
-                                        If the potential client likes the service and there is an appropriate vacancy for
+                                        If the potential young people likes the service and there is an appropriate vacancy
+                                        for
                                         them
                                         and funding for their placement has been approved, a transition plan is then
                                         agreed with the placing Local Authority. This can include both day and overnight
-                                        visits to help the client settle in to their new environment. If there are no
+                                        visits to help the young people settle in to their new environment. If there are no
                                         concerns
-                                        from the client or the service during this period, an admission date to the service
+                                        from the young people or the service during this period, an admission date to the
+                                        service
                                         is then agreed.
                                     </p>
                                 </div>
@@ -140,15 +143,15 @@
                                     In the case of emergency admission requests, an initial assessment including
                                     ImRA will be completed at the time of the referral. If the service can offer a
                                     suitable support placement and funding is confirmed by the placing Local
-                                    Authority, the new client (young person) will be able to move in.
-                                    The Service Provision (unit) will inform the new client (young person) of all key
+                                    Authority, the new young people will be able to move in.
+                                    The Service Provision (unit) will inform the new young people of all key
                                     aspects, procedures and routines of the property at the admission. Placement
                                     Planning Meeting is then arranged with the allocated social worker on the next
                                     working day. PPM should be completed within first week.
                                 </div>
                                 <h5 class="strong-text" style="text-align: center;">Accommodation</h5>
                                 <div>
-                                    Black Roses Support recognises that every prospective client should have the
+                                    Black Roses Support recognises that every prospective young people should have the
                                     opportunity to choose a home which suits their needs. To facilitate that choice,
                                     we do the following:
                                 </div>
@@ -158,11 +161,12 @@
                                         Guide.
                                     </p>
                                     <p>
-                                        Give each client a Client Agreement specifying the terms of the service and
+                                        Give each young person an Agreement specifying the terms of the service and
                                         accommodation.
                                     </p>
                                     <p>
-                                        Ensure that every prospective client has their needs thoroughly assessed before
+                                        Ensure that every prospective young person has their needs thoroughly assessed
+                                        before
                                         a decision on admission is taken.
                                     </p>
                                     <p>
@@ -170,14 +174,14 @@
                                         confident that we can meet their needs as assessed.
                                     </p>
                                     <p>
-                                        Offer introductory visits to prospective clients and avoid unplanned admissions
+                                        Offer introductory visits to prospective young person and avoid unplanned admissions
                                         except in cases of emergency.
                                     </p>
                                 </div>
 
                                 <h4 class="strong-" style="text-align: center;margin-top: 15px">
                                     There are a number of properties, which are intended to provide environments
-                                    where clients are able to experience supported living in the community.
+                                    where young people are able to experience supported living in the community.
                                 </h4>
 
                             </div>

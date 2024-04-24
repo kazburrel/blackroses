@@ -21,7 +21,7 @@
                 <h2>Welcome to Black Roses Support - Your Opportunity Awaits!</h2>
                 <div class="separator"></div>
                 <div class="desc-text">
-                    Black Roses Support is committed to providing outstanding care to clients through a team of highly
+                    Black Roses Support is committed to providing outstanding care to young people through a team of highly
                     skilled and compassionate professionals. We prioritize continuous training, development, and improvement
                     to ensure the delivery of top-quality service. Our organization offers opportunities for both
                     experienced and entry-level staff, with competitive compensation based on experience and qualifications.
@@ -46,7 +46,7 @@
             <div class="numbered-list">
                 <h3 style="text-align: center; color: #fa6f1c;"><b>Why Choose Us?</b></h3>
                 <p><b>Commitment to Excellence:</b> We strive for excellence in everything we do, from providing top-notch
-                    support to our clients to fostering a supportive and inclusive work environment for our team
+                    support to our young people to fostering a supportive and inclusive work environment for our team
                     members.
                 </p>
                 <p>
