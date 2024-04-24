@@ -63,7 +63,7 @@
                                         short and long term stays
                                     </p>
                                     <p>
-                                        To empower clients to lead as independent a life as possible.
+                                        To empower young people to lead as independent a life as possible.
                                     </p>
                                     <p>
                                         To provide services that is anti-discriminatory.
