@@ -2,17 +2,13 @@
 
 use App\Http\Controllers\Career\VaccancyController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\ViewController;
 use App\Http\Middleware\PreventBackHistory;
 use Illuminate\Support\Facades\Route;
-use Spatie\Sitemap\SitemapGenerator;
 
 Route::get('/', [ViewController::class, 'home'])->name('home');
-Route::get('sitemap', function () {
-    SitemapGenerator::create('https://blackrosessupport.co.uk/')->writeToFile('sitemap.xml');
-
-    return 'site map created';
-});
+Route::get('sitemap', SitemapController::class)->name('gen.sitemap');
 Route::get('about', [ViewController::class, 'about'])->name('about');
 Route::get('services', [ViewController::class, 'services'])->name('services');
 Route::get('vaccancies', [ViewController::class, 'vaccancy'])->name('vaccancies');
