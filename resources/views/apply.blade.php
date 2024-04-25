@@ -30,7 +30,7 @@
                             <div style="display: flex; justify-content: space-between;">
                                 <h3 style="display: inline-block; margin-right: 10px;">Apply for <span
                                         style="color: #fa6f1c;">{{ $job->title }}</span> role</h3>
-                                <a href="{{ asset('path/to/your/pdf/file.pdf') }}" download
+                                <a href="{{ asset('BRS - Support Worker Job Description New (1).pdf') }}" download
                                     style="color: blue;">Download Job Description and Person specification</a>
                             </div>
                             <div class="separator"></div>
