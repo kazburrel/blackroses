@@ -16,17 +16,12 @@
         <priority>0.8</priority>
             </url>
     <url>
-        <loc>https://blackrosessupport.co.uk/referrals</loc>
-            <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-            </url>
-    <url>
-        <loc>https://blackrosessupport.co.uk/team</loc>
-            <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-            </url>
-    <url>
         <loc>https://blackrosessupport.co.uk/about</loc>
+            <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+            </url>
+    <url>
+        <loc>https://blackrosessupport.co.uk/contact</loc>
             <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>
@@ -36,8 +31,19 @@
         <priority>0.8</priority>
             </url>
     <url>
-        <loc>https://blackrosessupport.co.uk/contact</loc>
+        <loc>https://blackrosessupport.co.uk/team</loc>
             <changefreq>daily</changefreq>
         <priority>0.8</priority>
+            </url>
+    <url>
+        <loc>https://blackrosessupport.co.uk/referrals</loc>
+            <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+            </url>
+    <url>
+        <loc>https://frimleyhealthandcare.org.uk/get-involved/innovation-fund/2022-east-berkshire-families-children-and-young-peoples-fund/black-roses-support/
+            </loc>
+            <changefreq>daily</changefreq>
+        <priority>0.5</priority>
             </url>
 </urlset>
