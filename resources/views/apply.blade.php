@@ -7,8 +7,8 @@
     <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
     <link href="{{ asset('css/revolution-slider.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-    <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}" type="image/x-icon">
-    <link rel="icon" href="{{ asset('images/favicon.ico') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('images/Favicon.png') }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('images/Favicon.png') }}" type="image/x-icon">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -30,7 +30,7 @@
                             <div style="display: flex; justify-content: space-between;">
                                 <h3 style="display: inline-block; margin-right: 10px;">Apply for <span
                                         style="color: #fa6f1c;">{{ $job->title }}</span> role</h3>
-                                <a href="{{ asset('path/to/your/pdf/file.pdf') }}" download
+                                <a href="{{ asset('BRS - Support Worker Job Description New (1).pdf') }}" download
                                     style="color: blue;">Download Job Description and Person specification</a>
                             </div>
                             <div class="separator"></div>
