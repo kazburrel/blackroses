@@ -70,7 +70,8 @@
                                 </div>
                                 <div class="social-links">
                                     <a href="#"><span class="fa fa-facebook-f"></span></a>
-                                    <a href="#"><span class="fa fa-linkedin"></span></a>
+                                    <a href="https://uk.linkedin.com/in/latoya-hughes-a91714217"><span
+                                            class="fa fa-linkedin"></span></a>
                                 </div>
                             </div>
                         </div>

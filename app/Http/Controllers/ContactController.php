@@ -34,7 +34,6 @@ class ContactController extends Controller
             ->line('Email: ' . $validatedData['email'])
             ->line('Message: ' . $validatedData['message'])
             ->mail($user);
-
         toast('Email has been sent successfully.', 'success');
         return redirect()->back();
     }
