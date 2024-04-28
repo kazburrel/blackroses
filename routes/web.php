@@ -25,6 +25,8 @@ Route::prefix('/admin')->middleware(['auth', 'permission:default users', Prevent
     Route::get('/vacancy', [ViewController::class, 'vacancy'])->name('job.vacancy');
     Route::get('/post/vacancy', [ViewController::class, 'getPostVacancy'])->name('get.advertise.job.vacancy');
     Route::post('/post/vacancy', [VaccancyController::class, 'postVacancy'])->name('post.job.vacancy');
+    Route::get('/job/applications', [ViewController::class, 'jobApplications'])->name('get.job.applications');
+    Route::put('/job/applications/listing', [VaccancyController::class, 'jobListing'])->name('toggle.job.applications.listing');
 });
 
 require __DIR__ . '/auth.php';
