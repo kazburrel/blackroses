@@ -2,38 +2,29 @@
 
 
 @section('content')
-    <div class="card mb-5 mb-xl-8">
+    <div class="card mb-5 mb-xl-8 pb-4">
         <div class="card-header border-0 pt-5">
             <h3 class="card-title align-items-start flex-column">
                 <span class="card-label fw-bolder fs-3 mb-1">All Applications</span>
                 <span class="text-muted mt-1 fw-bold fs-7"></span>
             </h3>
-            <form action="/admin/all_courses" class="d-flex align-items-center">
-                <div class="position-relative w-md-400px me-md-2">
-                    <span class="svg-icon svg-icon-3 svg-icon-gray-500 position-absolute top-50 translate-middle ms-6">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            fill="none">
-                            <rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1"
-                                transform="rotate(45 17.0365 15.1223)" fill="currentColor" />
-                            <path
-                                d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z"
-                                fill="currentColor" />
-                        </svg>
-                    </span>
-                    <input type="text" class="form-control form-control-solid ps-10" name="search" value=""
-                        placeholder="Search" />
-                </div>
-                <div class="d-flex align-items-center">
-                    <button type="submit" class="btn btn-primary me-5">Search</button>
-                    <a id="kt_horizontal_search_advanced_link" class="btn btn-link" data-bs-toggle="collapse"
-                        href="#kt_advanced_search_form">Advanced Search</a>
-                </div>
-            </form>
-
-
+            <div class="d-flex align-items-center position-relative my-1 w-50">
+                <span class="svg-icon svg-icon-1 position-absolute ms-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1"
+                            transform="rotate(45 17.0365 15.1223)" fill="currentColor" />
+                        <path
+                            d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z"
+                            fill="currentColor" />
+                    </svg>
+                </span>
+                <input type="text" data-kt-user-table-filter="search"
+                    class="form-control form-control-solid flex-grow-1 ps-14" placeholder="Search user"
+                    style="width: 100%;" />
+            </div>
             <div class="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover"
                 title="Click to add a Course">
-                <a href="/admin/add_course" class="btn btn-sm btn-light btn-active-primary">
+                <a href="{{ route('post.job.vacancy') }}" class="btn btn-sm btn-light btn-active-primary">
                     <span class="svg-icon svg-icon-3">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                             fill="none">
@@ -41,60 +32,64 @@
                                 transform="rotate(-90 11.364 20.364)" fill="currentColor" />
                             <rect x="4.36396" y="11.364" width="16" height="2" rx="1" fill="currentColor" />
                         </svg>
-                    </span>New Course
+                    </span>New Job
                 </a>
             </div>
         </div>
-        <div class="card-body py-3">
-            <div class="table-responsive">
-                <div class="row">
-                    @forelse ($vaccancies as $vaccancy)
-                        <div class="col-xl-4">
-                            <div class="card mb-5 mb-xl-8  border border-2 rounded-4">
-                                <div class="card-body pb-0">
-                                    <div class="d-flex align-items-center mb-5">
-                                        <div class="d-flex align-items-center flex-grow-1">
+    </div>
+    <div class="card-body py-3" id="kt_table_users">
+        <div class="table-responsive">
+            <div class="row">
+                @forelse ($vaccancies as $vaccancy)
+                    <div class="col-xl-4">
+                        <div class="card mb-5 mb-xl-8 border border-2 rounded-4">
+                            <div class="card-body pb-0">
+                                <div class="d-flex align-items-center mb-5">
+                                    <div class="d-flex align-items-center flex-grow-1">
 
-                                            <div class="d-flex flex-column">
+                                        <div class="d-flex flex-column">
 
-                                                <p class="text-gray-900 fs-6 mb-1 fw-bolder">
-                                                    {{ $vaccancy->title }}</p>
-                                                <p class="text-gray-900 fs-6 mb-1 fw-bolder">
-                                                    @forelse ($vaccancy->type as $item)
-                                                        {{ $item }}
-                                                        @if (!$loop->last)
-                                                            ,
-                                                        @endif
-                                                    @empty
-                                                    @endforelse
+                                            <p class="text-gray-900 fs-6 mb-1 fw-bolder">
+                                                {{ $vaccancy->title }}</p>
+                                            <p class="text-gray-900 fs-6 mb-1 fw-bolder">
+                                                @forelse ($vaccancy->type as $item)
+                                                    {{ $item }}
+                                                    @if (!$loop->last)
+                                                        ,
+                                                    @endif
+                                                @empty
+                                                @endforelse
 
-                                                </p>
-                                                <span class="text-gray-400 fw-bold">
+                                            </p>
+                                            <span class="text-gray-400 fw-bold">
 
-                                            </div>
                                         </div>
-
                                     </div>
-                                    <div class="mb-5">
 
-                                        <div class="text-gray-800 mb-5">
-                                            <span class="fw-bold">Schedule:</span>
-                                            @forelse ($vaccancy->schedule  as $item)
-                                                {{ $item }}
-                                                @if (!$loop->last)
-                                                    ,
-                                                @endif
-                                            @empty
-                                            @endforelse
-                                        </div>
-                                        <div class="text-gray-800 mb-5">
-                                            <span class="fw-bold">Location:</span>
-                                            {{ $vaccancy->location }}
-                                        </div>
-                                        <div class="d-flex justify-content-between">
-                                            <div class="d-flex align-items-center rounded">
-                                                <form action="#" method="POST" class="toggle-form">
-                                                    {{-- <button
+                                </div>
+                                <div class="mb-5">
+
+                                    <div class="text-gray-800 mb-5">
+                                        <span class="fw-bold">Schedule:</span>
+                                        @forelse ($vaccancy->schedule  as $item)
+                                            {{ $item }}
+                                            @if (!$loop->last)
+                                                ,
+                                            @endif
+                                        @empty
+                                        @endforelse
+                                    </div>
+                                    <div class="text-gray-800 mb-5">
+                                        <span class="fw-bold">Location:</span>
+                                        {{ $vaccancy->location }}
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <div class="d-flex align-items-center rounded">
+                                            <form action="{{ route('toggle.job.applications.listing', [$vaccancy->uuid]) }}"
+                                                method="POST" class="toggle-form">
+                                                @method('PUT')
+                                                @csrf
+                                                {{-- <button
                                                         class="bg-transparent border-0 btn-outline-0 p-0 rounded toggle-button"
                                                         type="submit">
                                                         <div class="d-flex flex-stack">
@@ -109,64 +104,64 @@
                                                             </label>
                                                         </div>
                                                     </button> --}}
-                                                    <button
-                                                        class="bg-transparent border-0 btn-outline-0 p-0 rounded toggle-button"
-                                                        type="submit">
-                                                        <div class="d-flex flex-stack">
-                                                            <label
-                                                                class="form-check form-switch form-check-custom form-check-solid">
-                                                                <input class="form-check-input toggle-checkbox"
-                                                                    type="checkbox" value="1"
-                                                                    {{ $vaccancy->is_listed == 1 ? 'checked' : '' }}>
-                                                                <span
-                                                                    class="form-check-label fw-bold text-muted toggle-label">{{ $vaccancy->is_listed == 1 ? 'Job is listed' : 'Job is not listed' }}</span>
-                                                            </label>
-                                                        </div>
-                                                    </button>
-                                                </form>
-                                            </div>
+                                                <button
+                                                    class="bg-transparent border-0 btn-outline-0 p-0 rounded toggle-button"
+                                                    type="submit">
+                                                    <div class="d-flex flex-stack">
+                                                        <label
+                                                            class="form-check form-switch form-check-custom form-check-solid">
+                                                            <input name="is_listed" class="form-check-input toggle-checkbox"
+                                                                type="checkbox" value="1"
+                                                                {{ $vaccancy->is_listed == 1 ? 'checked' : '' }}>
+                                                            <span
+                                                                class="form-check-label fw-bold text-muted toggle-label">{{ $vaccancy->is_listed == 1 ? 'Job is listed' : 'Job is not listed' }}</span>
+                                                        </label>
+                                                    </div>
+                                                </button>
+                                            </form>
+                                        </div>
 
-                                            <div class="d-flex justify-content-end flex-shrink-0">
-                                                <div class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1"
-                                                    data-bs-toggle="modal" data-bs-target="#kt_modal_add_user-">
-                                                    <span class="svg-icon svg-icon-3 svg-icon-primary">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24"
-                                                            height="24" viewBox="0 0 24 24" fill="none">
-                                                            <path opacity="0.3"
-                                                                d="M21.4 8.35303L19.241 10.511L13.485 4.755L15.643 2.59595C16.0248 2.21423 16.5426 1.99988 17.0825 1.99988C17.6224 1.99988 18.1402 2.21423 18.522 2.59595L21.4 5.474C21.7817 5.85581 21.9962 6.37355 21.9962 6.91345C21.9962 7.45335 21.7817 7.97122 21.4 8.35303ZM3.68699 21.932L9.88699 19.865L4.13099 14.109L2.06399 20.309C1.98815 20.5354 1.97703 20.7787 2.03189 21.0111C2.08674 21.2436 2.2054 21.4561 2.37449 21.6248C2.54359 21.7934 2.75641 21.9115 2.989 21.9658C3.22158 22.0201 3.4647 22.0084 3.69099 21.932H3.68699Z"
-                                                                fill="currentColor" />
-                                                            <path
-                                                                d="M5.574 21.3L3.692 21.928C3.46591 22.0032 3.22334 22.0141 2.99144 21.9594C2.75954 21.9046 2.54744 21.7864 2.3789 21.6179C2.21036 21.4495 2.09202 21.2375 2.03711 21.0056C1.9822 20.7737 1.99289 20.5312 2.06799 20.3051L2.696 18.422L5.574 21.3ZM4.13499 14.105L9.891 19.861L19.245 10.507L13.489 4.75098L4.13499 14.105Z"
-                                                                fill="currentColor" />
-                                                        </svg>
-                                                    </span>
-                                                </div>
-                                                <a href="#" class="btn btn-icon btn-bg-light btn-sm"
-                                                    data-bs-toggle="modal" data-bs-target="#kt_modal_1"
-                                                    data-kt-users-table-filter="delete_row">
-                                                    <span class="svg-icon svg-icon-3 svg-icon-danger">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24"
-                                                            height="24" viewBox="0 0 24 24" fill="none">
-                                                            <path
-                                                                d="M5 9C5 8.44772 5.44772 8 6 8H18C18.5523 8 19 8.44772 19 9V18C19 19.6569 17.6569 21 16 21H8C6.34315 21 5 19.6569 5 18V9Z"
-                                                                fill="currentColor" />
-                                                            <path opacity="0.5"
-                                                                d="M5 5C5 4.44772 5.44772 4 6 4H18C18.5523 4 19 4.44772 19 5V5C19 5.55228 18.5523 6 18 6H6C5.44772 6 5 5.55228 5 5V5Z"
-                                                                fill="currentColor" />
-                                                            <path opacity="0.5"
-                                                                d="M9 4C9 3.44772 9.44772 3 10 3H14C14.5523 3 15 3.44772 15 4V4H9V4Z"
-                                                                fill="currentColor" />
-                                                        </svg>
-                                                    </span>
-                                                </a>
+                                        <div class="d-flex justify-content-end flex-shrink-0">
+                                            <div class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1"
+                                                data-bs-toggle="modal" data-bs-target="#kt_modal_add_user-">
+                                                <span class="svg-icon svg-icon-3 svg-icon-primary">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        viewBox="0 0 24 24" fill="none">
+                                                        <path opacity="0.3"
+                                                            d="M21.4 8.35303L19.241 10.511L13.485 4.755L15.643 2.59595C16.0248 2.21423 16.5426 1.99988 17.0825 1.99988C17.6224 1.99988 18.1402 2.21423 18.522 2.59595L21.4 5.474C21.7817 5.85581 21.9962 6.37355 21.9962 6.91345C21.9962 7.45335 21.7817 7.97122 21.4 8.35303ZM3.68699 21.932L9.88699 19.865L4.13099 14.109L2.06399 20.309C1.98815 20.5354 1.97703 20.7787 2.03189 21.0111C2.08674 21.2436 2.2054 21.4561 2.37449 21.6248C2.54359 21.7934 2.75641 21.9115 2.989 21.9658C3.22158 22.0201 3.4647 22.0084 3.69099 21.932H3.68699Z"
+                                                            fill="currentColor" />
+                                                        <path
+                                                            d="M5.574 21.3L3.692 21.928C3.46591 22.0032 3.22334 22.0141 2.99144 21.9594C2.75954 21.9046 2.54744 21.7864 2.3789 21.6179C2.21036 21.4495 2.09202 21.2375 2.03711 21.0056C1.9822 20.7737 1.99289 20.5312 2.06799 20.3051L2.696 18.422L5.574 21.3ZM4.13499 14.105L9.891 19.861L19.245 10.507L13.489 4.75098L4.13499 14.105Z"
+                                                            fill="currentColor" />
+                                                    </svg>
+                                                </span>
                                             </div>
+                                            <a href="#" class="btn btn-icon btn-bg-light btn-sm"
+                                                data-bs-toggle="modal" data-bs-target="#kt_modal_1"
+                                                data-kt-users-table-filter="delete_row">
+                                                <span class="svg-icon svg-icon-3 svg-icon-danger">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        viewBox="0 0 24 24" fill="none">
+                                                        <path
+                                                            d="M5 9C5 8.44772 5.44772 8 6 8H18C18.5523 8 19 8.44772 19 9V18C19 19.6569 17.6569 21 16 21H8C6.34315 21 5 19.6569 5 18V9Z"
+                                                            fill="currentColor" />
+                                                        <path opacity="0.5"
+                                                            d="M5 5C5 4.44772 5.44772 4 6 4H18C18.5523 4 19 4.44772 19 5V5C19 5.55228 18.5523 6 18 6H6C5.44772 6 5 5.55228 5 5V5Z"
+                                                            fill="currentColor" />
+                                                        <path opacity="0.5"
+                                                            d="M9 4C9 3.44772 9.44772 3 10 3H14C14.5523 3 15 3.44772 15 4V4H9V4Z"
+                                                            fill="currentColor" />
+                                                    </svg>
+                                                </span>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
 
-                        {{-- <div class="modal fade" tabindex="-1" id="kt_modal_1{{ $course->id }}">
+                    {{-- <div class="modal fade" tabindex="-1" id="kt_modal_1{{ $course->id }}">
                         <div class="modal-dialog">
                             <div class="modal-content text-center">
                                 <div class="modal-header">
@@ -199,7 +194,7 @@
                         </div>
                     </div> --}}
 
-                        {{-- <div class="modal fade" id="kt_modal_add_user-{{ $course->id }}" tabindex="-1"
+                    {{-- <div class="modal fade" id="kt_modal_add_user-{{ $course->id }}" tabindex="-1"
                         aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered mw-650px">
                             <div class="modal-content rounded">
@@ -390,63 +385,51 @@
                             </div>
                         </div>
                     </div> --}}
-                    @empty
-                    @endforelse
-                </div>
-
-                {{-- {{ $departments->links() }} --}}
+                @empty
+                @endforelse
             </div>
+
+            {{-- {{ $departments->links() }} --}}
         </div>
     </div>
-    {{-- <script>
-        function toggleLabel(checkbox) {
-            var toggleLabel = checkbox.parentNode.querySelector(".toggle-label");
 
-            if (!checkbox.checked) {
-                toggleLabel.innerText = "Job is not public";
-            } else {
-                toggleLabel.innerText = "Job is public";
-            }
-        }
-    </script> --}}
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            document.querySelector('.toggle-form').addEventListener('change', function(event) {
-                if (event.target.classList.contains('toggle-checkbox')) {
-                    var checkbox = event.target;
-                    var toggleLabel = checkbox.parentNode.querySelector(".toggle-label");
-                    var itemId = checkbox.parentNode.previousElementSibling.value;
+        // Function to handle checkbox change event
+        function handleCheckboxChange(event) {
+            var checkbox = event.target; // Get the checkbox that was clicked
+            var form = checkbox.closest('form'); // Find the closest form element relative to the checkbox
+            var formData = new FormData(form); // Create FormData object from the form
 
-                    // Update the database
-                    fetch('/update-item', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json',
-                                'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                            },
-                            body: JSON.stringify({
-                                id: itemId,
-                                value: checkbox.checked ? 1 : 0
-                            })
-                        })
-                        .then(response => {
-                            if (!response.ok) {
-                                throw new Error('Network response was not ok');
-                            }
-                            return response.json();
-                        })
-                        .then(data => {
-                            console.log(data); // Optionally, handle the response from the server
-                        })
-                        .catch(error => {
-                            console.error('There was a problem with your fetch operation:', error);
-                        });
+            fetch(form.action, {
+                    method: 'PUT',
+                    body: formData,
+                    headers: {
+                        'X-CSRF-Token': '{{ csrf_token() }}'
+                    }
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Assuming data contains the response from the server
+                    console.log('Success:', data);
+                    // Update the label text based on server response
+                    var label = form.querySelector('.toggle-label');
+                    label.textContent = data.is_listed ? 'Job is listed' : 'Job is not listed';
+                })
+                .catch(error => {
+                    // Log any errors
+                    console.error('Error:', error);
+                });
+        }
 
-                    // Update the label text
-                    toggleLabel.innerText = checkbox.checked ? "Public" : "Not public";
-                }
-            });
+        // Add event listener to the checkbox
+        document.querySelectorAll('.toggle-checkbox').forEach(function(checkbox) {
+            checkbox.addEventListener('change', handleCheckboxChange);
         });
     </script>
 @endsection

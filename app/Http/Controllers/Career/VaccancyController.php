@@ -8,8 +8,10 @@ use App\Http\Requests\StoreJobVaccancyFormRequest;
 use App\Models\JobApplication;
 use App\Models\JobVacancy;
 use App\Models\Settings;
+use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Utyemma\LaraNotice\Notify;
 
 class VaccancyController extends Controller
@@ -62,7 +64,26 @@ class VaccancyController extends Controller
         return redirect()->route('home');
     }
 
-    public function jobListing()
+    public function jobListing($uuid)
     {
+
+        $job = JobVacancy::where('uuid', $uuid)->first();
+        try {
+            // Assuming $uuid is the JobVacancy model instance
+            $job->is_listed = !$job->is_listed;
+            $job->save();
+
+            // Log a success message
+            Log::info('Job listing toggled successfully.');
+
+            // Optionally, return a response indicating success
+            return response()->json(['success' => true]);
+        } catch (\Exception $e) {
+            // Log the error
+            Log::error('Error toggling job listing: ' . $e->getMessage());
+
+            // Optionally, return a response indicating failure
+            return response()->json(['success' => false, 'error' => 'An error occurred.']);
+        }
     }
 }
