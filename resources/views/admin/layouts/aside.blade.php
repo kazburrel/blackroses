@@ -4,7 +4,7 @@
     data-kt-drawer-toggle="#kt_aside_mobile_toggle">
     <div class="aside-logo flex-column-auto" id="kt_aside_logo">
         <a href="#">
-            <img alt="Logo" src="{{ asset('admin_assets/media/logos/logo-1-dark.svg') }}" class="h-25px logo" />
+            <img alt="Logo" src="{{ asset('images/Black Roses Support-03.png') }}" class="h-50px logo" />
         </a>
         <div id="kt_aside_toggle" class="btn btn-icon w-auto px-0 btn-active-color-primary aside-toggle"
             data-kt-toggle="true" data-kt-toggle-state="active" data-kt-toggle-target="body"

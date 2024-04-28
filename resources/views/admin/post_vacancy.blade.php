@@ -15,16 +15,6 @@
                         <div class="mb-13 text-center">
                             <h1 class="mb-3">Post a Job Vacancy</h1>
                         </div>
-                        {{-- @if ($errors->any())
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif --}}
-
                         <div class="d-flex flex-column mb-8 fv-row">
                             <label class="d-flex align-items-center fs-6 fw-bold mb-2">
                                 <span class="required">Job Title</span>

@@ -6,7 +6,6 @@
                 <span class="card-label fw-bolder fs-3 mb-1">All Lecturers</span>
                 <span class="text-muted mt-1 fw-bold fs-7"></span>
             </h3>
-            {{-- SEARCH BEGINS --}}
 
             <form action="/admin/all_lecturer" class="d-flex align-items-center">
                 <div class="position-relative w-md-400px me-md-2">
