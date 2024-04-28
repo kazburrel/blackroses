@@ -69,20 +69,12 @@ class VaccancyController extends Controller
 
         $job = JobVacancy::where('uuid', $uuid)->first();
         try {
-            // Assuming $uuid is the JobVacancy model instance
             $job->is_listed = !$job->is_listed;
             $job->save();
-
-            // Log a success message
             Log::info('Job listing toggled successfully.');
-
-            // Optionally, return a response indicating success
             return response()->json(['success' => true]);
         } catch (\Exception $e) {
-            // Log the error
             Log::error('Error toggling job listing: ' . $e->getMessage());
-
-            // Optionally, return a response indicating failure
             return response()->json(['success' => false, 'error' => 'An error occurred.']);
         }
     }

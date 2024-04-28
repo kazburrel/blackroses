@@ -106,4 +106,9 @@ class ViewController extends Controller
 
         return view('admin.applications');
     }
+
+    public function jobApplication($uuid)
+    {
+        dd($uuid);
+    }
 }

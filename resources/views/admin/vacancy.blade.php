@@ -977,7 +977,8 @@
                             <div class="card-body pb-0">
                                 <div class="d-flex justify-content-end">
                                     <div>
-                                        <button class="btn btn-sm btn-primary"><a class="text-white" href="">View
+                                        <button class="btn btn-sm btn-primary"><a class="text-white"
+                                                href="{{ route('get.job.application.uuid', [$vaccancy->uuid]) }}">View
                                                 applications</a></button>
                                     </div>
                                 </div>
