@@ -4,7 +4,7 @@
     data-kt-drawer-toggle="#kt_aside_mobile_toggle">
     <div class="aside-logo flex-column-auto" id="kt_aside_logo">
         <a href="#">
-            <img alt="Logo" src="{{ asset('admin_assets/media/logos/logo-1-dark.svg') }}" class="h-25px logo" />
+            <img alt="Logo" src="{{ asset('images/Black Roses Support-03.png') }}" class="h-50px logo" />
         </a>
         <div id="kt_aside_toggle" class="btn btn-icon w-auto px-0 btn-active-color-primary aside-toggle"
             data-kt-toggle="true" data-kt-toggle-state="active" data-kt-toggle-target="body"
@@ -60,6 +60,19 @@
                     </a>
                 </div>
 
+                <div class="menu-item">
+                    <div class="menu-content pt-8 pb-2">
+                        <span class="menu-section text-muted text-uppercase fs-8 ls-1">Applications</span>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <a class="menu-link" href="{{ route('get.job.applications') }}">
+                        <span class="menu-bullet">
+                            <span class="bullet bullet-dot"></span>
+                        </span>
+                        <span class="menu-title">All Applications</span>
+                    </a>
+                </div>
 
             </div>
         </div>

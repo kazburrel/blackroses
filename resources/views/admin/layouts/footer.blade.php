@@ -14,3 +14,17 @@
         </ul>
     </div>
 </div>
+
+<style>
+    body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        /* This makes sure the body expands to at least the height of the viewport */
+    }
+
+    .footer {
+        margin-top: auto;
+        /* This pushes the footer to the bottom of the page */
+    }
+</style>

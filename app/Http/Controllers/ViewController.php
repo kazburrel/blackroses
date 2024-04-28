@@ -7,6 +7,7 @@ use App\Models\Settings;
 use App\Models\User;
 use Artesaos\SEOTools\Facades\SEOMeta;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ViewController extends Controller
 {
@@ -87,14 +88,22 @@ class ViewController extends Controller
 
     public function vacancy()
     {
-
-        return view('admin.vacancy');
+        $user = Auth::user();
+        $vaccancy = JobVacancy::all();
+        return view('admin.vacancy', [
+            'vaccancies' => $vaccancy
+        ]);
     }
 
     public function getPostVacancy()
     {
 
-
         return view('admin.post_vacancy');
+    }
+
+    public function jobApplications()
+    {
+
+        return view('admin.applications');
     }
 }
