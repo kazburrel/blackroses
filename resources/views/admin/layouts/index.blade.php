@@ -103,6 +103,8 @@
     <script src="{{ asset('admin_assets/js/custom/utilities/modals/create-project/complete.js') }}"></script>
     <script src="{{ asset('admin_assets/js/custom/utilities/modals/create-project/main.js') }}"></script>
     <script src="{{ asset('admin_assets/js/custom/utilities/modals/users-search.js') }}"></script>
+
+
     <!--end::Page Custom Javascript-->
     <!--end::Javascript-->
     @include('sweetalert::alert')

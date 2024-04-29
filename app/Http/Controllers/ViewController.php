@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\JobApplication;
 use App\Models\JobVacancy;
 use App\Models\Settings;
 use App\Models\User;
@@ -104,11 +105,17 @@ class ViewController extends Controller
     public function jobApplications()
     {
 
-        return view('admin.applications');
+        return view('admin.all_applications');
     }
 
     public function jobApplication($uuid)
     {
-        dd($uuid);
+        $applications = JobApplication::where('vaccancy_id', $uuid)->with('vaccancy')->get();
+        $vaccancy = JobVacancy::where('uuid', $uuid)->first();
+        // dd($applications);
+        return view('admin.vaccancy_applications', [
+            'applications' => $applications,
+            'vaccancy' => $vaccancy
+        ]);
     }
 }
