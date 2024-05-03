@@ -92,30 +92,38 @@ class ViewController extends Controller
         $user = Auth::user();
         $vaccancy = JobVacancy::all();
         return view('admin.vacancy', [
-            'vaccancies' => $vaccancy
+            'vaccancies' => $vaccancy,
+            'user' => $user
         ]);
     }
 
     public function getPostVacancy()
     {
-
-        return view('admin.post_vacancy');
+        $user = Auth::user();
+        return view('admin.post_vacancy', [
+            'user' => $user,
+        ]);
     }
 
     public function jobApplications()
     {
+        $user = Auth::user();
+        return view('admin.all_applications', [
 
-        return view('admin.all_applications');
+            'user' => $user,
+        ]);
     }
 
     public function jobApplication($uuid)
     {
+        $user = Auth::user();
         $applications = JobApplication::where('vaccancy_id', $uuid)->with('vaccancy')->get();
         $vaccancy = JobVacancy::where('uuid', $uuid)->first();
         // dd($applications);
         return view('admin.vaccancy_applications', [
             'applications' => $applications,
-            'vaccancy' => $vaccancy
+            'vaccancy' => $vaccancy,
+            'user' => $user
         ]);
     }
 }
