@@ -11,7 +11,7 @@ Route::get('/', [ViewController::class, 'home'])->name('home');
 Route::get('sitemap', SitemapController::class)->name('gen.sitemap');
 Route::get('about', [ViewController::class, 'about'])->name('about');
 Route::get('services', [ViewController::class, 'services'])->name('services');
-Route::get('vaccancies', [ViewController::class, 'vaccancy'])->name('vaccancies');
+Route::get('vacancies', [ViewController::class, 'vaccancy'])->name('vaccancies');
 Route::get('referrals', [ViewController::class, 'referrals'])->name('referrals');
 Route::get('contact', [ViewController::class, 'contact'])->name('contact');
 Route::post('contact/send', [ContactController::class, 'contactUs'])->name('contact.send');
