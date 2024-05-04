@@ -19,7 +19,7 @@ Route::get('team', [ViewController::class, 'team'])->name('team');
 Route::get('apply/{job}', [ViewController::class, 'apply'])->name('job.apply');
 Route::post('store/apply/{job}', [VaccancyController::class, 'storeApplication'])->name('store.job.apply');
 
-Route::prefix('/admin')->middleware(['auth', 'permission:default users', PreventBackHistory::class])->group(function () {
+Route::prefix('/admin')->middleware(['auth', 'permission:manage all staff', PreventBackHistory::class])->group(function () {
 
     Route::get('/dashboard', [ViewController::class, 'adminDashboard'])->name('admin.dashboard');
     Route::get('/vacancy', [ViewController::class, 'vacancy'])->name('job.vacancy');
@@ -28,6 +28,9 @@ Route::prefix('/admin')->middleware(['auth', 'permission:default users', Prevent
     Route::get('/job/applications', [ViewController::class, 'jobApplications'])->name('get.job.applications');
     Route::put('/job/applications/listing/{uuid}', [VaccancyController::class, 'jobListing'])->name('toggle.job.applications.listing');
     Route::get('/job/applications/{uuid}', [ViewController::class, 'jobApplication'])->name('get.job.application.uuid');
+    Route::delete('/delete/application/{uuid}', [VaccancyController::class, 'deleteApplication'])->name('delete.job.application');
+    Route::get('/approve/application/{uuid}', [VaccancyController::class, 'approveApplication'])->name('approve.job.application');
+    Route::get('/reject/application/{uuid}', [VaccancyController::class, 'rejectApplication'])->name('reject.job.application');
 });
 
 require __DIR__ . '/auth.php';

@@ -83,8 +83,10 @@ class ViewController extends Controller
 
     public function adminDashboard()
     {
-
-        return view('admin.dashboard');
+        $user = Auth::user();
+        return view('admin.dashboard', [
+            'user' => $user,
+        ]);
     }
 
     public function vacancy()

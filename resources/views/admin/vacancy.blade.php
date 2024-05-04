@@ -5,7 +5,7 @@
     <div class="card mb-5 mb-xl-8 pb-4">
         <div class="card-header border-0 pt-5">
             <h3 class="card-title align-items-start flex-column">
-                <span class="card-label fw-bolder fs-3 mb-1">All Vaccancy</span>
+                <span class="card-label fw-bolder fs-3 mb-1">All Vacancy</span>
                 <span class="text-muted mt-1 fw-bold fs-7"></span>
             </h3>
             {{-- <div class="d-flex align-items-center position-relative my-1 w-50">

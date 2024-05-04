@@ -16,68 +16,40 @@
         content="Metronic - Bootstrap 5 HTML, VueJS, React, Angular &amp; Laravel Admin Dashboard Theme" />
     <meta property="og:url" content="https://keenthemes.com/metronic" />
     <meta property="og:site_name" content="Keenthemes | Metronic" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="canonical" href="https://preview.keenthemes.com/metronic8" />
     <link rel="shortcut icon" href="{{ asset('images/Favicon.png') }}" type="image/x-icon">
-    <!--begin::Fonts-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
-    <!--end::Fonts-->
-    <!--begin::Page Vendor Stylesheets(used by this page)-->
     <link href="{{ asset('admin_assets/plugins/custom/fullcalendar/fullcalendar.bundle.css') }}" rel="stylesheet"
         type="text/css" />
     <link href="{{ asset('admin_assets/plugins/custom/datatables/datatables.bundle.css') }}" rel="stylesheet"
         type="text/css" />
-    <!--end::Page Vendor Stylesheets-->
-    <!--begin::Global Stylesheets Bundle(used by all pages)-->
     <link href="{{ asset('admin_assets/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('admin_assets/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
-    <!--end::Global Stylesheets Bundle-->
 </head>
-<!--end::Head-->
-<!--begin::Body-->
 
 <body id="kt_body"
     class="header-fixed header-tablet-and-mobile-fixed toolbar-enabled toolbar-fixed aside-enabled aside-fixed"
     style="--kt-toolbar-height:55px;--kt-toolbar-height-tablet-and-mobile:55px">
-    <!--begin::Main-->
-    <!--begin::Root-->
     <div class="d-flex flex-column flex-root">
-        <!--begin::Page-->
         <div class="page d-flex flex-row flex-column-fluid">
-            <!--begin::Aside-->
             @include('admin.layouts.aside')
-            <!--end::Aside-->
-            <!--begin::Wrapper-->
             <div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
-                <!--begin::Header-->
                 @include('admin.layouts.header')
-                <!--end::Header-->
-                <!--begin::Content-->
                 <div class="container">
                     @yield('content')
 
                 </div>
-                <!--end::Content-->
-                <!--begin::Footer-->
                 @include('admin.layouts.footer')
-                <!--end::Footer-->
             </div>
-            <!--end::Wrapper-->
         </div>
-        <!--end::Page-->
     </div>
-    <!--end::Root-->
 
-    <!--end::Modal - Users Search-->
-    <!--end::Modals-->
-    <!--begin::Javascript-->
     <script>
         var hostUrl = "assets/";
     </script>
-    <!--begin::Global Javascript Bundle(used by all pages)-->
     <script src="{{ asset('admin_assets/plugins/global/plugins.bundle.js') }}"></script>
     <script src="{{ asset('admin_assets/js/scripts.bundle.js') }}"></script>
-    <!--end::Global Javascript Bundle-->
-    <!--begin::Page Vendors Javascript(used by this page)-->
     <script src="{{ asset('admin_assets/plugins/custom/fullcalendar/fullcalendar.bundle.js') }}"></script>
     <script src="{{ asset('admin_assets/plugins/custom/datatables/datatables.bundle.js') }}"></script>
     <script src="{{ asset('admin_assets/plugins/custom/vis-timeline/vis-timeline.bundle.js') }}"></script>
@@ -86,8 +58,6 @@
     <script src="https://cdn.amcharts.com/lib/5/percent.js"></script>
     <script src="https://cdn.amcharts.com/lib/5/radar.js"></script>
     <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
-    <!--end::Page Vendors Javascript-->
-    <!--begin::Page Custom Javascript(used by this page)-->
     <script src="{{ asset('admin_assets/js/widgets.bundle.js') }}"></script>
     <script src="{{ asset('admin_assets/js/custom/widgets.js') }}"></script>
     <script src="{{ asset('admin_assets/js/custom/apps/chat/chat.js') }}"></script>
@@ -103,13 +73,12 @@
     <script src="{{ asset('admin_assets/js/custom/utilities/modals/create-project/complete.js') }}"></script>
     <script src="{{ asset('admin_assets/js/custom/utilities/modals/create-project/main.js') }}"></script>
     <script src="{{ asset('admin_assets/js/custom/utilities/modals/users-search.js') }}"></script>
+    <script src="{{ asset('admin_assets/js/custom/apps/ecommerce/sales/listing.js') }}"></script>
 
 
-    <!--end::Page Custom Javascript-->
-    <!--end::Javascript-->
+
     @include('sweetalert::alert')
 
 </body>
-<!--end::Body-->
 
 </html>

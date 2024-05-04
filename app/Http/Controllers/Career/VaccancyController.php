@@ -8,7 +8,9 @@ use App\Http\Requests\StoreJobVaccancyFormRequest;
 use App\Models\JobApplication;
 use App\Models\JobVacancy;
 use App\Models\Settings;
-use GuzzleHttp\Psr7\Request;
+use App\Notifications\ApplicationApproved;
+use App\Notifications\JobApplicationReceivedNotification;
+use App\Notifications\ApplicationReceived;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
@@ -52,7 +54,6 @@ class VaccancyController extends Controller
             ->line('Please note that due to the high volume of applications we receive, we may not be able to respond to every applicant immediately. However, rest assured that your application is important to us, and we will get back to you as soon as possible.')
             ->line('Once again, thank you for considering ' . config('app.name') . ' as your potential employer.')
             ->mail($application);
-
         (new Notify())
             ->subject('New Job Application - ' . $vaccancy->title)
             ->greeting('Dear HR Team,')
@@ -60,6 +61,9 @@ class VaccancyController extends Controller
             ->line('Please review the application at your earliest convenience.')
             ->line('Thank you.')
             ->mail($hr);
+        // $application->notify(new ApplicationReceived($vaccancy, $request->fullname));
+        // $hr->notify(new JobApplicationReceivedNotification($vaccancy));
+
 
         return redirect()->route('home');
     }
@@ -76,6 +80,66 @@ class VaccancyController extends Controller
         } catch (\Exception $e) {
             Log::error('Error toggling job listing: ' . $e->getMessage());
             return response()->json(['success' => false, 'error' => 'An error occurred.']);
+        }
+    }
+
+    public function deleteApplication($uuid)
+    {
+        $application = JobApplication::where('uuid', $uuid)->first();
+        if (!$application) {
+            return response()->json(['message' => 'Application not found'], 404);
+        }
+        try {
+            $application->delete();
+            return response()->json(['message' => 'Application deleted successfully'], 200);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Failed to delete application'], 500);
+        }
+    }
+    public function approveApplication($uuid)
+    {
+        $application = JobApplication::where('uuid', $uuid)->first();
+        if (!$application) {
+            return response()->json(['message' => 'Job application not found.'], 404);
+        }
+        $application->is_approved = true;
+        try {
+            $application->save();
+            // $application->notify(new ApplicationApproved());
+            (new Notify())
+                ->subject('Interview Invitation: Congratulations, Your Job Application is Approved!')
+                ->greeting('Hello ' . $application->fullname . '!')
+                ->line('Congratulations! Your job application has been approved, and we would like to invite you to the next stage of our hiring process: the interview.')
+                ->line('Please check your email regularly for further instructions regarding the interview schedule and details.')
+                ->line('We look forward to meeting with you and discussing your candidacy further.')
+                ->line('Thank you for your interest in joining our company, and we appreciate your participation in our hiring process.')
+                ->mail($application);
+            return response()->json(['message' => 'Job application approved successfully.'], 200);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Failed to approve job application.'], 500);
+        }
+    }
+
+    public function rejectApplication($uuid)
+    {
+        $application = JobApplication::where('uuid', $uuid)->first();
+        if (!$application) {
+            return response()->json(['message' => 'Job application not found.'], 404);
+        }
+        $application->is_rejected = true;
+        try {
+            $application->save();
+            // $application->notify(new ApplicationApproved());
+            (new Notify())
+                ->subject('Regarding Your Job Application')
+                ->greeting('Hello ' . $application->fullname . '!')
+                ->line('Unfortunately, we regret to inform you that your job application has been unsuccessful.')
+                ->line('We appreciate your interest in our company and the time you took to apply. However, after careful consideration, we have decided not to proceed with your application at this time.')
+                ->line('Thank you for your understanding and interest in our company.')
+                ->mail($application);
+            return response()->json(['message' => 'Job application rejected successfully.'], 200);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Failed to reject job application.'], 500);
         }
     }
 }
