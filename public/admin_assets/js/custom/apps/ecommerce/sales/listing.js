@@ -67,10 +67,7 @@ var KTAppEcommerceSalesListing = (function () {
                                 })
                                 .then((data) => {
                                     Swal.fire({
-                                        text:
-                                            "You have approved application " +
-                                            orderId +
-                                            "!",
+                                        html: `You have approved application: <span style='color: blue'>${orderId}</span>?`,
                                         icon: "success",
                                         buttonsStyling: false,
                                         confirmButtonText: "Ok, got it!",
@@ -145,10 +142,7 @@ var KTAppEcommerceSalesListing = (function () {
                                 })
                                 .then((data) => {
                                     Swal.fire({
-                                        text:
-                                            "You have rejected application " +
-                                            orderId +
-                                            "!",
+                                        html: `You have rejected application: <span style='color: blue'>${orderId}</span>?`,
                                         icon: "success",
                                         buttonsStyling: false,
                                         confirmButtonText: "Ok, got it!",
@@ -223,10 +217,7 @@ var KTAppEcommerceSalesListing = (function () {
                                 })
                                 .then((data) => {
                                     Swal.fire({
-                                        text:
-                                            "You have deleted application " +
-                                            orderId +
-                                            "!",
+                                        html: `You have deleted application: <span style='color: blue'>${orderId}</span>?`,
                                         icon: "success",
                                         buttonsStyling: false,
                                         confirmButtonText: "Ok, got it!",
