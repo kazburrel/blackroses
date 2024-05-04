@@ -8,9 +8,6 @@ use App\Http\Requests\StoreJobVaccancyFormRequest;
 use App\Models\JobApplication;
 use App\Models\JobVacancy;
 use App\Models\Settings;
-use App\Notifications\ApplicationApproved;
-use App\Notifications\JobApplicationReceivedNotification;
-use App\Notifications\ApplicationReceived;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
@@ -61,10 +58,6 @@ class VaccancyController extends Controller
             ->line('Please review the application at your earliest convenience.')
             ->line('Thank you.')
             ->mail($hr);
-        // $application->notify(new ApplicationReceived($vaccancy, $request->fullname));
-        // $hr->notify(new JobApplicationReceivedNotification($vaccancy));
-
-
         return redirect()->route('home');
     }
 
@@ -96,6 +89,7 @@ class VaccancyController extends Controller
             return response()->json(['message' => 'Failed to delete application'], 500);
         }
     }
+
     public function approveApplication($uuid)
     {
         $application = JobApplication::where('uuid', $uuid)->first();
@@ -105,7 +99,6 @@ class VaccancyController extends Controller
         $application->is_approved = true;
         try {
             $application->save();
-            // $application->notify(new ApplicationApproved());
             (new Notify())
                 ->subject('Interview Invitation: Congratulations, Your Job Application is Approved!')
                 ->greeting('Hello ' . $application->fullname . '!')
@@ -129,10 +122,10 @@ class VaccancyController extends Controller
         $application->is_rejected = true;
         try {
             $application->save();
-            // $application->notify(new ApplicationApproved());
             (new Notify())
                 ->subject('Regarding Your Job Application')
                 ->greeting('Hello ' . $application->fullname . '!')
+                ->line('Thank you for your interest in our company and for taking the time to apply.')
                 ->line('Unfortunately, we regret to inform you that your job application has been unsuccessful.')
                 ->line('We appreciate your interest in our company and the time you took to apply. However, after careful consideration, we have decided not to proceed with your application at this time.')
                 ->line('Thank you for your understanding and interest in our company.')

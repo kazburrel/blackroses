@@ -1,3 +1,19 @@
+<style>
+    .menu-item {
+        color: white;
+        /* Text color for non-active items */
+        /* Other styles for sidebar items */
+    }
+
+    .menu-item.active {
+        background-color: #2f356b;
+        /* Darker shade of the background color */
+        color: #ffffff;
+        /* White text color */
+        /* Additional styles for active items */
+    }
+</style>
+
 <div id="kt_aside" class="aside aside-dark aside-hoverable" data-kt-drawer="true" data-kt-drawer-name="aside"
     data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true"
     data-kt-drawer-width="{default:'200px', '300px': '250px'}" data-kt-drawer-direction="start"
@@ -22,6 +38,7 @@
             </span>
         </div>
     </div>
+
     <div class="aside-menu flex-column-fluid">
         <div class="hover-scroll-overlay-y my-5 my-lg-5" id="kt_aside_menu_wrapper" data-kt-scroll="true"
             data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-height="auto"
@@ -30,7 +47,8 @@
             <div class="menu menu-column menu-title-gray-800 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500"
                 id="#kt_aside_menu" data-kt-menu="true" data-kt-menu-expand="false">
                 <div class="menu-item">
-                    <a class="menu-link" href="{{ route('admin.dashboard') }}">
+                    <a class="menu-link{{ request()->routeIs('admin.dashboard') ? ' active' : '' }}"
+                        href="{{ route('admin.dashboard') }}">
                         <span class="menu-bullet">
                             <span class="bullet bullet-dot"></span>
                         </span>
@@ -38,13 +56,17 @@
                     </a>
                 </div>
 
+
+
                 <div class="menu-item">
                     <div class="menu-content pt-8 pb-2">
                         <span class="menu-section text-muted text-uppercase fs-8 ls-1">Vacancies</span>
                     </div>
                 </div>
+
                 <div class="menu-item">
-                    <a class="menu-link" href="{{ route('job.vacancy') }}">
+                    <a class="menu-link{{ request()->routeIs('job.vacancy') ? ' active' : '' }}"
+                        href="{{ route('job.vacancy') }}">
                         <span class="menu-bullet">
                             <span class="bullet bullet-dot"></span>
                         </span>
@@ -52,7 +74,8 @@
                     </a>
                 </div>
                 <div class="menu-item">
-                    <a class="menu-link" href="{{ route('post.job.vacancy') }}">
+                    <a class="menu-link{{ request()->routeIs('get.advertise.job.vacancy') ? ' active' : '' }}"
+                        href="{{ route('get.advertise.job.vacancy') }}">
                         <span class="menu-bullet">
                             <span class="bullet bullet-dot"></span>
                         </span>
@@ -66,7 +89,8 @@
                     </div>
                 </div>
                 <div class="menu-item">
-                    <a class="menu-link" href="{{ route('get.job.applications') }}">
+                    <a class="menu-link{{ request()->routeIs('get.job.applications') ? ' active' : '' }}"
+                        href="{{ route('get.job.applications') }}">
                         <span class="menu-bullet">
                             <span class="bullet bullet-dot"></span>
                         </span>
