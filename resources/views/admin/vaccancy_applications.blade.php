@@ -73,7 +73,7 @@
                                     </div>
                                 </td>
                                 <td class="text-end">
-                                    <div class="d-flex flex-center w-100 me-2">
+                                    <div class="d-flex flex-center w-150 me-2">
                                         <span class="text-dark fw-bolder  d-block fs-6">{{ $application->location }}</span>
                                     </div>
                                 </td>
@@ -108,14 +108,17 @@
                                     </a>
                                     <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold fs-7 w-125px py-4"
                                         data-kt-menu="true">
-                                        <div class="menu-item px-3">
-                                            <a href="#" class="menu-link px-3 text-success"
-                                                data-kt-ecommerce-order-filter="approve_row">Approve</a>
-                                        </div>
-                                        <div class="menu-item px-3">
-                                            <a href="#" class="menu-link px-3 text-danger"
-                                                data-kt-ecommerce-order-filter="reject_row">Reject</a>
-                                        </div>
+                                        @if (!$application->is_approved && !$application->is_rejected)
+                                            <div class="menu-item px-3">
+                                                <a href="#" class="menu-link px-3 text-success"
+                                                    data-kt-ecommerce-order-filter="approve_row">Approve</a>
+                                            </div>
+                                            <div class="menu-item px-3">
+                                                <a href="#" class="menu-link px-3 text-danger"
+                                                    data-kt-ecommerce-order-filter="reject_row">Reject</a>
+                                            </div>
+                                        @endif
+
                                         <div class="menu-item px-3">
                                             <a href="#" class="menu-link px-3"
                                                 data-kt-ecommerce-order-filter="delete_row">Delete</a>
