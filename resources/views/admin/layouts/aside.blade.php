@@ -1,16 +1,11 @@
 <style>
     .menu-item {
         color: white;
-        /* Text color for non-active items */
-        /* Other styles for sidebar items */
     }
 
     .menu-item.active {
         background-color: #2f356b;
-        /* Darker shade of the background color */
         color: #ffffff;
-        /* White text color */
-        /* Additional styles for active items */
     }
 </style>
 
