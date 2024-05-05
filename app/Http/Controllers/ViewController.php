@@ -84,7 +84,10 @@ class ViewController extends Controller
     public function getProfile()
     {
         SEOMeta::setTitle('Profile');
-        return view('admin.profile.profile');
+        $user = Auth::user();
+        return view('admin.profile.profile', [
+            'user' => $user,
+        ]);
     }
 
     // ADMIN VIEWS
@@ -92,6 +95,7 @@ class ViewController extends Controller
     public function adminDashboard()
     {
         $user = Auth::user();
+        SEOMeta::setTitle('Dashboard');
         return view('admin.dashboard', [
             'user' => $user,
         ]);
@@ -99,6 +103,7 @@ class ViewController extends Controller
 
     public function vacancy()
     {
+        SEOMeta::setTitle('Listed vacancy');
         $user = Auth::user();
         $vaccancy = JobVacancy::all();
         return view('admin.vacancy', [
@@ -110,6 +115,7 @@ class ViewController extends Controller
     public function getPostVacancy()
     {
         $user = Auth::user();
+        SEOMeta::setTitle('Post vacancy');
         return view('admin.post_vacancy', [
             'user' => $user,
         ]);
@@ -118,6 +124,7 @@ class ViewController extends Controller
     public function jobApplications()
     {
         $user = Auth::user();
+        SEOMeta::setTitle('All applications');
         return view('admin.all_applications', [
 
             'user' => $user,
@@ -129,7 +136,7 @@ class ViewController extends Controller
         $user = Auth::user();
         $applications = JobApplication::where('vaccancy_id', $uuid)->with('vaccancy')->get();
         $vaccancy = JobVacancy::where('uuid', $uuid)->first();
-        // dd($applications);
+        SEOMeta::setTitle('Applications');
         return view('admin.vaccancy_applications', [
             'applications' => $applications,
             'vaccancy' => $vaccancy,
