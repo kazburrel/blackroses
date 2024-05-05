@@ -20,7 +20,9 @@ Route::get('apply/{job}', [ViewController::class, 'apply'])->name('job.apply');
 Route::post('store/apply/{job}', [VaccancyController::class, 'storeApplication'])->name('store.job.apply');
 
 Route::prefix('/admin')->middleware(['auth', 'permission:manage all staff', PreventBackHistory::class])->group(function () {
-
+    Route::prefix('/profile')->group(function () {
+        Route::get('/', [ViewController::class, 'getProfile'])->name('get.user.profile');
+    });
     Route::get('/dashboard', [ViewController::class, 'adminDashboard'])->name('admin.dashboard');
     Route::get('/vacancy', [ViewController::class, 'vacancy'])->name('job.vacancy');
     Route::get('/post/vacancy', [ViewController::class, 'getPostVacancy'])->name('get.advertise.job.vacancy');

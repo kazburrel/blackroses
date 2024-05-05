@@ -75,7 +75,9 @@ var KTAppEcommerceSalesListing = (function () {
                                             confirmButton:
                                                 "btn fw-bold btn-primary",
                                         },
-                                    }).then(() => {});
+                                    }).then(() => {
+                                        location.reload();
+                                    });
                                 })
                                 .catch((error) => {
                                     console.error("Error:", error);
@@ -150,7 +152,9 @@ var KTAppEcommerceSalesListing = (function () {
                                             confirmButton:
                                                 "btn fw-bold btn-primary",
                                         },
-                                    }).then(() => {});
+                                    }).then(() => {
+                                        location.reload();
+                                    });
                                 })
                                 .catch((error) => {
                                     console.error("Error:", error);
