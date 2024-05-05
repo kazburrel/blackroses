@@ -37,6 +37,8 @@
                             <th class="min-w-50px">Country</th>
                             <th class="min-w-50px">RTW</th>
                             <th class="min-w-50px">DL</th>
+                            <th class="min-w-150px">Status</th>
+                            {{-- <th class="min-w-150px">Approval Status</th> --}}
                             <th class="min-w-150px">Actions</th>
                         </tr>
                     </thead>
@@ -93,7 +95,14 @@
                                         <span class="text-dark fw-bolder  d-block fs-6">{{ $application->dl }}</span>
                                     </div>
                                 </td>
-
+                                <td class="text-end">
+                                    <div class="d-flex flex-center w-100 me-2">
+                                        <span
+                                            class="text-dark fw-bolder  d-block fs-6 px-3 py-2 rounded {{ $application->is_approved ? 'alert-success' : ($application->is_rejected ? 'alert-danger' : 'alert-warning') }}">
+                                            {{ $application->is_approved ? 'Interview Stage' : ($application->is_rejected ? 'Rejected' : 'Pending') }}
+                                        </span>
+                                    </div>
+                                </td>
                                 <td class="">
                                     <a href="#" class="btn btn-sm btn-light btn-active-light-primary"
                                         data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions

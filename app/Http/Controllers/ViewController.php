@@ -79,6 +79,14 @@ class ViewController extends Controller
         );
     }
 
+    // DASHBOARD
+
+    public function getProfile()
+    {
+        SEOMeta::setTitle('Profile');
+        return view('admin.profile.profile');
+    }
+
     // ADMIN VIEWS
 
     public function adminDashboard()
