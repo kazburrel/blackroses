@@ -5,3 +5,4 @@ idea of a whole system
 feed back on the website
 
 change the job application country value
+add phone, avatar, country, spoken language to users table

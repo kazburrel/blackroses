@@ -53,7 +53,9 @@
                         </div>
                         <div class="separator my-2"></div>
                         <div class="menu-item px-5">
-                            <a href="#" class="menu-link px-5">My Profile</a>
+                            <a href="{{ route('get.user.profile') }}"
+                                class="menu-link {{ request()->routeIs('get.user.profile') || request()->routeIs('get.user.profile.edit') ? ' active' : '' }} px-5">My
+                                Profile</a>
                         </div>
 
                         <div class="menu-item px-5 my-1">

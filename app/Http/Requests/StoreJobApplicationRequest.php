@@ -29,7 +29,7 @@ class StoreJobApplicationRequest extends FormRequest
             'fullname' => 'required|unique:job_applications,fullname,NULL,uuid,vaccancy_id,' . $jobId,
             'email' => 'required|email|unique:job_applications,email,NULL,uuid,vaccancy_id,' . $jobId,
             'phone' => 'required|unique:job_applications,phone,NULL,uuid,vaccancy_id,' . $jobId,
-            'cv' => 'required',
+            'cv' => 'required|mimes:pdf,doc,docx',
             'location' => 'required',
             'country' => 'required',
             'right_to_work' => 'required',
