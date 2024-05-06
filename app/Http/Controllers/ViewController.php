@@ -90,6 +90,15 @@ class ViewController extends Controller
         ]);
     }
 
+    public function getProfileEdit()
+    {
+        SEOMeta::setTitle('Edit profile');
+        $user = Auth::user();
+        return view('admin.profile.edit_profile', [
+            'user' => $user,
+        ]);
+    }
+
     // ADMIN VIEWS
 
     public function adminDashboard()
