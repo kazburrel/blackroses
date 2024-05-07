@@ -38,7 +38,7 @@
                             <div class="form-text">Allowed file types: png, jpg, jpeg.</div>
                         </div>
                     </div>
-                    <div class="row mb-6">
+                    {{-- <div class="row mb-6">
                         <label class="col-lg-4 col-form-label required fw-bold fs-6">Full Name</label>
                         <div class="col-lg-8">
                             <div class="row">
@@ -54,7 +54,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="row mb-6">
                         <label class="col-lg-4 col-form-label required fw-bold fs-6">Company</label>
                         <div class="col-lg-8 fv-row">
