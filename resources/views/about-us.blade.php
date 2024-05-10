@@ -36,13 +36,10 @@
                 {{-- <h2>ABOUT US</h2> --}}
                 <div class="separator"></div>
                 <div class="desc-text">
-                    Black Roses Support prides itself in offering a 24-hour therapeutic support service to
-                    young people aged 16-25. The aim of the service is to provide a safe and homely
-                    environment, where young people who are at risk of exclusion and isolation can build
-                    the skills , confidence and resilience to enable them to reach their full potential and
-                    have a smooth transition to independence. We are able to support young people from
-                    all walks of life, However as a lived experience practitioner we are fully equipped to
-                    support young people involved in serious youth violence and other harmful practice.
+                    Black Roses is dedicated to offering a secure and nurturing living environment for young adults
+                    transitioning from care, aged 16-25. We provide homes where our young residents feel safe, appreciated,
+                    and empowered. Our mission is to assist each individual in achieving their unique goals, realizing their
+                    potential, and setting them on a path towards a prosperous, happy, and healthy future.
                 </div>
             </div>
             <!--Content Box-->
@@ -52,46 +49,31 @@
                     <div class="content-column col-lg-7 col-md-6 col-sm-12 col-xs-12">
                         <div class="inner-box">
                             <div class="text-content">
-                                <p class="strong-text" style="text-align: center;">Aims and Objectives.</p>
+                                <p class="strong-text" style="text-align: center;">Goals and Objectives.</p>
 
                                 <div class="numbered-list">
                                     <p>
-                                        To provide support that is tailored to each young person’s individual needs.
+                                        Providing exceptional care to our young residents and establishing our reputation as
+                                        a compassionate and effective service in our local community.
                                     </p>
                                     <p>
-                                        To provide accommodation to young people for emergency,
-                                        short and long term stays
+                                        Ensuring our young residents feel safe, respected, and supported, so they view Black
+                                        Roses as their home, not just a place where they reside.
                                     </p>
                                     <p>
-                                        To empower young people to lead as independent a life as possible.
+                                        Recruiting high-caliber, caring staff using the safer recruitment framework,
+                                        ensuring our young residents receive the best care to help them grow and overcome
+                                        challenges.
                                     </p>
                                     <p>
-                                        To provide services that is anti-discriminatory.
+                                        Offering customized support and establishing partnerships with local providers to
+                                        equip our young residents with the skills needed to become healthy, happy,
+                                        productive members of society when they leave us.
                                     </p>
                                     <p>
-                                        To provide a service that takes into account young people’s preferences,
-                                        wishes, personal circumstances and individual abilities.
+                                        Integrating our young residents into their local community through volunteering
+                                        opportunities and shared skill sessions to foster mutual understanding and respect.
                                     </p>
-                                    <p>
-                                        To provide young people with support of the highest quality within their
-                                        own home environment.
-                                    </p>
-                                    <p>
-                                        To provide a safe and protected environment prioritising Young Peoples
-                                        safety at all times.
-                                    </p>
-                                    <p>
-                                        To provide a service that empowers Young People to have personal
-                                        dignity.
-                                    </p>
-                                    <p>
-                                        To provide a home environment free from exploitation.
-                                    </p>
-                                    <p>
-                                        To provide a service that enables Young People to live a normal life within
-                                        the community.
-                                    </p>
-
                                 </div>
                             </div>
                         </div>
