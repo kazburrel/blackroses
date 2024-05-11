@@ -10,7 +10,10 @@
             </div>
         </div>
         <div id="kt_account_settings_profile_details" class="collapse show">
-            <form id="kt_account_profile_details_form" class="form">
+            <form id="kt_account_profile_details_form" class="form" action="{{ route('update.user.profile.edit') }}"
+                enctype="multipart/form-data" method="POST">
+                @method('PUT')
+                @csrf
                 <div class="card-body border-top p-9">
                     <div class="row mb-6">
                         <label class="col-lg-4 col-form-label fw-bold fs-6">Avatar</label>
@@ -18,7 +21,7 @@
                             <div class="image-input image-input-outline" data-kt-image-input="true"
                                 style="background-image: url({{ asset('admin_assets/media/svg/avatars/blank.svg') }})">
                                 <div class="image-input-wrapper w-125px h-125px"
-                                    style="background-image: url({{ $user->gender === 'male' ? asset('admin_assets/male_dummy.jpeg') : asset('admin_assets/female_dummy.webp') }})">
+                                    style="background-image: url({{ $user->avatar ? asset('storage/' . $user->avatar) : ($user->gender === 'male' ? asset('admin_assets/male_dummy.jpeg') : asset('admin_assets/female_dummy.webp')) }})">
                                 </div>
                                 <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
                                     data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change avatar">
@@ -36,8 +39,12 @@
                                 </span>
                             </div>
                             <div class="form-text">Allowed file types: png, jpg, jpeg, heic.</div>
+                            @error('avatar')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
                     </div>
+
                     <div class="row mb-6">
                         <label class="col-lg-4 col-form-label required fw-bold fs-6">Full Name</label>
                         <div class="col-lg-8">
@@ -46,11 +53,17 @@
                                     <input type="text" name="fname"
                                         class="form-control form-control-lg form-control-solid mb-3 mb-lg-0"
                                         placeholder="First name" value=" {{ old('fname', $user->fname) }}" />
+                                    @error('fname')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <div class="col-lg-6 fv-row">
                                     <input type="text" name="lname"
                                         class="form-control form-control-lg form-control-solid" placeholder="Last name"
                                         value="{{ old('lname', $user->lname) }}" />
+                                    @error('lname')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -60,6 +73,9 @@
                         <div class="col-lg-8 fv-row">
                             <input type="text" name="company" class="form-control form-control-lg form-control-solid"
                                 placeholder="Company name" value="{{ config('app.name') }}" />
+                            @error('company')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
                     </div>
                     <div class="row mb-6">
@@ -71,13 +87,20 @@
                         <div class="col-lg-8 fv-row">
                             <input type="phone" name="phone" class="form-control form-control-lg form-control-solid"
                                 placeholder="Phone number" value="{{ old('phone', $user->phone) }}" />
+                            @error('phone')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
                     </div>
                     <div class="row mb-6">
                         <label class="col-lg-4 col-form-label fw-bold fs-6">Company Site</label>
                         <div class="col-lg-8 fv-row">
-                            <input type="text" name="website" class="form-control form-control-lg form-control-solid"
-                                placeholder="Company website" value="{{ config('app.url') }}" />
+                            <input @disabled(true) type="text" name="website"
+                                class="form-control form-control-lg form-control-solid" placeholder="Company website"
+                                value="{{ config('app.url') }}" />
+                            @error('website')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
                     </div>
                     <div class="row mb-6">
@@ -103,14 +126,18 @@
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </select>
+
                         </div>
                     </div>
                     <div class="row mb-6">
-                        <label class="col-lg-4 col-form-label required fw-bold fs-6">Language</label>
+                        <label class="col-lg-4 col-form-label required fw-bold fs-6">Spoken Language(s)</label>
                         <div class="col-lg-8 fv-row">
-                            <input type="name" name="langauges"
+                            <input type="name" name="languages"
                                 class="form-control form-control-lg form-control-solid"
-                                placeholder="Enter Spoken Languages" value="{{ old('langauges', $user->langauges) }}" />
+                                placeholder="Enter Spoken Languages" value="{{ old('languages', $user->languages) }}" />
+                            @error('languages')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
                     </div>
                 </div>
