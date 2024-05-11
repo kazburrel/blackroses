@@ -6,7 +6,6 @@ namespace App\Models;
 
 use App\Enums\UserPermissions;
 use App\Enums\UserRoles;
-use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -32,6 +31,10 @@ class User extends Authenticatable
         'lname',
         'email',
         'password',
+        'phone',
+        'avatar',
+        'country',
+        'languages',
     ];
 
     /**
@@ -54,7 +57,6 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
-            // 'status' => UserRoles::class
         ];
     }
 
