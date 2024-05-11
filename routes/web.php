@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Career\VaccancyController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\Profile\ProfileController;
 use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\ViewController;
 use App\Http\Middleware\PreventBackHistory;
@@ -23,6 +24,7 @@ Route::prefix('/admin')->middleware(['auth', 'permission:manage all staff', Prev
     Route::prefix('/profile')->group(function () {
         Route::get('/', [ViewController::class, 'getProfile'])->name('get.user.profile');
         Route::get('/edit', [ViewController::class, 'getProfileEdit'])->name('get.user.profile.edit');
+        Route::put('/edit', [ProfileController::class, 'updateProfileEdit'])->name('update.user.profile.edit');
     });
     Route::get('/dashboard', [ViewController::class, 'adminDashboard'])->name('admin.dashboard');
     Route::get('/vacancy', [ViewController::class, 'vacancy'])->name('job.vacancy');
