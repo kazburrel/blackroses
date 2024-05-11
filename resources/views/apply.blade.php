@@ -105,8 +105,8 @@
                                             <select name="country">
                                                 <option value="">Please choose</option>
                                                 @foreach (config('country') as $code => $name)
-                                                    <option value="{{ $code }}"
-                                                        {{ old('country') == $code ? 'selected' : '' }}>
+                                                    <option value="{{ $name }}"
+                                                        {{ old('country') == $name ? 'selected' : '' }}>
                                                         {{ $name }}</option>
                                                 @endforeach
                                             </select>
