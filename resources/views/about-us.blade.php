@@ -2,8 +2,14 @@
 
 @section('content')
     <style>
+        .centered-list-container {
+            text-align: center;
+        }
+
         .numbered-list {
             counter-reset: list-counter;
+            display: inline-block;
+            text-align: left;
         }
 
         .numbered-list p {
@@ -12,6 +18,21 @@
 
         .numbered-list p:before {
             content: counter(list-counter) ". ";
+        }
+
+        .numbered-list span {
+            display: inline-block;
+            margin-right: 10px;
+            /* Adjust the margin as needed */
+        }
+
+        @media (max-width: 430px) {
+            .numbered-list span {
+                display: block;
+                /* margin-bottom: 10px; */
+                margin-top: 10px;
+                /* Add margin at the bottom for spacing between items */
+            }
         }
     </style>
     <!--Page Title-->
@@ -35,11 +56,50 @@
             <div class="sec-title centered">
                 {{-- <h2>ABOUT US</h2> --}}
                 <div class="separator"></div>
-                <div class="desc-text">
-                    Black Roses is dedicated to offering a secure and nurturing living environment for young adults
-                    transitioning from care, aged 16-25. We provide homes where our young residents feel safe, appreciated,
-                    and empowered. Our mission is to assist each individual in achieving their unique goals, realizing their
-                    potential, and setting them on a path towards a prosperous, happy, and healthy future.
+                <div class="desc-text" style="text-align: left">
+                    Our service is dedicated to supporting up to 4 looked-after children and
+                    care leavers, aged 16 and 17, in a mixed-sex, ringfenced group living arrangement. We
+                    welcome young people who exhibit a growing level of independence and a readiness to acquire
+                    additional skills necessary for a successful transition into adulthood. Our service is
+                    tailored specifically for young individuals who no longer require the level of care or the
+                    specific environment provided in a children's home or foster care setting.
+                    We accept young people with a range of characteristics, provided that they are compatible
+                    with the existing group dynamics and their needs do not conflict with those of any current
+                    residents. This compatibility will be assessed before a place is offered and will be subject
+                    to a satisfactory risk assessment. The characteristics we are able to accommodate include:
+                    <div class="centered-list-container">
+                        <div class="numbered-list">
+                            <span style="display: inline-block; margin-right: 10px;">
+                                <p>Autistic spectrum disorder</p>
+                            </span>
+                            <span style="display: inline-block; margin-right: 10px;">
+                                <p>Attention deficit hyperactivity disorder (ADHD)</p>
+                            </span>
+                            <span style="display: inline-block; margin-right: 10px;">
+                                <p>Attachment disorder</p>
+                            </span>
+                            <span style="display: inline-block; margin-right: 10px;">
+                                <p>Attention deficit disorder (ADD)</p>
+                            </span>
+                            <span style="display: inline-block; margin-right: 10px;">
+                                <p>Mental health issues (mild, moderate, or severe)</p>
+                            </span>
+                            <span style="display: inline-block; margin-right: 10px;">
+                                <p>Challenging behavior</p>
+                            </span>
+                            <span style="display: inline-block; margin-right: 10px;">
+                                <p>Moderate learning disabilities</p>
+                            </span>
+                            <span style="display: inline-block; margin-right: 10px;">
+                                <p>Drug and alcohol abuse (mild, moderate, or severe, or only if in treatment)</p>
+                            </span>
+                            <span style="display: inline-block; margin-right: 10px;">
+                                <p>Self-harming behaviors</p>
+                            </span>
+                        </div>
+                    </div>
+
+
                 </div>
             </div>
             <!--Content Box-->

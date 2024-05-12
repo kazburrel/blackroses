@@ -48,10 +48,62 @@
                 <h1>Our Services</h1>
 
                 <div class="separator"></div>
-                <div class="desc-text">
+                {{-- <div class="desc-text">
                     <b>Black Roses Support strives to ensure all units provide facilities to promote a
                         homely environment for the Young People, setting a platform for social
-                        engagement and productive stimulation.</b>
+                        engagement and productive stimulation.
+                    </b>
+                </div> --}}
+                <div>
+                    <p class="desc-text">
+                        Our organization is dedicated to providing comprehensive and transparent support for young
+                        people between the ages of 16 and 18. We place a strong emphasis on maintaining clear and
+                        open communication with local authorities to ensure a mutual understanding of the support
+                        services we offer.
+
+                        The young people in our care can expect a wide array of support, both from our on-site staff
+                        and through partnerships with external agencies. Our approach is holistic, addressing
+                        practical needs as well as emotional well-being. Our committed staff members work closely
+                        with each individual, developing personalized care plans that encompass areas such as
+                        education, employment, health, and personal goals.
+
+                        Each young person is assigned a dedicated key worker who provides 6-8 hours of direct,
+                        one-on-one support per week. This support can be delivered through planned sessions or on an
+                        ad hoc basis, depending on the individual's needs. Key workers assist with tasks such as
+                        registering for healthcare services, accessing benefits, exploring leisure activities,
+                        budgeting, developing life skills, and connecting with specialized external support for
+                        mental health or substance abuse issues. They also offer emotional support, providing a safe
+                        space for young people to discuss family, relationship, or friendship concerns, and help
+                        them navigate their educational or professional aspirations.
+
+                        In addition to individual support, we organize weekly group activities, such as cooking
+                        nights or skill-sharing sessions, which are tailored to the interests and needs of the young
+                        people in our care. These activities foster a sense of community, helping residents feel
+                        valued and settled within the home.
+
+                        Our staff is also responsible for managing any incidents that may occur within the home,
+                        such as property damage, antisocial behavior, or interpersonal conflicts, in accordance with
+                        established policies and procedures.
+
+                        To complement our on-site support, we actively collaborate with external agencies, including
+                        community organizations, educational institutions, and healthcare providers. These
+                        partnerships allow us to offer specialized services, such as counseling, vocational
+                        training, educational assistance, and healthcare resources, further enhancing the overall
+                        well-being of our young people.
+
+                        We strongly believe in the importance of a supportive and nurturing environment. Our staff
+                        members prioritize building positive relationships with residents, encouraging open
+                        communication, trust, and mutual respect. By promoting daily engagement with regular staff
+                        members, we aim to create a safe and inclusive space where young people feel comfortable
+                        seeking guidance and forming meaningful connections with their peers and caregivers.
+
+                        Transparency and collaboration with local authorities and other stakeholders are at the core
+                        of our organization. By clearly outlining our support arrangements and staff involvement, we
+                        ensure that all parties have a thorough understanding of the services we provide. This
+                        clarity facilitates effective partnerships and enables local authorities to make
+                        well-informed decisions regarding the placement and ongoing support of the young people in
+                        our care.
+                    </p>
                 </div>
             </div>
             <!--Content Box-->

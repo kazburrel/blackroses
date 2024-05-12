@@ -95,21 +95,23 @@
                         </div>
                         <div class="lower-content">
                             <div class="separator"></div>
-                            <h3><a href="{{ route('referrals') }}">The Referral Process</a></h3>
+                            <h3><a href="{{ route('referrals') }}">The services we provide</a></h3>
                             <div class="text">
-                                The referral process begins with an enquiry, by telephone, email or letter.
-                                The service will then ask for a referral form to be sent, giving brief information about
-                                the potential young people and their risks as well as support needs. This form can be
-                                completed
-                                by a social worker and/or other professionals.
-                                A review of this information is then undertaken to assess whether the service can
-                                potentially meet the needs of the individual being referred. If the service determines
-                                that they can meet the needs of the referred person, an Impact Risk Assessment
-                                (ImRA) is completed by a Unit Manager from identified placement to highlight if there
-                                are any impact risks for the referred young person as well as existing young people in
-                                our service.</div>
+                                Our organization is dedicated to providing comprehensive and transparent support for young
+                                people between the ages of 16 and 18. We place a strong emphasis on maintaining clear and
+                                open communication with local authorities to ensure a mutual understanding of the support
+                                services we offer.
+
+                                The young people in our care can expect a wide array of support, both from our on-site staff
+                                and through partnerships with external agencies. Our approach is holistic, addressing
+                                practical needs as well as emotional well-being. Our committed staff members work closely
+                                with each individual, developing personalized care plans that encompass areas such as
+                                education, employment, health, and personal goals.....
+
+
+                            </div>
                             <div class="links">
-                                <a href="{{ route('referrals') }}" class="theme-btn btn-style-four">READ MORE</a>
+                                <a href="{{ route('services') }}" class="theme-btn btn-style-four">READ MORE</a>
                             </div>
                         </div>
                     </div>
@@ -124,15 +126,14 @@
                         <div class="lower-content">
                             <div class="separator"></div>
                             <h3><a href="{{ route('about') }}">Governance and Quality Assurance</a></h3>
-                            <div class="text">At Black Roses Support, we make sure everything runs smoothly and safely.
-                                Each week, our manager and team check everything from young people's files to safety rules
-                                to how
-                                well our staff are trained. We listen to young people's ideas and feelings in weekly
-                                meetings and even have a suggestion box for them and our staff. Our team meets weekly too,
-                                to talk about how we can do better. We also check in with our staff every year and listen to
-                                what young people think about our service. Our staff get regular training on important
-                                things like keeping everyone safe and helping people with their problems. We work hard to
-                                make sure everyone feels safe, supported, and heard at Black Roses Support.</div>
+                            <div class="text">
+                                Our service is dedicated to supporting up to 4 looked-after children and
+                                care leavers, aged 16 and 17, in a mixed-sex, ringfenced group living arrangement. We
+                                welcome young people who exhibit a growing level of independence and a readiness to acquire
+                                additional skills necessary for a successful transition into adulthood. Our service is
+                                tailored specifically for young individuals who no longer require the level of care or the
+                                specific environment provided in a children's home or foster care setting....
+                            </div>
                             <div class="links">
                                 <a href="{{ route('about') }}" class="theme-btn btn-style-four">READ MORE</a>
                             </div>
