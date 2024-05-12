@@ -172,8 +172,8 @@
                 <div class="default-cause-box col-md-4 col-sm-6 col-xs-12" style="margin-top: 15px">
                     <div class="inner-box wow fadeIn" data-wow-duration="1500ms" data-wow-delay="600ms">
                         <div class="image-box">
-                            <figure class="image"><a href="{{ route('services') }}"><img
-                                        src="images/resource/featured-image-4.jpg" alt=""></a></figure>
+                            <figure class="image"><a href="{{ route('services') }}"><img src="images/paintball.jpg"
+                                        alt=""></a></figure>
                         </div>
                         <div class="lower-content">
                             <div class="separator"></div>
