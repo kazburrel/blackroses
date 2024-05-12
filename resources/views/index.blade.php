@@ -101,7 +101,6 @@
                                 people between the ages of 16 and 18. We place a strong emphasis on maintaining clear and
                                 open communication with local authorities to ensure a mutual understanding of the support
                                 services we offer.
-
                                 The young people in our care can expect a wide array of support, both from our on-site staff
                                 and through partnerships with external agencies. Our approach is holistic, addressing
                                 practical needs as well as emotional well-being. Our committed staff members work closely
@@ -125,7 +124,7 @@
                         </div>
                         <div class="lower-content">
                             <div class="separator"></div>
-                            <h3><a href="{{ route('about') }}">Governance and Quality Assurance</a></h3>
+                            <h3><a href="{{ route('about') }}">Who we support</a></h3>
                             <div class="text">
                                 Our service is dedicated to supporting up to 4 looked-after children and
                                 care leavers, aged 16 and 17, in a mixed-sex, ringfenced group living arrangement. We
@@ -150,15 +149,18 @@
                         </div>
                         <div class="lower-content">
                             <div class="separator"></div>
-                            <h3><a href="{{ route('services') }}">Service Facilities</a></h3>
-                            <div class="text">At Black Roses Support, we believe in creating a cozy environment where
-                                young people can feel at home. Each unit is equipped with a lounge area where residents can
-                                relax and watch TV, with access to various channels including Freeview and sometimes
-                                Netflix. WiFi access is available for educational purposes, allowing residents to use their
-                                own devices for homework and other learning needs. Our staff use designated office spaces to
-                                maintain confidentiality, while the kitchen is fully equipped for meal preparation and
-                                communal dining. Additionally, we promote a smoke-free environment in line with current
-                                legislation, encouraging residents who smoke to do so away from the premises.</div>
+                            <h3><a href="{{ route('services') }}">Our Facilities and Accommodation</a></h3>
+                            <div class="text">Our supported accommodation is housed in a spacious, secure, and
+                                well-maintained 6, 5, 4, and 3-bedroom, setting. Each young person is provided with a
+                                private double room and desk space, ensuring a comfortable and personal living environment.
+                                Bathrooms are shared between residents, fostering a sense of responsibility and cooperation.
+                                The setting also features communal lounge, kitchen, study, and gaming facilities, as well as
+                                a beautiful garden and communal decking area for recreation and relaxation. The setting is
+                                conveniently located within a 5-minute walk from essential amenities such as public
+                                transport, education facilities, community facilities, healthcare, and other relevant local
+                                services.
+
+                            </div>
                             <div class="links">
                                 <a href="{{ route('services') }}" class="theme-btn btn-style-four">READ MORE</a>
                             </div>
@@ -249,14 +251,16 @@
                 <div class="contribute-block-two col-md-4 col-sm-6 col-xs-12">
                     <div class="inner-box wow fadeIn" data-wow-duration="1500ms" data-wow-delay="0ms">
                         <div class="content">
-                            <h3> <b>CONFIDENTIALITY</b> </h3>
-                            <div class="text">Black Roses Support ensures that information we hold about young people are
-                                kept
-                                confidential at all times in accordance with the GDPR/Data Protection Act 2018.
-                                There are exceptions to this rule in extreme cases where personal data relating
-                                to a young people's mental and /or physical health could be passed on without explicit
-                                consent if this is deemed necessary to protect the vital interests of the young people
-                                and/or the safety of others.</div>
+                            <h3> <b>PROMOTING INDEPENDENCE</b> </h3>
+                            <div class="text">Black Roses Support promotes independence among young people by empowering
+                                them
+                                to lead independent lives, make decisions, and take informed risks. We encourage maintaining
+                                contact with friends and family and offer opportunities for young people to contribute to
+                                their
+                                support package. Regular house meetings ensure young people involvement in property
+                                management.
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -289,14 +293,14 @@
                 <div class="contribute-block-two col-md-4 col-sm-6 col-xs-12">
                     <div class="inner-box wow fadeIn" data-wow-duration="1500ms" data-wow-delay="0ms">
                         <div class="content">
-                            <h3> <b>INDEPENDENCE</b> </h3>
-                            <div class="text">Black Roses Support promotes independence among young people by empowering
-                                them
-                                to lead independent lives, make decisions, and take informed risks. We encourage maintaining
-                                contact with friends and family and offer opportunities for young people to contribute to
-                                their
-                                support package. Regular house meetings ensure young people involvement in property
-                                management.
+                            <h3> <b>CONFIDENTIALITY</b> </h3>
+                            <div class="text">Black Roses Support ensures that information we hold about young people are
+                                kept
+                                confidential at all times in accordance with the GDPR/Data Protection Act 2018.
+                                There are exceptions to this rule in extreme cases where personal data relating
+                                to a young people's mental and /or physical health could be passed on without explicit
+                                consent if this is deemed necessary to protect the vital interests of the young people
+                                and/or the safety of others.
                             </div>
                         </div>
                     </div>

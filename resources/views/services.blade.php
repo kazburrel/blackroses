@@ -114,9 +114,54 @@
                         <div class="inner-box">
                             <div class="text-content">
                                 <p class="strong-text" style="text-align: center;">Service Facilities.</p>
+                                <div class="desc-text">
+                                    Our supported accommodation is housed in a spacious, secure, and well-maintained 6, 5,
+                                    4, and 3-bedroom, setting. Each young person is provided with a private double room and
+                                    desk space, ensuring a comfortable and personal living environment. Bathrooms are shared
+                                    between residents, fostering a sense of responsibility and cooperation. The setting also
+                                    features communal lounge, kitchen, study, and gaming facilities, as well as a beautiful
+                                    garden and communal decking area for recreation and relaxation.
+
+                                    Situated in a pleasant, family-friendly area of High Wycombe and Slough, our location
+                                    offers a quiet and secure environment. The setting is conveniently located within a
+                                    5-minute walk from essential amenities such as public transport, education facilities,
+                                    community facilities, healthcare, and other relevant local services. The nearby park,
+                                    complete with a skate park, biking facilities, and regular community events, along with
+                                    the proximity to the local sports center, provides our young people with ample
+                                    opportunities for recreation and leisure activities.
+
+                                    Each resident's private bedroom is well-furnished, comfortable, and equipped with
+                                    telephone and internet connectivity. We provide standard bedding, towels, kitchen
+                                    equipment, and a welcome pack containing toiletries and essential clothing. Lockable
+                                    cabinets are available in each bedroom for securing personal items and valuables. While
+                                    bathrooms are shared between residents, each individual has their own designated
+                                    bathroom cupboard for personal supplies. In the fully equipped kitchen, every resident
+                                    has a personal cupboard for their own food, and we maintain a communal pantry stocked
+                                    with everyday basics for shared meals and snacks. The large dining table serves as a
+                                    gathering point for residents and staff to enjoy mealtimes together if they desire.
+
+                                    The spacious lounge area is furnished with comfortable sofas, beanbags, a TV, and a
+                                    gaming system, providing a relaxing environment for leisure time. We also maintain a
+                                    well-stocked cupboard with a variety of board games and craft supplies, which residents
+                                    and staff enjoy using together.
+
+                                    To ensure staff safety in emergencies, our office space is equipped with a heavy-duty,
+                                    lockable door. We prioritize the well-being of our residents and staff by ensuring that
+                                    all aspects of our supported accommodation meet the necessary insurance, health, safety,
+                                    and fire regulations. Regular premises reviews are conducted to maintain these
+                                    standards. The use of CCTV in external and communal areas helps to maintain security and
+                                    safeguarding. We are registered with the ICO and ensure that young people are informed
+                                    of their data rights. An annual location assessment is carried out to verify the
+                                    suitability, safety, and appropriateness of the premises.
+
+                                    We provide each young person with a written agreement in an accessible format, outlining
+                                    their rights and the terms and conditions of the supported accommodation. This agreement
+                                    also includes information on how to raise concerns about the service, building, and
+                                    maintenance.
+                                </div>
 
                                 <div class="numbered-list">
-                                    <p>
+                                    <p style="padding-top: 25px">
                                         Black roses support units have a lounge where the young people have the
                                         use of a television and there is a varied selection of channels through
                                         Freeview. In Some placement there is Netflix available as well.
