@@ -2,8 +2,14 @@
 
 @section('content')
     <style>
+        .centered-list-container {
+            text-align: center;
+        }
+
         .numbered-list {
             counter-reset: list-counter;
+            display: inline-block;
+            text-align: left;
         }
 
         .numbered-list p {
@@ -12,6 +18,21 @@
 
         .numbered-list p:before {
             content: counter(list-counter) ". ";
+        }
+
+        .numbered-list span {
+            display: inline-block;
+            margin-right: 10px;
+            /* Adjust the margin as needed */
+        }
+
+        @media (max-width: 430px) {
+            .numbered-list span {
+                display: block;
+                /* margin-bottom: 10px; */
+                margin-top: 10px;
+                /* Add margin at the bottom for spacing between items */
+            }
         }
     </style>
     <!--Page Title-->
@@ -35,11 +56,48 @@
             <div class="sec-title centered">
                 {{-- <h2>ABOUT US</h2> --}}
                 <div class="separator"></div>
-                <div class="desc-text">
-                    Black Roses is dedicated to offering a secure and nurturing living environment for young adults
-                    transitioning from care, aged 16-25. We provide homes where our young residents feel safe, appreciated,
-                    and empowered. Our mission is to assist each individual in achieving their unique goals, realizing their
-                    potential, and setting them on a path towards a prosperous, happy, and healthy future.
+                <div class="desc-text" style="text-align: left">
+                    Our service is dedicated to supporting up to 4 looked-after children and
+                    care leavers, aged 16 and 17, in a mixed-sex, ringfenced group living arrangement. We
+                    welcome young people who exhibit a growing level of independence and a readiness to acquire
+                    additional skills necessary for a successful transition into adulthood. Our service is
+                    tailored specifically for young individuals who no longer require the level of care or the
+                    specific environment provided in a children's home or foster care setting.
+                    We accept young people with a range of characteristics, provided that they are compatible
+                    with the existing group dynamics and their needs do not conflict with those of any current
+                    residents. This compatibility will be assessed before a place is offered and will be subject
+                    to a satisfactory risk assessment. The characteristics we are able to accommodate include:
+                    <div class="centered-list-container">
+                        <div class="numbered-list">
+                            <span style="display: inline-block; margin-right: 10px;">
+                                <p>Autistic spectrum disorder</p>
+                            </span>
+                            <span style="display: inline-block; margin-right: 10px;">
+                                <p>Attention deficit hyperactivity disorder (ADHD)</p>
+                            </span>
+                            <span style="display: inline-block; margin-right: 10px;">
+                                <p>Attachment disorder</p>
+                            </span>
+                            <span style="display: inline-block; margin-right: 10px;">
+                                <p>Attention deficit disorder (ADD)</p>
+                            </span>
+                            <span style="display: inline-block; margin-right: 10px;">
+                                <p>Mental health issues (mild, moderate, or severe)</p>
+                            </span>
+                            <span style="display: inline-block; margin-right: 10px;">
+                                <p>Challenging behavior</p>
+                            </span>
+                            <span style="display: inline-block; margin-right: 10px;">
+                                <p>Moderate learning disabilities</p>
+                            </span>
+                            <span style="display: inline-block; margin-right: 10px;">
+                                <p>Drug and alcohol abuse (mild, moderate, or severe, or only if in treatment)</p>
+                            </span>
+                            <span style="display: inline-block; margin-right: 10px;">
+                                <p>Self-harming behaviors</p>
+                            </span>
+                        </div>
+                    </div>
                 </div>
             </div>
             <!--Content Box-->
@@ -76,7 +134,85 @@
                                     </p>
                                 </div>
                             </div>
+                            <div class="desc-text " style="margin-top: 15px">
+                                <h3 class="strong-text">Promoting Independence</h3>
+
+                                The service is dedicated to supporting young people towards a healthy and independent future
+                                through
+                                various specific support programs and initiatives. The approach is collaborative, focusing
+                                on
+                                working closely with the young people to identify their unique goals and aspirations.
+                                Individualized
+                                support plans are developed together with the residents, promoting active participation in
+                                decision-making processes and ensuring that existing plans are followed both in-house and by
+                                other
+                                agencies.
+
+                                In-house programs and skills development opportunities are provided to enhance the young
+                                people's
+                                independence. These may include life skills workshops, educational sessions on budgeting,
+                                cooking,
+                                personal hygiene, self-care, finding suitable move-on accommodation, maintaining a tenancy,
+                                and
+                                managing peer pressure. Job-seeking skills, CV writing, interview techniques, and workplace
+                                etiquette training are also offered. Staff and residents share their skills through
+                                skill-share
+                                sessions, covering areas such as craft, music, or DIY. These programs are delivered through
+                                group
+                                sessions or one-on-one support, depending on the needs and dynamics of the group.
+
+                                The staff develops safe, trusting relationships with the young people to model healthy
+                                relationships
+                                and support their family relationships where appropriate. Advice and guidance on
+                                friendships,
+                                romantic, and sexual relationships are provided to help identify healthy and safe
+                                connections. Group
+                                work on being a good housemate or looking out for a friend is conducted when the group
+                                dynamics
+                                allow or when needed. Referrals to external services are made for more in-depth work, with
+                                regular
+                                progress reviews through support plans. The service maintains a strong relationship with
+                                local
+                                sexual health services, offering drop-in support every other month and targeted sessions as
+                                required.
+
+                                Education and employment are valued for fostering independence, maturity, and opportunity.
+                                The
+                                service actively supports young people in accessing educational opportunities or seeking
+                                employment,
+                                regularly reviewing progress through support plans and meetings. Assistance is provided in
+                                liaising
+                                with providers, exploring career options, accessing vocational training programs,
+                                identifying job
+                                opportunities, completing applications, and preparing for interviews. Strong links are
+                                maintained
+                                with local providers of apprenticeships, education, training, and volunteering opportunities
+                                to
+                                ensure the young people have every chance to explore and develop their interests and
+                                passions.
+                                Advocacy is provided with training providers where necessary to maintain placements.
+
+                                Holistic support is offered to maintain general health and happiness. The service helps
+                                young people
+                                become involved in their community through events and volunteering, supporting access to
+                                culturally
+                                specific or religious events and celebrating these in the home. Assistance is provided in
+                                registering with a GP, managing medication, identifying mood triggers, and practicing
+                                self-care. The
+                                service helps identify relationships and behaviors that may trigger drug and alcohol misuse
+                                or
+                                offending behavior. Where mental health, self-harm, problematic substance use, offending
+                                behavior,
+                                or risky relationships go beyond low-level issues, referrals are made to external agencies
+                                such as
+                                probation, YOT, sexual health services, mental health services, community or religious
+                                leaders, or
+                                drug and alcohol services. The service works openly with these agencies to support the young
+                                person
+                                with any plans put in place to help ensure a positive outcome.
+                            </div>
                         </div>
+
                     </div>
 
                     <!--Image Column-->
