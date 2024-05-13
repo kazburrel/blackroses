@@ -63,8 +63,16 @@
                                 Settings</a>
                         </div>
                         <div class="menu-item px-5">
-                            <a href="{{ route('logout') }}" class="menu-link px-5 btn btn-danger btn-sm text-white">Sign
-                                Out</a>
+                            {{-- <a href="" class="menu-link px-5 btn btn-danger btn-sm text-white"> --}}
+                            <form action="{{ route('logout') }}" method="POST">
+                                @csrf
+                                <button type="submit" class="btn btn-custom btn-danger w-100" data-bs-toggle="tooltip"
+                                    data-bs-trigger="hover" title="Logout" style="text-align: left;">
+                                    <span class="btn-label">Logout</span>
+
+                                </button>
+                            </form>
+                            {{-- </a> --}}
                         </div>
                         <div class="separator my-2"></div>
                     </div>

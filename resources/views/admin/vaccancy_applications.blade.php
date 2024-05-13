@@ -71,7 +71,8 @@
                                 <td class="text-end">
                                     <div class="d-flex flex-center w-100 me-2">
                                         <span class="text-dark fw-bolder  d-block fs-6"><a
-                                                href="{{ asset($application->cv) }}" target="_blank">Download CV</a></span>
+                                                href="{{ route('cv.download', $application->uuid) }}"
+                                                target="_blank">Download CV</a></span>
                                     </div>
                                 </td>
                                 <td class="text-end">

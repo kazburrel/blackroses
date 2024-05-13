@@ -33,6 +33,7 @@ Route::prefix('/admin')->middleware(['auth', 'permission:manage all staff', Prev
     Route::get('/job/applications', [ViewController::class, 'jobApplications'])->name('get.job.applications');
     Route::put('/job/applications/listing/{uuid}', [VaccancyController::class, 'jobListing'])->name('toggle.job.applications.listing');
     Route::get('/job/applications/{uuid}', [ViewController::class, 'jobApplication'])->name('get.job.application.uuid');
+    Route::get('/download/{uuid}', [VaccancyController::class, 'downloadCV'])->name('cv.download');
     Route::delete('/delete/application/{uuid}', [VaccancyController::class, 'deleteApplication'])->name('delete.job.application');
     Route::get('/approve/application/{uuid}', [VaccancyController::class, 'approveApplication'])->name('approve.job.application');
     Route::get('/reject/application/{uuid}', [VaccancyController::class, 'rejectApplication'])->name('reject.job.application');

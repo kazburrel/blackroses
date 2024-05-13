@@ -9,3 +9,5 @@ add phone, avatar, country, spoken language to users table
 
 promoting inde come up on the core values
 replace referals with just a contact form
+
+add team page
