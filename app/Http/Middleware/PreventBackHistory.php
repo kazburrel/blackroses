@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\HttpFoundation\Response;
 
 class PreventBackHistory
@@ -16,8 +17,16 @@ class PreventBackHistory
     public function handle(Request $request, Closure $next): Response
     {
         $response = $next($request);
-        return $response->header('Cache-Control', 'nocache, no-store, max-age=0, must-revalidate')
-            ->header('Pragma', 'no-cache')
-            ->header('Expires', 'Sun, 02 Jan 1990 00:00:00 GMT');
+
+        // Check if the response is a redirect response
+        // Check if the user is authenticated
+        if (!$response instanceof BinaryFileResponse) {
+            // Set cache-control headers
+            $response->header('Cache-Control', 'nocache, no-store, max-age=0, must-revalidate')
+                ->header('Pragma', 'no-cache')
+                ->header('Expires', 'Sun, 02 Jan 1990 00:00:00 GMT');
+        }
+
+        return $response;
     }
 }

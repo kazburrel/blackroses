@@ -11,6 +11,8 @@ use App\Models\Settings;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Utyemma\LaraNotice\Notify;
 
 class VaccancyController extends Controller
@@ -40,7 +42,8 @@ class VaccancyController extends Controller
         $application = JobApplication::create($request->safe()->merge([
             'uuid' => $uuid,
             'vaccancy_id' => $vaccancy->uuid,
-            'cv' => $file,
+            'cv' => $file
+            // 'cv' => asset('storage/' . $file),
         ])->all());
         toast('Your application has been submitted successfully!', 'success');
         (new Notify())
@@ -134,5 +137,38 @@ class VaccancyController extends Controller
         } catch (\Exception $e) {
             return response()->json(['message' => 'Failed to reject job application.'], 500);
         }
+    }
+
+    public function downloadCV($uuid)
+    {
+        $applicant = JobApplication::where('uuid', $uuid)->first();
+        if (!$applicant) {
+            abort(404, 'Job application not found.');
+        }
+        $cvPath = $applicant->cv;
+        if (!Storage::disk('public')->exists($cvPath)) {
+            abort(404, 'CV file not found.');
+        }
+        $fileName = $applicant->fullname . '_cv';
+        $filePath = Storage::disk('public')->path($cvPath);
+
+        // Get file extension
+        $extension = pathinfo($filePath, PATHINFO_EXTENSION);
+        // dd($extension);
+
+        // Set appropriate content type based on file extension
+        $contentType = mime_content_type($filePath);
+
+        $fileNameWithExtension = $fileName . '.' . $extension;
+
+        // Create a BinaryFileResponse and set headers manually
+        $response = new BinaryFileResponse($filePath);
+        $response->setContentDisposition(
+            'attachment',
+            $fileNameWithExtension, // Use the file name with extension
+            $contentType // Set the detected content type
+        );
+
+        return $response;
     }
 }
