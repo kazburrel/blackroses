@@ -12,7 +12,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
-use Symfony\Component\HttpFoundation\BinaryFileResponse;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 use Utyemma\LaraNotice\Notify;
 
 class VaccancyController extends Controller
@@ -139,6 +139,9 @@ class VaccancyController extends Controller
         }
     }
 
+
+
+
     public function downloadCV($uuid)
     {
         $applicant = JobApplication::where('uuid', $uuid)->first();
@@ -149,25 +152,11 @@ class VaccancyController extends Controller
         if (!Storage::disk('public')->exists($cvPath)) {
             abort(404, 'CV file not found.');
         }
-        $fileName = $applicant->fullname . '_cv';
+        $fileName =  $applicant->fullname . '_cv';
         $filePath = Storage::disk('public')->path($cvPath);
-
-        // Get file extension
-        $extension = pathinfo($filePath, PATHINFO_EXTENSION);
-        // dd($extension);
-
-        // Set appropriate content type based on file extension
-        $contentType = mime_content_type($filePath);
-
-        $fileNameWithExtension = $fileName . '.' . $extension;
-
-        // Create a BinaryFileResponse and set headers manually
-        $response = new BinaryFileResponse($filePath);
-        $response->setContentDisposition(
-            'attachment',
-            $fileNameWithExtension, // Use the file name with extension
-            $contentType // Set the detected content type
-        );
+        $response = response()->download($filePath, $fileName);
+        $response->headers->set('Content-Type', 'application/octet-stream');
+        $response->headers->set('Content-Disposition', 'attachment; filename="' . $fileName . '"');
 
         return $response;
     }
