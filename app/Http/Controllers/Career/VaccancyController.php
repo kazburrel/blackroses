@@ -43,7 +43,6 @@ class VaccancyController extends Controller
             'uuid' => $uuid,
             'vaccancy_id' => $vaccancy->uuid,
             'cv' => $file
-            // 'cv' => asset('storage/' . $file),
         ])->all());
         toast('Your application has been submitted successfully!', 'success');
         (new Notify())
@@ -152,12 +151,10 @@ class VaccancyController extends Controller
         if (!Storage::disk('public')->exists($cvPath)) {
             abort(404, 'CV file not found.');
         }
-        $fileName =  $applicant->fullname . '_cv';
+        $extension = pathinfo($cvPath, PATHINFO_EXTENSION);
+        $fileName =  $applicant->fullname . '_cv.' . $extension;
         $filePath = Storage::disk('public')->path($cvPath);
         $response = response()->download($filePath, $fileName);
-        $response->headers->set('Content-Type', 'application/octet-stream');
-        $response->headers->set('Content-Disposition', 'attachment; filename="' . $fileName . '"');
-
         return $response;
     }
 }
