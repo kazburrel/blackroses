@@ -15,9 +15,10 @@ return new class extends Migration
             $table->bigIncrements('id')->primary();
             $table->uuid('uuid')->unique();
             $table->foreignUuid('creator')->references('uuid')->on('users');
+            $table->string('fullname')->nullable();
             $table->string('image')->nullable();
             $table->string('position')->nullable();
-            $table->string('write_up')->nullable();
+            $table->text('write_up')->nullable();
             $table->string('roles')->nullable();
             $table->string('permission')->nullable();
             $table->timestamps();

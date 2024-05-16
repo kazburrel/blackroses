@@ -18,6 +18,7 @@ class OurTeam extends Model
     protected $fillable = [
         'uuid',
         'creator',
+        'fullname',
         'image',
         'position',
         'write_up',
