@@ -108,8 +108,8 @@
                     </a>
                 </div>
                 <div class="menu-item">
-                    <a class="menu-link{{ request()->routeIs('get.job.applications') ? ' active' : '' }}"
-                        href="{{ route('get.job.applications') }}">
+                    <a class="menu-link{{ request()->routeIs('add.brs.team.member') ? ' active' : '' }}"
+                        href="{{ route('add.brs.team.member') }}">
                         <span class="menu-bullet">
                             <span class="bullet bullet-dot"></span>
                         </span>
