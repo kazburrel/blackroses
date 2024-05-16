@@ -152,4 +152,13 @@ class ViewController extends Controller
             'user' => $user
         ]);
     }
+
+    public function getTeam()
+    {
+        $user = Auth::user();
+        SEOMeta::setTitle('Applications');
+        return view('admin.team.all-team', [
+            'user' => $user
+        ]);
+    }
 }

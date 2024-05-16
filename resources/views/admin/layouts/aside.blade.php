@@ -93,6 +93,30 @@
                     </a>
                 </div>
 
+                <div class="menu-item">
+                    <div class="menu-content pt-8 pb-2">
+                        <span class="menu-section text-muted text-uppercase fs-8 ls-1">BRS Team</span>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <a class="menu-link{{ request()->routeIs('get.brs.team') ? ' active' : '' }}"
+                        href="{{ route('get.brs.team') }}">
+                        <span class="menu-bullet">
+                            <span class="bullet bullet-dot"></span>
+                        </span>
+                        <span class="menu-title">All Team members</span>
+                    </a>
+                </div>
+                <div class="menu-item">
+                    <a class="menu-link{{ request()->routeIs('get.job.applications') ? ' active' : '' }}"
+                        href="{{ route('get.job.applications') }}">
+                        <span class="menu-bullet">
+                            <span class="bullet bullet-dot"></span>
+                        </span>
+                        <span class="menu-title">Add a Team member</span>
+                    </a>
+                </div>
+
             </div>
         </div>
     </div>
