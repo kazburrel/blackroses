@@ -156,8 +156,17 @@ class ViewController extends Controller
     public function getTeam()
     {
         $user = Auth::user();
-        SEOMeta::setTitle('Applications');
+        SEOMeta::setTitle('BRS Team');
         return view('admin.team.all-team', [
+            'user' => $user
+        ]);
+    }
+
+    public function addTeamMember()
+    {
+        $user = Auth::user();
+        SEOMeta::setTitle('Add a Team Member');
+        return view('admin.team.add-team', [
             'user' => $user
         ]);
     }
