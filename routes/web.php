@@ -26,6 +26,9 @@ Route::prefix('/admin')->middleware(['auth', 'permission:manage all staff', Prev
         Route::get('/edit', [ViewController::class, 'getProfileEdit'])->name('get.user.profile.edit');
         Route::put('/edit', [ProfileController::class, 'updateProfileEdit'])->name('update.user.profile.edit');
     });
+    Route::prefix('/team')->group(function () {
+        Route::get('/', [ViewController::class, 'getTeam'])->name('get.brs.team');
+    });
     Route::get('/dashboard', [ViewController::class, 'adminDashboard'])->name('admin.dashboard');
     Route::get('/vacancy', [ViewController::class, 'vacancy'])->name('job.vacancy');
     Route::get('/post/vacancy', [ViewController::class, 'getPostVacancy'])->name('get.advertise.job.vacancy');

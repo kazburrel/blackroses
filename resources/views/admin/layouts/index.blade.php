@@ -26,6 +26,7 @@
         type="text/css" />
     <link href="{{ asset('admin_assets/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('admin_assets/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
+    @livewireStyles
 </head>
 
 <body id="kt_body"
@@ -75,17 +76,7 @@
     <script src="{{ asset('admin_assets/js/custom/utilities/modals/users-search.js') }}"></script>
     <script src="{{ asset('admin_assets/js/custom/apps/ecommerce/sales/listing.js') }}"></script>
     <script src="{{ asset('admin_assets/js/custom/account/settings/signin-methods.js') }}"></script>
-    {{-- <script src="assets/js/custom/account/settings/profile-details.js"></script>
-    <script src="assets/js/custom/account/settings/deactivate-account.js"></script>
-    <script src="assets/js/custom/utilities/modals/offer-a-deal/type.js"></script>
-    <script src="assets/js/custom/utilities/modals/offer-a-deal/details.js"></script>
-    <script src="assets/js/custom/utilities/modals/offer-a-deal/finance.js"></script>
-    <script src="assets/js/custom/utilities/modals/offer-a-deal/complete.js"></script>
-    <script src="assets/js/custom/utilities/modals/offer-a-deal/main.js"></script>
-    <script src="assets/js/custom/utilities/modals/two-factor-authentication.js"></script> --}}
-
-
-
+    @livewireScripts
     @include('sweetalert::alert')
 
 </body>
