@@ -14,15 +14,4 @@
             </div>
         </div>
     </div>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            document.getElementById("description").value =
-                "Please visit the application page to view the complete description";
-            document.getElementById("responsibility").value =
-                "Please visit the application page to view the complete responsibility";
-            document.getElementById("requirements").value =
-                "Please visit the application page to view the complete requirement";
-        });
-    </script>
 @endsection

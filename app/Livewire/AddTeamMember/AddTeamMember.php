@@ -28,7 +28,7 @@ class AddTeamMember extends Component
 
     public function addTeamMember()
     {
-        // dd($this->all());
+
         $this->validate(['image' => 'required|image|mimes:png,jpg,jpeg,heic']);
         $creator = Auth::user();
         $filePath = $this->image->store('TeamImages', 'public');
@@ -42,6 +42,7 @@ class AddTeamMember extends Component
             'position' => $this->position,
             'write_up' => $this->write_up,
         ]);
+        $this->dispatch('toastr:success', ['message' => 'Team member created successfully']);
         $this->reset([
             'fullname',
             'image',

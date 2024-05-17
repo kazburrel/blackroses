@@ -26,6 +26,7 @@
         type="text/css" />
     <link href="{{ asset('admin_assets/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('admin_assets/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
     @livewireStyles
 </head>
 
@@ -76,9 +77,41 @@
     <script src="{{ asset('admin_assets/js/custom/utilities/modals/users-search.js') }}"></script>
     <script src="{{ asset('admin_assets/js/custom/apps/ecommerce/sales/listing.js') }}"></script>
     <script src="{{ asset('admin_assets/js/custom/account/settings/signin-methods.js') }}"></script>
-    @livewireScripts
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @include('sweetalert::alert')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true,
+                "positionClass": "toast-top-center",
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            };
+        });
+        window.addEventListener('toastr:success', event => {
+            const message = event.detail[0].message;
+            toastr.success(message);
+        });
+        window.addEventListener('toastr:warning', event => {
+            const message = event.detail[0].message;
+            toastr.warning(message);
+        });
+        window.addEventListener('toastr:error', event => {
+            const message = event.detail[0].message;
+            toastr.error(message);
+        });
+    </script>
 
+
+    @livewireScripts
 </body>
 
 </html>
