@@ -37,14 +37,14 @@ class AddTeamMember extends Component
         $filePath = $this->image->store('TeamImages', 'public');
         $uuid = Str::uuid();
 
-        // OurTeam::create([
-        //     'uuid' => $uuid,
-        //     'creator' => $creator->uuid,
-        //     'fullname' => $this->fullname,
-        //     'image' => $filePath,
-        //     'position' => $this->position,
-        //     'write_up' => $this->write_up,
-        // ]);
+        OurTeam::create([
+            'uuid' => $uuid,
+            'creator' => $creator->uuid,
+            'fullname' => $this->fullname,
+            'image' => $filePath,
+            'position' => $this->position,
+            'write_up' => $this->write_up,
+        ]);
         $this->dispatchSuccessToast('Team member created successfully!');
         $this->reset([
             'fullname',

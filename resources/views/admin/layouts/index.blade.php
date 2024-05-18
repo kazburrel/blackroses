@@ -81,34 +81,6 @@
     @include('sweetalert::alert')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script>
-        $(document).ready(function() {
-            toastr.options = {
-                "closeButton": true,
-                "progressBar": true,
-                "positionClass": "toast-top-center",
-                "showDuration": "300",
-                "hideDuration": "1000",
-                "timeOut": "5000",
-                "extendedTimeOut": "1000",
-                "showEasing": "swing",
-                "hideEasing": "linear",
-                "showMethod": "fadeIn",
-                "hideMethod": "fadeOut"
-            };
-        });
-        window.addEventListener('toastr:success', event => {
-            const message = event.detail[0].message;
-            toastr.success(message);
-        });
-        window.addEventListener('toastr:warning', event => {
-            const message = event.detail[0].message;
-            toastr.warning(message);
-        });
-        window.addEventListener('toastr:error', event => {
-            const message = event.detail[0].message;
-            toastr.error(message);
-        });
-
         document.addEventListener('DOMContentLoaded', function() {
             Livewire.on('swal:toast', function(data) {
                 Swal.fire({
