@@ -108,6 +108,20 @@
             const message = event.detail[0].message;
             toastr.error(message);
         });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            Livewire.on('swal:toast', function(data) {
+                Swal.fire({
+                    toast: true,
+                    position: data[0].position || 'top-end',
+                    icon: data[0].type,
+                    title: data[0].title,
+                    showConfirmButton: false,
+                    timer: data[0].timer || 3000,
+                    timerProgressBar: true,
+                });
+            });
+        });
     </script>
 
 
