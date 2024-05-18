@@ -3,6 +3,7 @@
 namespace App\Livewire\AddTeamMember;
 
 use App\Models\OurTeam;
+use App\SweetAlertToast;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Validate;
 
@@ -13,7 +14,8 @@ use Livewire\WithFileUploads;
 
 class AddTeamMember extends Component
 {
-    use WithFileUploads;
+
+    use WithFileUploads, SweetAlertToast;
 
     #[Validate('required')]
     public $fullname = '';
@@ -25,6 +27,7 @@ class AddTeamMember extends Component
 
     #[Validate('required')]
     public $write_up = '';
+
 
     public function addTeamMember()
     {
@@ -42,7 +45,7 @@ class AddTeamMember extends Component
             'position' => $this->position,
             'write_up' => $this->write_up,
         ]);
-        $this->dispatch('toastr:success', ['message' => 'Team member created successfully']);
+        $this->dispatchSuccessToast('Team member created successfully!');
         $this->reset([
             'fullname',
             'image',

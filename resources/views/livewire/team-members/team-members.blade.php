@@ -1,4 +1,5 @@
 <div>
+
     <div class="mb-18">
         <div class="text-center mb-17">
             <h3 class="fs-2hx text-dark mb-5">Our Great Team</h3>
@@ -9,8 +10,13 @@
         <div class="row row-cols-1 row-cols-sm-2 row-cols-xl-4 gy-10">
             @forelse ($teamMembers as $member)
                 <div class="col text-center mb-9">
+
                     <div class="octagon mx-auto mb-2 d-flex w-150px h-150px bgi-no-repeat bgi-size-contain bgi-position-center"
-                        style="background-image:url('{{ asset($member->image) }}')"></div>
+                        @if ($member->image == 'images/resource/latoya_main.jpeg') style="background-image:url('{{ asset($member->image) }}')"
+                        @else
+                            style="background-image:url('{{ asset('storage/' . $member->image) }}')" @endif>
+                    </div>
+
                     <div class="mb-0">
                         <a href="../../demo1/dist/pages/user-profile/projects.html"
                             class="text-dark fw-bolder text-hover-primary fs-3">{{ $member->fullname }}</a>
