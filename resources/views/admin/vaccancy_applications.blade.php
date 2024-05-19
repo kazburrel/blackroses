@@ -137,48 +137,11 @@
                                     </div>
                                 </td>
                             </tr>
-
-                            <div class="modal fade" tabindex="-1" id="kt_modal_1{{ $application->uuid }}">
-                                <div class="modal-dialog">
-                                    <div class="modal-content text-center">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title">DELETE APPLICATION</h5>
-
-                                            <div class="btn btn-icon btn-sm btn-active-light-primary ms-2"
-                                                data-bs-dismiss="modal" aria-label="Close">
-                                                <span class="svg-icon svg-icon-2x">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                        viewBox="0 0 24 24" fill="none">
-                                                        <rect opacity="0.5" x="6" y="17.3137" width="16"
-                                                            height="2" rx="1"
-                                                            transform="rotate(-45 6 17.3137)" fill="currentColor" />
-                                                        <rect x="7.41422" y="6" width="16" height="2"
-                                                            rx="1" transform="rotate(45 7.41422 6)"
-                                                            fill="currentColor" />
-                                                    </svg>
-                                                </span>
-                                            </div>
-                                        </div>
-
-                                        <div class="modal-body">
-                                            <p>Are you sure you want to delete?</p>
-                                        </div>
-
-                                        <div class="modal-footer d-flex justify-content-center">
-                                            <button type="button" class="btn btn-light"
-                                                data-bs-dismiss="modal">Close</button>
-                                            <x-delete href="/admin/all_lecturer/{{ $application->uuid }}" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
                         @empty
                         @endforelse
 
                     </tbody>
                 </table>
-                {{-- {{ $lecturers->links() }} --}}
             </div>
         </div>
     </div>

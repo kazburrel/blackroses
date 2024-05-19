@@ -25,6 +25,7 @@
     <link href="{{ asset('admin_assets/plugins/custom/datatables/datatables.bundle.css') }}" rel="stylesheet"
         type="text/css" />
     <link href="{{ asset('admin_assets/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('css/pre.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('admin_assets/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
     @livewireStyles
@@ -33,6 +34,10 @@
 <body id="kt_body"
     class="header-fixed header-tablet-and-mobile-fixed toolbar-enabled toolbar-fixed aside-enabled aside-fixed"
     style="--kt-toolbar-height:55px;--kt-toolbar-height-tablet-and-mobile:55px">
+    {{-- <div class="preloader">
+        <div class="loader"></div>
+    </div>
+    <img id="myImage" src="{{ asset('images/Black Roses Support-04.png') }}" style="display: none;"> --}}
     <div class="d-flex flex-column flex-root">
         <div class="page d-flex flex-row flex-column-fluid">
             @include('admin.layouts.aside')
@@ -50,6 +55,7 @@
     <script>
         var hostUrl = "assets/";
     </script>
+    <script src="{{ asset('js/pre.js') }}"></script>
     <script src="{{ asset('admin_assets/plugins/global/plugins.bundle.js') }}"></script>
     <script src="{{ asset('admin_assets/js/scripts.bundle.js') }}"></script>
     <script src="{{ asset('admin_assets/plugins/custom/fullcalendar/fullcalendar.bundle.js') }}"></script>
@@ -80,6 +86,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @include('sweetalert::alert')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             Livewire.on('swal:toast', function(data) {
@@ -94,7 +101,27 @@
                 });
             });
         });
+
+        function confirmDelete(event, uuid) {
+            event.preventDefault();
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Livewire.dispatch('deleteMember', {
+                        uuid: uuid
+                    });
+                }
+            });
+        }
     </script>
+
 
 
     @livewireScripts
