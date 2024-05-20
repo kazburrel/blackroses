@@ -39,25 +39,6 @@
                                 </svg>
                             </span>
                         </div>
-                        {{-- <a href="#" class="btn btn-icon btn-bg-light btn-sm" data-bs-toggle="modal"
-                            data-bs-target="#kt_modal_delete{{ $member->uuid }}"
-                            data-kt-users-table-filter="delete_trigger">
-                            <span class="svg-icon svg-icon-3 svg-icon-danger">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                    viewBox="0 0 24 24" fill="none">
-                                    <path
-                                        d="M5 9C5 8.44772 5.44772 8 6 8H18C18.5523 8 19 8.44772 19 9V18C19 19.6569 17.6569 21 16 21H8C6.34315 21 5 19.6569 5 18V9Z"
-                                        fill="currentColor" />
-                                    <path opacity="0.5"
-                                        d="M5 5C5 4.44772 5.44772 4 6 4H18C18.5523 4 19 4.44772 19 5V5C19 5.55228 18.5523 6 18 6H6C5.44772 6 5 5.55228 5 5V5Z"
-                                        fill="currentColor" />
-                                    <path opacity="0.5"
-                                        d="M9 4C9 3.44772 9.44772 3 10 3H14C14.5523 3 15 3.44772 15 4V4H9V4Z"
-                                        fill="currentColor" />
-                                </svg>
-                            </span>
-                        </a> --}}
-
                         <a href="#" class="btn btn-icon btn-bg-light btn-sm"
                             onclick="confirmDelete(event, '{{ $member->uuid }}')">
                             <span class="svg-icon svg-icon-3 svg-icon-danger">
@@ -77,7 +58,8 @@
                         </a>
                     </div>
                 </div>
-                {{-- <div class="modal fade" id="kt_modal_add_user-{{ $member->uuid }}" tabindex="-1" aria-hidden="true">
+                <div wire:ignore.self class="modal fade" id="kt_modal_add_user-{{ $member->uuid }}" tabindex="-1"
+                    aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered mw-650px">
                         <div class="modal-content rounded">
                             <div class="modal-header pb-0 border-0 justify-content-end">
@@ -93,88 +75,7 @@
                                     </span>
                                 </div>
                             </div>
-                            <div class="modal-body scroll-y px-10 px-lg-15 pt-0 pb-15">
-                                <form wire:submit.prevent="addTeamMember">
-                                    @csrf
-                                    <div class="mb-13 text-center">
-                                        <h1 class="mb-3">Update Team Member</h1>
-                                    </div>
-                                    <div class="d-flex flex-column mb-8 fv-row">
-                                        <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                                            <span class="required">Full Name</span>
-                                        </label>
-                                        <input type="text" class="form-control form-control-solid"
-                                            placeholder="Enter Staff Fullname" wire:model="fullname"
-                                            value="{{ old('fullname', $member->fullname) }}" />
-                                        @error('fullname')
-                                            <div class="alert alert-danger">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-                                    <div class="row g-9 mb-8">
-                                        <div class="col-md-6 fv-row">
-                                            <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                                                <span class="required">Staff Image</span>
-                                            </label>
-                                            <input type="file" class="form-control form-control-solid"
-                                                placeholder="Enter Job image" wire:model="image"
-                                                value="{{ old('image') }}" />
-                                            @error('image')
-                                                <div class="alert alert-danger">{{ $message }}</div>
-                                            @enderror
-                                        </div>
-                                        <div class="col-md-6 fv-row">
-                                            <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                                                <span class="required">Staff Position</span>
-                                            </label>
-                                            <input type="text" class="form-control form-control-solid"
-                                                placeholder="Enter Staff Position" wire:model="position"
-                                                value="{{ old('position', $member->position) }}" />
-                                            @error('position')
-                                                <div class="alert alert-danger">{{ $message }}</div>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="d-flex flex-column mb-8">
-                                        <label class="fs-6 fw-bold mb-2">About Staff</label>
-                                        <textarea class="form-control form-control-solid" rows="3" wire:model="write_up"
-                                            placeholder="Please give a small write up about staff">{{ $member->write_up }}</textarea>
-                                        @error('write_up')
-                                            <div class="alert alert-danger">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-                                    <div class="text-center">
-                                        <button type="reset" data-bs-dismiss="modal"
-                                            id="kt_modal_new_target_cancel" class="btn btn-light me-3">Cancel</button>
-                                        <button type="submit" id="kt_modal_new_target_submit"
-                                            class="btn btn-primary">
-                                            <span class="indicator-label">Submit</span>
-                                            <span class="indicator-progress">Please wait...
-                                                <span
-                                                    class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
-                                        </button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div> --}}
-                <div class="modal fade kt_modal_delete_modal" id="kt_modal_delete_{{ $member->uuid }}" tabindex="-1"
-                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title">Confirm Delete</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body text-center">
-                                <p>Are you sure you want to delete this member?</p>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                <button type="button" class="btn btn-danger"
-                                    wire:click="deleteMember('{{ $member->uuid }}')">Delete</button>
-                            </div>
+                            <livewire:edit-team-member.edit-team-member :member-id="$member->uuid" />
                         </div>
                     </div>
                 </div>
