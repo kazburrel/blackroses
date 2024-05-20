@@ -9,9 +9,10 @@ use Livewire\Component;
 class TeamMembers extends Component
 {
     use SweetAlertToast;
-    public $teamMembers;
 
+    public $teamMembers;
     protected $listeners = ['deleteMember'];
+
 
     public function mount()
     {
