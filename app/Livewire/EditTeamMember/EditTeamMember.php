@@ -59,6 +59,7 @@ class EditTeamMember extends Component
                 'write_up' => $this->write_up,
                 'image' => isset($this->image) ? $this->image : $member->image,
             ]);
+            $this->dispatch('memberUpdated', $member->uuid);
             $this->dispatchSuccessToast('Team member edited successfully!');
             // return redirect()->route('get.brs.team');
         }
