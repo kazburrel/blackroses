@@ -2,19 +2,18 @@
     <div class="mb-18">
         <div class="text-center mb-17">
             <h3 class="fs-2hx text-dark mb-5">Our Great Team</h3>
-            <div class="fs-5 text-muted fw-bold">A collective of passionate individuals dedicated to
-                delivering exceptional service and making a positive impact every step of the way.
+            <div class="fs-5 text-muted fw-bold">
+                A collective of passionate individuals dedicated to delivering exceptional service and making a positive
+                impact every step of the way.
             </div>
         </div>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-xl-4 gy-10">
             @forelse ($teamMembers as $member)
-                <div wire:key="{{ $member->uuid }}">
+                <div wire:key="member-{{ $member->uuid }}">
                     <div class="col text-center mb-9" id="members-table">
-
                         <div class="octagon mx-auto mb-2 d-flex w-150px h-150px bgi-no-repeat bgi-size-contain bgi-position-center"
                             @if ($member->image == 'images/resource/latoya_main.jpeg') style="background-image:url('{{ asset($member->image) }}')"
-                        @else
-                            style="background-image:url('{{ asset('storage/' . $member->image) }}')" @endif>
+                            @else style="background-image:url('{{ asset('storage/' . $member->image) }}')" @endif>
                         </div>
 
                         <div class="mb-0">
@@ -77,28 +76,21 @@
                                         </span>
                                     </div>
                                 </div>
-                                <livewire:edit-team-member.edit-team-member :member-id="$member->uuid" />
+                                <livewire:edit-team-member.edit-team-member :member-id="$member->uuid" :key="$member->uuid" />
                             </div>
                         </div>
                     </div>
                 </div>
             @empty
+                <p>No team members found.</p>
             @endforelse
         </div>
     </div>
-
-
 </div>
+
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         Livewire.on('memberUpdated', function(memberId) {
-            const modalId = 'kt_modal_add_user-' + memberId;
-            const modal = document.getElementById(modalId);
-            if (modal) {
-                setTimeout(function() {
-                    $('#' + modalId).modal('hide');
-                });
-            }
             Livewire.dispatch('refreshMemberData', {
                 uuid: memberId
             });
