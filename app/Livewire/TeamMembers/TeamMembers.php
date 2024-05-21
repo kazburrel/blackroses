@@ -11,7 +11,8 @@ class TeamMembers extends Component
     use SweetAlertToast;
 
     public $teamMembers;
-    protected $listeners = ['deleteMember'];
+    protected $listeners = ['deleteMember', 'refreshMemberData'];
+
 
 
     public function mount()
@@ -28,6 +29,12 @@ class TeamMembers extends Component
             $this->teamMembers = OurTeam::all();
             $this->dispatchSuccessToast('Team member deleted successfully!');
         }
+    }
+
+    public function refreshMemberData($uuid)
+    {
+
+        $member = OurTeam::where('uuid', $uuid)->first();
     }
 
     public function render()
