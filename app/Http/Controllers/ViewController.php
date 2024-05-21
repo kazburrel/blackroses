@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\JobApplication;
 use App\Models\JobVacancy;
+use App\Models\OurTeam;
 use App\Models\Settings;
 use App\Models\User;
 use Artesaos\SEOTools\Facades\SEOMeta;
@@ -42,7 +43,6 @@ class ViewController extends Controller
         SEOMeta::setTitle('Vaccancy');
         $vaccancy = JobVacancy::where('is_listed', 1)->get();
         $setting = Settings::first();
-        // dd($vaccancy);
         return view(
             'vaccancies',
             [
@@ -62,7 +62,14 @@ class ViewController extends Controller
     {
         SEOMeta::setTitle('Our Team');
         $setting = Settings::first();
-        return view('our-team', ['setting' => $setting]);
+        $team = OurTeam::all();
+        return view(
+            'our-team',
+            [
+                'setting' => $setting,
+                'teamMembers' => $team
+            ]
+        );
     }
 
     public function apply($job)
