@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Career;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreJobApplicationRequest;
 use App\Http\Requests\StoreJobVaccancyFormRequest;
+use App\Http\Requests\StoreVacancyUpdateRequest;
 use App\Models\JobApplication;
 use App\Models\JobVacancy;
 use App\Models\Settings;
@@ -12,11 +13,14 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
+use RealRashid\SweetAlert\Facades\Alert;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 use Utyemma\LaraNotice\Notify;
+use App\SweetAlertToast;
 
 class VaccancyController extends Controller
 {
+    use SweetAlertToast;
     public function postVacancy(StoreJobVaccancyFormRequest $request)
     {
         // dd($request->all());
@@ -138,9 +142,6 @@ class VaccancyController extends Controller
         }
     }
 
-
-
-
     public function downloadCV($uuid)
     {
         $applicant = JobApplication::where('uuid', $uuid)->first();
@@ -156,5 +157,14 @@ class VaccancyController extends Controller
         $filePath = Storage::disk('public')->path($cvPath);
         $response = response()->download($filePath, $fileName);
         return $response;
+    }
+
+    public function updateVacancy(StoreVacancyUpdateRequest $request, $uuid)
+    {
+        $vacancy = JobVacancy::where('uuid', $uuid)->first();
+        $vacancy->update($request->safe()->merge([])->all());
+        toast('Job vacancy edited successfully!');
+        // dispatchSuccessToast('Team member edited successfully!');
+        return redirect()->back();
     }
 }
