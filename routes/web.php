@@ -34,6 +34,7 @@ Route::prefix('/admin')->middleware(['auth', 'permission:manage all staff', Prev
     Route::get('/vacancy', [ViewController::class, 'vacancy'])->name('job.vacancy');
     Route::get('/post/vacancy', [ViewController::class, 'getPostVacancy'])->name('get.advertise.job.vacancy');
     Route::post('/post/vacancy', [VaccancyController::class, 'postVacancy'])->name('post.job.vacancy');
+    Route::put('/update/vacancy/{uuid}', [VaccancyController::class, 'updateVacancy'])->name('update.job.vacancy');
     Route::get('/job/applications', [ViewController::class, 'jobApplications'])->name('get.job.applications');
     Route::put('/job/applications/listing/{uuid}', [VaccancyController::class, 'jobListing'])->name('toggle.job.applications.listing');
     Route::get('/job/applications/{uuid}', [ViewController::class, 'jobApplication'])->name('get.job.application.uuid');
