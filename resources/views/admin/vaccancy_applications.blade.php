@@ -38,7 +38,6 @@
                             <th class="min-w-50px">RTW</th>
                             <th class="min-w-50px">DL</th>
                             <th class="min-w-150px">Status</th>
-                            {{-- <th class="min-w-150px">Approval Status</th> --}}
                             <th class="min-w-150px">Actions</th>
                         </tr>
                     </thead>
@@ -53,7 +52,7 @@
                                 </td>
                                 <td>
                                     <div class="d-flex align-items-center">
-                                        <div class=justify-content-start flex-center">
+                                        <div class="justify-content-start flex-center">
                                             <span class="text-dark fw-bolder  d-block fs-6">{{ $application->fullname }}
                                             </span>
                                         </div>

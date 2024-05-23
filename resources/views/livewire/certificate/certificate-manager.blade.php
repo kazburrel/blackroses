@@ -24,103 +24,109 @@
             <div class="table-responsive">
 
                 <table class="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4 text-center"
-                    id="kt_ecommerce_sales_table">
+                    wire:key='kaz' id="kt_ecommerce_sales_table">
                     <thead>
                         <tr class="fw-bolder text-muted">
                             <th class="min-w-50px">S/N</th>
                             <th class="min-w-200px">Certificate Id</th>
                             <th class="min-w-150px">Name</th>
-                            <th class="min-w-100px">Issued Date</th>
-                            <th class="min-w-100px">Expiry Date</th>
+                            <th class="min-w-150px">Issued Date</th>
+                            <th class="min-w-150px">Expiry Date</th>
                             <th class="min-w-150px">Last Renewed Date</th>
-                            <th class="min-w-100px">File</th>
+                            <th class="min-w-150px">File</th>
                             <th class="min-w-150px">Status</th>
                             <th class="min-w-150px">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {{-- @forelse ($applications as $i => $application) --}}
-                        <tr>
-                            <td>
-                                <span class="text-dark fw-bolder  d-block fs-6"></span>
-                            </td>
-                            <td>
-                                <span class="text-primary fw-bolder  d-block fs-6"></span>
-                            </td>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <div class="justify-content-start flex-center">
+                        @forelse ($certificates as $i => $certificate)
+                            <tr>
+                                <td>
+                                    <span class="text-dark fw-bolder  d-block fs-6">{{ $i + 1 }}</span>
+                                </td>
+                                <td>
+                                    <span class="text-primary fw-bolder  d-block fs-6">{{ $certificate->uuid }}</span>
+                                </td>
+                                <td>
+
+                                    <div class="d-flex justify-content-center flex-center">
                                         <span class="text-dark fw-bolder  d-block fs-6">
+                                            {{ $certificate->name }}
                                         </span>
                                     </div>
-                                </div>
-                            </td>
-                            <td>
-                                <span class="text-dark fw-bolder  d-block fs-6"></span>
-                            </td>
 
-                            <td class="text-end">
-                                <div class="d-flex flex-center w-100 me-2">
-                                    <span class="text-dark fw-bolder  d-block fs-6"></span>
-                                </div>
-                            </td>
+                                </td>
+                                <td>
+                                    <span
+                                        class="text-dark fw-bolder  d-block fs-6">{{ date('F j, Y', strtotime($certificate->issued_date)) }}</span>
+                                </td>
 
-                            <td class="text-end">
-                                <div class="d-flex flex-center w-150 me-2">
-                                    <span class="text-dark fw-bolder  d-block fs-6"></span>
-                                </div>
-                            </td>
-                            <td class="text-end">
-                                <div class="d-flex flex-center w-100 me-2">
-                                    <span class="text-dark fw-bolder  d-block fs-6"><a href=""
-                                            target="_blank">View Cert</a></span>
-                                </div>
-                            </td>
-
-
-                            <td class="text-end">
-                                <div class="d-flex flex-center w-100 me-2">
-                                    {{-- <span
-                                        class="text-dark fw-bolder  d-block fs-6 px-3 py-2 rounded {{ $application->is_approved ? 'alert-success' : ($application->is_rejected ? 'alert-danger' : 'alert-warning') }}">
-                                        {{ $application->is_approved ? 'Interview Stage' : ($application->is_rejected ? 'Rejected' : 'Pending') }}
-                                    </span> --}}
-                                </div>
-                            </td>
-                            <td class="">
-                                <a href="#" class="btn btn-sm btn-light btn-active-light-primary"
-                                    data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
-                                    <span class="svg-icon svg-icon-5 m-0">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                            viewBox="0 0 24 24" fill="none">
-                                            <path
-                                                d="M11.4343 12.7344L7.25 8.55005C6.83579 8.13583 6.16421 8.13584 5.75 8.55005C5.33579 8.96426 5.33579 9.63583 5.75 10.05L11.2929 15.5929C11.6834 15.9835 12.3166 15.9835 12.7071 15.5929L18.25 10.05C18.6642 9.63584 18.6642 8.96426 18.25 8.55005C17.8358 8.13584 17.1642 8.13584 16.75 8.55005L12.5657 12.7344C12.2533 13.0468 11.7467 13.0468 11.4343 12.7344Z"
-                                                fill="currentColor" />
-                                        </svg>
-                                    </span>
-                                </a>
-                                <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold fs-7 w-125px py-4"
-                                    data-kt-menu="true">
-
-                                    <div class="menu-item px-3">
-                                        <a href="#" class="menu-link px-3 text-success"
-                                            data-kt-ecommerce-order-filter="approve_row">Approve</a>
+                                <td class="text-end">
+                                    <div class="d-flex flex-center w-100 me-2">
+                                        <span
+                                            class="text-dark fw-bolder  d-block fs-6">{{ date('F j, Y', strtotime($certificate->expiry_date)) }}</span>
                                     </div>
-                                    <div class="menu-item px-3">
-                                        <a href="#" class="menu-link px-3 text-danger"
-                                            data-kt-ecommerce-order-filter="reject_row">Reject</a>
+                                </td>
+
+                                <td class="text-end">
+                                    <div class="d-flex flex-center w-150 me-2">
+                                        <span
+                                            class="text-dark fw-bolder  d-block fs-6">{{ $certificate->last_renewed_date ? date('F j, Y', strtotime($certificate->last_renewed_date)) : 'N/A' }}</span>
                                     </div>
+                                </td>
+                                <td class="text-end">
+                                    <div class="d-flex flex-center w-150 me-2">
+                                        <span class="text-dark fw-bolder  d-block fs-6">
+                                            <button wire:click="openDocument('{{ $certificate->uuid }}')"
+                                                class="btn btn-link">View Certificate</button>
+                                        </span>
+                                    </div>
+                                </td>
 
 
-                                    <div class="menu-item px-3">
-                                        <a href="#" class="menu-link px-3"
-                                            data-kt-ecommerce-order-filter="delete_row">Delete</a>
-                                        </a>
+                                <td class="text-end">
+                                    <div class="d-flex flex-center w-100 me-2">
+                                        <span
+                                            class="text-dark fw-bolder d-block fs-6 px-3 py-2 rounded {{ $certificate->status ? 'alert-success' : 'alert-danger' }}">
+                                            {{ $certificate->status ? 'Active' : 'Expired' }}
+                                        </span>
                                     </div>
-                                </div>
-                            </td>
-                        </tr>
-                        {{-- @empty
-                        @endforelse --}}
+                                </td>
+                                <td class="">
+                                    <a href="#" class="btn btn-sm btn-light btn-active-light-primary"
+                                        data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
+                                        <span class="svg-icon svg-icon-5 m-0">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none">
+                                                <path
+                                                    d="M11.4343 12.7344L7.25 8.55005C6.83579 8.13583 6.16421 8.13584 5.75 8.55005C5.33579 8.96426 5.33579 9.63583 5.75 10.05L11.2929 15.5929C11.6834 15.9835 12.3166 15.9835 12.7071 15.5929L18.25 10.05C18.6642 9.63584 18.6642 8.96426 18.25 8.55005C17.8358 8.13584 17.1642 8.13584 16.75 8.55005L12.5657 12.7344C12.2533 13.0468 11.7467 13.0468 11.4343 12.7344Z"
+                                                    fill="currentColor" />
+                                            </svg>
+                                        </span>
+                                    </a>
+                                    <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold fs-7 w-125px py-4"
+                                        data-kt-menu="true">
+
+                                        <div class="menu-item px-3">
+                                            <a href="#" class="menu-link px-3 text-success"
+                                                data-kt-ecommerce-order-filter="approve_row">Approve</a>
+                                        </div>
+                                        <div class="menu-item px-3">
+                                            <a href="#" class="menu-link px-3 text-danger"
+                                                data-kt-ecommerce-order-filter="reject_row">Reject</a>
+                                        </div>
+
+
+                                        <div class="menu-item px-3">
+                                            <a href="#" class="menu-link px-3"
+                                                data-kt-ecommerce-order-filter="delete_row">Delete</a>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        @empty
+                        @endforelse
 
                     </tbody>
                 </table>
@@ -128,3 +134,11 @@
         </div>
     </div>
 </div>
+<script>
+    document.addEventListener('livewire:load', function() {
+        console.log('hi');
+        Livewire.on('openDocumentInNewTab', documentUrl => {
+            window.open(documentUrl, '_blank');
+        });
+    });
+</script>
