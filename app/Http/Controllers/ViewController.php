@@ -177,4 +177,13 @@ class ViewController extends Controller
             'user' => $user
         ]);
     }
+
+    public function getCertificate()
+    {
+        $user = Auth::user();
+        SEOMeta::setTitle('Certificates');
+        return view('admin.certificate.certificate', [
+            'user' => $user
+        ]);
+    }
 }

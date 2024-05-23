@@ -30,10 +30,13 @@ Route::prefix('/admin')->middleware(['auth', 'permission:manage all staff', Prev
         Route::get('/', [ViewController::class, 'getTeam'])->name('get.brs.team');
         Route::get('/add-team', [ViewController::class, 'addTeamMember'])->name('add.brs.team.member');
     });
+    Route::prefix('/certificate')->group(function () {
+        Route::get('/', [ViewController::class, 'getCertificate'])->name('get.brs.certs');
+    });
     Route::get('/dashboard', [ViewController::class, 'adminDashboard'])->name('admin.dashboard');
     Route::get('/vacancy', [ViewController::class, 'vacancy'])->name('job.vacancy');
     Route::get('/post/vacancy', [ViewController::class, 'getPostVacancy'])->name('get.advertise.job.vacancy');
-    Route::post('/post/vacancy', [VaccancyController::class, 'postVacancy'])->name('post.job.vacancy');
+    // Route::post('/post/vacancy', [VaccancyController::class, 'postVacancy'])->name('post.job.vacancy');
     Route::put('/update/vacancy/{uuid}', [VaccancyController::class, 'updateVacancy'])->name('update.job.vacancy');
     Route::get('/job/applications', [ViewController::class, 'jobApplications'])->name('get.job.applications');
     Route::put('/job/applications/listing/{uuid}', [VaccancyController::class, 'jobListing'])->name('toggle.job.applications.listing');

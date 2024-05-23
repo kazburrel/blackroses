@@ -43,7 +43,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="fv-row">
-                            <label for="" class="form-label">Date of Birth</label>
+                            <label for="" class="form-label">Due Date</label>
                             <input name="due_date" wire:model='due_date' type="date" class="form-control" />
                             <x-input.error key="due_date" />
                         </div>
