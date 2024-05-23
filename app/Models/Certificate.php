@@ -16,6 +16,7 @@ class Certificate extends Model
      */
     protected $fillable = [
         'uuid',
+        'creator',
         'name',
         'issued_date',
         'expiry_date',
