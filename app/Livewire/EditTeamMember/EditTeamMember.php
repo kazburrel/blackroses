@@ -41,7 +41,7 @@ class EditTeamMember extends Component
             'fullname' => 'required|string|max:255',
             'image' => 'nullable',
             'position' => 'required|string|max:255',
-            'write_up' => 'required|string|max:1000',
+            'write_up' => 'required|string',
         ]);
 
         $member = OurTeam::where('uuid', $this->memberId)->first();

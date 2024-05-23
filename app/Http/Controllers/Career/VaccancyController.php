@@ -13,8 +13,6 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
-use RealRashid\SweetAlert\Facades\Alert;
-use Symfony\Component\HttpFoundation\StreamedResponse;
 use Utyemma\LaraNotice\Notify;
 use App\SweetAlertToast;
 

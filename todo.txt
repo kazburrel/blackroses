@@ -12,5 +12,18 @@ replace referals with just a contact form
 
 add team page
 
-update for all vacancies 
-fix the job upload update form, so it will populate with old data
+convert the form of post job to a livewire component
+convert the get job vacancies to a livewire component{
+    -convert the toggle from js ajax to livewire
+    -convert the edit and delete to livewire too
+    -convert delete to livewire
+    -nested vacancy applications {
+        -convert the all applications to livewire
+        -convert the actions to livewire too{
+            delete
+            approve
+            reject
+        }
+    }
+}
+
