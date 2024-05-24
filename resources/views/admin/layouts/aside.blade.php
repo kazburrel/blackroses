@@ -60,7 +60,7 @@
                 </div>
 
                 <div class="menu-item">
-                    <a class="menu-link{{ request()->routeIs('get.brs.certs') || request()->routeIs('get.job.application.uuid') ? ' active' : '' }}"
+                    <a class="menu-link{{ request()->routeIs('get.brs.certs') ? ' active' : '' }}"
                         href="{{ route('get.brs.certs') }}">
                         <span class="menu-bullet">
                             <span class="bullet bullet-dot"></span>

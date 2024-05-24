@@ -1,7 +1,7 @@
 <div>
     @if (!$isVisible)
         <button wire:click="toggleVisibility" class="btn btn-success mb-4">
-            <span class="indicator-label">Add Certificate</span>
+            <span class="indicator-label">+ Add Certificate</span>
         </button>
     @endif
 
