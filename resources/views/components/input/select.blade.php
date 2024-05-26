@@ -1,5 +1,6 @@
 <span x-data="{
-    select: null
+    select: null,
+    input: null
 }" wire:ignore wire:key="select-input-{{ $selectKey ?? Str::random(7) }}">
     <span>
         <style>
@@ -7,37 +8,35 @@
                 pointer-events: auto !important
             }
         </style>
-        <select x-data="{
-            init() {
-                $($el).select2({
-                    placeholder: `{{ $placeholder ?? 'Select an Option' }}`,
-                    minimumResultsForSearch: @isset($search) null @else Infinity @endisset,
-                    multiple: @js(isset($multiple)),
-                    allowClear: @js(isset($clearable)),
-                    closeOnSelect: true,
-                    tags: @js(isset($tags)),
-                    @isset($parent)
-                            @if (!empty($parent))
-                                dropdownParent: $('#{{ $parent }}'),
-                            @endif
-                        @endisset
-                    @isset($templates)
-                            templateSelection: optionFormat,
-                            templateResult: optionFormat,
-                        @endisset
-                });
+        <select x-init="$($el).select2({
+            placeholder: `{{ $placeholder ?? 'Select an Option' }}`,
+            minimumResultsForSearch: @isset($search) null @else Infinity @endisset,
+            multiple: @js(isset($multiple)),
+            allowClear: @js(isset($clearable)),
+            closeOnSelect: true,
+            tags: @js(isset($tags)),
+            @isset($parent)
+                        @if (!empty($parent))
+                            dropdownParent: $('#{{ $parent }}'),
+                        @endif
+                    @endisset
+            @isset($templates)
+                        templateSelection: optionFormat,
+                        templateResult: optionFormat,
+                    @endisset
+        });
         
-                $($el).on('change', (e) => {
-                    for (const name of e.target.getAttributeNames()) {
-                        if (name.includes('wire:model')) {
-                            $wire.set(e.target.getAttribute(name), $(e.target).select2('val'));
-                        }
-                    }
-                });
-            }
-        }" x-init="init()"
-            {{ $attributes->merge(['class' => 'form-select form-select-solid border']) }} {{ $attributes }}>
+        $($el).on('change', (e) => {
+            $refs.input.value = $(e.target).select2('val');
+            $refs.input.dispatchEvent(new Event('input', {
+                bubbles: true
+            }));
+        });"
+            {{ $attributes->merge(['class' => 'form-select form-select-solid border'])->whereDoesntStartWith('wire:model') }}
+            {{ $attributes }}>
             {{ $slot }}
         </select>
+
+        <input type="text" {{ $attributes->whereStartsWith('wire:model') }} x-ref="input" hidden>
     </span>
 </span>

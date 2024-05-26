@@ -53,7 +53,7 @@ class CertificateManager extends Component
         $file = Storage::disk('public')->path($filePath);
         return response()->download($file, $fileName);
     }
-
+    // kkhgh
     public function render()
     {
         return view('livewire.certificate.certificate-manager');
