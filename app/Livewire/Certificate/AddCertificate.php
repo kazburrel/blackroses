@@ -19,6 +19,7 @@ class AddCertificate extends Component
     public $uuid;
     public $creator;
     public $name;
+    public $email;
     public $issued_date;
     public $expiry_date;
     public $file;
@@ -46,6 +47,7 @@ class AddCertificate extends Component
             'uuid' => $uuid,
             'creator' => $creator->uuid,
             'name' => $this->name,
+            'email' => $this->email,
             'issued_date' => $this->issued_date,
             'expiry_date' => $this->expiry_date,
             'file' => $filePath,
@@ -60,6 +62,7 @@ class AddCertificate extends Component
     {
         $this->validate([
             'name' => 'required|string|max:255',
+            'email' => 'required|email',
             'issued_date' => 'required|date',
             'expiry_date' => 'required|date|after_or_equal:issued_date',
             'file' => 'required|mimes:png,jpg,jpeg,heic,pdf,docx,doc',
@@ -70,6 +73,7 @@ class AddCertificate extends Component
     public function resetForm()
     {
         $this->name = '';
+        $this->email = '';
         $this->issued_date = '';
         $this->expiry_date = '';
         $this->file = '';
