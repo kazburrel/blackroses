@@ -18,6 +18,7 @@ class EditTeamMember extends Component
     public $image;
     public $position;
     public $write_up;
+
     public function mount($memberId)
     {
         $this->memberId = $memberId;
@@ -64,8 +65,6 @@ class EditTeamMember extends Component
             $this->dispatch('memberUpdated', $member->uuid);
             $this->dispatchSuccessToast('Team member edited successfully!');
             return $this->js("$('#kt_modal_add_user-$this->memberId').modal('hide');");
-
-            // return redirect()->route('get.brs.team');
         }
     }
 

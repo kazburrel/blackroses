@@ -37,8 +37,6 @@ class SendCertificateReminders extends Command
 
         foreach ($certificates as $certificate) {
             $expiryDateMinus60Days = Carbon::parse($certificate->expiry_date)->subDays(60);
-
-            // dd($expiryDateMinus60Days);
             if ($today >= $expiryDateMinus60Days && $today < $certificate->expiry_date) {
                 $daysUntilExpiry = $today->diffInDays(Carbon::parse($certificate->expiry_date), false);
                 if ($daysUntilExpiry > 0) {
@@ -50,6 +48,8 @@ class SendCertificateReminders extends Command
                         ->line('If you have already renewed your certificate, kindly change it on  disregard this reminder.')
                         ->line('Thank you for your attention to this matter.')
                         ->mail($certificate);
+                    $certificate->status = false;
+                    $certificate->save();
                 }
             }
             if ($today->gt(Carbon::parse($certificate->expiry_date))) {
@@ -62,8 +62,6 @@ class SendCertificateReminders extends Command
                     ->line('Failure to renew the certificate promptly may result in disruptions.')
                     ->line('Thank you for your prompt attention to this matter.')
                     ->mail($certificate);
-                $certificate->status = false;
-                $certificate->save();
             }
         }
     }

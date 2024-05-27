@@ -33,7 +33,7 @@
                             <th class="min-w-150px">Email</th>
                             <th class="min-w-150px">Issued Date</th>
                             <th class="min-w-150px">Expiry Date</th>
-                            <th class="min-w-150px">Last Renewed Date</th>
+                            {{-- <th class="min-w-150px">Days to Notification</th> --}}
                             <th class="min-w-150px">File</th>
                             <th class="min-w-150px">Status</th>
                             <th class="min-w-150px">Actions</th>
@@ -41,7 +41,7 @@
                     </thead>
                     <tbody>
                         @forelse ($certificates as $i => $certificate)
-                            <tr>
+                            <tr wire:key='{{ $certificate->uuid }}'>
                                 <td>
                                     <span class="text-dark fw-bolder  d-block fs-6">{{ $i + 1 }}</span>
                                 </td>
@@ -78,12 +78,12 @@
                                     </div>
                                 </td>
 
-                                <td class="text-end">
+                                {{-- <td class="text-end">
                                     <div class="d-flex flex-center w-150 me-2">
                                         <span
                                             class="text-dark fw-bolder  d-block fs-6">{{ $certificate->last_renewed_date ? date('F j, Y', strtotime($certificate->last_renewed_date)) : 'N/A' }}</span>
                                     </div>
-                                </td>
+                                </td> --}}
                                 <td class="text-end">
                                     <div class="d-flex flex-center w-150 me-2">
                                         <span class="text-dark fw-bolder  d-block fs-6">
@@ -145,10 +145,11 @@
     </div>
 </div>
 <script>
-    document.addEventListener('livewire:load', function() {
-        console.log('hi');
-        Livewire.on('openDocumentInNewTab', documentUrl => {
-            window.open(documentUrl, '_blank');
+    document.addEventListener('DOMContentLoaded', function() {
+        Livewire.on('certificateAdded', function(memberId) {
+            Livewire.dispatch('refreshMemberData', {
+                uuid: memberId
+            });
         });
     });
 </script>
