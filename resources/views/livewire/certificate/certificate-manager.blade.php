@@ -122,10 +122,13 @@
                                                 data-kt-ecommerce-order-filter="approve_row">Renewed</a>
                                         </div>
                                         <div class="menu-item px-3">
-                                            <a href="#" class="menu-link px-3"
-                                                data-kt-ecommerce-order-filter="delete_row">Delete</a>
-                                            </a>
+                                            <x-swal.confirm-delete title="Are you sure?"
+                                                text="This will permanently delete the row." confirmButtonText="Delete"
+                                                :uuid="$certificate->uuid">
+                                                Delete
+                                            </x-swal.confirm-delete>
                                         </div>
+
                                     </div>
                                 </td>
                             </tr>
