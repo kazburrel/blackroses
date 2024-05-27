@@ -69,9 +69,15 @@ class AddCertificate extends Component
             'issued_date' => 'required|date',
             'expiry_date' => 'required|date|after_or_equal:issued_date',
             'file' => 'required|mimes:png,jpg,jpeg,heic,pdf,docx,doc',
-            'last_renewed_date' => 'nullable|date|after_or_equal:issued_date'
+            'last_renewed_date' => 'required'
         ]);
     }
+
+    // public function refreshMemberData()
+    // {
+
+    //     Certificate::all();
+    // }
 
     public function resetForm()
     {
