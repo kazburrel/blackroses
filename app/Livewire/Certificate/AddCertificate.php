@@ -73,12 +73,6 @@ class AddCertificate extends Component
         ]);
     }
 
-    // public function refreshMemberData()
-    // {
-
-    //     Certificate::all();
-    // }
-
     public function resetForm()
     {
         $this->name = '';
