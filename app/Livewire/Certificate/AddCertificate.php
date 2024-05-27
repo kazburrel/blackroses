@@ -46,7 +46,7 @@ class AddCertificate extends Component
         $uuid = Str::uuid();
         $filePath = $this->file->store('Certificates', 'public');
         $creator = Auth::user();
-        Certificate::create([
+        $cert = Certificate::create([
             'uuid' => $uuid,
             'creator' => $creator->uuid,
             'name' => $this->name,
@@ -56,6 +56,7 @@ class AddCertificate extends Component
             'file' => $filePath,
             'last_renewed_date' => $this->last_renewed_date,
         ]);
+        $this->dispatch('certificateAdded', $cert->uuid);
         $this->dispatchSuccessToast('Certificate added successfully!');
         $this->resetForm();
         $this->certificates = Certificate::all();

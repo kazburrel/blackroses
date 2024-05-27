@@ -102,13 +102,3 @@
         </div>
     @endif
 </div>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        Livewire.on('certificateAdded', function(memberId) {
-            Livewire.dispatch('refreshMemberData', {
-                uuid: memberId
-            });
-        });
-    });
-</script>

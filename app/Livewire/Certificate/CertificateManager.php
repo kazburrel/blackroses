@@ -32,10 +32,14 @@ class CertificateManager extends Component
         }
     }
 
-    public function refreshMemberData($uuid)
+    public function loadCertificates()
     {
+        $this->certificates = Certificate::all();
+    }
 
-        Certificate::where('uuid', $uuid)->first();
+    public function certificateAdded()
+    {
+        $this->loadCertificates();
     }
     public function openDocument($uuid)
     {
