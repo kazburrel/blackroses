@@ -119,14 +119,8 @@
 
                                         <div class="menu-item px-3">
                                             <a href="#" class="menu-link px-3 text-success"
-                                                data-kt-ecommerce-order-filter="approve_row">Approve</a>
+                                                data-kt-ecommerce-order-filter="approve_row">Renewed</a>
                                         </div>
-                                        <div class="menu-item px-3">
-                                            <a href="#" class="menu-link px-3 text-danger"
-                                                data-kt-ecommerce-order-filter="reject_row">Reject</a>
-                                        </div>
-
-
                                         <div class="menu-item px-3">
                                             <a href="#" class="menu-link px-3"
                                                 data-kt-ecommerce-order-filter="delete_row">Delete</a>
