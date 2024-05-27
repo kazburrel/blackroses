@@ -30,6 +30,7 @@
                             <th class="min-w-50px">S/N</th>
                             <th class="min-w-200px">Certificate Id</th>
                             <th class="min-w-150px">Name</th>
+                            <th class="min-w-150px">Email</th>
                             <th class="min-w-150px">Issued Date</th>
                             <th class="min-w-150px">Expiry Date</th>
                             <th class="min-w-150px">Last Renewed Date</th>
@@ -52,6 +53,15 @@
                                     <div class="d-flex justify-content-center flex-center">
                                         <span class="text-dark fw-bolder  d-block fs-6">
                                             {{ $certificate->name }}
+                                        </span>
+                                    </div>
+
+                                </td>
+                                <td>
+
+                                    <div class="d-flex justify-content-center flex-center">
+                                        <span class="text-dark fw-bolder  d-block fs-6">
+                                            {{ $certificate->email }}
                                         </span>
                                     </div>
 
