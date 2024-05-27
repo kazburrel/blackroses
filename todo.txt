@@ -11,6 +11,7 @@ promoting inde come up on the core values
 replace referals with just a contact form
 
 add team page
+add days to renewal for message
 
 convert the form of post job to a livewire component
 convert the get job vacancies to a livewire component{
