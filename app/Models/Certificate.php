@@ -18,6 +18,7 @@ class Certificate extends Model
         'uuid',
         'creator',
         'name',
+        'email',
         'issued_date',
         'expiry_date',
         'file',

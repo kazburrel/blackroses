@@ -19,12 +19,14 @@ class AddCertificate extends Component
     public $uuid;
     public $creator;
     public $name;
+    public $email;
     public $issued_date;
     public $expiry_date;
     public $file;
     public $status;
     public $last_renewed_date;
     public $isVisible = false;
+
 
     public function toggleVisibility()
     {
@@ -36,6 +38,8 @@ class AddCertificate extends Component
         $this->certificates = Certificate::all();
     }
 
+
+
     public function addCertificate()
     {
         $this->formValidation();
@@ -46,6 +50,7 @@ class AddCertificate extends Component
             'uuid' => $uuid,
             'creator' => $creator->uuid,
             'name' => $this->name,
+            'email' => $this->email,
             'issued_date' => $this->issued_date,
             'expiry_date' => $this->expiry_date,
             'file' => $filePath,
@@ -60,16 +65,24 @@ class AddCertificate extends Component
     {
         $this->validate([
             'name' => 'required|string|max:255',
+            'email' => 'required|email',
             'issued_date' => 'required|date',
             'expiry_date' => 'required|date|after_or_equal:issued_date',
             'file' => 'required|mimes:png,jpg,jpeg,heic,pdf,docx,doc',
-            'last_renewed_date' => 'nullable|date|after_or_equal:issued_date'
+            'last_renewed_date' => 'required'
         ]);
     }
+
+    // public function refreshMemberData()
+    // {
+
+    //     Certificate::all();
+    // }
 
     public function resetForm()
     {
         $this->name = '';
+        $this->email = '';
         $this->issued_date = '';
         $this->expiry_date = '';
         $this->file = '';

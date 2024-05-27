@@ -14,18 +14,19 @@ class CertificateManager extends Component
 
     public $certificates;
     public $documentId;
+    protected $listeners = ['deleteConfirmed'];
 
     public function mount()
     {
         $this->certificates = Certificate::all();
     }
 
-    public function deletCertificate($uuid)
+    public function deleteConfirmed($uuid)
     {
-        $cert = Certificate::where('uuid', $uuid)->first();
+        $certificate = Certificate::where('uuid', $uuid)->first();
 
-        if ($cert) {
-            $cert->delete();
+        if ($certificate) {
+            $certificate->delete();
             $this->certificates = Certificate::all();
             $this->dispatchSuccessToast('Certificate deleted successfully!');
         }

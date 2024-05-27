@@ -56,13 +56,23 @@
                                     <div class="row g-9 mb-8">
                                         <div class="col-md-6">
                                             <div class="fv-row">
-                                                <label for="" class="form-label required">Last Renewed
-                                                    Date</label>
+                                                <label for="" class="form-label required">Days Until
+                                                    Notification</label>
                                                 <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"
                                                     title="Specify a target name for future usage and reference"></i>
                                                 <input name="last_renewed_date" wire:model='last_renewed_date'
-                                                    type="date" class="form-control" />
+                                                    type="number" class="form-control" />
                                                 <x-input.error key="last_renewed_date" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="fv-row">
+                                                <label for="" class="form-label required">Update Email</label>
+                                                <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"
+                                                    title="Specify a target name for future usage and reference"></i>
+                                                <input name="email" wire:model='email' type="email"
+                                                    class="form-control" />
+                                                <x-input.error key="email" />
                                             </div>
                                         </div>
                                     </div>

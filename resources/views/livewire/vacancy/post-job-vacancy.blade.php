@@ -9,6 +9,7 @@
 
         @if ($current_step == 1)
             <div wire:key='obi'>
+                <!-- Job Title Input -->
                 <div class="d-flex flex-column mb-8 fv-row">
                     <label class="d-flex align-items-center fs-6 fw-bold mb-2">
                         <span class="required">Job Title</span>
@@ -19,28 +20,29 @@
                         wire:model="title" value="{{ old('title') }}" />
                     <x-input.error key="title" />
                 </div>
+
+                <!-- Job Type Selection -->
                 <div class="row g-9 mb-8">
                     <div class="col-md-6">
                         <div class="fv-row">
                             <label for="" class="form-label">Select Job Type</label>
-                            <x-input.select parent="kt_modal_new_target" wire:model="type" name="type" multiple>
+                            <x-input.select parent="kt_modal_new_target" wire:model="type" name="type[]" multiple>
                                 <option value="">Select type...</option>
                                 <option value="Full-time"
-                                    {{ in_array('Full-time', old('type', [])) ? 'selected' : '' }}>
-                                    Full-time</option>
+                                    {{ in_array('Full-time', old('type', [])) ? 'selected' : '' }}>Full-time</option>
                                 <option value="Part-time"
-                                    {{ in_array('Part-time', old('type', [])) ? 'selected' : '' }}>
-                                    Part-time</option>
+                                    {{ in_array('Part-time', old('type', [])) ? 'selected' : '' }}>Part-time</option>
                                 <option value="Zero hours contract"
                                     {{ in_array('Zero hours contract', old('type', [])) ? 'selected' : '' }}>Zero hours
                                     contract</option>
                                 <option value="Permanent"
-                                    {{ in_array('Permanent', old('type', [])) ? 'selected' : '' }}>
-                                    Permanent</option>
+                                    {{ in_array('Permanent', old('type', [])) ? 'selected' : '' }}>Permanent</option>
                             </x-input.select>
                             <x-input.error key="type" />
                         </div>
                     </div>
+
+                    <!-- Due Date Input -->
                     <div class="col-md-6">
                         <div class="fv-row">
                             <label for="" class="form-label">Due Date</label>
@@ -49,29 +51,28 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Job Schedule Selection -->
                 <div class="row g-9 mb-8">
                     <div class="col-md-6">
                         <div class="fv-row">
                             <label for="" class="form-label">Select Job Schedule</label>
-                            <x-input.select wire:model='schedule' name="schedule" multiple>
+                            <x-input.select wire:model='schedule' name="schedule[]" multiple>
                                 <option value="">Select Schedule...</option>
                                 <option value="16 hours"
-                                    {{ in_array('16 hours', old('schedule', [])) ? 'selected' : '' }}>
-                                    16 hours</option>
+                                    {{ in_array('16 hours', old('schedule', [])) ? 'selected' : '' }}>16 hours</option>
                                 <option value="10 hours"
-                                    {{ in_array('10 hours', old('schedule', [])) ? 'selected' : '' }}>
-                                    10 hours</option>
+                                    {{ in_array('10 hours', old('schedule', [])) ? 'selected' : '' }}>10 hours</option>
                                 <option value="8 hours"
-                                    {{ in_array('8 hours', old('schedule', [])) ? 'selected' : '' }}>8
-                                    hours</option>
+                                    {{ in_array('8 hours', old('schedule', [])) ? 'selected' : '' }}>8 hours</option>
                                 <option value="6 hours"
-                                    {{ in_array('6 hours', old('schedule', [])) ? 'selected' : '' }}>6
-                                    hours</option>
+                                    {{ in_array('6 hours', old('schedule', [])) ? 'selected' : '' }}>6 hours</option>
                             </x-input.select>
                             <x-input.error key="schedule" />
                         </div>
                     </div>
 
+                    <!-- Job Benefits Input -->
                     <div class="col-md-6 fv-row">
                         <label class="d-flex align-items-center fs-6 fw-bold mb-2">
                             <span class="required">Job Benefits</span>
@@ -85,6 +86,7 @@
                 </div>
             </div>
         @endif
+
         @if ($current_step == 2)
             <div wire:key='toni'>
                 <div class="row g-9 mb-8">

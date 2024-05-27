@@ -30,6 +30,7 @@
                             <th class="min-w-50px">S/N</th>
                             <th class="min-w-200px">Certificate Id</th>
                             <th class="min-w-150px">Name</th>
+                            <th class="min-w-150px">Email</th>
                             <th class="min-w-150px">Issued Date</th>
                             <th class="min-w-150px">Expiry Date</th>
                             <th class="min-w-150px">Last Renewed Date</th>
@@ -52,6 +53,15 @@
                                     <div class="d-flex justify-content-center flex-center">
                                         <span class="text-dark fw-bolder  d-block fs-6">
                                             {{ $certificate->name }}
+                                        </span>
+                                    </div>
+
+                                </td>
+                                <td>
+
+                                    <div class="d-flex justify-content-center flex-center">
+                                        <span class="text-dark fw-bolder  d-block fs-6">
+                                            {{ $certificate->email }}
                                         </span>
                                     </div>
 
@@ -107,21 +117,21 @@
                                     <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold fs-7 w-125px py-4"
                                         data-kt-menu="true">
 
+                                        @if (!$certificate->status)
+                                            <div class="menu-item px-3">
+                                                <a href="#" class="menu-link px-3 text-success"
+                                                    data-kt-ecommerce-order-filter="approve_row">Renewed</a>
+                                            </div>
+                                        @endif
                                         <div class="menu-item px-3">
-                                            <a href="#" class="menu-link px-3 text-success"
-                                                data-kt-ecommerce-order-filter="approve_row">Approve</a>
-                                        </div>
-                                        <div class="menu-item px-3">
-                                            <a href="#" class="menu-link px-3 text-danger"
-                                                data-kt-ecommerce-order-filter="reject_row">Reject</a>
+                                            <x-swal.confirm-delete title="Are you sure?"
+                                                text="This will permanently delete the row." confirmButtonText="Delete"
+                                                :uuid="$certificate->uuid">
+                                                Delete
+                                            </x-swal.confirm-delete>
+
                                         </div>
 
-
-                                        <div class="menu-item px-3">
-                                            <a href="#" class="menu-link px-3"
-                                                data-kt-ecommerce-order-filter="delete_row">Delete</a>
-                                            </a>
-                                        </div>
                                     </div>
                                 </td>
                             </tr>
