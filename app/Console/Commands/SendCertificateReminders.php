@@ -11,14 +11,15 @@ class SendCertificateReminders extends Command
      *
      * @var string
      */
-    protected $signature = 'app:send-certificate-reminders';
+    protected $signature = 'send:cert-reminders';
+
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Send reminders for certificates nearing expiration';
 
     /**
      * Execute the console command.
