@@ -26,7 +26,7 @@ class AddCertificate extends Component
     public $status;
     public $last_renewed_date;
     public $isVisible = false;
-    protected $listeners = ['deleteConfirmed'];
+
 
     public function toggleVisibility()
     {
@@ -37,6 +37,8 @@ class AddCertificate extends Component
     {
         $this->certificates = Certificate::all();
     }
+
+
 
     public function addCertificate()
     {

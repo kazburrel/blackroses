@@ -1,6 +1,5 @@
 @props(['title', 'text', 'confirmButtonText', 'uuid'])
 
-
 <script>
     function confirmDelet(event, title, text, confirmButtonText, uuid) {
         event.preventDefault();
@@ -14,7 +13,9 @@
             confirmButtonText: confirmButtonText
         }).then((result) => {
             if (result.isConfirmed) {
-                Livewire.dispatch('deleteConfirmed', uuid);
+                Livewire.dispatch('deleteConfirmed', {
+                    uuid: uuid
+                });
             }
         });
     }

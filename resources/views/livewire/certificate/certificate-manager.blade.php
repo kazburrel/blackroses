@@ -127,6 +127,7 @@
                                                 :uuid="$certificate->uuid">
                                                 Delete
                                             </x-swal.confirm-delete>
+
                                         </div>
 
                                     </div>
