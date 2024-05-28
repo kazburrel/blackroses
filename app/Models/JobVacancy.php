@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Cache;
 
 class JobVacancy extends Model
 {
@@ -45,6 +46,19 @@ class JobVacancy extends Model
         'schedule' => 'array',
         'type' => 'array',
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::saved(function ($model) {
+            Cache::forget('job_vacancies');
+        });
+
+        static::deleted(function ($model) {
+            Cache::forget('job_vacancies');
+        });
+    }
 
     public function user()
     {
