@@ -37,7 +37,7 @@ class SendCertificateReminders extends Command
             $expiryDateMinus60Days = Carbon::parse($certificate->expiry_date)->subDays(60);
             if ($today >= $expiryDateMinus60Days && $today < $certificate->expiry_date) {
                 $daysUntilExpiry = $today->diffInDays(Carbon::parse($certificate->expiry_date), false);
-                if ($daysUntilExpiry > 0 && $daysUntilExpiry <= $certificate->last_renewed_date) {
+                if ($daysUntilExpiry > 0 && $daysUntilExpiry >= $certificate->last_renewed_date) {
                     (new Notify())
                         ->subject('Reminder: Certificate Expiry - ' . $certificate->name)
                         ->greeting('Hello,')
