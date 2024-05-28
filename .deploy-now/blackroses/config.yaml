@@ -53,4 +53,4 @@ deploy:
 runtime:
  cron-jobs:
    - command: "php $HOME/htdocs/artisan send:cert-reminders" # the deployment is located at $HOME/htdocs/ to execute a deployed script just prefix it accordingly
-     schedule: * * * * * # run every day at 5:00
+     schedule: "* * * * *" # run every day at 5:00
