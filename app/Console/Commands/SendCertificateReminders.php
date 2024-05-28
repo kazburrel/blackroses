@@ -33,13 +33,11 @@ class SendCertificateReminders extends Command
         $certificates = Certificate::where('status', 1)
             ->where('expiry_date', '>', $today)
             ->get();
-        // dd($certificates);
-
         foreach ($certificates as $certificate) {
             $expiryDateMinus60Days = Carbon::parse($certificate->expiry_date)->subDays(60);
             if ($today >= $expiryDateMinus60Days && $today < $certificate->expiry_date) {
                 $daysUntilExpiry = $today->diffInDays(Carbon::parse($certificate->expiry_date), false);
-                if ($daysUntilExpiry > 0) {
+                if ($daysUntilExpiry > 0 && $daysUntilExpiry <= $certificate->last_renewed_date) {
                     (new Notify())
                         ->subject('Reminder: Certificate Expiry - ' . $certificate->name)
                         ->greeting('Hello,')
