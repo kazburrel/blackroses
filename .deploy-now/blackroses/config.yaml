@@ -49,7 +49,7 @@ deploy:
       - php artisan optimize
       - php artisan up
 
-uncomment the following lines to configure cron jobs
+# uncomment the following lines to configure cron jobs
 runtime:
  cron-jobs:
    - command: php artisan send:cert-reminders # the deployment is located at $HOME/htdocs/ to execute a deployed script just prefix it accordingly
