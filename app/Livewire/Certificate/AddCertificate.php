@@ -24,7 +24,7 @@ class AddCertificate extends Component
     public $expiry_date;
     public $file;
     public $status;
-    public $last_renewed_date;
+    public $days_until_notification;
     public $isVisible = false;
 
 
@@ -54,7 +54,7 @@ class AddCertificate extends Component
             'issued_date' => $this->issued_date,
             'expiry_date' => $this->expiry_date,
             'file' => $filePath,
-            'last_renewed_date' => $this->last_renewed_date,
+            'days_until_notification' => $this->days_until_notification,
         ]);
         $this->dispatchSuccessToast('Certificate added successfully!');
         $this->resetForm();
@@ -70,7 +70,7 @@ class AddCertificate extends Component
             'issued_date' => 'required|date',
             'expiry_date' => 'required|date|after_or_equal:issued_date',
             'file' => 'required|mimes:png,jpg,jpeg,heic,pdf,docx,doc',
-            'last_renewed_date' => 'required'
+            'days_until_notification' => 'required'
         ]);
     }
 
@@ -81,7 +81,7 @@ class AddCertificate extends Component
         $this->issued_date = '';
         $this->expiry_date = '';
         $this->file = '';
-        $this->last_renewed_date = '';
+        $this->days_until_notification = '';
     }
     public function render()
     {

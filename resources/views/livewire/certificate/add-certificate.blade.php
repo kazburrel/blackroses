@@ -60,9 +60,10 @@
                                                     Notification</label>
                                                 <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"
                                                     title="Specify a target name for future usage and reference"></i>
-                                                <input name="last_renewed_date" wire:model='last_renewed_date'
-                                                    type="number" class="form-control" />
-                                                <x-input.error key="last_renewed_date" />
+                                                <input name="days_until_notification"
+                                                    wire:model='days_until_notification' type="number"
+                                                    class="form-control" />
+                                                <x-input.error key="days_until_notification" />
                                             </div>
                                         </div>
                                         <div class="col-md-6">
