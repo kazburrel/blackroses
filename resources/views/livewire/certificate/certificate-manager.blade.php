@@ -102,6 +102,14 @@
                                         </span>
                                     </div>
                                 </td>
+                                <td class="text-end">
+                                    <div class="d-flex flex-center w-100 me-2">
+                                        <span
+                                            class="text-dark fw-bolder d-block fs-6 px-3 py-2 rounded {{ $certificate->is_renewed ? 'alert-success' : 'alert-danger' }}">
+                                            {{ $certificate->is_renewed ? 'Yes' : 'No' }}
+                                        </span>
+                                    </div>
+                                </td>
                                 <td class="">
                                     <a href="#" class="btn btn-sm btn-light btn-active-light-primary"
                                         data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions

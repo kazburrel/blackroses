@@ -30,36 +30,47 @@ class SendCertificateReminders extends Command
     public function handle()
     {
         $today = Carbon::today();
-        $certificates = Certificate::where('status', 1)
-            ->where('expiry_date', '>', $today)
-            ->get();
+        $certificates = Certificate::where('status', true)->where('is_renewed', false)->get();
         foreach ($certificates as $certificate) {
-            $expiryDateMinus60Days = Carbon::parse($certificate->expiry_date)->subDays(60);
-            if ($today >= $expiryDateMinus60Days && $today < $certificate->expiry_date) {
-                $daysUntilExpiry = $today->diffInDays(Carbon::parse($certificate->expiry_date), false);
-                if ($daysUntilExpiry > 0 && $daysUntilExpiry >= $certificate->last_renewed_date) {
-                    (new Notify())
-                        ->subject('Reminder: Certificate Expiry - ' . $certificate->name)
-                        ->greeting('Hello,')
-                        ->line('This is a reminder that your certificate, ' . $certificate->name . ', is set to expire in ' . $daysUntilExpiry . ' days.')
-                        ->line('Please ensure that you renew your certificate before its expiry date to avoid any disruptions.')
-                        ->line('If you have already renewed your certificate, kindly change it on  disregard this reminder.')
-                        ->line('Thank you for your attention to this matter.')
-                        ->mail($certificate);
-                    $certificate->status = false;
-                    $certificate->save();
-                }
+            $expiry_date = Carbon::parse($certificate->expiry_date);
+            $emailSent = false;
+            $expiryDate = Carbon::parse($certificate->expiry_date);
+            if ($certificate->days_until_notification == 0) {
+                $certificate->update(['status' => false]);
             }
-            if ($today->gt(Carbon::parse($certificate->expiry_date))) {
-                $daysExpired = $today->diffInDays(Carbon::parse($certificate->expiry_date), false);
+            if ($expiryDate->isPast()) {
                 (new Notify())
                     ->subject('Urgent: Expired Certificate - ' . $certificate->name)
                     ->greeting('Hello,')
-                    ->line('This is an urgent reminder that your certificate, ' . $certificate->name . ', expired ' . abs($daysExpired) . ' days ago.')
+                    ->line('This is an urgent reminder that your certificate, ' . $certificate->name . ', expired.')
                     ->line('Please take immediate action to renew your certificate as it has already expired.')
                     ->line('Failure to renew the certificate promptly may result in disruptions.')
                     ->line('Thank you for your prompt attention to this matter.')
                     ->mail($certificate);
+            } else {
+                $expiryDate = Carbon::createFromFormat('Y-m-d', $certificate->expiry_date);
+                $remainingDays = $expiryDate->subDays($certificate->days_until_notification);
+                $days = $certificate->days_until_notification;
+                $dayString = $days == 1 ? 'day' : 'days';
+                $message = 'This is a reminder that your certificate, ' . $certificate->name . ', is set to expire in ' . $days . ' ' . $dayString . '.';
+                if ($certificate->days_until_notification > 0) {
+                    if (Carbon::now() <= $remainingDays) {
+                        (new Notify())
+                            ->subject('Reminder: Certificate Expiry - ' . $certificate->name)
+                            ->greeting('Hello,')
+                            ->line($message)
+                            ->line('Please ensure that you renew your certificate before its expiry date to avoid any disruptions.')
+                            ->line('If you have already renewed your certificate, kindly disregard this reminder.')
+                            ->line('Thank you for your attention to this matter.')
+                            ->mail($certificate);
+                        $emailSent = true;
+                    }
+                }
+            }
+
+            if ($emailSent && $today <= $expiry_date) {
+                $certificate->days_until_notification = max(0, $certificate->days_until_notification - 1);
+                $certificate->save();
             }
         }
     }
