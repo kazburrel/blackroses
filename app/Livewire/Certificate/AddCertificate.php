@@ -56,10 +56,10 @@ class AddCertificate extends Component
             'file' => $filePath,
             'last_renewed_date' => $this->last_renewed_date,
         ]);
-        $this->dispatch('certificateAdded', $cert->uuid);
         $this->dispatchSuccessToast('Certificate added successfully!');
         $this->resetForm();
-        $this->certificates = Certificate::all();
+        $this->dispatch('certificateAdded', $cert->uuid);
+        // $this->certificates = Certificate::all();
     }
 
     public function formValidation()
