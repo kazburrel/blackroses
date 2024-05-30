@@ -24,7 +24,7 @@
             <div class="table-responsive">
 
                 <table class="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4 text-center"
-                    wire:key='kaz' id="kt_ecommerce_sales_table">
+                    wire:key='kaz'>
                     <thead>
                         <tr class="fw-bolder text-muted">
                             <th class="min-w-50px">S/N</th>
@@ -33,9 +33,9 @@
                             <th class="min-w-150px">Email</th>
                             <th class="min-w-150px">Issued Date</th>
                             <th class="min-w-150px">Expiry Date</th>
-                            {{-- <th class="min-w-150px">Days to Notification</th> --}}
                             <th class="min-w-150px">File</th>
                             <th class="min-w-150px">Status</th>
+                            <th class="min-w-150px">Renewed</th>
                             <th class="min-w-150px">Actions</th>
                         </tr>
                     </thead>
@@ -77,13 +77,6 @@
                                             class="text-dark fw-bolder  d-block fs-6">{{ date('F j, Y', strtotime($certificate->expiry_date)) }}</span>
                                     </div>
                                 </td>
-
-                                {{-- <td class="text-end">
-                                    <div class="d-flex flex-center w-150 me-2">
-                                        <span
-                                            class="text-dark fw-bolder  d-block fs-6">{{ $certificate->last_renewed_date ? date('F j, Y', strtotime($certificate->last_renewed_date)) : 'N/A' }}</span>
-                                    </div>
-                                </td> --}}
                                 <td class="text-end">
                                     <div class="d-flex flex-center w-150 me-2">
                                         <span class="text-dark fw-bolder  d-block fs-6">
@@ -123,7 +116,7 @@
                                         </span>
                                     </a>
                                     <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold fs-7 w-125px py-4"
-                                        data-kt-menu="true">
+                                        data-kt-menu="true" wire:ignore>
 
                                         @if (!$certificate->status)
                                             <div class="menu-item px-3">
@@ -152,12 +145,3 @@
         </div>
     </div>
 </div>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        Livewire.on('certificateAdded', function(memberId) {
-            Livewire.dispatch('refreshMemberData', {
-                uuid: memberId
-            });
-        });
-    });
-</script>
