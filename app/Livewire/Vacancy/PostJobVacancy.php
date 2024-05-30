@@ -72,9 +72,9 @@ class PostJobVacancy extends Component
         if ($this->current_step == 1) {
             $validated = $this->validate([
                 'title' => 'required',
-                'type.*' => 'required',
+                'type' => 'required',
                 'due_date' => 'required',
-                'schedule.*' => 'required',
+                'schedule' => 'required',
                 'benefits' => 'nullable'
             ]);
             dd($validated);
