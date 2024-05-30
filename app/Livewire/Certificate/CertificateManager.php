@@ -14,7 +14,7 @@ class CertificateManager extends Component
 
     public $certificates;
     public $documentId;
-    protected $listeners = ['deleteConfirmed', 'certificateAdded'];
+    protected $listeners = ['deleteConfirmed', 'certificateAdded' => 'loadCertificates'];
 
     public function mount()
     {
