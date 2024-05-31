@@ -51,6 +51,6 @@ deploy:
 
 # uncomment the following lines to configure cron jobs
 runtime:
- cron-jobs:
-   - command: $HOME/htdocs/ && php artisan schedule:run >> /dev/null 2>&1  # the deployment is located at $HOME/htdocs/ to execute a deployed script just prefix it accordingly
+ cron-jobs: 
+   - command: /usr/local/bin/php /home/blackroses/public_html/artisan schedule:run  >> /dev/null 2>&1  # the deployment is located at $HOME/htdocs/ to execute a deployed script just prefix it accordingly
      schedule: "* * * * *" # run every day at 5:00
