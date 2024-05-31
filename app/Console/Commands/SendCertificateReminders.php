@@ -35,7 +35,7 @@ class SendCertificateReminders extends Command
             $expiry_date = Carbon::parse($certificate->expiry_date);
             $emailSent = false;
             $expiryDate = Carbon::parse($certificate->expiry_date);
-            if ($certificate->days_until_notification == 0) {
+            if ($certificate->days_until_notification == 0 || $certificate->days_until_notification == null) {
                 $certificate->update(['status' => false]);
             }
             if ($expiryDate->isPast()) {
