@@ -49,7 +49,7 @@ class SendCertificateReminders extends Command
                     ->mail($certificate);
             } else {
                 $expiryDate = Carbon::createFromFormat('Y-m-d', $certificate->expiry_date);
-                $remainingDays = $expiryDate->subDays($certificate->days_until_notification);
+                $remainingDays = $expiryDate->subDays((int)$certificate->days_until_notification);
                 $days = $certificate->days_until_notification;
                 $dayString = $days == 1 ? 'day' : 'days';
                 $message = 'This is a reminder that your certificate, ' . $certificate->name . ', is set to expire in ' . $days . ' ' . $dayString . '.';
@@ -69,7 +69,7 @@ class SendCertificateReminders extends Command
             }
 
             if ($emailSent && $today <= $expiry_date) {
-                $certificate->days_until_notification = max(0, $certificate->days_until_notification - 1);
+                $certificate->days_until_notification = max(0, (int)$certificate->days_until_notification - 1);
                 $certificate->save();
             }
         }
