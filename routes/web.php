@@ -15,10 +15,10 @@ Route::get('services', [ViewController::class, 'services'])->name('services');
 Route::get('vacancies', [ViewController::class, 'vaccancy'])->name('vaccancies');
 Route::get('referrals', [ViewController::class, 'referrals'])->name('referrals');
 Route::get('contact', [ViewController::class, 'contact'])->name('contact');
-Route::post('contact/send', [ContactController::class, 'contactUs'])->middleware('throttle')->name('contact.send');
+Route::post('contact/send', [ContactController::class, 'contactUs'])->middleware('throttle:3,1')->name('contact.send');
 Route::get('team', [ViewController::class, 'team'])->name('team');
 Route::get('apply/{job}', [ViewController::class, 'apply'])->name('job.apply');
-Route::post('store/apply/{job}', [VaccancyController::class, 'storeApplication'])->middleware('throttle')->name('store.job.apply');
+Route::post('store/apply/{job}', [VaccancyController::class, 'storeApplication'])->middleware('throttle:5,1')->name('store.job.apply');
 
 Route::prefix('/admin')->middleware(['auth', 'permission:manage all staff', PreventBackHistory::class])->group(function () {
     Route::prefix('/profile')->group(function () {
