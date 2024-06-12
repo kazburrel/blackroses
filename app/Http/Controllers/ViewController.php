@@ -17,43 +17,33 @@ class ViewController extends Controller
     public function home()
     {
         SEOMeta::setTitle('Homepage');
-        $setting = Cache::remember('settings.first', 60 * 60 * 24, function () {
-            return Settings::first();
-        });
+        $setting = Settings::all();
         return view('index', ['setting' => $setting]);
     }
 
     public function about()
     {
         SEOMeta::setTitle('About us');
-        $setting = Cache::remember('settings.first', 60 * 60 * 24, function () {
-            return Settings::first();
-        });
+        $setting = Settings::all();
         return view('about-us', ['setting' => $setting]);
     }
     public function services()
     {
         SEOMeta::setTitle('Services');
-        $setting = Cache::remember('settings.first', 60 * 60 * 24, function () {
-            return Settings::first();
-        });
+        $setting = Settings::all();
         return view('services', ['setting' => $setting]);
     }
     public function referrals()
     {
         SEOMeta::setTitle('Referrals');
-        $setting = Cache::remember('settings.first', 60 * 60 * 24, function () {
-            return Settings::first();
-        });
+        $setting = Settings::all();
         return view('referrals', ['setting' => $setting]);
     }
     public function vaccancy()
     {
         SEOMeta::setTitle('Vaccancy');
         $vaccancy = JobVacancy::where('is_listed', 1)->get();
-        $setting = Cache::remember('settings.first', 60 * 60 * 24, function () {
-            return Settings::first();
-        });
+        $setting = Settings::all();
         return view(
             'vaccancies',
             [
@@ -65,18 +55,14 @@ class ViewController extends Controller
     public function contact()
     {
         SEOMeta::setTitle('Contact');
-        $setting = Cache::remember('settings.first', 60 * 60 * 24, function () {
-            return Settings::first();
-        });
+        $setting = Settings::all();
 
         return view('contact', ['setting' => $setting]);
     }
     public function team()
     {
         SEOMeta::setTitle('Our Team');
-        $setting = Cache::remember('settings.first', 60 * 60 * 24, function () {
-            return Settings::first();
-        });
+        $setting = Settings::all();
         $team = OurTeam::all();
         return view(
             'our-team',
@@ -91,9 +77,7 @@ class ViewController extends Controller
     {
         SEOMeta::setTitle('Job Application');
         $get_job = JobVacancy::where('uuid', $job)->first();
-        $setting = Cache::remember('settings.first', 60 * 60 * 24, function () {
-            return Settings::first();
-        });
+        $setting = Settings::all();
         return view(
             'apply',
             [
