@@ -17,8 +17,8 @@ class SettingsSeeder extends Seeder
         $uuid = Str::uuid();
         Settings::create([
             'uuid' => $uuid,
-            'address' => '69 Granville Avenue Slough',
-            'postcode' => 'SL21JR',
+            'address' => '51 Ragston Road Slough',
+            'postcode' => 'SL12PP',
             'phone' => '07590333039',
             'email' => 'info@blackrosessupport.co.uk',
             'facebook' => '#',
