@@ -17,33 +17,33 @@ class ViewController extends Controller
     public function home()
     {
         SEOMeta::setTitle('Homepage');
-        $setting = Settings::all();
+        $setting = Settings::first();
         return view('index', ['setting' => $setting]);
     }
 
     public function about()
     {
         SEOMeta::setTitle('About us');
-        $setting = Settings::all();
+        $setting = Settings::first();
         return view('about-us', ['setting' => $setting]);
     }
     public function services()
     {
         SEOMeta::setTitle('Services');
-        $setting = Settings::all();
+        $setting = Settings::first();
         return view('services', ['setting' => $setting]);
     }
     public function referrals()
     {
         SEOMeta::setTitle('Referrals');
-        $setting = Settings::all();
+        $setting = Settings::first();
         return view('referrals', ['setting' => $setting]);
     }
     public function vaccancy()
     {
         SEOMeta::setTitle('Vaccancy');
         $vaccancy = JobVacancy::where('is_listed', 1)->get();
-        $setting = Settings::all();
+        $setting = Settings::first();
         return view(
             'vaccancies',
             [
@@ -55,15 +55,15 @@ class ViewController extends Controller
     public function contact()
     {
         SEOMeta::setTitle('Contact');
-        $setting = Settings::all();
+        $setting = Settings::first();
 
         return view('contact', ['setting' => $setting]);
     }
     public function team()
     {
         SEOMeta::setTitle('Our Team');
-        $setting = Settings::all();
-        $team = OurTeam::all();
+        $setting = Settings::first();
+        $team = OurTeam::first();
         return view(
             'our-team',
             [
