@@ -6,9 +6,7 @@ use App\Models\JobApplication;
 use App\Models\JobVacancy;
 use App\Models\OurTeam;
 use App\Models\Settings;
-use App\Models\User;
 use Artesaos\SEOTools\Facades\SEOMeta;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 
