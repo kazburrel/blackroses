@@ -61,7 +61,7 @@ class ViewController extends Controller
     {
         SEOMeta::setTitle('Our Team');
         $setting = Settings::first();
-        $team = OurTeam::first();
+        $team = OurTeam::all();
         return view(
             'our-team',
             [
