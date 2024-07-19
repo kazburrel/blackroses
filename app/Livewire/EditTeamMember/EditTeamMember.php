@@ -40,7 +40,7 @@ class EditTeamMember extends Component
     {
         $this->validate([
             'fullname' => 'required|string|max:255',
-            'image' => 'nullable',
+            'image' => 'nullable|image|max:1024', // Ensure the image is valid and not larger than 1MB
             'position' => 'required|string|max:255',
             'write_up' => 'required|string',
         ]);
@@ -50,17 +50,18 @@ class EditTeamMember extends Component
             $member->fullname = $this->fullname;
             $member->position = $this->position;
             $member->write_up = $this->write_up;
+
             if ($this->image) {
-                $member->image = $this->image;
+                $imagePath = $this->image->store('team_images', 'public');
+                $member->image = $imagePath;
             }
 
             $member->update([
                 'fullname' => $this->fullname,
                 'position' => $this->position,
                 'write_up' => $this->write_up,
-                'image' => isset($this->image) ? $this->image : $member->image,
+                'image' => isset($imagePath) ? $imagePath : $member->image,
             ]);
-
 
             $this->dispatch('memberUpdated', $member->uuid);
             $this->dispatchSuccessToast('Team member edited successfully!');
