@@ -47,7 +47,7 @@ class VaccancyController extends Controller
         try {
             $application = JobApplication::create($request->safe()->merge([
                 'uuid' => $uuid,
-                'vacancy_id' => $vacancy->uuid,
+                'vaccancy_id' => $vacancy->uuid,
                 'cv' => $file
             ])->all());
 
