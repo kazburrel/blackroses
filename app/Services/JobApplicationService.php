@@ -72,13 +72,13 @@ class JobApplicationService
         if (!$application) {
             throw new \Exception('Job application not found.');
         }
-        // Mark the application as approved
-        $application->is_approved = true;
+
         DB::beginTransaction();
         try {
             // Save the application and dispatch the interview invitation email
-            $application->save();
             SendInterviewInvitationEmail::dispatch($application);
+            $application->is_approved = true;
+            $application->save();
             DB::commit();
         } catch (\Exception $e) {
             DB::rollBack();
