@@ -12,8 +12,7 @@
                 <div wire:key="member-{{ $member->uuid }}">
                     <div class="col text-center mb-9" id="members-table">
                         <div class="octagon mx-auto mb-2 d-flex w-150px h-150px bgi-no-repeat bgi-size-contain bgi-position-center"
-                            @if ($member->image == 'images/resource/latoya_main.jpeg') style="background-image:url('{{ asset($member->image) }}')"
-                            @else style="background-image:url('{{ asset('storage/' . $member->image) }}')" @endif>
+                            style="background-image:url('{{ $member->image == 'images/resource/latoya_main.jpeg' ? asset($member->image) : asset('storage/' . $member->image) }}')">
                         </div>
 
                         <div class="mb-0">
