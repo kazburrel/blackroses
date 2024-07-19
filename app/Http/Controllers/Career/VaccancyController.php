@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Utyemma\LaraNotice\Notify;
 use App\SweetAlertToast;
+use Illuminate\Support\Facades\DB;
 
 class VaccancyController extends Controller
 {
@@ -37,31 +38,45 @@ class VaccancyController extends Controller
 
     public function storeApplication(StoreJobApplicationRequest $request, $job)
     {
-        $vaccancy = JobVacancy::where('uuid', $job)->first();
+        $vacancy = JobVacancy::where('uuid', $job)->first();
         $uuid = Str::uuid();
         $hr = Settings::all();
         $file = $request->hasFile('cv') ? $request->file('cv')->store('ApplicationsCV', 'public') : '';
-        $application = JobApplication::create($request->safe()->merge([
-            'uuid' => $uuid,
-            'vaccancy_id' => $vaccancy->uuid,
-            'cv' => $file
-        ])->all());
-        toast('Your application has been submitted successfully!', 'success');
-        (new Notify())
-            ->subject('Application Received - ' . $vaccancy->title)
-            ->greeting('Dear ' . $request->fullname . ',')
-            ->line('Thank you for applying for the ' . $vaccancy->title . ' position at ' . config('app.name') . '. We have received your application and appreciate your interest in joining our team.')
-            ->line('Our hiring team will carefully review your application and qualifications. If your profile matches our requirements, we will reach out to you to proceed with the next steps of the hiring process.')
-            ->line('Please note that due to the high volume of applications we receive, we may not be able to respond to every applicant immediately. However, rest assured that your application is important to us, and we will get back to you as soon as possible.')
-            ->line('Once again, thank you for considering ' . config('app.name') . ' as your potential employer.')
-            ->mail($application);
-        (new Notify())
-            ->subject('New Job Application - ' . $vaccancy->title)
-            ->greeting('Dear HR Team,')
-            ->line('A new job application has been received for the ' . $vaccancy->title . ' position at ' . config('app.name') . '.')
-            ->line('Please review the application at your earliest convenience.')
-            ->line('Thank you.')
-            ->mail($hr);
+
+        DB::beginTransaction();
+        try {
+            $application = JobApplication::create($request->safe()->merge([
+                'uuid' => $uuid,
+                'vacancy_id' => $vacancy->uuid,
+                'cv' => $file
+            ])->all());
+
+            toast('Your application has been submitted successfully!', 'success');
+
+            (new Notify())
+                ->subject('Application Received - ' . $vacancy->title)
+                ->greeting('Dear ' . $request->fullname . ',')
+                ->line('Thank you for applying for the ' . $vacancy->title . ' position at ' . config('app.name') . '. We have received your application and appreciate your interest in joining our team.')
+                ->line('Our hiring team will carefully review your application and qualifications. If your profile matches our requirements, we will reach out to you to proceed with the next steps of the hiring process.')
+                ->line('Please note that due to the high volume of applications we receive, we may not be able to respond to every applicant immediately. However, rest assured that your application is important to us, and we will get back to you as soon as possible.')
+                ->line('Once again, thank you for considering ' . config('app.name') . ' as your potential employer.')
+                ->mail($application);
+
+            (new Notify())
+                ->subject('New Job Application - ' . $vacancy->title)
+                ->greeting('Dear HR Team,')
+                ->line('A new job application has been received for the ' . $vacancy->title . ' position at ' . config('app.name') . '.')
+                ->line('Please review the application at your earliest convenience.')
+                ->line('Thank you.')
+                ->mail($hr);
+
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollBack();
+            Log::error('Error storing job application: ' . $e->getMessage());
+            return redirect()->back()->withErrors(['error' => 'An error occurred while submitting your application. Please try again.']);
+        }
+
         return redirect()->route('home');
     }
 
