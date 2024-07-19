@@ -8,8 +8,8 @@ use App\Http\Requests\StoreJobVaccancyFormRequest;
 use App\Http\Requests\StoreVacancyUpdateRequest;
 use Illuminate\Support\Facades\Auth;
 use App\SweetAlertToast;
-use JobApplicationService;
-use JobVacancyService;
+use JobApplicationService as GlobalJobApplicationService;
+use JobVacancyService as GlobalJobVacancyService;
 
 class VaccancyController extends Controller
 {
@@ -23,8 +23,8 @@ class VaccancyController extends Controller
     // and assigns them to the controller's properties for later use.
     public function __construct()
     {
-        $this->jobVacancyService = new JobVacancyService();
-        $this->jobApplicationService = new JobApplicationService();
+        $this->jobVacancyService = new GlobalJobVacancyService();
+        $this->jobApplicationService = new GlobalJobApplicationService();
     }
 
     public function postVacancy(StoreJobVaccancyFormRequest $request)
