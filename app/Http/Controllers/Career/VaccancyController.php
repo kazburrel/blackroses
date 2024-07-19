@@ -11,7 +11,7 @@ use App\SweetAlertToast;
 use JobApplicationService;
 use JobVacancyService;
 
-class VacancyController extends Controller
+class VaccancyController extends Controller
 {
     use SweetAlertToast;
 
