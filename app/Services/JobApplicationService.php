@@ -3,46 +3,48 @@
 namespace App\Services;
 
 use App\Http\Requests\StoreJobApplicationRequest;
-use App\Jobs\SendApplicationReceivedEmail;
-use App\Jobs\SendNewJobApplicationEmail;
-use App\Jobs\SendInterviewInvitationEmail;
-use App\Jobs\SendApplicationRejectionEmail;
 use App\Models\JobApplication;
 use App\Models\JobVacancy;
+use App\Models\Settings;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Utyemma\LaraNotice\Notify;
 
 class JobApplicationService
 {
-    // Store a new job application
     public function storeApplication(StoreJobApplicationRequest $request, $job)
     {
-        // Find the job vacancy by UUID
         $vacancy = JobVacancy::where('uuid', $job)->first();
-        if (!$vacancy) {
-            throw new \Exception('Job vacancy not found.');
-        }
-
-        // Generate a new UUID for the application
         $uuid = Str::uuid();
-
-        // Store the CV file if it exists
+        $hr = Settings::all();
         $file = $request->hasFile('cv') ? $request->file('cv')->store('ApplicationsCV', 'public') : '';
 
         DB::beginTransaction();
         try {
-            // Create a new job application
             $application = JobApplication::create($request->safe()->merge([
                 'uuid' => $uuid,
                 'vaccancy_id' => $vacancy->uuid,
                 'cv' => $file
             ])->all());
 
-            // Dispatch email jobs
-            SendApplicationReceivedEmail::dispatch($application, $vacancy->title);
-            SendNewJobApplicationEmail::dispatch($vacancy->title);
+            (new Notify())
+                ->subject('Application Received - ' . $vacancy->title)
+                ->greeting('Dear ' . $request->fullname . ',')
+                ->line('Thank you for applying for the ' . $vacancy->title . ' position at ' . config('app.name') . '. We have received your application and appreciate your interest in joining our team.')
+                ->line('Our hiring team will carefully review your application and qualifications. If your profile matches our requirements, we will reach out to you to proceed with the next steps of the hiring process.')
+                ->line('Please note that due to the high volume of applications we receive, we may not be able to respond to every applicant immediately. However, rest assured that your application is important to us, and we will get back to you as soon as possible.')
+                ->line('Once again, thank you for considering ' . config('app.name') . ' as your potential employer.')
+                ->mail($application);
+
+            (new Notify())
+                ->subject('New Job Application - ' . $vacancy->title)
+                ->greeting('Dear HR Team,')
+                ->line('A new job application has been received for the ' . $vacancy->title . ' position at ' . config('app.name') . '.')
+                ->line('Please review the application at your earliest convenience.')
+                ->line('Thank you.')
+                ->mail($hr);
 
             DB::commit();
         } catch (\Exception $e) {
@@ -52,33 +54,33 @@ class JobApplicationService
         }
     }
 
-    // Delete a job application by UUID
     public function deleteApplication($uuid)
     {
-        // Find the job application by UUID
         $application = JobApplication::where('uuid', $uuid)->first();
         if (!$application) {
-            throw new \Exception('Application not found.');
+            throw new \Exception('Application not found');
         }
-        // Delete the application
         $application->delete();
     }
 
-    // Approve a job application by UUID
     public function approveApplication($uuid)
     {
-        // Find the job application by UUID
         $application = JobApplication::where('uuid', $uuid)->first();
         if (!$application) {
             throw new \Exception('Job application not found.');
         }
-
+        $application->is_approved = true;
         DB::beginTransaction();
         try {
-            // Save the application and dispatch the interview invitation email
-            SendInterviewInvitationEmail::dispatch($application);
-            $application->is_approved = true;
             $application->save();
+            (new Notify())
+                ->subject('Interview Invitation: Congratulations, Your Job Application is Approved!')
+                ->greeting('Hello ' . $application->fullname . '!')
+                ->line('Congratulations! Your job application has been approved, and we would like to invite you to the next stage of our hiring process: the interview.')
+                ->line('Please check your email regularly for further instructions regarding the interview schedule and details.')
+                ->line('We look forward to meeting with you and discussing your candidacy further.')
+                ->line('Thank you for your interest in joining our company, and we appreciate your participation in our hiring process.')
+                ->mail($application);
             DB::commit();
         } catch (\Exception $e) {
             DB::rollBack();
@@ -87,21 +89,24 @@ class JobApplicationService
         }
     }
 
-    // Reject a job application by UUID
     public function rejectApplication($uuid)
     {
-        // Find the job application by UUID
         $application = JobApplication::where('uuid', $uuid)->first();
         if (!$application) {
             throw new \Exception('Job application not found.');
         }
-        // Mark the application as rejected
         $application->is_rejected = true;
         DB::beginTransaction();
         try {
-            // Save the application and dispatch the rejection email
             $application->save();
-            SendApplicationRejectionEmail::dispatch($application);
+            (new Notify())
+                ->subject('Regarding Your Job Application')
+                ->greeting('Hello ' . $application->fullname . '!')
+                ->line('Thank you for your interest in our company and for taking the time to apply.')
+                ->line('Unfortunately, we regret to inform you that your job application has been unsuccessful.')
+                ->line('We appreciate your interest in our company and the time you took to apply. However, after careful consideration, we have decided not to proceed with your application at this time.')
+                ->line('Thank you for your understanding and interest in our company.')
+                ->mail($application);
             DB::commit();
         } catch (\Exception $e) {
             DB::rollBack();
@@ -110,20 +115,16 @@ class JobApplicationService
         }
     }
 
-    // Download the CV of a job application by UUID
     public function downloadCV($uuid)
     {
-        // Find the job application by UUID
         $applicant = JobApplication::where('uuid', $uuid)->first();
         if (!$applicant) {
             throw new \Exception('Job application not found.');
         }
-        // Get the CV file path
         $cvPath = $applicant->cv;
         if (!Storage::disk('public')->exists($cvPath)) {
             throw new \Exception('CV file not found.');
         }
-        // Return the CV file path and filename
         return [
             'path' => Storage::disk('public')->path($cvPath),
             'filename' => $applicant->fullname . '_cv.' . pathinfo($cvPath, PATHINFO_EXTENSION),
