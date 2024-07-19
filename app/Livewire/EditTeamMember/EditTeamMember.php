@@ -6,12 +6,12 @@ use App\Models\OurTeam;
 use App\SweetAlertToast;
 use Illuminate\Support\Facades\Log;
 use Livewire\Component;
-
+use Livewire\WithFileUploads;
 
 class EditTeamMember extends Component
 {
 
-    use SweetAlertToast;
+    use SweetAlertToast, WithFileUploads;
 
     public $memberId;
     public $fullname;
