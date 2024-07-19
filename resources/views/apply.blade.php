@@ -155,8 +155,14 @@
                                             <button type="submit" class="g-recaptcha theme-btn btn-style-three"
                                                 data-sitekey="{{ config('services.recaptcha.key') }}"
                                                 data-callback='onSubmit' data-action='contactForm'
-                                                style="display: block; margin-top: 80px;">SUBMIT</button>
+                                                style="display: block; margin-top: 80px;" id="submitBtn">SUBMIT
+                                            </button>
                                         </div>
+                                        <script>
+                                            document.getElementById('apply').addEventListener('submit', function() {
+                                                document.getElementById('submitBtn').disabled = true;
+                                            });
+                                        </script>
                                     </div>
                                 </form>
 
