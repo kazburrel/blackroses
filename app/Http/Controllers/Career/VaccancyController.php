@@ -116,6 +116,7 @@ class VaccancyController extends Controller
             return response()->json(['message' => 'Job application not found.'], 404);
         }
         $application->is_approved = true;
+        DB::beginTransaction();
         try {
             $application->save();
             (new Notify())
@@ -126,8 +127,11 @@ class VaccancyController extends Controller
                 ->line('We look forward to meeting with you and discussing your candidacy further.')
                 ->line('Thank you for your interest in joining our company, and we appreciate your participation in our hiring process.')
                 ->mail($application);
+            DB::commit();
             return response()->json(['message' => 'Job application approved successfully.'], 200);
         } catch (\Exception $e) {
+            DB::rollBack();
+            Log::error('Error approving job application: ' . $e->getMessage());
             return response()->json(['message' => 'Failed to approve job application.'], 500);
         }
     }
@@ -139,6 +143,7 @@ class VaccancyController extends Controller
             return response()->json(['message' => 'Job application not found.'], 404);
         }
         $application->is_rejected = true;
+        DB::beginTransaction();
         try {
             $application->save();
             (new Notify())
@@ -149,8 +154,11 @@ class VaccancyController extends Controller
                 ->line('We appreciate your interest in our company and the time you took to apply. However, after careful consideration, we have decided not to proceed with your application at this time.')
                 ->line('Thank you for your understanding and interest in our company.')
                 ->mail($application);
+            DB::commit();
             return response()->json(['message' => 'Job application rejected successfully.'], 200);
         } catch (\Exception $e) {
+            DB::rollBack();
+            Log::error('Error rejecting job application: ' . $e->getMessage());
             return response()->json(['message' => 'Failed to reject job application.'], 500);
         }
     }
