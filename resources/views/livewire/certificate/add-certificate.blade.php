@@ -54,7 +54,7 @@
 
                                     </div>
                                     <div class="row g-9 mb-8">
-                                        <div class="col-md-6">
+                                        {{-- <div class="col-md-6">
                                             <div class="fv-row">
                                                 <label for="" class="form-label required">Days Until
                                                     Notification</label>
@@ -65,8 +65,8 @@
                                                     class="form-control" />
                                                 <x-input.error key="days_until_notification" />
                                             </div>
-                                        </div>
-                                        <div class="col-md-6">
+                                        </div> --}}
+                                        <div class="col-md-12">
                                             <div class="fv-row">
                                                 <label for="" class="form-label required">Update Email</label>
                                                 <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"
