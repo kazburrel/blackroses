@@ -53,19 +53,28 @@ class SendCertificateReminders extends Command
         }
     }
 
+    /**
+     * Sends a renewal notification for a certificate that is nearing its expiry date.
+     *
+     * @param Certificate $certificate The certificate that is about to expire.
+     */
     protected function sendRenewalNotification($certificate)
     {
-        $daysToExpiry = Carbon::now()->diffInDays($certificate->expiry_date, false);
+        // Calculate the number of days until the certificate expires.
+        $daysToExpiry = Carbon::now()->diffInDays(Carbon::parse($certificate->expiry_date)->startOfDay(), false);
+
+        // Determine the text to display for the number of days until expiry.
         $daysToExpiryText = $daysToExpiry < 1 ? '1 day' : "{$daysToExpiry} days";
 
+        // Create and send a notification email to the certificate holder.
         (new Notify())
-            ->subject('Certificate Renewal Notification')
-            ->greeting('Hello,')
-            ->line("Your certificate will expire in {$daysToExpiryText}.")
-            ->line('Please ensure that you renew your certificate before its expiry date to avoid any disruptions.')
-            ->line('If you have already renewed your certificate, kindly disregard this reminder.')
-            ->line('Thank you for your attention to this matter.')
-            ->mail($certificate);
+            ->subject('Certificate Renewal Notification') // Set the email subject.
+            ->greeting('Hello,') // Set the email greeting.
+            ->line("Your certificate will expire in {$daysToExpiryText}.") // Inform the user about the expiry date.
+            ->line('Please ensure that you renew your certificate before its expiry date to avoid any disruptions.') // Request the user to renew the certificate.
+            ->line('If you have already renewed your certificate, kindly disregard this reminder.') // Inform the user to ignore if already renewed.
+            ->line('Thank you for your attention to this matter.') // Thank the user.
+            ->mail($certificate); // Send the email to the certificate holder.
     }
 
     protected function sendExpiryNotification($certificate)
