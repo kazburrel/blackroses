@@ -178,6 +178,14 @@ class ViewController extends Controller
             'user' => $user
         ]);
     }
+    public function mailTeamMember()
+    {
+        $user = Auth::user();
+        SEOMeta::setTitle('Mail Team');
+        return view('admin.team.mail-team', [
+            'user' => $user
+        ]);
+    }
 
     public function getCertificate()
     {

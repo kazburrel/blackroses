@@ -59,7 +59,6 @@ class AddCertificate extends Component
         $this->dispatchSuccessToast('Certificate added successfully!');
         $this->resetForm();
         $this->dispatch('certificateAdded', $cert->uuid);
-        // $this->certificates = Certificate::all();
     }
 
     public function formValidation()
@@ -70,7 +69,6 @@ class AddCertificate extends Component
             'issued_date' => 'required|date',
             'expiry_date' => 'required|date|after_or_equal:issued_date',
             'file' => 'required|mimes:png,jpg,jpeg,heic,pdf,docx,doc',
-            // 'days_until_notification' => 'required'
         ]);
     }
 

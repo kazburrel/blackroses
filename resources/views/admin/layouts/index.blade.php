@@ -84,6 +84,8 @@
     <script src="{{ asset('admin_assets/js/custom/apps/ecommerce/sales/listing.js') }}"></script>
     <script src="{{ asset('admin_assets/js/custom/account/settings/signin-methods.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script src="{{ asset('admin_assets/js/custom/apps/inbox/reply.js') }}"></script>
     @include('sweetalert::alert')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>

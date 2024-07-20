@@ -14,12 +14,24 @@ class CertificateManager extends Component
 
     public $certificates;
     public $documentId;
-    protected $listeners = ['deleteConfirmed', 'certificateAdded' => 'loadCertificates'];
+    protected $listeners = ['deleteConfirmed', 'toggleNotification', 'certificateAdded' => 'loadCertificates'];
 
     public function mount()
     {
         $this->certificates = Certificate::all();
     }
+
+    public function toggleNotification($uuid)
+    {
+        $certificate = Certificate::where('uuid', $uuid)->first();
+        if ($certificate) {
+            $certificate->stop_sending_mails = !$certificate->stop_sending_mails;
+            $certificate->save();
+        }
+        $message = $certificate->stop_sending_mails ? 'Email notifications stopped successfully.' : 'Email notifications resumed successfully.';
+        $this->dispatchSuccessToast($message);
+    }
+
 
     public function deleteConfirmed($uuid)
     {
@@ -58,7 +70,6 @@ class CertificateManager extends Component
         $file = Storage::disk('public')->path($filePath);
         return response()->download($file, $fileName);
     }
-    // kkhgh
     public function render()
     {
         return view('livewire.certificate.certificate-manager');

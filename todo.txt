@@ -28,3 +28,8 @@ convert the get job vacancies to a livewire component{
     }
 }
 
+
+add stop sending mail feature to admin
+add general mail sending to all brs staff
+add staff adding from admin
+add staff dashboard

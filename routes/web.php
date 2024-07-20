@@ -29,6 +29,7 @@ Route::prefix('/admin')->middleware(['auth', 'permission:manage all staff', Prev
     Route::prefix('/team')->group(function () {
         Route::get('/', [ViewController::class, 'getTeam'])->name('get.brs.team');
         Route::get('/add-team', [ViewController::class, 'addTeamMember'])->name('add.brs.team.member');
+        Route::get('/mail-team', [ViewController::class, 'mailTeamMember'])->name('mail.brs.team.member');
     });
     Route::prefix('/certificate')->group(function () {
         Route::get('/', [ViewController::class, 'getCertificate'])->name('get.brs.certs');

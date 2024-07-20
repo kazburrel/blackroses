@@ -103,9 +103,11 @@
                                         </span>
                                     </div>
                                 </td>
+
                                 <td class="">
                                     <a href="#" class="btn btn-sm btn-light btn-active-light-primary"
-                                        data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
+                                        data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        Actions
                                         <span class="svg-icon svg-icon-5 m-0">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                 viewBox="0 0 24 24" fill="none">
@@ -128,9 +130,16 @@
                                             <x-swal.confirm-delete title="Are you sure?"
                                                 text="This will permanently delete the row." confirmButtonText="Delete"
                                                 :uuid="$certificate->uuid">
-                                                Delete
+                                                <span class="text-danger">Delete</span>
                                             </x-swal.confirm-delete>
-
+                                        </div>
+                                        <div class="menu-item px-3">
+                                            <x-swal.toggle-notification title="Are you sure?"
+                                                text="This will change your email notification settings."
+                                                confirmButtonText="Toggle" :uuid="$certificate->uuid" :enabled="$certificate->stop_sending_mails">
+                                                <span
+                                                    class="text-info">{{ $certificate->stop_sending_mails ? 'Resume Email' : 'Stop Email' }}</span>
+                                            </x-swal.toggle-notification>
                                         </div>
 
                                     </div>

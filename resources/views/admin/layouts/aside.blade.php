@@ -119,6 +119,16 @@
                     </a>
                 </div>
 
+                <div class="menu-item">
+                    <a class="menu-link{{ request()->routeIs('mail.brs.team.member') ? ' active' : '' }}"
+                        href="{{ route('mail.brs.team.member') }}">
+                        <span class="menu-bullet">
+                            <span class="bullet bullet-dot"></span>
+                        </span>
+                        <span class="menu-title">Management Email Portal</span>
+                    </a>
+                </div>
+
             </div>
         </div>
     </div>
