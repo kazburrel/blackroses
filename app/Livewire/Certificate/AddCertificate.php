@@ -38,10 +38,10 @@ class AddCertificate extends Component
         $this->certificates = Certificate::all();
     }
 
-
-
     public function addCertificate()
     {
+
+
         $this->formValidation();
         $uuid = Str::uuid();
         $filePath = $this->file->store('Certificates', 'public');

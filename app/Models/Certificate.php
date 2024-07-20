@@ -23,6 +23,7 @@ class Certificate extends Model
         'expiry_date',
         'file',
         'status',
-        'last_renewed_date'
+        'last_renewed_date',
+        'stop_sending_mails'
     ];
 }
