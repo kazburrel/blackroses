@@ -54,18 +54,6 @@
 
                                     </div>
                                     <div class="row g-9 mb-8">
-                                        {{-- <div class="col-md-6">
-                                            <div class="fv-row">
-                                                <label for="" class="form-label required">Days Until
-                                                    Notification</label>
-                                                <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"
-                                                    title="Specify a target name for future usage and reference"></i>
-                                                <input name="days_until_notification"
-                                                    wire:model='days_until_notification' type="number"
-                                                    class="form-control" />
-                                                <x-input.error key="days_until_notification" />
-                                            </div>
-                                        </div> --}}
                                         <div class="col-md-12">
                                             <div class="fv-row">
                                                 <label for="" class="form-label required">Update Email</label>
