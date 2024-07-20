@@ -62,6 +62,7 @@ class SendCertificateReminders extends Command
     {
         // Calculate the number of days until the certificate expires.
         $daysToExpiry = Carbon::now()->diffInDays(Carbon::parse($certificate->expiry_date)->startOfDay(), false);
+        $daysToExpiry = $daysToExpiry < 0 ? ceil($daysToExpiry) : floor($daysToExpiry);
 
         // Determine the text to display for the number of days until expiry.
         $daysToExpiryText = $daysToExpiry < 1 ? '1 day' : "{$daysToExpiry} days";
