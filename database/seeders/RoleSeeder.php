@@ -29,7 +29,7 @@ class RoleSeeder extends Seeder
         $admin = Role::create([
             'name' => UserRoles::ADMIN,
         ]);
-        Role::create([
+        $superadmin = Role::create([
             'name' => UserRoles::SUPERADMIN,
         ]);
 
@@ -44,6 +44,10 @@ class RoleSeeder extends Seeder
             'name' => UserPermissions::MANAGESTAFF,
         ]);
 
+        $manage_system = Permission::create([
+            'name' => UserPermissions::MANAGESYSTEM,
+        ]);
+
         $staff_permissions = [
             $default_user,
             $manage_users,
@@ -55,8 +59,16 @@ class RoleSeeder extends Seeder
             $manage_staff
         ];
 
+        $superadmin_permissions = [
+            $default_user,
+            $manage_users,
+            $manage_staff,
+            $manage_system
+        ];
+
         $user->givePermissionTo($default_user);
         $staff->syncPermissions($staff_permissions);
         $admin->syncPermissions($admin_permissions);
+        $superadmin->syncPermissions($superadmin_permissions);
     }
 }

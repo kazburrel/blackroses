@@ -1,5 +1,5 @@
 <div>
-    <form id="kt_inbox_reply_form" class="rounded border mt-10">
+    <form wire:submit.prevent="sendMail" id="kt_inbox_reply_form" class="rounded border mt-10">
 
         <div class="d-block">
 
@@ -7,10 +7,8 @@
 
                 <div class="text-dark fw-bolder w-75px">To:</div>
 
-
-                <input type="text" class="form-control border-0" name="compose_to"
-                    value="e.smith@kpmg.com.au, max@kt.com, sean@dellito.com" data-kt-inbox-form="tagify" />
-
+                <input type="text" class="form-control border-0" name="compose_to" value=""
+                    data-kt-inbox-form="tagify" data-staff-users="{{ json_encode($staffUsers) }}" wire:model="to" />
 
                 <div class="ms-auto w-75px text-end">
                     <span class="text-muted fs-bold cursor-pointer text-hover-primary me-2"
@@ -21,15 +19,12 @@
 
             </div>
 
-
             <div class="d-none align-items-center border-bottom ps-8 pe-5 min-h-50px" data-kt-inbox-form="cc">
 
                 <div class="text-dark fw-bolder w-75px">Cc:</div>
 
-
                 <input type="text" class="form-control border-0" name="compose_cc" value=""
-                    data-kt-inbox-form="tagify" />
-
+                    data-kt-inbox-form="tagify" wire:model="cc" />
 
                 <span class="btn btn-clean btn-xs btn-icon" data-kt-inbox-form="cc_close">
                     <i class="la la-close"></i>
@@ -37,16 +32,13 @@
 
             </div>
 
-
             <div class="d-none align-items-center border-bottom inbox-to-bcc ps-8 pe-5 min-h-50px"
                 data-kt-inbox-form="bcc">
 
                 <div class="text-dark fw-bolder w-75px">Bcc:</div>
 
-
                 <input type="text" class="form-control border-0" name="compose_bcc" value=""
-                    data-kt-inbox-form="tagify" />
-
+                    data-kt-inbox-form="tagify" wire:model="bcc" />
 
                 <span class="btn btn-clean btn-xs btn-icon" data-kt-inbox-form="bcc_close">
                     <i class="la la-close"></i>
@@ -54,14 +46,12 @@
 
             </div>
 
-
             <div class="border-bottom">
-                <input class="form-control border-0 px-8 min-h-45px" name="compose_subject" placeholder="Subject" />
+                <input class="form-control border-0 px-8 min-h-45px" name="subject" placeholder="Subject"
+                    wire:model="subject" />
             </div>
 
-
-            <div id="kt_inbox_form_editor" class="border-0 h-250px px-3"></div>
-
+            <div id="kt_inbox_form_editor" class="border-0 h-250px px-3" wire:model="body"></div>
 
             <div class="dropzone dropzone-queue px-8 py-4" id="kt_inbox_reply_attachments"
                 data-kt-inbox-form="dropzone">
@@ -77,14 +67,12 @@
                             <div class="dropzone-error" data-dz-errormessage=""></div>
                         </div>
 
-
                         <div class="dropzone-progress">
                             <div class="progress">
                                 <div class="progress-bar bg-primary" role="progressbar" aria-valuemin="0"
                                     aria-valuemax="100" aria-valuenow="0" data-dz-uploadprogress=""></div>
                             </div>
                         </div>
-
 
                         <div class="dropzone-toolbar">
                             <span class="dropzone-delete" data-dz-remove="">
@@ -98,17 +86,16 @@
 
         </div>
 
-
         <div class="d-flex flex-stack flex-wrap gap-2 py-5 ps-8 pe-5 border-top">
 
             <div class="d-flex align-items-center me-3">
 
                 <div class="btn-group me-4">
-                    <span class="btn btn-md btn-primary fs-bold px-6" data-kt-inbox-form="send">
+                    <button type="submit" class="btn btn-md btn-primary fs-bold px-6" data-kt-inbox-form="send">
                         <span class="indicator-label">Send</span>
                         <span class="indicator-progress">Please wait...
                             <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
-                    </span>
+                    </button>
                 </div>
                 <span class="btn btn-icon btn-sm btn-clean btn-active-light-primary me-2"
                     id="kt_inbox_reply_attachments_select" data-kt-inbox-form="dropzone_upload">

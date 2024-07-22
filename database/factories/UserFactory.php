@@ -21,15 +21,29 @@ class UserFactory extends Factory
      *
      * @return array<string, mixed>
      */
+    // public function definition(): array
+    // {
+    //     return [
+    //         'fname' => 'Black roses',
+    //         'lname' => 'support',
+    //         'email' => 'info@blackrosessupport.co.uk',
+    //         'email_verified_at' => now(),
+    //         'password' => static::$password ??= Hash::make('1234567890'),
+    //         'remember_token' => Str::random(10),
+    //     ];
+    // }
+
     public function definition(): array
     {
         return [
-            'fname' => 'Black roses',
-            'lname' => 'support',
-            'email' => 'info@blackrosessupport.co.uk',
-            'email_verified_at' => now(),
-            'password' => static::$password ??= Hash::make('1234567890'),
+            'uuid' => $this->faker->uuid,
+            'fname' => $this->faker->firstName,
+            'lname' => $this->faker->lastName,
+            'email' => $this->faker->unique()->safeEmail,
             'remember_token' => Str::random(10),
+            'password' => Hash::make('1234567890'),
+            'email_verified_at' => now(),
+            'avatar' => $this->faker->imageUrl(400, 400, 'people', true, 'Faker'),
         ];
     }
 

@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\UserPermissions;
+use App\Enums\UserRoles;
 use App\Models\JobApplication;
 use App\Models\JobVacancy;
 use App\Models\OurTeam;
 use App\Models\Settings;
+use App\Models\User;
 use Artesaos\SEOTools\Facades\SEOMeta;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
@@ -182,8 +185,11 @@ class ViewController extends Controller
     {
         $user = Auth::user();
         SEOMeta::setTitle('Mail Team');
+
+        $staffUsers = User::permission(UserPermissions::STAFF_TO_MANAGEUSERS)->get();
         return view('admin.team.mail-team', [
-            'user' => $user
+            'user' => $user,
+            'staffUsers' => $staffUsers
         ]);
     }
 
