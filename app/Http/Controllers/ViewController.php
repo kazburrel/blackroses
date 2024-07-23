@@ -12,6 +12,7 @@ use App\Models\User;
 use Artesaos\SEOTools\Facades\SEOMeta;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Http\Request;
 
 class ViewController extends Controller
 {
@@ -191,6 +192,11 @@ class ViewController extends Controller
             'user' => $user,
             'staffUsers' => $staffUsers
         ]);
+    }
+
+    public function mailTeamMemberPost(Request $request)
+    {
+        dd($request->all());
     }
 
     public function getCertificate()

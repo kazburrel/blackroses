@@ -1,6 +1,6 @@
 <div>
-    <form wire:submit.prevent="sendMail" id="kt_inbox_reply_form" class="rounded border mt-10">
-
+    <form action="{{ route('send.staff.mail') }}" method="POST" id="kt_inbox_reply_form" class="rounded border mt-10">
+        @csrf
         <div class="d-block">
 
             <div class="d-flex align-items-center border-bottom px-8 min-h-50px">
@@ -8,7 +8,7 @@
                 <div class="text-dark fw-bolder w-75px">To:</div>
 
                 <input type="text" class="form-control border-0" name="compose_to" value=""
-                    data-kt-inbox-form="tagify" data-staff-users="{{ json_encode($staffUsers) }}" wire:model="to" />
+                    data-kt-inbox-form="tagify" data-staff-users="{{ json_encode($staffUsers) }}" name="to" />
 
                 <div class="ms-auto w-75px text-end">
                     <span class="text-muted fs-bold cursor-pointer text-hover-primary me-2"
@@ -24,7 +24,7 @@
                 <div class="text-dark fw-bolder w-75px">Cc:</div>
 
                 <input type="text" class="form-control border-0" name="compose_cc" value=""
-                    data-kt-inbox-form="tagify" wire:model="cc" />
+                    data-kt-inbox-form="tagify" name="cc" />
 
                 <span class="btn btn-clean btn-xs btn-icon" data-kt-inbox-form="cc_close">
                     <i class="la la-close"></i>
@@ -38,7 +38,7 @@
                 <div class="text-dark fw-bolder w-75px">Bcc:</div>
 
                 <input type="text" class="form-control border-0" name="compose_bcc" value=""
-                    data-kt-inbox-form="tagify" wire:model="bcc" />
+                    data-kt-inbox-form="tagify" name="bcc" />
 
                 <span class="btn btn-clean btn-xs btn-icon" data-kt-inbox-form="bcc_close">
                     <i class="la la-close"></i>
@@ -47,11 +47,11 @@
             </div>
 
             <div class="border-bottom">
-                <input class="form-control border-0 px-8 min-h-45px" name="subject" placeholder="Subject"
-                    wire:model="subject" />
+                <input class="form-control border-0 px-8 min-h-45px" name="compose_subject" placeholder="Subject"
+                    name="subject" />
             </div>
 
-            <div id="kt_inbox_form_editor" class="border-0 h-250px px-3" wire:model="body"></div>
+            <textarea id="kt_inbox_form_editor" class="form-control border-0 h-250px px-3" name="body"></textarea>
 
             <div class="dropzone dropzone-queue px-8 py-4" id="kt_inbox_reply_attachments"
                 data-kt-inbox-form="dropzone">
