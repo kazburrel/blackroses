@@ -1,6 +1,7 @@
 <div>
     <form action="{{ route('send.staff.mail') }}" method="POST" id="kt_inbox_reply_form" class="rounded border mt-10">
         @csrf
+        <input type="hidden" name="attachment_ids[]" value="">
         <div class="d-block">
 
             <div class="d-flex align-items-center border-bottom px-8 min-h-50px">

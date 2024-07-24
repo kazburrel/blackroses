@@ -5,6 +5,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Profile\ProfileController;
 use App\Http\Controllers\SendMailController;
 use App\Http\Controllers\SitemapController;
+use App\Http\Controllers\TemporaryFileController;
 use App\Http\Controllers\ViewController;
 use App\Http\Middleware\PreventBackHistory;
 use Illuminate\Support\Facades\Route;
@@ -32,6 +33,7 @@ Route::prefix('/admin')->middleware(['auth', 'permission:manage all staff', Prev
         Route::get('/add-team', [ViewController::class, 'addTeamMember'])->name('add.brs.team.member');
         Route::get('/mail-team', [ViewController::class, 'mailTeamMember'])->name('mail.brs.team.member');
         Route::post('/mail-team', [SendMailController::class, 'mailTeamMemberPost'])->name('send.staff.mail');
+        Route::post('/upload-temporary-file', [TemporaryFileController::class, 'store'])->name('temporary.file.upload');
     });
     Route::prefix('/certificate')->group(function () {
         Route::get('/', [ViewController::class, 'getCertificate'])->name('get.brs.certs');

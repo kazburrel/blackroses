@@ -194,11 +194,6 @@ class ViewController extends Controller
         ]);
     }
 
-    public function mailTeamMemberPost(Request $request)
-    {
-        dd($request->all());
-    }
-
     public function getCertificate()
     {
         $user = Auth::user();

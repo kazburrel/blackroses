@@ -1,4 +1,5 @@
 "use strict";
+
 var KTAppInboxReply = (function () {
     const e = (e) => {
             const t = e.querySelector('[data-kt-inbox-form="cc"]'),
@@ -86,7 +87,7 @@ var KTAppInboxReply = (function () {
                             .querySelector('input[name="compose_to"]')
                             .getAttribute("data-staff-users")
                     ).map((user) => ({
-                        value: user.id,
+                        value: user.uuid,
                         name: user.fname,
                         avatar: user.avatar,
                         email: user.email,
@@ -145,12 +146,38 @@ var KTAppInboxReply = (function () {
             var r = o.parentNode.innerHTML;
             o.parentNode.removeChild(o);
             var l = new Dropzone(t, {
-                url: "https://preview.keenthemes.com/api/dropzone/void.php",
-                parallelUploads: 20,
-                maxFilesize: 1,
+                url: "/admin/team/upload-temporary-file",
+                headers: {
+                    "X-CSRF-TOKEN": document
+                        .querySelector('meta[name="csrf-token"]')
+                        .getAttribute("content"),
+                },
+                paramName: "file",
+                maxFilesize: 5,
+                addRemoveLinks: true,
                 previewTemplate: r,
                 previewsContainer: t + " .dropzone-items",
                 clickable: n,
+                success: function (file, response) {
+                    file.serverId = response.id;
+                    $("<input>")
+                        .attr({
+                            type: "hidden",
+                            name: "attachment_ids[]",
+                            value: response.id,
+                        })
+                        .appendTo("form#kt_inbox_reply_form");
+                },
+                removedfile: function (file) {
+                    var id = file.serverId;
+                    $(
+                        'input[name="attachment_ids[]"][value="' + id + '"]'
+                    ).remove();
+                    var _ref;
+                    return (_ref = file.previewElement) != null
+                        ? _ref.parentNode.removeChild(file.previewElement)
+                        : void 0;
+                },
             });
             l.on("addedfile", function (e) {
                 a.querySelectorAll(".dropzone-item").forEach((e) => {
@@ -219,6 +246,7 @@ var KTAppInboxReply = (function () {
         },
     };
 })();
+
 KTUtil.onDOMContentLoaded(function () {
     KTAppInboxReply.init();
 });
