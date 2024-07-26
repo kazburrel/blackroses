@@ -19,7 +19,9 @@ class ComposeMail extends Mailable
     public $body;
     public $filePaths;
 
-
+    /**
+     * Create a new message instance.
+     */
     public function __construct($subject, $body, $filePaths = [])
     {
         $this->subject = $subject;
