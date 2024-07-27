@@ -3,13 +3,13 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Attachment;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
-use App\Models\TemporaryFile;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 
 class ComposeMail extends Mailable
 {
@@ -18,15 +18,19 @@ class ComposeMail extends Mailable
     public $subject;
     public $body;
     public $filePaths;
+    public $cc;
+    public $bcc;
 
     /**
      * Create a new message instance.
      */
-    public function __construct($subject, $body, $filePaths = [])
+    public function __construct($subject, $body, $filePaths = [], $cc = [], $bcc = [])
     {
         $this->subject = $subject;
         $this->body = $body;
         $this->filePaths = $filePaths;
+        $this->cc = $cc;
+        $this->bcc = $bcc;
     }
 
     /**
@@ -36,6 +40,8 @@ class ComposeMail extends Mailable
     {
         return new Envelope(
             subject: $this->subject,
+            cc: $this->cc,
+            bcc: $this->bcc
         );
     }
 
@@ -58,13 +64,16 @@ class ComposeMail extends Mailable
     public function attachments(): array
     {
         $attachments = [];
-        foreach ($this->filePaths as $file) {
-            $attachments[] = Attachment::fromStorage(
-                storage_path('app/' . $file),
-                basename($file),
-                pathinfo(storage_path('app/' . $file), PATHINFO_EXTENSION)
-            );
+        foreach ($this->filePaths as $filePath) {
+            $fullPath = storage_path('app/' . $filePath);
+            if (file_exists($fullPath)) {
+                $attachments[] = Attachment::fromPath($fullPath);
+            } else {
+                Log::error("Unable to open path: " . $fullPath);
+            }
         }
+        $this->checkFilesExistence();
+        dd($this->filePaths);
         return $attachments;
     }
 }
