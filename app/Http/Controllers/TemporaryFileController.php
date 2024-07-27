@@ -10,6 +10,9 @@ class TemporaryFileController extends Controller
 {
     public function store(Request $request)
     {
+        $request->validate([
+            'file' => 'required|file|mimes:jpg,png,pdf,doc,docx|max:5000', // adjust mime types and max size as needed
+        ]);
 
         if ($request->hasFile('file')) {
             try {

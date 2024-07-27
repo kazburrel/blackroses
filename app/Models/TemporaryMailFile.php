@@ -8,16 +8,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Mail\Attachment;
 
-class TemporaryMailFile extends Model implements Attachable
+class TemporaryMailFile extends Model
 {
     use HasFactory, HasUuids;
 
     protected $fillable = ['filename', 'filepath', 'mime_type'];
-
-    public function toMailAttachment(): Attachment
-    {
-        return Attachment::fromPath(storage_path('app/' . $this->filepath))
-            ->as($this->filename)
-            ->withMime($this->mime_type);
-    }
 }

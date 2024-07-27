@@ -65,15 +65,13 @@ class ComposeMail extends Mailable
     {
         $attachments = [];
         foreach ($this->filePaths as $filePath) {
-            $fullPath = storage_path('app/' . $filePath);
+            $fullPath = storage_path('app/public/' . $filePath);
             if (file_exists($fullPath)) {
                 $attachments[] = Attachment::fromPath($fullPath);
             } else {
                 Log::error("Unable to open path: " . $fullPath);
             }
         }
-        $this->checkFilesExistence();
-        dd($this->filePaths);
         return $attachments;
     }
 }
