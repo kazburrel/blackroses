@@ -52,7 +52,9 @@
                     name="subject" />
             </div>
 
-            <textarea id="kt_inbox_form_editor" class="form-control border-0 h-250px px-3" name="body"></textarea>
+            <div id="kt_inbox_form_editor" class="form-control border-0 h-250px px-3">
+                <textarea class="form-control border-0 h-100 w-100" name="body"></textarea>
+            </div>
 
             <div class="dropzone dropzone-queue px-8 py-4" id="kt_inbox_reply_attachments"
                 data-kt-inbox-form="dropzone">
