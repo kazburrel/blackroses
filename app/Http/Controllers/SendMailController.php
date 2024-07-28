@@ -51,13 +51,11 @@ class SendMailController extends Controller
         $mail = new ComposeMail($subject, $body, $filePaths);
 
         // Send the email to all recipients
-        foreach ($toUsers as $toEmail) {
-            $mail = new ComposeMail($subject, $body, $filePaths);
-            Mail::to($toEmail)
-                ->cc($ccaddress)
-                ->bcc($bccaddress)
-                ->send($mail);
-        }
+        $toAddresses = $toUsers->pluck('email')->toArray();
+        Mail::to($toAddresses)
+            ->cc($ccaddress)
+            ->bcc($bccaddress)
+            ->send($mail);
 
         // Delete temporary files after sending
         foreach ($files as $file) {
