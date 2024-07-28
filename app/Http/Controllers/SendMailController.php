@@ -44,25 +44,19 @@ class SendMailController extends Controller
         $attachments = $request->input('attachment_ids', []);
         $files = TemporaryMailFile::whereIn('id', $attachments)->get();
         $filePaths = $files->pluck('filepath')->toArray();
-
+        $ccaddress = $ccUsers->pluck('email')->toArray();
+        $bccaddress = $bccUsers->pluck('email')->toArray();
+        // dd($ccUsers);
         // Create the mail instance
         $mail = new ComposeMail($subject, $body, $filePaths);
 
         // Send the email to all recipients
         foreach ($toUsers as $toEmail) {
             $mail = new ComposeMail($subject, $body, $filePaths);
-
-            $mailBuilder = Mail::to($toEmail);
-
-            if (!empty($ccUsers)) {
-                $mailBuilder->cc($ccUsers);
-            }
-
-            if (!empty($bccUsers)) {
-                $mailBuilder->bcc($bccUsers);
-            }
-
-            $mailBuilder->send($mail);
+            Mail::to($toEmail)
+                ->cc($ccaddress)
+                ->bcc($bccaddress)
+                ->send($mail);
         }
 
         // Delete temporary files after sending

@@ -26,11 +26,13 @@ class ComposeMail extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct($subject, $body, $filePaths = [])
+    public function __construct($subject, $body, $filePaths = [], $cc = [], $bcc = [])
     {
         $this->subject = $subject;
         $this->body = $body;
         $this->filePaths = $filePaths;
+        $this->cc = $cc;
+        $this->bcc = $bcc;
     }
 
     /**
@@ -38,11 +40,13 @@ class ComposeMail extends Mailable
      */
     public function envelope(): Envelope
     {
+        // dd([$this->cc]);
         return new Envelope(
             subject: $this->subject,
+            // cc: is_array($this->cc) ? $this->cc : [],
+            // bcc: is_array($this->bcc) ? $this->bcc : []
         );
     }
-
     /**
      * Get the message content definition.
      */
