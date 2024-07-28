@@ -46,16 +46,13 @@ class SendMailController extends Controller
         $filePaths = $files->pluck('filepath')->toArray();
         $ccaddress = $ccUsers->pluck('email')->toArray();
         $bccaddress = $bccUsers->pluck('email')->toArray();
-        // dd($ccUsers);
-        // Create the mail instance
-        $mail = new ComposeMail($subject, $body, $filePaths);
-
-        // Send the email to all recipients
         $toAddresses = $toUsers->pluck('email')->toArray();
+        // dd($toAddresses);
+        // Create the mail instance
         Mail::to($toAddresses)
             ->cc($ccaddress)
             ->bcc($bccaddress)
-            ->send($mail);
+            ->send(new ComposeMail($subject, $body, $filePaths));
 
         // Delete temporary files after sending
         foreach ($files as $file) {
