@@ -40,11 +40,8 @@ class ComposeMail extends Mailable
      */
     public function envelope(): Envelope
     {
-        // dd([$this->cc]);
         return new Envelope(
             subject: $this->subject,
-            // cc: is_array($this->cc) ? $this->cc : [],
-            // bcc: is_array($this->bcc) ? $this->bcc : []
         );
     }
     /**

@@ -8,12 +8,12 @@ use App\Mail\ComposeMail;
 use App\Models\TemporaryMailFile;
 use App\Models\User;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Log;
 
 class SendMailController extends Controller
 {
     public function mailTeamMemberPost(Request $request)
     {
-
         // Validate the request data
         $request->validate([
             'compose_to' => 'required|json',
@@ -22,7 +22,7 @@ class SendMailController extends Controller
             'compose_cc' => 'nullable|json',
             'compose_bcc' => 'nullable|json',
         ]);
-        // dd($request->body);
+
         // Parse the JSON strings into arrays
         $to = json_decode($request->input('compose_to'), true);
         $cc = json_decode($request->input('compose_cc'), true);
@@ -44,23 +44,56 @@ class SendMailController extends Controller
         $attachments = $request->input('attachment_ids', []);
         $files = TemporaryMailFile::whereIn('id', $attachments)->get();
         $filePaths = $files->pluck('filepath')->toArray();
-        $ccaddress = $ccUsers->pluck('email')->toArray();
-        $bccaddress = $bccUsers->pluck('email')->toArray();
-        $toAddresses = $toUsers->pluck('email')->toArray();
-        // dd($toAddresses);
-        // Create the mail instance
-        Mail::to($toAddresses)
-            ->cc($ccaddress)
-            ->bcc($bccaddress)
-            ->send(new ComposeMail($subject, $body, $filePaths));
 
-        // Delete temporary files after sending
-        foreach ($files as $file) {
-            Storage::delete($file->filepath);
-            $file->delete();
+        // Get valid email addresses
+        $toAddresses = $this->getValidEmails($toUsers);
+        $ccAddresses = $this->getValidEmails($ccUsers);
+        $bccAddresses = $this->getValidEmails($bccUsers);
+
+        if (empty($toAddresses) && empty($ccAddresses) && empty($bccAddresses)) {
+            toast('No valid email addresses found', 'error');
+            return redirect()->back();
         }
 
-        toast('Email sent successfully', 'success');
+        // Create the mail instance and handle exceptions
+        try {
+            $mail = Mail::to($toAddresses);
+
+            if (!empty($ccAddresses)) {
+                $mail->cc($ccAddresses);
+            }
+
+            if (!empty($bccAddresses)) {
+                $mail->bcc($bccAddresses);
+            }
+
+            $mail->send(new ComposeMail($subject, $body, $filePaths));
+
+            // Delete temporary files after sending
+            foreach ($files as $file) {
+                Storage::delete($file->filepath);
+                $file->delete();
+            }
+
+            toast('Email sent successfully', 'success');
+        } catch (\Exception $e) {
+            Log::error('Error sending email: ' . $e->getMessage());
+            toast('Error sending email', 'error');
+        }
+
         return redirect()->back();
+    }
+
+    private function getValidEmails($users)
+    {
+        $validEmails = [];
+        foreach ($users as $user) {
+            if (filter_var($user->email, FILTER_VALIDATE_EMAIL)) {
+                $validEmails[] = $user->email;
+            } else {
+                Log::warning('Invalid email address: ' . $user->email);
+            }
+        }
+        return $validEmails;
     }
 }
