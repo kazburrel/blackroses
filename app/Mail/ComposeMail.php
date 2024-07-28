@@ -2,12 +2,14 @@
 
 namespace App\Mail;
 
+use App\Models\Settings;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Attachment;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 
@@ -24,13 +26,11 @@ class ComposeMail extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct($subject, $body, $filePaths = [], $cc = [], $bcc = [])
+    public function __construct($subject, $body, $filePaths = [])
     {
         $this->subject = $subject;
         $this->body = $body;
         $this->filePaths = $filePaths;
-        $this->cc = $cc;
-        $this->bcc = $bcc;
     }
 
     /**
@@ -40,8 +40,6 @@ class ComposeMail extends Mailable
     {
         return new Envelope(
             subject: $this->subject,
-            cc: $this->cc,
-            bcc: $this->bcc
         );
     }
 
@@ -50,9 +48,15 @@ class ComposeMail extends Mailable
      */
     public function content(): Content
     {
+        $setting = Settings::first();
+        $user = Auth::user();
         return new Content(
             view: 'emails.my-email',
-            with: ['body' => $this->body],
+            with: [
+                'body' => $this->body,
+                'setting' => $setting,
+                'user' => $user,
+            ],
         );
     }
 

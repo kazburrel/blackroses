@@ -21,16 +21,16 @@ class UserSeeder extends Seeder
         // $uuid = Str::uuid();
         // $user = \App\Models\User::create([
         //     'uuid' => $uuid,
-        //     'fname' => 'Obiora',
-        //     'lname' => 'Egbosionu',
-        //     'email' => 'obi@blackrosessupport.co.uk',
+        //     'fname' => 'Kaz',
+        //     'lname' => 'Codes',
+        //     'email' => 'info@kazcodes.dev',
         //     'remember_token' => Str::random(10),
         //     'password' => Hash::make('1234567890'),
         //     'email_verified_at' => now()
         // ]);
         // $user->each(function ($user) {
-        //     $user->assignRole(UserRoles::SUPERADMIN);
-        //     // $user->givePermissionTo(UserPermissions::DEFAULTUSER);
+        //     $user->assignRole(UserRoles::USER);
+        //     $user->givePermissionTo(UserPermissions::DEFAULTUSER);
         // });
 
         $users = User::factory()->count(3)->create();

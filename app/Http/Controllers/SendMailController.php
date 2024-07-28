@@ -13,6 +13,16 @@ class SendMailController extends Controller
 {
     public function mailTeamMemberPost(Request $request)
     {
+
+        // Validate the request data
+        $request->validate([
+            'compose_to' => 'required|json',
+            'compose_subject' => 'nullable|string|max:255',
+            'body' => 'required|string',
+            'compose_cc' => 'nullable|json',
+            'compose_bcc' => 'nullable|json',
+        ]);
+        // dd($request->body);
         // Parse the JSON strings into arrays
         $to = json_decode($request->input('compose_to'), true);
         $cc = json_decode($request->input('compose_cc'), true);
@@ -40,9 +50,19 @@ class SendMailController extends Controller
 
         // Send the email to all recipients
         foreach ($toUsers as $toEmail) {
-            $mail = new ComposeMail($subject, $body, $filePaths, $ccUsers, $bccUsers);
-            Mail::to($toEmail)
-                ->send($mail);
+            $mail = new ComposeMail($subject, $body, $filePaths);
+
+            $mailBuilder = Mail::to($toEmail);
+
+            if (!empty($ccUsers)) {
+                $mailBuilder->cc($ccUsers);
+            }
+
+            if (!empty($bccUsers)) {
+                $mailBuilder->bcc($bccUsers);
+            }
+
+            $mailBuilder->send($mail);
         }
 
         // Delete temporary files after sending

@@ -17,7 +17,7 @@ class TemporaryFileController extends Controller
         if ($request->hasFile('file')) {
             try {
                 $file = $request->file('file');
-                $filename = time() . '-' . $file->getClientOriginalName();
+                $filename = $file->getClientOriginalName(); // Use the real file name
                 $filepath = $file->storeAs('temporary', $filename, 'public');
                 $mimeType = $file->getClientMimeType();
 
