@@ -30,7 +30,7 @@ class JobApplication extends Model
         'is_rejected',
     ];
 
-    public function vaccancy()
+    public function vacancy()
     {
         return $this->belongsTo(JobVacancy::class, 'vaccancy_id', 'uuid');
     }

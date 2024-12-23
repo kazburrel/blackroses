@@ -59,7 +59,7 @@ class JobApplicationService
 
     private function sendNotificationToHR($application)
     {
-        $hr = Settings::all();
+        $hr = Settings::where('email', 'info@blackrosessupport.co.uk')->firstOrFail();
         $subject = 'New Job Application - ' . $application->vacancy->title;
         $greeting = 'Dear HR Team,';
         $line = 'A new job application has been received for the ' . $application->vacancy->title . ' position at ' . config('app.name') . '.';
