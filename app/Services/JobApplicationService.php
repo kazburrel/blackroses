@@ -3,6 +3,10 @@
 namespace App\Services;
 
 use App\Http\Requests\StoreJobApplicationRequest;
+use App\Jobs\SendApplicantNotificationJob;
+use App\Jobs\SendApprovalNotificationJob;
+use App\Jobs\SendHRNotificationJob;
+use App\Jobs\SendRejectionNotificationJob;
 use App\Models\JobApplication;
 use App\Models\JobVacancy;
 use App\Models\Settings;
@@ -14,55 +18,63 @@ use Utyemma\LaraNotice\Notify;
 
 class JobApplicationService
 {
-    public function storeApplication(StoreJobApplicationRequest $request, $job)
+    private function createApplication($request, $job)
     {
         $vacancy = JobVacancy::where('uuid', $job)->first();
         $uuid = Str::uuid();
-        $hr = Settings::all();
         $file = $request->hasFile('cv') ? $request->file('cv')->store('ApplicationsCV', 'public') : '';
+        return JobApplication::create($request->safe()->merge([
+            'uuid' => $uuid,
+            'vaccancy_id' => $vacancy->uuid,
+            'cv' => $file
+        ])->all());
+    }
 
+    public function storeApplication(StoreJobApplicationRequest $request, $job)
+    {
         DB::beginTransaction();
         try {
-            $application = JobApplication::create($request->safe()->merge([
-                'uuid' => $uuid,
-                'vaccancy_id' => $vacancy->uuid,
-                'cv' => $file
-            ])->all());
-
-            (new Notify())
-                ->subject('Application Received - ' . $vacancy->title)
-                ->greeting('Dear ' . $request->fullname . ',')
-                ->line('Thank you for applying for the ' . $vacancy->title . ' position at ' . config('app.name') . '. We have received your application and appreciate your interest in joining our team.')
-                ->line('Our hiring team will carefully review your application and qualifications. If your profile matches our requirements, we will reach out to you to proceed with the next steps of the hiring process.')
-                ->line('Please note that due to the high volume of applications we receive, we may not be able to respond to every applicant immediately. However, rest assured that your application is important to us, and we will get back to you as soon as possible.')
-                ->line('Once again, thank you for considering ' . config('app.name') . ' as your potential employer.')
-                ->mail($application);
-
-            (new Notify())
-                ->subject('New Job Application - ' . $vacancy->title)
-                ->greeting('Dear HR Team,')
-                ->line('A new job application has been received for the ' . $vacancy->title . ' position at ' . config('app.name') . '.')
-                ->line('Please review the application at your earliest convenience.')
-                ->line('Thank you.')
-                ->mail($hr);
-
+            $application = $this->createApplication($request, $job);
             DB::commit();
+
+            $this->sendNotificationToApplicant($application);
+            $this->sendNotificationToHR($application);
         } catch (\Exception $e) {
             DB::rollBack();
             Log::error('Error storing job application: ' . $e->getMessage());
-            throw $e;
+            throw new \Exception('There was an error processing your application. Please try again later.');
         }
     }
 
-    public function deleteApplication($uuid)
+    private function sendNotificationToApplicant($application)
     {
-        $application = JobApplication::where('uuid', $uuid)->first();
-        if (!$application) {
-            throw new \Exception('Application not found');
-        }
-        $application->delete();
+        $subject = 'Application Received - ' . $application->vacancy->title;
+        $greeting = 'Dear ' . $application->fullname . ',';
+        $lines = [
+            'Thank you for applying for the ' . $application->vacancy->title . ' position at ' . config('app.name') . '. We have received your application and appreciate your interest in joining our team.'
+        ];
+
+        SendApplicantNotificationJob::dispatch($application, $subject, $greeting, $lines);
     }
 
+    private function sendNotificationToHR($application)
+    {
+        $hr = Settings::all();
+        $subject = 'New Job Application - ' . $application->vacancy->title;
+        $greeting = 'Dear HR Team,';
+        $line = 'A new job application has been received for the ' . $application->vacancy->title . ' position at ' . config('app.name') . '.';
+
+        SendHRNotificationJob::dispatch($hr, $subject, $greeting, $line);
+    }
+
+    private function sendNotification($subject, $greeting, $line, $recipient)
+    {
+        (new Notify())
+            ->subject($subject)
+            ->greeting($greeting)
+            ->line($line)
+            ->mail($recipient);
+    }
     public function approveApplication($uuid)
     {
         $application = JobApplication::where('uuid', $uuid)->first();
@@ -73,14 +85,16 @@ class JobApplicationService
         DB::beginTransaction();
         try {
             $application->save();
-            (new Notify())
-                ->subject('Interview Invitation: Congratulations, Your Job Application is Approved!')
-                ->greeting('Hello ' . $application->fullname . '!')
-                ->line('Congratulations! Your job application has been approved, and we would like to invite you to the next stage of our hiring process: the interview.')
-                ->line('Please check your email regularly for further instructions regarding the interview schedule and details.')
-                ->line('We look forward to meeting with you and discussing your candidacy further.')
-                ->line('Thank you for your interest in joining our company, and we appreciate your participation in our hiring process.')
-                ->mail($application);
+            $subject = 'Interview Invitation: Congratulations, Your Job Application is Approved!';
+            $greeting = 'Hello ' . $application->fullname . '!';
+            $lines = [
+                'Congratulations! Your job application has been approved, and we would like to invite you to the next stage of our hiring process: the interview.',
+                'Please check your email regularly for further instructions regarding the interview schedule and details.',
+                'We look forward to meeting with you and discussing your candidacy further.',
+                'Thank you for your interest in joining our company, and we appreciate your participation in our hiring process.'
+            ];
+
+            SendApprovalNotificationJob::dispatch($application, $subject, $greeting, $lines);
             DB::commit();
         } catch (\Exception $e) {
             DB::rollBack();
@@ -99,20 +113,31 @@ class JobApplicationService
         DB::beginTransaction();
         try {
             $application->save();
-            (new Notify())
-                ->subject('Regarding Your Job Application')
-                ->greeting('Hello ' . $application->fullname . '!')
-                ->line('Thank you for your interest in our company and for taking the time to apply.')
-                ->line('Unfortunately, we regret to inform you that your job application has been unsuccessful.')
-                ->line('We appreciate your interest in our company and the time you took to apply. However, after careful consideration, we have decided not to proceed with your application at this time.')
-                ->line('Thank you for your understanding and interest in our company.')
-                ->mail($application);
+            $subject = 'Regarding Your Job Application';
+            $greeting = 'Hello ' . $application->fullname . '!';
+            $lines = [
+                'Thank you for your interest in our company and for taking the time to apply.',
+                'Unfortunately, we regret to inform you that your job application has been unsuccessful.',
+                'We appreciate your interest in our company and the time you took to apply. However, after careful consideration, we have decided not to proceed with your application at this time.',
+                'Thank you for your understanding and interest in our company.'
+            ];
+
+            SendRejectionNotificationJob::dispatch($application, $subject, $greeting, $lines);
             DB::commit();
         } catch (\Exception $e) {
             DB::rollBack();
             Log::error('Error rejecting job application: ' . $e->getMessage());
             throw $e;
         }
+    }
+
+    public function deleteApplication($uuid)
+    {
+        $application = JobApplication::where('uuid', $uuid)->first();
+        if (!$application) {
+            throw new \Exception('Application not found');
+        }
+        $application->delete();
     }
 
     public function downloadCV($uuid)

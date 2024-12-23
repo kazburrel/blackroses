@@ -77,7 +77,7 @@ class PostJobVacancy extends Component
                 'schedule' => 'required',
                 'benefits' => 'nullable'
             ]);
-            dd($validated);
+            // dd($validated);
         }
         if ($this->current_step == 2) {
             $validated = $this->validate([
