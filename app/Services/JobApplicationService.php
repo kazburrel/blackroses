@@ -67,14 +67,6 @@ class JobApplicationService
         SendHRNotificationJob::dispatch($hr, $subject, $greeting, $line);
     }
 
-    private function sendNotification($subject, $greeting, $line, $recipient)
-    {
-        (new Notify())
-            ->subject($subject)
-            ->greeting($greeting)
-            ->line($line)
-            ->mail($recipient);
-    }
     public function approveApplication($uuid)
     {
         $application = JobApplication::where('uuid', $uuid)->first();
