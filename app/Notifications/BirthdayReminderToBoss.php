@@ -13,6 +13,9 @@ class BirthdayReminderToBoss extends Notification
 
     /**
      * Create a new notification instance.
+     * 
+     * If this does not work or the UI is not good, 
+     * please use utyemma like in ApplicationApproved.php.
      */
     public function __construct()
     {
