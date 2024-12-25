@@ -155,7 +155,7 @@ class ViewController extends Controller
     public function jobApplication($uuid)
     {
         $user = Auth::user();
-        $applications = JobApplication::where('vaccancy_id', $uuid)->with('vaccancy')->get();
+        $applications = JobApplication::where('vaccancy_id', $uuid)->with('vacancy')->get();
         $vaccancy = JobVacancy::where('uuid', $uuid)->first();
         SEOMeta::setTitle('Applications');
         return view('admin.vaccancy_applications', [
