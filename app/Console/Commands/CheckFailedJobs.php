@@ -14,7 +14,7 @@ class CheckFailedJobs extends Command
      *
      * @var string
      */
-    protected $signature = 'jobs:check-failed-jobs';
+    protected $signature = 'jobs:check-failed';
 
     /**
      * The console command description.
