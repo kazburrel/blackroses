@@ -14,7 +14,7 @@ class CheckFailedJobs extends Command
      *
      * @var string
      */
-    protected $signature = 'jobs:check-failed {--hours=24 : Hours to look back}';
+    protected $signature = 'jobs:check-failed-jobs';
 
     /**
      * The console command description.
