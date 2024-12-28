@@ -28,8 +28,7 @@ class CheckFailedJobs extends Command
      */
     public function handle()
     {
-        $hours = $this->option('hours');
-        $cutoffTime = Carbon::now()->subHours($hours);
+        $cutoffTime = Carbon::now()->subDay();
 
         // Get failed jobs
         $failedJobs = DB::table('failed_jobs')
@@ -52,15 +51,15 @@ class CheckFailedJobs extends Command
             (new Notify())
                 ->subject('Failed Jobs Notification')
                 ->greeting('Hello,')
-                ->line("The following jobs have failed in the past {$hours} hours:")
+                ->line("The following jobs have failed in the past 24 hours:")
                 ->line('Please review the job details to identify and resolve the issues.')
                 ->line('Thank you for your attention to this matter.')
-                ->view('emails.failed-jobs-report', ['failedJobs' => $jobDetails, 'hours' => $hours])
+                ->view('emails.failed-jobs-report', ['failedJobs' => $jobDetails])
                 ->mail($recipientEmails);
 
             $this->info("Found {$failedJobs->count()} failed jobs. Email report sent.");
         } else {
-            $this->info('No failed jobs found in the past ' . $hours . ' hours.');
+            $this->info('No failed jobs found in the past 24 hours.');
         }
     }
 }
