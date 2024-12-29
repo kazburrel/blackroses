@@ -64,7 +64,7 @@ class SendCertificateReminders extends Command
         // Determine the text to display for the number of days until expiry.
         $daysToExpiryText = $daysToExpiry < 1 ? '1 day' : "{$daysToExpiry} days";
 
-        // Create and send a notification email to the certificate holder.
+
         (new Notify())
             ->subject('Certificate Renewal Notification')
             ->greeting('Hello,')
